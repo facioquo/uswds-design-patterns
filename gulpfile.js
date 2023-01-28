@@ -1,5 +1,9 @@
 /* gulpfile.js */
 
+// ref: https://designsystem.digital.gov/documentation/getting-started/developers/phase-two-compile/
+// to update: npx gulp compile
+// to copyall: npx gulp copyAll
+
 /**
 * Import uswds-compile
 */
@@ -17,7 +21,10 @@ uswds.settings.version = 3;
 * Set as many as you need
 */
 uswds.paths.dist.css = './assets/css';
+uswds.paths.dist.js = './assets/js';
 uswds.paths.dist.theme = './sass/uswds';
+uswds.paths.dist.fonts = './assets/fonts';
+uswds.paths.dist.img = './assets/img';
 
 /**
 * Exports
