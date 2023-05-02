@@ -30,7 +30,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "sass/styles.scss"
             ],
             "scripts": []
           },
@@ -93,7 +93,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "sass/styles.scss"
             ],
             "scripts": []
           }
