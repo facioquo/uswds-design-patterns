@@ -27,13 +27,29 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@uswds/uswds/dist/img/",
+                "output": "./assets/uswds/img/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@uswds/uswds/dist/fonts/",
+                "output": "./assets/uswds/fonts/"
+              }
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./node_modules/@uswds/uswds/packages"
+              ]
+            },
             "styles": [
-              "assets/css/styles.css",
               "sass/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/@uswds/uswds/dist/js/uswds.min.js"
+            ]
           },
           "configurations": {
             "production": {
