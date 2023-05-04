@@ -29,3 +29,25 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ### Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## How to install USWDS into an Angular 16 application
+
+1. Create a new Angular 16 application
+2. Install USWDS into the application
+3. Add the USWDS assets to the application
+
+- glob in `angular.json` to copy static fonts and images
+
+4. Add the USWDS styles to the application
+
+- add `includePaths` to angular.json
+- add USWDS settings, uswds paths, and uswds customizations template references in `styles.scss` SASS entry point file; confirm it's referenced okay in `angular.json`
+
+5. Add the USWDS scripts to the application
+
+- add `scripts` to angular.json
+
+8. Update icon paths in standard USWDS HTML, if different path
+9. Reference USWDS components in application .ts component files to get JS to run????
+
+- TO DO: Ref: <https://designsystem.digital.gov/documentation/developers/#installation-2>
