@@ -10,6 +10,7 @@
     "editor.guides.bracketPairs": "active",
     "editor.formatOnSave": true,
     "cSpell.words": [
+        "FOIA",
         "gulpfile",
         "USWDS"
     ]

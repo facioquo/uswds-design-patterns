@@ -37,6 +37,11 @@
                 "glob": "**/*",
                 "input": "./node_modules/@uswds/uswds/dist/fonts/",
                 "output": "./assets/uswds/fonts/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@uswds/uswds/dist/js/",
+                "output": "./assets/uswds/js/"
               }
             ],
             "stylePreprocessorOptions": {
@@ -48,7 +53,11 @@
               "sass/styles.scss"
             ],
             "scripts": [
-              "./node_modules/@uswds/uswds/dist/js/uswds.min.js"
+              {
+                "input": "./node_modules/@uswds/uswds/dist/js/uswds.min.js",
+                "inject": true,
+                "bundleName": "uswds"
+              }
             ]
           },
           "configurations": {
