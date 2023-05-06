@@ -33,21 +33,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## How to install USWDS into an Angular 16 application
 
 1. Create a new Angular 16 application
-2. Install USWDS into the application
-3. Add the USWDS assets to the application
+2. Install USWDS into the application with `npm install --save uswds@latest`
+3. Add the USWDS assets in `angular.json` with `glob` patter, to copy static fonts and images
+4. Add the USWDS `includePaths` for referencing the package SASS entry point
+5. Add the USWDS custom setting, reference, and customized SCSS files in the entry `SASS/styles.scss` file, then reference it in the `angular.json` `styles` section
+6. Add the USWDS JavaScript path to the `angular.json` file `scripts` section
+7. Update icon paths in standard USWDS HTML, if different path
 
-- glob in `angular.json` to copy static fonts and images
-
-4. Add the USWDS styles to the application
-
-- add `includePaths` to angular.json
-- add USWDS settings, uswds paths, and uswds customizations template references in `styles.scss` SASS entry point file; confirm it's referenced okay in `angular.json`
-
-5. Add the USWDS scripts to the application
-
-- add `scripts` to angular.json
-
-8. Update icon paths in standard USWDS HTML, if different path
-9. Reference USWDS components in application .ts component files to get JS to run????
-
-- TO DO: Ref: <https://designsystem.digital.gov/documentation/developers/#installation-2>
+Ref: <https://designsystem.digital.gov/documentation/developers/#installation-2>
