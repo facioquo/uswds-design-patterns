@@ -1,0 +1,41 @@
+/*
+----------------------------------------
+USWDS THEME SETTINGS (override defaults)
+----------------------------------------
+*/
+
+@use "uswds-core" with (
+
+  // core settings
+  $theme-image-path: "/assets/uswds/img",
+  $theme-font-path: "/assets/uswds/fonts",
+  $theme-show-compile-warnings: false,
+  $theme-show-notifications: false,
+  $utilities-use-important: true,
+
+  // typography
+  $theme-font-type-sans: "public-sans",
+  $theme-font-type-serif: "public-sans",
+
+  // base colors
+  $theme-color-base-family: "gray-warm",
+  $theme-color-base-darker: "gray-90",
+  $theme-color-base-darkest: "gray-warm-90",
+
+  // primary colors
+  $theme-color-primary-family: "blue-warm",
+  $theme-color-primary: "blue-warm-70v",
+  $theme-color-primary-dark: "blue-warm-70",
+  $theme-color-primary-darker: "blue-warm-80",
+  $theme-color-primary-darkest: "blue-warm-90",
+
+  // accent warm colors
+  $theme-color-accent-warm-family: "orange-warm",
+
+  // color settings
+  $theme-body-background-color: "base-darkest",
+  $theme-text-reverse-color: "base-lighter",
+  $theme-banner-background-color: "base-darkest",
+
+  $theme-focus-color: "blue-60",
+);
