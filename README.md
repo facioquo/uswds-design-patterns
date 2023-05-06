@@ -1,8 +1,8 @@
-# Learning USWDS
+# Learning U.S. Web Design System
 
-This is just a raw HTML site, used to experiment with USWDS components.  Nothing more.
+A basic Angular 16 website for experimentation with USWDS components.  Nothing more.
 
-## Angular App
+## Getting started with this Angular site
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
@@ -18,26 +18,18 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-### Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-### Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
 ### Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-## How to install USWDS into an Angular 16 application
+## How we initially installed the USWDS v3.4.1 package
 
 1. Create a new Angular 16 application
-2. Install USWDS into the application with `npm install --save uswds@latest`
-3. Add the USWDS assets in `angular.json` with `glob` patter, to copy static fonts and images
-4. Add the USWDS `includePaths` for referencing the package SASS entry point
-5. Add the USWDS custom setting, reference, and customized SCSS files in the entry `SASS/styles.scss` file, then reference it in the `angular.json` `styles` section
-6. Add the USWDS JavaScript path to the `angular.json` file `scripts` section
-7. Update icon paths in standard USWDS HTML, if different path
+2. Install USWDS into the application with `npm install --save uswds@3.4.1
+3. Add the USWDS assets in `angular.json` with `glob` pattern, to copy static fonts and images
+4. Add the USWDS `includePaths` for referencing the package SASS sources
+5. Add the USWDS custom setting, reference, and customized SCSS files to the entry `SASS/styles.scss` file, then reference it in the `angular.json` `styles` section of `angular.json`
+6. Add the minified USWDS JavaScript path to the `angular.json` file `scripts` section
+7. In any utilized USWDS template HTML, update static file paths, if different
 
-Ref: <https://designsystem.digital.gov/documentation/developers/#installation-2>
+Ref: <https://designsystem.digital.gov/documentation/developers>
