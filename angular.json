@@ -25,6 +25,7 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "allowedCommonJsDependencies": ["uswds/packages/uswds-core/src/js"],
             "assets": [
               "src/favicon.ico",
               "src/assets",
