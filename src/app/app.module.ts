@@ -4,18 +4,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HomeModule } from './home/home.module';
+// pages
+import { HomeModule } from './pages/home/home.module';
+import { CatalogModule } from './pages/catalog/catalog.module';
+
+// components
+import { SiteCardComponent } from './components/site-card/site-card.component';
+import { CatalogComponent } from './pages/catalog/catalog.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SiteCardComponent,
+    CatalogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
 
     // pages
-    HomeModule
+    HomeModule,
+    CatalogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

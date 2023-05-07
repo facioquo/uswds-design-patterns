@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class HomeComponent {
+export class UtilityService {
+
+  constructor() { }
 
   scrollToStart(id: string) {
     setTimeout(() => {
@@ -21,4 +21,3 @@ export class HomeComponent {
     }, 200);
   }
 }
-

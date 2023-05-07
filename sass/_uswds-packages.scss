@@ -2,6 +2,7 @@
 ----------------------------------------
 USWDS STYLES (select packages)
 ----------------------------------------
+ref: https://designsystem.digital.gov/components/packages
 */
 // @forward "uswds"; // full only
 @use "uswds-theme-settings";
@@ -18,10 +19,10 @@ USWDS STYLES (select packages)
 // @forward "usa-accordion";
 // @forward "usa-alert";
 @forward "usa-banner";
-// @forward "usa-breadcrumb";
+@forward "usa-breadcrumb";
 // @forward "usa-button-group";
 @forward "usa-button";
-// @forward "usa-card";
+@forward "usa-card";
 // @forward "usa-checklist";
 // @forward "usa-collection";
 // @forward "usa-embed-container";

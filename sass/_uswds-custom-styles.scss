@@ -12,55 +12,7 @@ USWDS THEME CUSTOM STYLES
 */
 @use "uswds-core" as *;
 
-// -------------------------------------
-// HEADINGS
-
-.usa-section--dark {
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: color($theme-color-base-light);
-  }
-
-  h1 {
-    @include u-font-size('sans', 15);
-  }
-}
-
-
-// -------------------------------------
-// DARK THEMES
-
-.usa-section--dark,
-.usa-dark-background {
-  background-color: color($theme-color-base-darkest);
-}
-
-.usa-identifier__logo-img {
-  opacity: 0.5;
-  height: 48px;
-  width: 48px;
-  object-fit: cover;
-}
-
-
-// -------------------------------------
-// IDENTIFIER
-
-.usa-identifier__identity-disclaimer {
-  font-weight: 600;
-  color: color($theme-color-base);
-
-  a {
-    color: color($theme-color-base);
-
-    &:active,
-    &:visited {
-      color: color($theme-color-base);
-    }
-  }
-}
+@import "uswds-mods/typography";
+@import "uswds-mods/usa-card";
+@import "uswds-mods/usa-identifier";
+@import "uswds-mods/usa-section";

@@ -2,6 +2,7 @@
 ----------------------------------------
 USWDS THEME SETTINGS (override defaults)
 ----------------------------------------
+ref: https://designsystem.digital.gov/documentation/settings/#general-settings
 ref: @uswds\uswds\packages\uswds-core\src\styles
 */
 @use "uswds-custom-colors";
@@ -118,7 +119,7 @@ ref: @uswds\uswds\packages\uswds-core\src\styles
   // GENERAL COLORS
 
   // Body and parts
-  $theme-body-background-color: "base-darkest",
+  $theme-body-background-color: "base-lightest",
   $theme-banner-background-color: "base-darkest",
 
   // Text
@@ -136,4 +137,18 @@ ref: @uswds\uswds\packages\uswds-core\src\styles
 
   // Focus
   $theme-focus-color: "blue-60",
+
+  // Utilities
+  // Turn on or off breakpoints
+  $theme-utility-breakpoints: (
+    'card':       false,   // 160px
+    'card-lg':    false,   // 240px
+    'mobile':     false,   // 320px
+    'mobile-lg':  true,    // 480px
+    'tablet':     true,    // 640px
+    'tablet-lg':  true,    // 880px
+    'desktop':    true,    // 1024px
+    'desktop-lg': false,   // 1200px
+    'widescreen': false,   // 1400px
+  )
 );
