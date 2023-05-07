@@ -3,6 +3,8 @@
 USWDS THEME SETTINGS (override defaults)
 ----------------------------------------
 */
+@forward "uswds-color-palette";
+@use "uswds-color-palette" as *;
 
 @use "uswds-core" with (
 
