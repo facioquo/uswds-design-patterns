@@ -2,6 +2,7 @@
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 3000,
     "search.exclude": {
+        "**/*angular": true,
         "**/dist": true,
         "**/node_modules": true,
         "**/package-lock.json": true
@@ -12,6 +13,9 @@
     "cSpell.words": [
         "FOIA",
         "gulpfile",
+        "megamenu",
+        "sidenav",
+        "skipnav",
         "USWDS"
     ]
 }
