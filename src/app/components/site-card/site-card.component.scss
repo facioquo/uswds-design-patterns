@@ -1,0 +1,13 @@
+// @import "uswds-theme-settings";
+
+.site-card {
+  text-decoration: none;
+
+  &:hover {
+    // background-color: color($theme-color-base-darker);
+
+    .usa-card__header {
+      text-decoration: underline;
+    }
+  }
+}
