@@ -8,15 +8,9 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './pages/home/home.module';
 import { CatalogModule } from './pages/catalog/catalog.module';
 
-// components
-import { SiteCardComponent } from './components/site-card/site-card.component';
-import { CatalogComponent } from './pages/catalog/catalog.component';
-
 @NgModule({
   declarations: [
-    AppComponent,
-    SiteCardComponent,
-    CatalogComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

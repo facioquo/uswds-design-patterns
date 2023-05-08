@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Card } from './site-card.model';
 
 @Component({
   selector: 'app-site-card',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./site-card.component.scss']
 })
 export class SiteCardComponent {
-
+  @Input() card!: Card;
 }
