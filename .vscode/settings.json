@@ -11,6 +11,7 @@
     "editor.guides.bracketPairs": "active",
     "editor.formatOnSave": true,
     "cSpell.words": [
+        "clickability",
         "FOIA",
         "gulpfile",
         "megamenu",
