@@ -30,7 +30,6 @@ jobs:
       - task: Npm@1
         displayName: Install packages
         inputs:
-          workingDir: Client
           verbose: false
 
       - task: qetza.replacetokens.replacetokens-task.replacetokens@3
@@ -46,7 +45,6 @@ jobs:
         displayName: Build
         inputs:
           command: custom
-          workingDir: Client
           verbose: false
           customCommand: run build.prod
 
