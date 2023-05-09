@@ -5,7 +5,8 @@ import { CatalogComponent } from './catalog.component';
 
 const routes: Routes = [
   {
-    path: 'catalog',
+    path: "catalog",
+    title: "Card catalog | U.S. Web Design System",
     component: CatalogComponent
   }
 ];
