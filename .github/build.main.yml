@@ -1,0 +1,61 @@
+trigger:
+  - main
+
+pr:
+  - main
+
+name: $(BuildID)-$(SourceBranchName)
+
+resources:
+  repositories:
+    - repository: self
+      type: git
+      ref: main
+
+jobs:
+  - job: Client
+    displayName: Website
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+      - checkout: self
+        clean: true
+
+      - task: UseNode@1
+        displayName: Use Node 16.14.x
+        inputs:
+          version: 16.14.x
+
+      - task: Npm@1
+        displayName: Install packages
+        inputs:
+          workingDir: Client
+          verbose: false
+
+      - task: qetza.replacetokens.replacetokens-task.replacetokens@3
+        displayName: Update GA tag
+        inputs:
+          rootDirectory: "src"
+          targetFiles: "**/index.html"
+          escapeType: none
+          tokenPrefix: __
+          tokenSuffix: __
+
+      - task: Npm@1
+        displayName: Build
+        inputs:
+          command: custom
+          workingDir: Client
+          verbose: false
+          customCommand: run build.prod
+
+      - task: ArchiveFiles@2
+        displayName: Stage artifacts
+        inputs:
+          rootFolderOrFile: dist/app
+          includeRootFolder: false
+          archiveFile: $(Build.ArtifactStagingDirectory)/Website.zip
+
+      - task: PublishBuildArtifacts@1
+        displayName: Save artifacts
