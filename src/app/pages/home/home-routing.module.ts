@@ -5,13 +5,13 @@ import { HomeComponent } from './home.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: HomeComponent
   },
 
   // this can happen if user back button after logout
   {
-    path: 'null',
+    path: "null",
     component: HomeComponent
   }
 ];

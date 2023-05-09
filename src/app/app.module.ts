@@ -3,10 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-// pages
-import { HomeModule } from './pages/home/home.module';
-import { CatalogModule } from './pages/catalog/catalog.module';
+import { UtilityService } from './services/utility.service';
 
 @NgModule({
   declarations: [
@@ -14,13 +11,11 @@ import { CatalogModule } from './pages/catalog/catalog.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-
-    // pages
-    HomeModule,
-    CatalogModule
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    UtilityService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
