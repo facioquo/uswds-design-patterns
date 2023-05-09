@@ -1,0 +1,6 @@
+@import "sass/styles";
+
+body {
+  // requires: encapsulation: ViewEncapsulation.None
+  background-color: color($theme-color-base-darkest);
+}

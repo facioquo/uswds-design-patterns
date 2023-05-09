@@ -1,0 +1,19 @@
+// CARD
+
+.usa-section--dark {
+
+  .usa-card__container {
+    background-color: unset;
+
+    .usa-card__media {
+      background-color: unset;
+    }
+  }
+}
+
+.site-theme {
+
+  .usa-card__img {
+    aspect-ratio: 1200/630;
+  }
+}

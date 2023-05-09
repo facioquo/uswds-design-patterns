@@ -1,0 +1,17 @@
+@import "/sass/styles";
+
+.site-card {
+
+  .usa-card__container {
+    text-decoration: none;
+    background-color: unset;
+    
+    &:hover {
+      background-color: color($theme-color-base-darker);
+
+      .usa-card__header {
+        text-decoration: underline;
+      }
+    }
+  }
+}
