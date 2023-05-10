@@ -2,8 +2,8 @@
 ----------------------------------------
 USWDS THEME SETTINGS (override defaults)
 ----------------------------------------
-ref: https://designsystem.digital.gov/documentation/settings/#general-settings
-ref: @uswds\uswds\packages\uswds-core\src\styles
+https://designsystem.digital.gov/documentation/settings/#general-settings
+settings available: @uswds\uswds\packages\uswds-core\src\styles\settings
 */
 @use "uswds-custom-colors";
 @use "uswds-core" with ( // core settings
