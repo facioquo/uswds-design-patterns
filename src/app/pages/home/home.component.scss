@@ -1,4 +1,4 @@
-@import "sass/styles";
+@use "uswds-core" as *;
 
 body {
   // requires: encapsulation: ViewEncapsulation.None

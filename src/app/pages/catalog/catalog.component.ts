@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilityService } from 'src/app/services/utility.service';
-import randomWords from "random-words";
 import { Card } from 'src/app/components/site-card/card.model';
+
+import randomWords from "random-words";
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 @Component({
   selector: 'app-catalog',
@@ -12,9 +15,7 @@ export class CatalogComponent implements OnInit {
 
   constructor(
     public readonly u: UtilityService
-  ) {
-    // this.generateCards(this.cardQty);
-  }
+  ) { }
 
   public cardQty = 50;
   public cards: Card[] = [];

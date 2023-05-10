@@ -58,6 +58,11 @@
                 "inject": true,
                 "bundleName": "uswds"
               }
+            ],
+            "allowedCommonJsDependencies": [
+              "random-words",
+              "lazysizes",
+              "lazysizes/plugins/parent-fit/ls.parent-fit"
             ]
           },
           "configurations": {

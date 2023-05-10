@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 const routes: Routes = [
   {
     path: "",
+    title: "U.S. Web Design System Implementations",
     component: HomeComponent
   },
 
