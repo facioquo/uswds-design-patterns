@@ -1,6 +1,61 @@
+@use "/sass/uswds-packages" as *;
+
 .usa-card {
 
-  .usa-card__img {
-    aspect-ratio: 1200/630;
+  a.usa-card__container {
+
+    text-decoration: none;
+
+    // hover effect
+    &:hover {
+
+      .usa-card__header {
+        text-decoration: underline;
+      }
+
+      box-shadow:
+        0px 10px 10px -3px color($theme-color-base-light, 0.2),
+        0px 16px 20px 1px color($theme-color-base-light, 0.14),
+        0px 6px 28px 2px color($theme-color-base-light, 0.12);
+    }
+
+    // click effect
+    &:active {
+
+      background-color: color($theme-color-base-lighter);
+
+      box-shadow:
+        0px 15px 15px -3px color($theme-color-base-light, 0.2),
+        0px 24px 30px 1px color($theme-color-base-light, 0.14),
+        0px 9px 40px 2px color($theme-color-base-light, 0.12);
+    }
+
+    // maintain image size proportion
+    .usa-card__img {
+      aspect-ratio: 1200/630;
+    }
+
+    // when above tablet size,
+    // truncate the title and description
+    @include at-media("tablet") {
+
+      .usa-card__heading {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        line-height: 2.25ex;
+        height: 4.5ex;
+        overflow: hidden;
+      }
+
+      .usa-card__body p {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        line-height: 2.8ex;
+        height: 8.4ex;
+        overflow: hidden;
+      }
+    }
   }
 }

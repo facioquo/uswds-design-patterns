@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Card } from 'src/app/components/site-card/site-card.model';
+import { Card } from 'src/app/components/site-card/card.model';
 import { UtilityService } from 'src/app/services/utility.service';
 
 @Component({
