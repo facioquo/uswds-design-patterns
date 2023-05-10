@@ -17,7 +17,7 @@ export class CatalogComponent implements OnInit {
     public readonly u: UtilityService
   ) { }
 
-  public cardQty = 50;
+  public cardQty = 500;
   public cards: Card[] = [];
 
   ngOnInit(): void {
@@ -30,13 +30,18 @@ export class CatalogComponent implements OnInit {
 
     for (let i = 0; i < qty; i++) {
 
+      // placeholder image
+      const url = `https://picsum.photos/id/${10 + i}/1200/630`;
+
+      // card contents
       const card = new Card(
         randomWords({ min: 3, max: 8, join: ' ', maxLength: 50 }),
         randomWords({ min: 10, max: 20, join: ' ', maxLength: 100 }),
-        `https://picsum.photos/id/${10 + i}/1200/630`,
-        `https://picsum.photos/id/${10 + i}/1200/630`
+        url,
+        url
       );
 
+      // capitalize first letter of title and description
       card.title = card.title
         .slice(0, 1)
         .toUpperCase()
@@ -50,7 +55,5 @@ export class CatalogComponent implements OnInit {
 
       this.cards.push(card);
     }
-
-    console.log("cards", this.cards);
   }
 }
