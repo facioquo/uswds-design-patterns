@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UtilityService } from 'src/app/services/utility.service';
 import { Card } from 'src/app/components/site-card/card.model';
 
-import randomWords from "random-words";
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
@@ -28,30 +27,30 @@ export class CatalogComponent implements OnInit {
 
     this.cards = [];
 
+    // known bad image ids
+    const badIds = [
+      86, 97, 105, 138, 140, 148, 150, 205, 207, 224, 226,
+      245, 246, 262, 285, 286, 298, 303, 332, 333, 346,
+      359, 394, 414, 422, 438, 462, 463, 470, 489
+    ];
+
     for (let i = 0; i < qty; i++) {
 
       // placeholder image
-      const url = `https://picsum.photos/id/${10 + i}/1200/630`;
+      let url = `https://picsum.photos/id/491/1200/630`;
+
+      // random image
+      if (!badIds.includes(10 + i)) {
+        url = `https://picsum.photos/id/${10 + i}/1200/630`;
+      }
 
       // card contents
       const card = new Card(
-        randomWords({ min: 3, max: 8, join: ' ', maxLength: 50 }),
-        randomWords({ min: 10, max: 20, join: ' ', maxLength: 100 }),
+        this.u.randomWords(25, 60),
+        this.u.randomWords(25, 100, "."),
         url,
         url
       );
-
-      // capitalize first letter of title and description
-      card.title = card.title
-        .slice(0, 1)
-        .toUpperCase()
-        .concat(card.title.slice(1));
-
-      card.description = card.description
-        .slice(0, 1)
-        .toUpperCase()
-        .concat(card.description.slice(1))
-        .concat(".");
 
       this.cards.push(card);
     }
