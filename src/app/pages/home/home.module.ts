@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 
 import { HomeComponent } from './home.component';
-import { SiteCardModule } from '../../components/site-card/site-card.module';
+import { SiteCardComponent } from 'src/app/components/site-card/site-card.component';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    SiteCardComponent
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule,
-    SiteCardModule
+    HomeRoutingModule
   ]
 })
 export class HomeModule { }

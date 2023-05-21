@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { UtilityService } from 'src/app/services/utility.service';
 import { Card } from 'src/app/components/site-card/card.model';
 
@@ -8,7 +8,8 @@ import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
-  styleUrls: ['./catalog.component.scss']
+  styleUrls: ['./catalog.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CatalogComponent implements OnInit {
 

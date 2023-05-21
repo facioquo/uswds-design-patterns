@@ -16,7 +16,7 @@ export class HomeComponent {
   public cards: Card[] = [
     {
       title: 'Card catalog',
-      description: 'A catalog of lightly customized U.S. Web Design System <strong>Cards</strong> with "see more" pagination.',
+      description: 'A catalog of <strong>Cards</strong> with consistent vertical spacing and "see more" pagination.',
       image: 'https://designsystem.digital.gov/img/introducing-uswds-3/introducing-uswds-3.svg',
       link: '/catalog'
     }

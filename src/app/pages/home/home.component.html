@@ -1,7 +1,14 @@
-<section class="site-theme usa-section usa-section--dark padding-top-3">
+<section class="usa-section usa-section--dark usa-dark-background padding-top-3">
   <div class="grid-container">
-    <h1 class="margin-bottom-0">Implementation ideas</h1>
-    <h2 class="margin-top-0">using the <b>U.S. Web Design System</b></h2>
+    <h1>Advanced design patterns<br>
+      <span class="subtitle">using the U.S. Web Design System</span>
+    </h1>
+    <p class="usa-prose">
+      The <a class="usa-link usa-link--external" href="https://designsystem.digital.gov" target="_blank"
+        rel="noreferrer">U.S. Web Design System</a> is a set of interactive website components and guidelines used across government.
+      This site is a collection of community contributed design patterns built on top of this system.
+      Each design pattern on this site is built with customized out-of-the-box USWDS components.
+    </p>
     <ul class="usa-card-group margin-top-4">
       <li class="tablet:grid-col-6 tablet-lg:grid-col-4" *ngFor="let card of cards">
         <app-site-card [card]="card" />
@@ -11,10 +18,10 @@
 </section>
 
 <!-- return to top -->
-<div class="usa-dark-background padding-y-2">
+<section class="usa-section usa-section--dark padding-y-2">
   <div class="grid-container text-right">
     <button class="usa-button usa-button--outline usa-button--inverse" (click)="u.scrollToStart('top')">
       Return to top
     </button>
   </div>
-</div>
+</section>

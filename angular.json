@@ -50,7 +50,16 @@
               ]
             },
             "styles": [
-              "sass/styles.scss"
+              {
+                "input": "sass/uswds-styles.scss",
+                "inject": false,
+                "bundleName": "uswds-styles"
+              },
+              {
+                "input": "sass/site-styles.scss",
+                "inject": false,
+                "bundleName": "site-styles"
+              }
             ],
             "scripts": [
               {
@@ -70,12 +79,12 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "300kb",
-                  "maximumError": "500kb"
+                  "maximumError": "3Mb"
                 }
               ],
               "outputHashing": "all"

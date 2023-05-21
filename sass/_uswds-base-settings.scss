@@ -1,0 +1,33 @@
+/*
+----------------------------------------
+USWDS THEME SETTINGS (override defaults)
+----------------------------------------
+https://designsystem.digital.gov/documentation/settings/#general-settings
+settings available: @uswds\uswds\packages\uswds-core\src\styles\settings
+*/
+@use "uswds-core" with (
+  $theme-image-path: "/assets/uswds/img",
+  $theme-font-path: "/assets/uswds/fonts",
+  $theme-show-compile-warnings: false,
+  $theme-show-notifications: false,
+  $utilities-use-important: true,
+
+  // typography
+  $theme-font-type-sans: "public-sans",
+  $theme-font-type-serif: "public-sans",
+
+  // Turn on or off breakpoints
+  $theme-utility-breakpoints: (
+    'card':       false,   // 160px
+    'card-lg':    false,   // 240px
+    'mobile':     false,   // 320px
+    'mobile-lg':  true,    // 480px
+    'tablet':     true,    // 640px
+    'tablet-lg':  true,    // 880px  >> turned on
+    'desktop':    true,    // 1024px
+    'desktop-lg': false,   // 1200px
+    'widescreen': false,   // 1400px
+  ),
+
+  $theme-body-background-color: "base-lighter",
+);

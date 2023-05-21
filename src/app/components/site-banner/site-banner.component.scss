@@ -1,0 +1,13 @@
+@use "/sass/site-styles" as *;
+@forward "usa-skipnav";
+@forward "usa-banner";
+@forward "usa-button";
+
+.usa-banner__header,
+.usa-banner__button-text {
+  color: color($theme-color-base-light) !important;
+
+  .usa-banner__button::after {
+    background-color: color($theme-color-base-light) !important;
+  }
+}
