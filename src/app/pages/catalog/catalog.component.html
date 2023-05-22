@@ -40,12 +40,12 @@
   </div>
 
   <!-- show more -->
-  <div class="grid-container" *ngIf="moreQty">
+  <div class="grid-container" *ngIf="nextQty">
     <p class="usa-prose text-center">Showing {{ shownCards.length }} of {{ totalCards.length }} cards</p>
     <ul class="usa-button-group">
       <li class="usa-button-group__item">
-        <button class="usa-button usa-button--outline" (click)="showMore(true)">
-          Show {{ moreQty }} more
+        <button class="usa-button" (click)="showMore(true)">
+          Show {{ nextQty }} more
         </button>
       </li>
       <li class="usa-button-group__item">

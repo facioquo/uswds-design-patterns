@@ -20,7 +20,7 @@ export class CatalogComponent implements OnInit {
   public cardQty = 500;
   public pageQty = 0;
   public pageSize = 18;
-  public moreQty = Math.min(this.pageSize, this.cardQty - this.pageQty);
+  public nextQty = Math.min(this.pageSize, this.cardQty - this.pageQty);
   public totalCards: Card[] = [];
   public shownCards: Card[] = [];
 
@@ -66,18 +66,18 @@ export class CatalogComponent implements OnInit {
   }
 
   showMore(scroll: boolean = false): void {
-    this.pageQty += this.moreQty;
+    this.pageQty += this.nextQty;
     this.shownCards = this.totalCards.slice(0, this.pageQty);
 
     if (scroll) {
-      this.u.scrollToStart(`card-${this.pageQty - this.moreQty}`);
+      this.u.scrollToStart(`card-${this.pageQty - this.nextQty}`);
     }
 
-    this.moreQty = Math.min(this.pageSize, this.cardQty - this.pageQty);
+    this.nextQty = Math.min(this.pageSize, this.cardQty - this.pageQty);
   }
 
   showAll(scroll: boolean = false): void {
-    this.moreQty = this.totalCards.length - this.shownCards.length;
+    this.nextQty = this.totalCards.length - this.shownCards.length;
     this.showMore(scroll);
   }
 }
