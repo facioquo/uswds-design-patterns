@@ -20,9 +20,9 @@
       with "see more" pagination. Modifications to Card include fixed aspect ratios, full-surface clickability (to
       replace the button), and a hover effect.
     </p>
-    <ul class="usa-card-group padding-top-4" *ngIf="cards">
-      <li class="usa-card tablet:grid-col-6 tablet-lg:grid-col-4" *ngFor="let card of cards">
-        <a class="usa-card__container" href="{{ card.link }}" type="button">
+    <ul class="usa-card-group padding-top-2" *ngIf="shownCards">
+      <li class="usa-card tablet:grid-col-6 tablet-lg:grid-col-4" *ngFor="let card of shownCards">
+        <a class="usa-card__container" id="{{ card.id }}" href="{{ card.link }}" type="button">
           <div class="usa-card__header">
             <h2 class="usa-card__heading">{{ card.title }}</h2>
           </div>
@@ -38,6 +38,24 @@
       </li>
     </ul>
   </div>
+
+  <!-- show more -->
+  <div class="grid-container" *ngIf="moreQty">
+    <p class="usa-prose text-center">Showing {{ shownCards.length }} of {{ totalCards.length }} cards</p>
+    <ul class="usa-button-group">
+      <li class="usa-button-group__item">
+        <button class="usa-button usa-button--outline" (click)="showMore(true)">
+          Show {{ moreQty }} more
+        </button>
+      </li>
+      <li class="usa-button-group__item">
+        <button class="usa-button usa-button--outline" (click)="showAll(true)">
+          Show all
+        </button>
+      </li>
+    </ul>
+  </div>
+
 </section>
 
 <!-- return to top -->

@@ -18,7 +18,11 @@ export class CatalogComponent implements OnInit {
   ) { }
 
   public cardQty = 500;
-  public cards: Card[] = [];
+  public pageQty = 0;
+  public pageSize = 18;
+  public moreQty = Math.min(this.pageSize, this.cardQty - this.pageQty);
+  public totalCards: Card[] = [];
+  public shownCards: Card[] = [];
 
   ngOnInit(): void {
     this.generateCards(this.cardQty);
@@ -26,7 +30,7 @@ export class CatalogComponent implements OnInit {
 
   generateCards(qty: number): void {
 
-    this.cards = [];
+    this.totalCards = [];
 
     // known bad image ids
     const badIds = [
@@ -47,13 +51,33 @@ export class CatalogComponent implements OnInit {
 
       // card contents
       const card = new Card(
+        `card-${i}`,
         this.u.randomWords(25, 60),
         this.u.randomWords(25, 100, "."),
         url,
         url
       );
 
-      this.cards.push(card);
+      this.totalCards.push(card);
     }
+
+    // show first page
+    this.showMore();
+  }
+
+  showMore(scroll: boolean = false): void {
+    this.pageQty += this.moreQty;
+    this.shownCards = this.totalCards.slice(0, this.pageQty);
+
+    if (scroll) {
+      this.u.scrollToStart(`card-${this.pageQty - this.moreQty}`);
+    }
+
+    this.moreQty = Math.min(this.pageSize, this.cardQty - this.pageQty);
+  }
+
+  showAll(scroll: boolean = false): void {
+    this.moreQty = this.totalCards.length - this.shownCards.length;
+    this.showMore(scroll);
   }
 }
