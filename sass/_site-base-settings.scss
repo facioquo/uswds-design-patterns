@@ -10,13 +10,20 @@ settings available: @uswds\uswds\packages\uswds-core\src\styles\settings
   $theme-font-path: "/assets/uswds/fonts",
   $theme-show-compile-warnings: false,
   $theme-show-notifications: false,
+
+  // utilities
   $utilities-use-important: true,
+  $output-these-utilities:(
+    "color",
+    "padding",
+    "text-align"
+  ),
 
   // typography
   $theme-font-type-sans: "public-sans",
   $theme-font-type-serif: "public-sans",
 
-  // Turn on or off breakpoints
+  // Turn on breakpoints
   $theme-utility-breakpoints: (
     'card':       false,   // 160px
     'card-lg':    false,   // 240px
