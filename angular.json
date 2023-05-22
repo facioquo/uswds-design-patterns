@@ -52,12 +52,12 @@
             "styles": [
               {
                 "input": "sass/uswds-styles.scss",
-                "inject": false,
+                "inject": true,
                 "bundleName": "uswds-styles"
               },
               {
                 "input": "sass/site-styles.scss",
-                "inject": false,
+                "inject": true,
                 "bundleName": "site-styles"
               }
             ],
@@ -87,12 +87,22 @@
                   "maximumError": "500kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "optimization": {
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": true
+                },
+                "scripts": true,
+                "fonts": {
+                  "inline": true
+                }
+              }
             },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
+              "vendorChunk": false,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
