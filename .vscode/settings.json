@@ -12,11 +12,13 @@
     "editor.formatOnSave": true,
     "cSpell.words": [
         "clickability",
+        "facioquo",
         "FOIA",
         "gulpfile",
+        "lazysizes",
         "megamenu",
         "sidenav",
         "skipnav",
-        "USWDS"
+        "uswds"
     ]
 }

@@ -1,6 +1,37 @@
-@import "sass/styles";
+@use "/sass/site-styles" as *;
+@forward "usa-section";
+@forward "usa-layout-grid";
+@forward "usa-card";
+@forward "usa-button";
 
-body {
-  // requires: encapsulation: ViewEncapsulation.None
+.usa-section--dark {
+
   background-color: color($theme-color-base-darkest);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: color($theme-color-base-lighter);
+  }
+
+  p,
+  .usa-prose,
+  .usa-link {
+    color: color($theme-color-base-light) !important;
+  }
+}
+
+h1 {
+  @include u-font-size('sans', 15);
+  line-height: 0.9em;
+}
+
+.subtitle {
+  @include u-font-size('sans', 8);
+  line-height: 1.2em;
+  margin-top: 0.25em;
+  display: block;
 }

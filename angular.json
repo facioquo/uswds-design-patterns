@@ -50,7 +50,16 @@
               ]
             },
             "styles": [
-              "sass/styles.scss"
+              {
+                "input": "sass/uswds-styles.scss",
+                "inject": true,
+                "bundleName": "uswds-styles"
+              },
+              {
+                "input": "sass/site-styles.scss",
+                "inject": true,
+                "bundleName": "site-styles"
+              }
             ],
             "scripts": [
               {
@@ -58,6 +67,10 @@
                 "inject": true,
                 "bundleName": "uswds"
               }
+            ],
+            "allowedCommonJsDependencies": [
+              "lazysizes",
+              "lazysizes/plugins/parent-fit/ls.parent-fit"
             ]
           },
           "configurations": {
@@ -65,8 +78,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "2mb"
+                  "maximumWarning": "1mb",
+                  "maximumError": "1.5mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -75,12 +88,21 @@
                 }
               ],
               "outputHashing": "all",
-              "optimization": true
+              "optimization": {
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": true
+                },
+                "scripts": true,
+                "fonts": {
+                  "inline": true
+                }
+              }
             },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
+              "vendorChunk": false,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
