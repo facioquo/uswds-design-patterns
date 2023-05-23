@@ -1,6 +1,6 @@
-# Learning U.S. Web Design System
+# U.S. Web Design System design patterns
 
-A basic Angular 16 website for experimentation with USWDS components.  Nothing more.
+A basic Angular 16 website for demonstrating design patterns with USWDS components.  Nothing more.
 
 ## Getting started with this Angular site
 
@@ -32,4 +32,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 6. Add the minified USWDS JavaScript path to the `angular.json` file `scripts` section
 7. In any utilized USWDS template HTML, update static file paths, if different
 
-Ref: <https://designsystem.digital.gov/documentation/developers>
+Ref: <https://designsystem.digital.gov>

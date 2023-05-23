@@ -19,7 +19,7 @@
 
 <!-- return to top -->
 <section class="usa-section usa-section--dark padding-y-2">
-  <div class="grid-container text-right">
+  <div class="grid-container text-right" *ngIf="cards.length>9">
     <button class="usa-button usa-button--outline usa-button--inverse" (click)="u.scrollToStart('top')">
       Return to top
     </button>
