@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Meta } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +20,7 @@ import { SiteBannerComponent } from './components/site-banner/site-banner.compon
     AppRoutingModule
   ],
   providers: [
+    Meta,
     UtilityService
   ],
   bootstrap: [AppComponent]

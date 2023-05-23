@@ -6,7 +6,7 @@ import { CatalogComponent } from './catalog.component';
 const routes: Routes = [
   {
     path: "", // "" for lazy-loading, see AppRoutingModule
-    title: "Card catalog | USWDS Design Pattern",
+    title: "Card catalog | USWDS design pattern",
     component: CatalogComponent
   }
 ];
