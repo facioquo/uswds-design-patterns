@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { Card } from 'src/app/components/site-card/card.model';
 import { UtilityService } from 'src/app/services/utility.service';
 
@@ -10,8 +11,11 @@ import { UtilityService } from 'src/app/services/utility.service';
 })
 export class HomeComponent {
   constructor(
-    public readonly u: UtilityService
-  ) { }
+    public readonly u: UtilityService,
+    private meta: Meta
+  ) { 
+    this.meta.addTag({ name: "description", content: "Design patterns using the U.S. Web Design System." });
+  }
 
   public cards: Card[] = [
     {
