@@ -12,14 +12,14 @@
 
 .usa-identifier__identity-disclaimer {
   font-weight: 600;
-  color: color($theme-color-base);
+  color: color($theme-color-base-light);
 
   a {
-    color: color($theme-color-base);
+    color: color($theme-color-base-light);
 
     &:active,
     &:visited {
-      color: color($theme-color-base);
+      color: color($theme-color-base-light);
     }
   }
 }
