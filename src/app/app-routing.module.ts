@@ -10,7 +10,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
   {
-    path: 'catalog',
+    path: 'card-catalog',
     loadChildren: () => import('./pages/catalog/catalog.module').then(m => m.CatalogModule)
   }
 ];
