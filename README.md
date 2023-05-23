@@ -1,6 +1,6 @@
-# U.S. Web Design System design patterns
+# Design patterns using the U.S. Web Design System
 
-A basic Angular 16 website for demonstrating design patterns with USWDS components.  Nothing more.
+A basic Angular website for demonstrating isolated design patterns and experimentation with USWDS components.  Each pattern is a separate Angular component, and each component is a separate route in the application.
 
 ## Getting started with this Angular site
 

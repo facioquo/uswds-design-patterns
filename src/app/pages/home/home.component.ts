@@ -10,11 +10,15 @@ import { UtilityService } from 'src/app/services/utility.service';
   encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent {
+
   constructor(
     public readonly u: UtilityService,
     private meta: Meta
-  ) { 
-    this.meta.addTag({ name: "description", content: "Design patterns using the U.S. Web Design System." });
+  ) {
+    this.meta.addTag({
+      name: "description",
+      content: "Design patterns using the U.S. Web Design System."
+    });
   }
 
   public cards: Card[] = [
