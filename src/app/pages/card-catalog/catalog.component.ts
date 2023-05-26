@@ -57,13 +57,13 @@ export class CatalogComponent implements OnInit {
       }
 
       // card contents
-      const card = new Card(
-        `card-${i}`,
-        this.u.randomWords(25, 60),
-        this.u.randomWords(25, 100, "."),
-        url,
-        url
-      );
+      const card: Card = {
+        id: `card-${i}`,
+        title: this.u.randomWords(25, 60),
+        description: this.u.randomWords(25, 100, "."),
+        image: url,
+        link: url
+      };
 
       this.totalCards.push(card);
     }
