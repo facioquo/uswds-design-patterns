@@ -15,10 +15,12 @@ export class HomeComponent {
     public readonly u: UtilityService,
     private meta: Meta
   ) {
-    this.meta.addTag({
-      name: "description",
-      content: "Design patterns using the U.S. Web Design System."
-    });
+    this.meta.addTags([
+      {
+        name: 'description',
+        content: 'Design patterns using the U.S. Web Design System.'
+      }
+    ]);
   }
 
   public cards: Card[] = [

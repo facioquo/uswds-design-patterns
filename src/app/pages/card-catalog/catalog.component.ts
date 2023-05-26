@@ -18,10 +18,12 @@ export class CatalogComponent implements OnInit {
     public readonly u: UtilityService,
     private meta: Meta
   ) {
-    this.meta.addTag({
-      name: "description",
-      content: 'A card catalog with fixed image aspect ratio, consistent section sizing, full-surface clickability (to replace the button), a hover effect, and "see more" pagination.'
-    });
+    this.meta.addTags([
+      {
+        name: 'description',
+        content: 'A card catalog with fixed image aspect ratio, consistent section sizing, full-surface clickability (to replace the button), a hover effect, and "see more" pagination.'
+      }
+    ]);
   }
 
   public cardQty = 500;
