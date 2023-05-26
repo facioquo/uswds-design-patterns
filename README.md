@@ -1,33 +1,15 @@
 # Design patterns using the U.S. Web Design System
 
-A basic Angular website for demonstrating isolated design patterns and experimentation with [U.S. Web Design System](https://designsystem.digital.gov) (USWDS) components.  Each pattern is a separate Angular component with it's own SASS style sheet, and each in a separate route in the application.  All design patterns are enumerated on the home page.
+A basic Angular website for demonstrating isolated design patterns and experimentation with [U.S. Web Design System](https://designsystem.digital.gov) (USWDS) components.  Each pattern is a separate Angular component with it's own SASS stylesheet and page route.  All design patterns are enumerated on the home page.
 
 ## Getting started with this Angular site
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
-
 ```bash
 # install packages and 
-# start the development server
+# start the local site
 npm install
 npm run start
 ```
-
-### Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-### Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-### Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-### Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## How we initially installed the USWDS v3.4.1 package
 
