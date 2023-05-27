@@ -11,12 +11,12 @@
   </nav>
 </div>
 
-<section class="usa-section padding-top-0">
+<section class="usa-section padding-top-0 padding-bottom-2">
   <div class="grid-container">
     <h1>Card catalog</h1>
     <p class="usa-prose">
-      A card catalog using the U.S. Web Design System <a
-        class="usa-link usa-link--external" href="https://designsystem.digital.gov/components/card/">Card</a> component
+      A card catalog using the U.S. Web Design System <a class="usa-link usa-link--external"
+        href="https://designsystem.digital.gov/components/card/">Card</a> component
       with fixed image aspect ratio, consistent section sizing, full-surface clickability (to replace the button),
       a hover effect, and "see more" pagination.
     </p>
@@ -28,7 +28,7 @@
           </div>
           <div class="usa-card__media">
             <div class="usa-card__img">
-              <img data-src="{{ card.image }}" alt="A random image" class="lazyload" />
+              <img ngSrc="{{ card.image }}" width=1200 height=630 priority alt="A random image" />
             </div>
           </div>
           <div class="usa-card__body">
@@ -58,11 +58,20 @@
 
 </section>
 
-<!-- return to top -->
-<section class="usa-section padding-y-2">
-  <div class="grid-container text-right">
-    <button class="usa-button usa-button--outline" (click)="u.scrollToStart('top')">
-      Return to top
-    </button>
-  </div>
+<!-- github | return to top -->
+<section class="usa-section grid-container padding-y-2">
+  <ul class="usa-button-group">
+    <li class="usa-button-group__item">
+      <a class="usa-button usa-button--unstyled"
+        href="https://github.com/facioquo/uswds-design-patterns/tree/main/src/app/pages/card-catalog"
+        target="_blank" rel="noreferrer">
+        View on GitHub
+      </a>
+    </li>
+    <li class="usa-button-group__item">
+      <button class="usa-button usa-button--unstyled" (click)="u.scrollToStart('top')">
+        Return to top
+      </button>
+    </li>
+  </ul>
 </section>

@@ -42,7 +42,8 @@
                 "glob": "**/*",
                 "input": "./node_modules/@uswds/uswds/dist/js/",
                 "output": "/assets/uswds/js/"
-              }
+              },
+              "src/manifest.webmanifest"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -68,10 +69,8 @@
                 "bundleName": "uswds"
               }
             ],
-            "allowedCommonJsDependencies": [
-              "lazysizes",
-              "lazysizes/plugins/parent-fit/ls.parent-fit"
-            ]
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {

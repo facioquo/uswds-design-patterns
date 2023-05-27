@@ -4,22 +4,8 @@
 // IDENTIFIER
 
 .usa-identifier__logo-img {
-  opacity: 0.5;
+  opacity: 0.6;
   height: 48px;
   width: 48px;
   object-fit: cover;
-}
-
-.usa-identifier__identity-disclaimer {
-  font-weight: 600;
-  color: color($theme-color-base-light);
-
-  a {
-    color: color($theme-color-base-light);
-
-    &:active,
-    &:visited {
-      color: color($theme-color-base-light);
-    }
-  }
 }
