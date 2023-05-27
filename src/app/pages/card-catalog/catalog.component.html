@@ -1,3 +1,4 @@
+<!-- Bread crumbs (unmodified) -->
 <div class="grid-container">
   <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs,,,">
     <ol class="usa-breadcrumb__list">
@@ -11,8 +12,10 @@
   </nav>
 </div>
 
+<!-- Catalog -->
 <section class="usa-section padding-top-0 padding-bottom-2">
   <div class="grid-container">
+
     <h1>Card catalog</h1>
     <p class="usa-prose">
       A card catalog using the U.S. Web Design System <a class="usa-link usa-link--external"
@@ -20,6 +23,13 @@
       with fixed image aspect ratio, consistent section sizing, full-surface clickability (to replace the button),
       a hover effect, and "see more" pagination.
     </p>
+    
+    <!-- Cards
+      - add tablet-lg grid breakpoint
+      - changed card container to <a>
+      - removed card footer with button
+      - size constraints and hover effect in SCSS file
+    -->
     <ul class="usa-card-group padding-top-2" *ngIf="shownCards">
       <li class="usa-card tablet:grid-col-6 tablet-lg:grid-col-4" *ngFor="let card of shownCards">
         <a class="usa-card__container" id="{{ card.id }}" href="{{ card.link }}" type="button">
@@ -28,7 +38,7 @@
           </div>
           <div class="usa-card__media">
             <div class="usa-card__img">
-              <img ngSrc="{{ card.image }}" width=1200 height=630 priority alt="A random image" />
+              <img ngSrc="{{ card.image }}" width=1200 height=630 priority alt="a random image" />
             </div>
           </div>
           <div class="usa-card__body">
@@ -39,7 +49,7 @@
     </ul>
   </div>
 
-  <!-- show more -->
+  <!-- "See more" pagination in standard button group -->
   <div class="grid-container" *ngIf="nextQty">
     <p class="usa-prose text-center">Showing {{ shownCards.length }} of {{ totalCards.length }} cards</p>
     <ul class="usa-button-group">
@@ -55,7 +65,6 @@
       </li>
     </ul>
   </div>
-
 </section>
 
 <!-- github | return to top -->
