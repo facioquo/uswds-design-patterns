@@ -3,9 +3,6 @@ import { Meta } from '@angular/platform-browser';
 import { UtilityService } from 'src/app/services/utility.service';
 import { Card } from 'src/app/components/site-card/card.model';
 
-import 'lazysizes';
-import 'lazysizes/plugins/parent-fit/ls.parent-fit';
-
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
