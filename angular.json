@@ -42,7 +42,8 @@
                 "glob": "**/*",
                 "input": "./node_modules/@uswds/uswds/dist/js/",
                 "output": "/assets/uswds/js/"
-              }
+              },
+              "src/manifest.webmanifest"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -67,7 +68,9 @@
                 "inject": true,
                 "bundleName": "uswds"
               }
-            ]
+            ],
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {
