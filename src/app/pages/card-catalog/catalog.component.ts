@@ -48,11 +48,11 @@ export class CatalogComponent implements OnInit {
     for (let i = 0; i < qty; i++) {
 
       // placeholder image
-      let url = `https://picsum.photos/id/491/1200/630`;
+      let url = `https://picsum.photos/id/491/1200/630.webp`;
 
       // random image
       if (!badIds.includes(10 + i)) {
-        url = `https://picsum.photos/id/${10 + i}/1200/630`;
+        url = `https://picsum.photos/id/${10 + i}/1200/630.webp`;
       }
 
       // card contents
