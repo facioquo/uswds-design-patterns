@@ -8,7 +8,7 @@ A basic Angular website for demonstrating isolated design patterns and experimen
 # install packages and 
 # start the local site
 npm install
-npm run start
+npm start
 ```
 
 ## How we initially installed the USWDS v3.4.1 package

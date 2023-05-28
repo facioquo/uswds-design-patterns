@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Meta } from '@angular/platform-browser';
 import { UtilityService } from 'src/app/services/utility.service';
 import { Card } from 'src/app/components/site-card/card.model';
+import { Image } from './image.model';
 
 @Component({
   selector: 'app-catalog',
@@ -13,6 +15,7 @@ export class CatalogComponent implements OnInit {
 
   constructor(
     public readonly u: UtilityService,
+    private readonly http: HttpClient,
     private meta: Meta
   ) {
     this.meta.addTags([
@@ -23,67 +26,78 @@ export class CatalogComponent implements OnInit {
     ]);
   }
 
-  public cardQty = 500;
-  public pageQty = 0;
+  public page = 1;
   public pageSize = 18;
-  public nextQty = Math.min(this.pageSize, this.cardQty - this.pageQty);
-  public totalCards: Card[] = [];
-  public shownCards: Card[] = [];
+  public cardMax = 800;
+  public cards: Card[] = [];
 
   ngOnInit(): void {
-    this.generateCards(this.cardQty);
-  }
-
-  generateCards(qty: number): void {
-
-    this.totalCards = [];
-
-    // known bad image ids
-    const badIds = [
-      86, 97, 105, 138, 140, 148, 150, 205, 207, 224, 226,
-      245, 246, 262, 285, 286, 298, 303, 332, 333, 346,
-      359, 394, 414, 422, 438, 462, 463, 470, 489
-    ];
-
-    for (let i = 0; i < qty; i++) {
-
-      // placeholder image
-      let url = `https://picsum.photos/id/491/1200/630`;
-
-      // random image
-      if (!badIds.includes(10 + i)) {
-        url = `https://picsum.photos/id/${10 + i}/1200/630`;
-      }
-
-      // card contents
-      const card: Card = {
-        id: `card-${i}`,
-        title: this.u.randomWords(25, 60),
-        description: this.u.randomWords(25, 100, "."),
-        image: url,
-        link: url
-      };
-
-      this.totalCards.push(card);
-    }
 
     // show first page
-    this.showMore();
+    this.showMore(false);
   }
 
-  showMore(scroll: boolean = false): void {
-    this.pageQty += this.nextQty;
-    this.shownCards = this.totalCards.slice(0, this.pageQty);
+  showMore(doScroll: boolean): void {
 
-    if (scroll) {
-      this.u.scrollToStart(`card-${this.pageQty - this.nextQty}`);
+    // increment page
+    // intentionally skipping first page (boring images)
+    this.page++;
+
+    const url = `https://picsum.photos/v2/list?page=${this.page}&limit=${this.pageSize}`;
+    let scrollId = "";
+
+    // get images
+    this.http.get<Image[]>(url)
+      .subscribe({
+
+        next: (images: Image[]) => {
+
+          for (const image of images) {
+
+            // define new card
+            const card = {
+              id: `card-${image.id.toString()}`,
+              title: `Photo by ${image.author}`,
+              description: this.u.randomWords(25, 130, "."),
+              link: image.url,
+              image: `https://picsum.photos/id/${image.id}/600/315.webp`
+            };
+
+            // add to collection
+            if (this.cards.length < this.cardMax)
+              this.cards.push(card);
+
+            // set scroll target to first new card
+            // (only if not already set)
+            if (images.indexOf(image) === 0) {
+              scrollId = card.id;
+            }
+          }
+        },
+
+        // log error
+        error: (e: HttpErrorResponse) => { console.log(e); },
+
+        // scroll to first new card
+        complete: () => {
+          if (doScroll) this.u.scrollToStart(scrollId, 500);
+        }
+      });
+  }
+
+  showAll(): void {
+
+    const remCards = this.cardMax - this.cards.length
+    const remPages = Math.ceil(remCards / this.pageSize);
+    const lastIndex = this.cards.length - 1;
+
+    // add remaining cards
+    for (let i = 0; i < remPages; i++) {
+      this.showMore(false);
     }
 
-    this.nextQty = Math.min(this.pageSize, this.cardQty - this.pageQty);
-  }
-
-  showAll(scroll: boolean = false): void {
-    this.nextQty = this.totalCards.length - this.shownCards.length;
-    this.showMore(scroll);
+    // scroll to first new card
+    const lastCard = this.cards[lastIndex];
+    this.u.scrollToStart(lastCard.id, 500);
   }
 }

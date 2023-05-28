@@ -28,6 +28,9 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/robots.txt",
+              "src/sitemap.xml",
+              "src/manifest.webmanifest",
               {
                 "glob": "**/*",
                 "input": "./node_modules/@uswds/uswds/dist/img/",
@@ -42,8 +45,7 @@
                 "glob": "**/*",
                 "input": "./node_modules/@uswds/uswds/dist/js/",
                 "output": "/assets/uswds/js/"
-              },
-              "src/manifest.webmanifest"
+              }
             ],
             "stylePreprocessorOptions": {
               "includePaths": [

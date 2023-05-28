@@ -22,9 +22,9 @@
       }
 
       box-shadow:
-        0px 10px 10px -3px color($theme-color-base-light, 0.2),
-        0px 16px 20px 1px color($theme-color-base-light, 0.14),
-        0px 6px 28px 2px color($theme-color-base-light, 0.12);
+        0px 5px 5px -3px color($theme-color-base-light, 0.2),
+        0px 8px 8px 1px color($theme-color-base-light, 0.14),
+        0px 3px 14px 2px color($theme-color-base-light, 0.12);
     }
 
     // click effect
@@ -40,7 +40,8 @@
 
     // maintain image size proportion
     .usa-card__img {
-      aspect-ratio: 1200/630;
+      aspect-ratio: 600/315;
+      background-color: color($theme-color-base);
     }
 
     // when above tablet size,
