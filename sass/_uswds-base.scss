@@ -7,6 +7,11 @@ ref: https://designsystem.digital.gov/components/packages
 @use "uswds-core" as *;
 
 /* GLOBAL ELEMENTS */
-@forward "uswds-global";  // core, fonts, elements, helpers
+@forward "uswds-global"; // core, fonts, elements, helpers
 @forward "uswds-utilities";
 @forward "uswds-typography";
+
+/* GLOBAL STYLES */
+body {
+  overflow-y: scroll;
+}

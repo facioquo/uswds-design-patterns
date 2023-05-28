@@ -2,7 +2,7 @@
 ----------------------------------------
 SITE THEME SETTINGS (override defaults)
 ----------------------------------------
-https://designsystem.digital.gov/documentation/settings/#general-settings
+https://designsystem.digital.gov/documentation/settings
 settings available: @uswds\uswds\packages\uswds-core\src\styles\settings
 */
 @use "uswds-core" with (
@@ -36,13 +36,27 @@ settings available: @uswds\uswds\packages\uswds-core\src\styles\settings
     'widescreen': false,   // 1400px
   ),
 
+  // theme colors
   $theme-body-background-color: "base-darkest",
-
-  // COMPONENT SETTINGS
   $theme-color-base-darker: "gray-80",
   $theme-color-primary-darkest: "blue-90",
+
+  $theme-text-color: "base-light",
   $theme-text-reverse-color: "base-lighter",
+
+  $theme-link-color: "base-lighter",
+  $theme-link-hover-color: "base-lightest",
+  $theme-link-active-color: "accent-warm-lighter",
+  $theme-link-visited-color: "base-lighter",
+
   $theme-focus-color: "blue-60",
 
-  $theme-banner-background-color: "base-darkest"
+  // COMPONENT SETTINGS
+
+  // banner
+  $theme-banner-background-color: "base-darkest",
+  $theme-banner-link-color: "base-light",
+
+  // identifier
+  $theme-identifier-background-color: "base-darkest"
 );

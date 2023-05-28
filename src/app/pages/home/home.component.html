@@ -1,13 +1,15 @@
-<section class="usa-section usa-section--dark usa-dark-background padding-top-3">
+<section class="usa-section home-section">
   <div class="grid-container">
     <h1>Design patterns
       <span class="subtitle">using the U.S. Web Design System</span>
     </h1>
     <p class="usa-prose">
       The <a class="usa-link usa-link--external" href="https://designsystem.digital.gov" target="_blank"
-        rel="noreferrer">U.S. Web Design System</a> is a set of interactive website components and guidelines used across government.
-      This site and its collection of community contributed design patterns is built entirely with this system.
-      Each design pattern on this site is built with lightly customized out-of-the-box USWDS components.
+        rel="noreferrer">U.S. Web Design System</a> (USWDS) is a set of interactive website components and guidelines
+      used across government. This site is built entirely with this system by community contributors. Before using our
+      design patterns, check to see if there are more appropriate <a class="usa-link usa-link--external"
+        href="https://designsystem.digital.gov/patterns/" target="_blank" rel="noreferrer">official USWDS design
+        patterns</a>.
     </p>
     <ul class="usa-card-group padding-top-4">
       <li class="tablet:grid-col-6 tablet-lg:grid-col-4" *ngFor="let card of cards">
@@ -17,11 +19,20 @@
   </div>
 </section>
 
-<!-- return to top -->
-<section class="usa-section usa-section--dark padding-y-2" *ngIf="cards.length>9">
-  <div class="grid-container text-right">
-    <button class="usa-button usa-button--outline usa-button--inverse" (click)="u.scrollToStart('top')">
-      Return to top
-    </button>
+<!-- about / return to top -->
+<section class="usa-section padding-y-2">
+  <div class="grid-container">
+
+    <ul class="usa-button-group">
+      <li class="usa-button-group__item">
+        <a class="usa-button usa-button--outline usa-button--inverse" href="/about" type="button">
+          Learn more about us</a>
+      </li>
+      <li class="usa-button-group__item" *ngIf="cards.length>9">
+        <button class="usa-button usa-button--outline usa-button--inverse" (click)="u.scrollToStart('top')">
+          Return to top
+        </button>
+      </li>
+    </ul>
   </div>
 </section>

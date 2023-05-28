@@ -7,13 +7,7 @@
 
   color: color($theme-color-base-light) !important;
 
-  .usa-banner__button::after {
-    background-color: color($theme-color-base-light) !important;
-  }
-
   .usa-banner__button {
-    color: color($theme-color-base-light) !important;
-
     &:hover {
       cursor: pointer;
     }

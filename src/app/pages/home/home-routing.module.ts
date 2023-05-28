@@ -6,7 +6,7 @@ import { HomeComponent } from './home.component';
 const routes: Routes = [
   {
     path: "",
-    title: "Design patterns | U.S. Web Design System",
+    title: "Design patterns using the U.S. Web Design System",
     component: HomeComponent
   },
 

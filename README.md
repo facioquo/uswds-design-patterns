@@ -20,3 +20,13 @@ npm start
 5. Add the USWDS custom setting, reference, and customized SCSS files to the entry `SASS/styles.scss` file, then reference it in the `angular.json` `styles` section of `angular.json`
 6. Add the minified USWDS JavaScript path to the `angular.json` file `scripts` section
 7. In any utilized USWDS template HTML, update static file paths, if different
+
+## We use two base stylesheets
+
+Since our design pattern pages are isolated and
+ based on default USWDS styles, we use two base stylesheets:
+
+1. `SASS/uswds-styles.scss` is an out of the box USWDS styles base for design pattern pages.
+2. `SASS/site-styles.scss` is the common dark theme for our regular site pages and the shared `usa-banner` and `usa-identifier` components.
+
+For typical sites, you would only use one base stylesheet.
