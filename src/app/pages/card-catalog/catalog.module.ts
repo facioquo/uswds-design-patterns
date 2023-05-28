@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { CatalogRoutingModule } from './catalog-routing.module';
 import { CatalogComponent } from './catalog.component';
@@ -9,6 +10,7 @@ import { CatalogComponent } from './catalog.component';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     NgOptimizedImage,
     CatalogRoutingModule
   ]

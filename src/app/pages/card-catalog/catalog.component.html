@@ -23,22 +23,22 @@
       with fixed image aspect ratio, consistent section sizing, full-surface clickability (to replace the button),
       a hover effect, and "see more" pagination.
     </p>
-    
+
     <!-- Cards
       - add tablet-lg grid breakpoint
       - changed card container to <a>
       - removed card footer with button
       - size constraints and hover effect in SCSS file
     -->
-    <ul class="usa-card-group padding-top-2" *ngIf="shownCards">
-      <li class="usa-card tablet:grid-col-6 tablet-lg:grid-col-4" *ngFor="let card of shownCards">
+    <ul class="usa-card-group padding-top-2" *ngIf="cards.length">
+      <li class="usa-card tablet:grid-col-6 tablet-lg:grid-col-4" *ngFor="let card of cards">
         <a class="usa-card__container" id="{{ card.id }}" href="{{ card.link }}" type="button">
           <div class="usa-card__header">
             <h2 class="usa-card__heading">{{ card.title }}</h2>
           </div>
           <div class="usa-card__media">
             <div class="usa-card__img">
-              <img ngSrc="{{ card.image }}" width=1200 height=630 priority alt="a random image" />
+              <img ngSrc="{{ card.image }}" width=600 height=315 priority alt="a random image" />
             </div>
           </div>
           <div class="usa-card__body">
@@ -50,16 +50,16 @@
   </div>
 
   <!-- "See more" pagination in standard button group -->
-  <div class="grid-container" *ngIf="nextQty">
-    <p class="usa-prose text-center">Showing {{ shownCards.length }} of {{ totalCards.length }} cards</p>
-    <ul class="usa-button-group">
+  <div class="grid-container">
+    <p class="usa-prose text-center">Showing {{ cards.length }} of {{ cardMax }} cards</p>
+    <ul class="usa-button-group" *ngIf="cards.length < cardMax">
       <li class="usa-button-group__item">
-        <button class="usa-button" (click)="showMore(true)">
-          Show {{ nextQty }} more
+        <button class="usa-button" (click)="showMore()">
+          Show {{ pageSize }} more
         </button>
       </li>
       <li class="usa-button-group__item">
-        <button class="usa-button usa-button--outline" (click)="showAll(true)">
+        <button class="usa-button usa-button--outline" (click)="showAll()">
           Show all
         </button>
       </li>
@@ -74,12 +74,12 @@
       <a class="usa-button usa-button--unstyled"
         href="https://github.com/facioquo/uswds-design-patterns/tree/main/src/app/pages/card-catalog"
         target="_blank" rel="noreferrer">
-        View on GitHub
+        view code
       </a>
     </li>
     <li class="usa-button-group__item">
       <button class="usa-button usa-button--unstyled" (click)="u.scrollToStart('top')">
-        Return to top
+        return to top
       </button>
     </li>
   </ul>

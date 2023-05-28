@@ -9,23 +9,23 @@ export class UtilityService {
   constructor() { }
 
   // PAGE SCROLLING
-  scrollToStart(id: string) {
+  scrollToStart(id: string, offset: number = 200) {
     setTimeout(() => {
       const element = document.getElementById(id);
       element!.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
-    }, 200);
+    }, offset);
   }
 
-  scrollToEnd(id: string) {
+  scrollToEnd(id: string, offset: number = 200) {
     setTimeout(() => {
       const element = document.getElementById(id);
       element!.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'end' });
-    }, 200);
+    }, offset);
   }
 
   // RANDOM WORD GENERATOR
   // enter minimum and maximum characters of words to generate.
-  randomWords(min: number, max: number, suffix:string=""): string {
+  randomWords(min: number, max: number, suffix: string = ""): string {
 
     let words: string = "";
     let timeout: number = 0;
@@ -57,8 +57,8 @@ export class UtilityService {
       // add if it fits
       if (proposed.length < max) {
         words = words
-        .concat(" ")
-        .concat(word);
+          .concat(" ")
+          .concat(word);
         timeout = 0;
       }
 

@@ -28,7 +28,6 @@ export class HomeComponent {
       id: 'card-catalog',
       title: 'Card catalog',
       description: 'A catalog of <strong>Cards</strong> with consistent vertical spacing and "see more" pagination.',
-      image: 'https://designsystem.digital.gov/img/introducing-uswds-3/introducing-uswds-3.svg',
       link: '/card-catalog'
     }
   ];
