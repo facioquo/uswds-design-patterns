@@ -31,14 +31,14 @@
       - size constraints and hover effect in SCSS file
     -->
     <ul class="usa-card-group padding-top-2" *ngIf="cards.length">
-      <li class="usa-card tablet:grid-col-6 tablet-lg:grid-col-4" *ngFor="let card of cards">
+      <li class="usa-card tablet:grid-col-6 tablet-lg:grid-col-4" *ngFor="let card of cards; index as i">
         <a class="usa-card__container" id="{{ card.id }}" href="{{ card.link }}" type="button">
           <div class="usa-card__header">
             <h2 class="usa-card__heading">{{ card.title }}</h2>
           </div>
           <div class="usa-card__media">
             <div class="usa-card__img">
-              <img ngSrc="{{ card.image }}" width=600 height=315 priority alt="a random image" />
+              <img ngSrc="{{ card.image }}" width=600 height=315 priority="{{(i<6)?true:false}}" alt="a random image" />
             </div>
           </div>
           <div class="usa-card__body">
