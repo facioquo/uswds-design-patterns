@@ -54,7 +54,7 @@
     <p class="usa-prose text-center">Showing {{ cards.length }} of {{ cardMax }} cards</p>
     <ul class="usa-button-group" *ngIf="cards.length < cardMax">
       <li class="usa-button-group__item">
-        <button class="usa-button" (click)="showMore()">
+        <button class="usa-button" (click)="showMore(true)">
           Show {{ pageSize }} more
         </button>
       </li>

@@ -34,17 +34,19 @@ export class CatalogComponent implements OnInit {
   ngOnInit(): void {
 
     // show first page
-    this.showMore();
+    this.showMore(false);
   }
 
-  showMore(scroll: boolean = true): void {
+  showMore(doScroll: boolean): void {
 
     // increment page
+    // intentionally skipping first page (boring images)
     this.page++;
 
     const url = `https://picsum.photos/v2/list?page=${this.page}&limit=${this.pageSize}`;
-    let scrollId: string = "";
+    let scrollId = "";
 
+    // get images
     this.http.get<Image[]>(url)
       .subscribe({
 
@@ -66,6 +68,7 @@ export class CatalogComponent implements OnInit {
               this.cards.push(card);
 
             // set scroll target to first new card
+            // (only if not already set)
             if (images.indexOf(image) === 0) {
               scrollId = card.id;
             }
@@ -77,7 +80,7 @@ export class CatalogComponent implements OnInit {
 
         // scroll to first new card
         complete: () => {
-          if (scroll && this.page > 2) this.u.scrollToStart(scrollId);
+          if (doScroll) this.u.scrollToStart(scrollId, 500);
         }
       });
   }
@@ -86,12 +89,15 @@ export class CatalogComponent implements OnInit {
 
     const remCards = this.cardMax - this.cards.length
     const remPages = Math.ceil(remCards / this.pageSize);
+    const lastIndex = this.cards.length - 1;
 
-    // show remaining cards, slow increments
-    for(let i = 0; i < remPages; i++) {
-      setTimeout(() => {
-        this.showMore(i === 0);
-      }, 500);
+    // add remaining cards
+    for (let i = 0; i < remPages; i++) {
+      this.showMore(false);
     }
+
+    // scroll to first new card
+    const lastCard = this.cards[lastIndex];
+    this.u.scrollToStart(lastCard.id, 500);
   }
 }
