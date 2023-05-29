@@ -72,3 +72,18 @@
 .usa-button-group {
   @include u-flex("justify-center");
 }
+
+.pattern-info-section {
+  @include u-padding-y(2);
+
+  .usa-button-group__item {
+    @include u-margin-x(1);
+  }
+
+  .usa-button--unstyled {
+    @include at-media-max("mobile-lg") {
+      text-align: center;
+      min-height: 24px !important;
+    }
+  }
+}

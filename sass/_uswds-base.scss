@@ -12,6 +12,9 @@ ref: https://designsystem.digital.gov/components/packages
 @forward "uswds-typography";
 
 /* GLOBAL STYLES */
-body {
-  overflow-y: scroll;
+// caution: some base styles are leaked from sass\_site-base.scss
+// we use this area to unset those styles
+
+h1 {
+  color: unset;
 }
