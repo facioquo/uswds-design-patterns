@@ -5,11 +5,10 @@
 
   text-decoration: none;
   background-color: unset;
+  color: inherit;
 
   // hover effect
   &:hover {
-
-    background-color: color($theme-color-base-darker);
 
     .usa-card__header {
       text-decoration: underline;
@@ -33,8 +32,6 @@
   }
 
   .usa-card__body {
-    p {
-      color: color($theme-color-base-light);
-    }
+    color: color($theme-color-base-light);
   }
 }

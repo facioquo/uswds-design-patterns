@@ -2,7 +2,7 @@
 ----------------------------------------
 USWDS THEME SETTINGS (override defaults)
 ----------------------------------------
-https://designsystem.digital.gov/documentation/settings/#general-settings
+https://designsystem.digital.gov/documentation/settings
 settings available: @uswds\uswds\packages\uswds-core\src\styles\settings
 */
 @use "uswds-core" with (
@@ -36,5 +36,5 @@ settings available: @uswds\uswds\packages\uswds-core\src\styles\settings
     'widescreen': false,   // 1400px
   ),
 
-  $theme-body-background-color: "base-lighter",
+  $theme-body-background-color: "base-lighter"
 );

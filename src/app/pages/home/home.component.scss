@@ -3,35 +3,23 @@
 @forward "usa-layout-grid";
 @forward "usa-card";
 @forward "usa-button";
+@forward "usa-button-group";
 
-.usa-section--dark {
-
-  background-color: color($theme-color-base-darkest);
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: color($theme-color-base-lighter);
-  }
-
-  p,
-  .usa-prose,
-  .usa-link {
-    color: color($theme-color-base-light) !important;
-  }
-}
-
-h1 {
-  @include u-font-size('sans', 15);
-  line-height: 0.9em;
+.home-section {
+  @include u-padding-top(4);
+  @include u-padding-bottom(2);
+  min-height: 75vh;
 }
 
 .subtitle {
-  @include u-font-size('sans', 8);
+  @include u-font-size('sans', 9);
+  font-weight: 400;
+  color: color($theme-color-base-light);
   line-height: 1.2em;
   margin-top: 0.25em;
   display: block;
+
+  @include at-media-max("mobile-lg") {
+    @include u-font-size('sans', 7);
+  }
 }
