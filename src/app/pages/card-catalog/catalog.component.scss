@@ -7,15 +7,12 @@
 @forward "usa-button-group";
 
 .usa-card {
-
   a.usa-card__container {
-
     text-decoration: none;
     border-color: color($theme-color-base-lighter);
 
     // hover effect
     &:hover {
-
       .usa-card__header {
         text-decoration: underline;
         text-decoration-color: color($theme-color-base-light);
@@ -29,7 +26,6 @@
 
     // click effect
     &:active {
-
       background-color: color($theme-color-base-lighter);
 
       box-shadow:
@@ -38,16 +34,15 @@
         0px 9px 40px 2px color($theme-color-base-light, 0.12);
     }
 
-    // maintain image size proportion
+    // maintain image box size proportion
     .usa-card__img {
       aspect-ratio: 600/315;
-      background-color: color($theme-color-base);
+      background-color: color($theme-color-base-lighter);
     }
 
     // when above tablet size,
     // truncate the title and description
     @include at-media("tablet") {
-
       .usa-card__heading {
         display: -webkit-box;
         -webkit-line-clamp: 2;
@@ -69,6 +64,7 @@
   }
 }
 
+// button groups at bottom of page
 .usa-button-group {
   @include u-flex("justify-center");
 }
@@ -86,4 +82,15 @@
       min-height: 24px !important;
     }
   }
+}
+
+// fade in images after loading.
+// we're partly doing this since we're using a 3rd-party image source
+// that does not have a performant caching approach
+.easeload {
+  opacity: 0;
+  -webkit-transition: all 2s ease;
+  -moz-transition: all 2s ease;
+  -ms-transition: all 2s ease;
+  -o-transition: all 2s ease;
 }
