@@ -6,6 +6,12 @@
 @forward "usa-button";
 @forward "usa-button-group";
 
+.catalog-section {
+  @include u-padding-top(0);
+  @include u-padding-bottom(2);
+  min-height: 100v;  // ensures no CLS
+}
+
 .usa-card {
   a.usa-card__container {
     text-decoration: none;
