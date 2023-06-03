@@ -10,6 +10,8 @@
   // hover effect
   &:hover {
 
+    background-color: color($theme-color-base-darker);
+
     .usa-card__header {
       text-decoration: underline;
     }
