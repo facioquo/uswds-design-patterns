@@ -1,6 +1,6 @@
-# Design patterns using the U.S. Web Design System
+# Essential design patterns using the U.S. Web Design System
 
-A basic Angular website for demonstrating isolated design patterns and experimentation with [U.S. Web Design System](https://designsystem.digital.gov) (USWDS) components.  Each pattern is a separate Angular component with it's own SASS stylesheet and page route.  All design patterns are enumerated on the home page.
+A basic Angular website demonstrating isolated design patterns and experimentation with [U.S. Web Design System](https://designsystem.digital.gov) (USWDS) components.  Each pattern is a separate Angular component with its own SCSS stylesheet and page route.  All design patterns are enumerated on the [uswds.facioquo.com](https://uswds.facioquo.com) home page.
 
 ## Getting started with this Angular site
 
