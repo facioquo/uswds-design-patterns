@@ -60,7 +60,7 @@ export class CatalogComponent implements OnInit {
               title: `Photo by ${image.author}`,
               description: this.u.randomWords(25, 130, "."),
               link: image.url,
-              image: `https://picsum.photos/id/${image.id}/600/315.webp`
+              image: `https://fwd.facioquo.com/pics/id/${image.id}/600/315.webp`
             };
 
             // add to collection
