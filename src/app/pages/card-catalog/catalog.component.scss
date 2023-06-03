@@ -9,7 +9,6 @@
 .catalog-section {
   @include u-padding-top(0);
   @include u-padding-bottom(2);
-  min-height: 100v;  // ensures no CLS
 }
 
 .usa-card {
