@@ -23,10 +23,9 @@
         text-decoration-color: color($theme-color-base-light);
       }
 
-      box-shadow:
-        0px 5px 5px -3px color($theme-color-base-light, 0.2),
-        0px 8px 8px 1px color($theme-color-base-light, 0.14),
-        0px 3px 14px 2px color($theme-color-base-light, 0.12);
+      box-shadow: 0px 5px 5px -3px color($theme-color-base-light, 0.2),
+      0px 8px 8px 1px color($theme-color-base-light, 0.14),
+      0px 3px 14px 2px color($theme-color-base-light, 0.12);
     }
 
     // click effect
@@ -74,21 +73,6 @@
   @include u-flex("justify-center");
 }
 
-.pattern-info-section {
-  @include u-padding-y(2);
-
-  .usa-button-group__item {
-    @include u-margin-x(1);
-  }
-
-  .usa-button--unstyled {
-    @include at-media-max("mobile-lg") {
-      text-align: center;
-      min-height: 24px !important;
-    }
-  }
-}
-
 // fade in images after loading.
 // we're partly doing this since we're using a 3rd-party image source
 // that does not have a performant caching approach
@@ -98,4 +82,38 @@
   -moz-transition: all 2s ease;
   -ms-transition: all 2s ease;
   -o-transition: all 2s ease;
+}
+
+.pattern-info-section {
+
+  .pattern-info-container {
+
+    @include u-padding-x(6);
+    @include u-padding-y(4);
+    max-width: 80ch;
+    margin: auto;
+
+    border: 5px;
+    border-style: solid;
+    border-radius: 1rem;
+    border-color: color($theme-color-base-light);
+
+    @include at-media-max("mobile-lg") {
+      @include u-padding(2);
+    }
+  }
+
+  .features {
+
+    h2,
+    h3,
+    h4 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .usa-list li {
+      max-width: unset;
+    }
+  }
 }
