@@ -7,71 +7,77 @@
 @forward "usa-button-group";
 
 .catalog-section {
+
   @include u-padding-top(0);
-  @include u-padding-bottom(2);
-}
 
-.usa-card {
-  a.usa-card__container {
-    text-decoration: none;
-    border-color: color($theme-color-base-lighter);
+  .usa-card {
 
-    // hover effect
-    &:hover {
-      .usa-card__header {
-        text-decoration: underline;
-        text-decoration-color: color($theme-color-base-light);
+    a.usa-card__container {
+      text-decoration: none;
+      border-color: color($theme-color-base-lighter);
+
+      // hover effect
+      &:hover {
+
+        .usa-card__header {
+          text-decoration: underline;
+          text-decoration-color: color($theme-color-base-light);
+        }
+
+        box-shadow: 0px 5px 5px -3px color($theme-color-base-light, 0.2),
+        0px 8px 8px 1px color($theme-color-base-light, 0.14),
+        0px 3px 14px 2px color($theme-color-base-light, 0.12);
       }
 
-      box-shadow: 0px 5px 5px -3px color($theme-color-base-light, 0.2),
-      0px 8px 8px 1px color($theme-color-base-light, 0.14),
-      0px 3px 14px 2px color($theme-color-base-light, 0.12);
-    }
+      // click effect
+      &:active {
 
-    // click effect
-    &:active {
-      background-color: color($theme-color-base-lighter);
+        background-color: color($theme-color-base-lighter);
 
-      box-shadow:
-        0px 15px 15px -3px color($theme-color-base-light, 0.2),
-        0px 24px 30px 1px color($theme-color-base-light, 0.14),
-        0px 9px 40px 2px color($theme-color-base-light, 0.12);
-    }
-
-    // maintain image box size proportion
-    .usa-card__img {
-      aspect-ratio: 600/315;
-      background-color: color($theme-color-base-lighter);
-    }
-
-    // when above tablet size,
-    // truncate the title and description
-    @include at-media("tablet") {
-      .usa-card__heading {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        line-height: 2.25ex;
-        height: 4.5ex;
-        overflow: hidden;
+        box-shadow:
+          0px 15px 15px -3px color($theme-color-base-light, 0.2),
+          0px 24px 30px 1px color($theme-color-base-light, 0.14),
+          0px 9px 40px 2px color($theme-color-base-light, 0.12);
       }
 
-      .usa-card__body p {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        line-height: 2.8ex;
-        height: 8.4ex;
-        overflow: hidden;
+      // maintain image box size proportion
+      .usa-card__img {
+
+        aspect-ratio: 600/315;
+        background-color: color($theme-color-base-lighter);
+      }
+
+      // when above tablet size,
+      // truncate the title and description
+      @include at-media("tablet") {
+
+        .usa-card__heading {
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          line-height: 2.25ex;
+          height: 4.5ex;
+          overflow: hidden;
+        }
+
+        .usa-card__body p {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          line-height: 2.8ex;
+          height: 8.4ex;
+          overflow: hidden;
+        }
       }
     }
   }
+
+  // button groups at bottom of page
+  .usa-button-group {
+    @include u-flex("justify-center");
+  }
 }
 
-// button groups at bottom of page
-.usa-button-group {
-  @include u-flex("justify-center");
-}
 
 // fade in images after loading.
 // we're partly doing this since we're using a 3rd-party image source
@@ -82,38 +88,4 @@
   -moz-transition: all 2s ease;
   -ms-transition: all 2s ease;
   -o-transition: all 2s ease;
-}
-
-.pattern-info-section {
-
-  .pattern-info-container {
-
-    @include u-padding-x(6);
-    @include u-padding-y(4);
-    max-width: 80ch;
-    margin: auto;
-
-    border: 5px;
-    border-style: solid;
-    border-radius: 1rem;
-    border-color: color($theme-color-base-light);
-
-    @include at-media-max("mobile-lg") {
-      @include u-padding(2);
-    }
-  }
-
-  .features {
-
-    h2,
-    h3,
-    h4 {
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .usa-list li {
-      max-width: unset;
-    }
-  }
 }
