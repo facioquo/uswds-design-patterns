@@ -18,3 +18,76 @@ ref: https://designsystem.digital.gov/components/packages
 h1 {
   color: unset;
 }
+
+.pattern-info-section {
+
+  @include u-padding-x(2);
+
+  background-color: color($theme-color-base-darkest) !important;
+
+  .pattern-info-container {
+
+    @include u-padding-x(6);
+    @include u-padding-y(4);
+    max-width: 800px;
+    margin: auto;
+
+    border: 5px;
+    border-style: solid;
+    border-radius: 1rem;
+    border-color: color($theme-color-base-darker);
+
+    @include at-media-max("mobile-lg") {
+      @include u-padding(2);
+    }
+
+    h2,
+    h3,
+    h4 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: color($theme-color-base-lighter);
+      opacity: 80% !important;
+    }
+
+    h2 {
+      @include u-font-size("sans", 13);
+      color: rgba(230, 199, 76);
+      line-height: 0.9em;
+
+      @include at-media-max("mobile-lg") {
+        @include u-font-size("sans", 12);
+      }
+    }
+
+    h3 {
+      @include u-font-size("sans", 10);
+
+      @include at-media-max("mobile-lg") {
+        @include u-font-size("sans", 8);
+      }
+    }
+
+    h4 {
+      @include u-font-size("sans", 8);
+
+      @include at-media-max("mobile-lg") {
+        @include u-font-size("sans", 7);
+      }
+    }
+
+    .features {
+
+      p,
+      ol,
+      li {
+        color: color($theme-color-base-lighter);
+        opacity: 70%;
+      }
+
+      .usa-list li {
+        max-width: unset;
+      }
+    }
+  }
+}
