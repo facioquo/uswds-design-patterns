@@ -6,6 +6,7 @@
 @forward "usa-button-group";
 
 .home-section {
+
   @include u-padding-top(4);
   @include u-padding-bottom(2);
   min-height: 75vh;
@@ -17,7 +18,7 @@
     line-height: 1.2em;
     margin-top: 0.25em;
     display: block;
-  
+
     @include at-media-max("mobile-lg") {
       @include u-font-size('sans', 7);
     }
