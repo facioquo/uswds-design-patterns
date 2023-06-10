@@ -54,14 +54,14 @@
             },
             "styles": [
               {
-                "input": "sass/site-styles.scss",
-                "inject": true,
-                "bundleName": "site-styles"
-              },
-              {
                 "input": "sass/uswds-styles.scss",
                 "inject": true,
                 "bundleName": "uswds-styles"
+              },
+              {
+                "input": "sass/site-styles.scss",
+                "inject": true,
+                "bundleName": "site-styles"
               }
             ],
             "scripts": [
