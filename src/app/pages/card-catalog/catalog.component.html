@@ -3,7 +3,7 @@
   <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs,,,">
     <ol class="usa-breadcrumb__list">
       <li class="usa-breadcrumb__list-item">
-        <a href="/" class="usa-breadcrumb__link"><span>Patterns</span></a>
+        <a routerLink="/" class="usa-breadcrumb__link"><span>Patterns</span></a>
       </li>
       <li class="usa-breadcrumb__list-item">
         <span>Card catalog</span>
@@ -30,7 +30,7 @@
       - removed card footer with button
       - size constraints and hover effect in SCSS file
     -->
-    <ul class="usa-card-group padding-top-2">
+    <ul class="usa-card-group">
       <li class="usa-card tablet:grid-col-6 tablet-lg:grid-col-4" *ngFor="let card of cards; index as i">
         <a class="usa-card__container" id="{{ card.id }}" href="{{ card.link }}" type="button" target="_blank"
           rel="noreferrer">
