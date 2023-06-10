@@ -16,6 +16,10 @@ body {
   overflow-y: scroll;
 }
 
+main {
+  min-height: 80vh;
+}
+
 h1 {
   @include u-font-size('sans', 16);
   color: rgba(230, 199, 76, 0.95);
