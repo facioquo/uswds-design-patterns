@@ -18,6 +18,8 @@
         "gulpfile",
         "megamenu",
         "ngsw",
+        "nguniversal",
+        "prerender",
         "sidenav",
         "skipnav",
         "uswds"
