@@ -9,7 +9,11 @@
 .catalog-section {
 
   @include u-padding-top(0);
-  min-height: 100vh;
+
+  .usa-card-group {
+    @include u-padding-top(2);
+    min-height: 100vh;
+  }
 
   .usa-card {
 
