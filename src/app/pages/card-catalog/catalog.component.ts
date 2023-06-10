@@ -28,7 +28,7 @@ export class CatalogComponent implements OnInit {
 
   public page = 1;
   public pageSize = 18;
-  public cardMax = 800;
+  public totalCards = 800;
   public cards: Card[] = [];
 
   ngOnInit(): void {
@@ -64,7 +64,7 @@ export class CatalogComponent implements OnInit {
             };
 
             // add to collection
-            if (this.cards.length < this.cardMax)
+            if (this.cards.length < this.totalCards)
               this.cards.push(card);
 
             // set scroll target to first new card
@@ -87,7 +87,7 @@ export class CatalogComponent implements OnInit {
 
   showAll(): void {
 
-    const remCards = this.cardMax - this.cards.length
+    const remCards = this.totalCards - this.cards.length
     const remPages = Math.ceil(remCards / this.pageSize);
     const lastIndex = this.cards.length - 1;
 
