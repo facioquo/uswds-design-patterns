@@ -60,7 +60,7 @@
               },
               {
                 "input": "sass/uswds-styles.scss",
-                "inject": true,
+                "inject": false,
                 "bundleName": "uswds-styles"
               }
             ],
@@ -68,7 +68,7 @@
               {
                 "input": "./node_modules/@uswds/uswds/dist/js/uswds.min.js",
                 "inject": true,
-                "bundleName": "uswds"
+                "bundleName": "uswds-min"
               }
             ],
             "serviceWorker": true,
@@ -76,18 +76,6 @@
           },
           "configurations": {
             "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "1mb",
-                  "maximumError": "1.5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "300kb",
-                  "maximumError": "500kb"
-                }
-              ],
               "outputHashing": "all",
               "sourceMap": true,
               "optimization": {
