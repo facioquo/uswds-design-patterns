@@ -60,7 +60,7 @@
               },
               {
                 "input": "sass/uswds-styles.scss",
-                "inject": false,
+                "inject": true,
                 "bundleName": "uswds-styles"
               }
             ],
