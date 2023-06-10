@@ -68,7 +68,7 @@
               {
                 "input": "./node_modules/@uswds/uswds/dist/js/uswds.min.js",
                 "inject": true,
-                "bundleName": "uswds-min"
+                "bundleName": "uswds"
               }
             ],
             "serviceWorker": true,
