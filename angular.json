@@ -90,7 +90,6 @@
               }
             },
             "development": {
-              "outputHashing": "all",
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": false,
