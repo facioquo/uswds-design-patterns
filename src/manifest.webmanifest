@@ -1,4 +1,6 @@
 {
+  "name": "app",
+  "short_name": "app",
   "theme_color": "#181818",
   "background_color": "#181818",
   "display": "standalone",
