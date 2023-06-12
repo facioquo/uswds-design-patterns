@@ -21,6 +21,7 @@ Since our design pattern pages are isolated and
 
 For typical sites, you would only use one base stylesheet.
 
-## Historical notes
+## Contributor notes
 
+- Use `href` instead of `routerLink` in `a` references between site and design pattern pages.  This allows the unique page styles to reset.
 - See [our first Pull Request](https://github.com/facioquo/uswds-design-patterns/pull/1) to learn how we installed the USWDS package.

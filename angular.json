@@ -52,18 +52,7 @@
                 "./node_modules/@uswds/uswds/packages"
               ]
             },
-            "styles": [
-              {
-                "input": "sass/uswds-styles.scss",
-                "inject": false,
-                "bundleName": "uswds-styles"
-              },
-              {
-                "input": "sass/site-styles.scss",
-                "inject": false,
-                "bundleName": "site-styles"
-              }
-            ],
+            "styles": [],
             "scripts": [
               {
                 "input": "./node_modules/@uswds/uswds/dist/js/uswds.min.js",
@@ -76,7 +65,7 @@
             "vendorChunk": false,
             "extractLicenses": false,
             "namedChunks": false
-        },
+          },
           "configurations": {
             "production": {
               "optimization": true
