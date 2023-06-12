@@ -18,6 +18,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/app",
+            "outputHashing": "all",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -30,7 +31,6 @@
               "src/assets",
               "src/robots.txt",
               "src/sitemap.xml",
-              "src/manifest.webmanifest",
               {
                 "glob": "**/*",
                 "input": "./node_modules/@uswds/uswds/dist/img/",
@@ -52,50 +52,26 @@
                 "./node_modules/@uswds/uswds/packages"
               ]
             },
-            "styles": [
-              {
-                "input": "sass/uswds-styles.scss",
-                "inject": true,
-                "bundleName": "uswds-styles"
-              },
-              {
-                "input": "sass/site-styles.scss",
-                "inject": true,
-                "bundleName": "site-styles"
-              }
-            ],
+            "styles": [],
             "scripts": [
               {
                 "input": "./node_modules/@uswds/uswds/dist/js/uswds.min.js",
                 "inject": true,
-                "bundleName": "uswds-min"
+                "bundleName": "uswds"
               }
             ],
-            "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json"
+            "buildOptimizer": true,
+            "sourceMap": true,
+            "vendorChunk": false,
+            "extractLicenses": false,
+            "namedChunks": false
           },
           "configurations": {
             "production": {
-              "outputHashing": "all",
-              "sourceMap": true,
-              "optimization": {
-                "styles": {
-                  "minify": true,
-                  "inlineCritical": true
-                },
-                "scripts": true,
-                "fonts": {
-                  "inline": true
-                }
-              }
+              "optimization": true
             },
             "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": false,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "optimization": false
             }
           },
           "defaultConfiguration": "production"
