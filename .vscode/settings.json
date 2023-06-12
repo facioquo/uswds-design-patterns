@@ -11,6 +11,7 @@
     "editor.guides.bracketPairs": "active",
     "editor.formatOnSave": true,
     "cSpell.words": [
+        "apng",
         "clickability",
         "easeload",
         "facioquo",
@@ -22,6 +23,7 @@
         "prerender",
         "sidenav",
         "skipnav",
-        "uswds"
+        "uswds",
+        "webp"
     ]
 }

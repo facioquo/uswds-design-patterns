@@ -1,5 +1,4 @@
-import { NgModule, isDevMode } from '@angular/core';
-import { ServiceWorkerModule } from '@angular/service-worker';
+import { NgModule } from '@angular/core';
 import { BrowserModule, Meta } from '@angular/platform-browser';
 import { NgOptimizedImage } from '@angular/common'
 
@@ -20,13 +19,7 @@ import { SiteBannerComponent } from './components/site-banner/site-banner.compon
   imports: [
     BrowserModule,
     NgOptimizedImage,
-    AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: !isDevMode(),
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    })
+    AppRoutingModule
   ],
   bootstrap: [AppComponent],
   providers: [
