@@ -2,12 +2,26 @@
   "name": "Design Patterns | U.S. Web Design System",
   "short_name": "uswds-design-patterns",
   "description": "Essential design patterns using the U.S. Web Design System.",
-  "id": "/",
-  "start_url": "/",
   "theme_color": "#181818",
   "background_color": "#181818",
-  "display": "standalone",
   "icons": [
+    {
+      "src": "logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "150x150"
+    },
+    {
+      "src": "icons/maskable_icon_x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/maskable_icon_x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
     {
       "src": "icons/android-chrome-192x192.png",
       "sizes": "192x192",
