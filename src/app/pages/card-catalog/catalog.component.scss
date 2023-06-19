@@ -31,9 +31,9 @@
         }
 
         box-shadow:
-          0px 5px 5px -3px color($theme-color-base-light, 0.20),
-          0px 8px 8px  1px color($theme-color-base-light, 0.14),
-          0px 3px 14px 2px color($theme-color-base-light, 0.12);
+          0px 5px  5px -3px color($theme-color-base-light, 0.20),
+          0px 8px  8px  1px color($theme-color-base-light, 0.14),
+          0px 3px 14px  2px color($theme-color-base-light, 0.12);
       }
 
       // click effect
@@ -91,9 +91,9 @@
 // that does not have a performant caching approach
 .easeload {
   opacity: 0;
-  -webkit-transition: all 2s ease;
-  -moz-transition: all 2s ease;
-  -ms-transition: all 2s ease;
-  -o-transition: all 2s ease;
-  transition: all 2s ease;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
 }
