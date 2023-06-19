@@ -3,6 +3,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Meta } from '@angular/platform-browser';
 import { UtilityService } from 'src/app/services/utility.service';
 import { Card } from 'src/app/components/site-card/card.model';
+
+import * as picList from 'src/assets/pics/pics.json';
 import { Image } from './image.model';
 
 @Component({
@@ -11,6 +13,8 @@ import { Image } from './image.model';
   styleUrls: ['./catalog.component.scss']
 })
 export class CatalogComponent implements OnInit {
+
+  images: Image[] = picList;
 
   constructor(
     public readonly u: UtilityService,
@@ -25,7 +29,7 @@ export class CatalogComponent implements OnInit {
     ]);
   }
 
-  public page = 1;
+  public page = 0;
   public pageSize = 18;
   public totalCards = 800;
   public cards: Card[] = [];
@@ -34,61 +38,51 @@ export class CatalogComponent implements OnInit {
 
     // show first page
     this.showMore(false);
+    console.log("images", this.images);
   }
 
   showMore(doScroll: boolean): void {
 
     // increment page
-    // intentionally skipping first page (boring images)
     this.page++;
-
-    const url = `https://picsum.photos/v2/list?page=${this.page}&limit=${this.pageSize}`;
     let scrollId = "";
 
     // get images
-    this.http.get<Image[]>(url)
-      .subscribe({
+    const idxStart = this.page * this.pageSize - this.pageSize;
+    const idxEnd = idxStart + this.pageSize;
 
-        next: (images: Image[]) => {
+    for (let i = idxStart; i < idxEnd; i++) {
 
-          for (const image of images) {
+      const image = this.images[i];
 
-            // define new card
-            const card = {
-              id: `card-${image.id.toString()}`,
-              title: `Photo by ${image.author}`,
-              description: this.u.randomWords(25, 130, "."),
-              link: image.url,
-              image: `https://fwd.facioquo.com/pics/id/${image.id}/600/315.webp`
-            };
+      // define new card
+      const card = {
+        id: `card-${image.id.toString()}`,
+        title: `Photo by ${image.author}`,
+        description: this.u.randomWords(25, 130, "."),
+        link: image.url,
+        image: `/assets/pics/${image.id}-600x315.webp`
+      };
 
-            // add to collection
-            if (this.cards.length < this.totalCards)
-              this.cards.push(card);
+      // add to collection
+      if (this.cards.length < this.totalCards)
+        this.cards.push(card);
 
-            // set scroll target to first new card
-            // (only if not already set)
-            if (images.indexOf(image) === 0) {
-              scrollId = card.id;
-            }
-          }
-        },
+      // set scroll target to first new card
+      // (only if not already set)
+      if (i === idxStart) {
+        scrollId = card.id;
+      }
+    }
 
-        // log error
-        error: (e: HttpErrorResponse) => { console.log(e); },
-
-        // scroll to first new card
-        complete: () => {
-          if (doScroll) this.u.scrollToStart(scrollId, 500);
-        }
-      });
+    if (doScroll) this.u.scrollToStart(scrollId, 500);
   }
 
   showAll(): void {
 
     const remCards = this.totalCards - this.cards.length
     const remPages = Math.ceil(remCards / this.pageSize);
-    const lastIndex = this.cards.length - 1;
+    const nextCard = this.images[this.page * this.pageSize + 1];
 
     // add remaining cards
     for (let i = 0; i < remPages; i++) {
@@ -96,7 +90,6 @@ export class CatalogComponent implements OnInit {
     }
 
     // scroll to first new card
-    const lastCard = this.cards[lastIndex];
-    this.u.scrollToStart(lastCard.id, 500);
+    this.u.scrollToStart(`card-${nextCard.id}`, 500);
   }
 }
