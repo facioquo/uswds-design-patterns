@@ -7,14 +7,14 @@
 
 .home-section {
 
-  @include site-style;
+  @include site-dark;
   @include u-padding-top(4);
-  @include u-padding-bottom(2);
+  @include u-padding-bottom(0);
 
   .subtitle {
     @include u-font-size('sans', 9);
     font-weight: 400;
-    color: color($theme-color-base-dark);
+    color: color($theme-color-base-light);
     line-height: 1.2em;
     margin-top: 0.25em;
     display: block;
