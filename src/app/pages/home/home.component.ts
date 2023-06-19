@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { Card } from 'src/app/components/site-card/card.model';
 import { UtilityService } from 'src/app/services/utility.service';
@@ -6,8 +6,7 @@ import { UtilityService } from 'src/app/services/utility.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
 

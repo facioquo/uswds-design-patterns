@@ -3,7 +3,7 @@
   <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs,,,">
     <ol class="usa-breadcrumb__list">
       <li class="usa-breadcrumb__list-item">
-        <a href="/" class="usa-breadcrumb__link"><span>Patterns</span></a>
+        <a routerLink="/" class="usa-breadcrumb__link"><span>Patterns</span></a>
       </li>
       <li class="usa-breadcrumb__list-item">
         <span>Card catalog</span>
@@ -19,9 +19,8 @@
     <h1>Card catalog</h1>
     <p class="usa-prose">
       A card catalog using the U.S. Web Design System <a class="usa-link usa-link--external"
-        href="https://designsystem.digital.gov/components/card/" target="_blank">Card</a> component
-      with "see more" pagination. Learn more about <button class="usa-button usa-button--unstyled"
-        (click)="u.scrollToStart('info')">our modifications</button> at the bottom of this page.
+        href="https://designsystem.digital.gov/components/card/" target="_blank">Card</a> component with "see more"
+      pagination. Learn more about <a class="usa-link" routerLink="./" fragment="info">our modifications</a> at the bottom of this page.
     </p>
 
     <!-- CARDS in CARD GROUP
@@ -53,7 +52,7 @@
 
   <!-- "See more" pagination in standard button group -->
   <div class="grid-container">
-    <p class="usa-prose text-center">Showing {{ cards.length }} of {{ totalCards }} cards</p>
+    <p class="text-center">Showing {{ cards.length }} of {{ totalCards }} cards</p>
     <ul class="usa-button-group" *ngIf="cards.length < totalCards">
       <li class="usa-button-group__item">
         <button class="usa-button" (click)="showMore(true)">
@@ -71,7 +70,7 @@
 
 
 <!-- INFO SECTION | About this design pattern -->
-<section id="info" class="usa-section usa-section--dark usa-dark-background pattern-info-section">
+<section id="info" class="usa-section usa-dark-background pattern-info-section">
 
   <div class="pattern-info-container">
 
@@ -81,7 +80,7 @@
 
       <h3>Cards</h3>
 
-      <p class="usa-prose">
+      <p class="usa-prose usa-dark-background">
         Use this card design pattern when you want consistent <a class="usa-link usa-link--alt usa-link--external"
           href="https://designsystem.digital.gov/components/card/" target="_blank">Card</a> size proportions and
         alignment of its elements when sizes for images, card titles, and descriptions vary.

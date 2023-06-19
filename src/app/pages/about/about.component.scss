@@ -1,10 +1,10 @@
-@use "/sass/site-styles" as *;
+@use "/sass/uswds-styles" as *;
 @forward "usa-section";
 @forward "usa-layout-grid";
 @forward "usa-breadcrumb";
 @forward "usa-button";
 
 .about-section {
+  @include site-style;
   @include u-padding-top(4);
-  min-height: 75vh;
 }

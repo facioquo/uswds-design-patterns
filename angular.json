@@ -52,7 +52,9 @@
                 "./node_modules/@uswds/uswds/packages"
               ]
             },
-            "styles": [],
+            "styles": [
+              "./sass/uswds-styles.scss"
+            ],
             "scripts": [
               {
                 "input": "./node_modules/@uswds/uswds/dist/js/uswds.min.js",

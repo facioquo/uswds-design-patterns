@@ -1,4 +1,4 @@
-@use "/sass/site-styles" as *;
+@use "/sass/uswds-styles" as *;
 @forward "usa-section";
 @forward "usa-layout-grid";
 @forward "usa-card";
@@ -7,14 +7,14 @@
 
 .home-section {
 
+  @include site-style;
   @include u-padding-top(4);
   @include u-padding-bottom(2);
-  min-height: 75vh;
 
   .subtitle {
     @include u-font-size('sans', 9);
     font-weight: 400;
-    color: color($theme-color-base-light);
+    color: color($theme-color-base-dark);
     line-height: 1.2em;
     margin-top: 0.25em;
     display: block;
