@@ -25,11 +25,11 @@
 
     <ul class="usa-button-group">
       <li class="usa-button-group__item">
-        <a class="usa-button usa-button--outline usa-button--inverse" routerLink="/about" type="button">
+        <a class="usa-button" routerLink="/about" type="button">
           Learn more about us</a>
       </li>
       <li class="usa-button-group__item" *ngIf="cards.length>9">
-        <button class="usa-button usa-button--outline usa-button--inverse" (click)="u.scrollToStart('top')">
+        <button class="usa-button usa-button--outline" (click)="u.scrollToStart('top')">
           Return to top
         </button>
       </li>

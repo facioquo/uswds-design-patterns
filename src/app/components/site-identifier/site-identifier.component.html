@@ -2,13 +2,13 @@
   aria-label="Organization identifier,">
   <div class="usa-identifier__container">
     <div class="usa-identifier__logos">
-      <a href="/" class="usa-identifier__logo">
-        <img class="usa-identifier__logo-img" ngSrc="/assets/logo.svg" priority width="48" height="48" alt="Site logo"
-          role="img" />
+      <a routerLink="/" class="usa-identifier__logo">
+        <img class="usa-identifier__logo-img" width="48" height="48" role="img" ngSrc="/assets/logo.svg" priority
+          alt="Site logo" />
       </a>
     </div>
-    <section class="usa-identifier__identity" aria-label="Organization information">
-      <p class="usa-identifier__identity-domain">uswds.facioquo.com</p>
+    <section class="usa-identifier__identity" aria-label="FacioQuo organization information">
+      <a class="usa-identifier__identity-domain" routerLink="/">uswds.facioquo.com</a>
       <p class="usa-identifier__identity-disclaimer">
         A website by <a class="usa-link" href="https://facioquo.com">FacioQuo</a>
       </p>

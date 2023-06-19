@@ -1,11 +1,30 @@
-@use "/sass/site-styles" as *;
+@use "/sass/uswds-styles" as *;
 @forward "usa-identifier";
 
 // IDENTIFIER
 
 .usa-identifier__logo-img {
-  opacity: 0.6;
+  opacity: 0.8;
   height: 48px;
   width: 48px;
   object-fit: cover;
+}
+
+.usa-identifier__identity-domain {
+  text-decoration: none;
+}
+
+.usa-identifier__identity-disclaimer {
+
+  a.usa-link {
+
+
+    &:hover {
+      color: color($theme-color-base-dark) !important;
+    }
+
+    &:visited {
+      color: unset;
+    }
+  }
 }

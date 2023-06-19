@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Meta } from '@angular/platform-browser';
 import { UtilityService } from 'src/app/services/utility.service';
@@ -8,8 +8,7 @@ import { Image } from './image.model';
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
-  styleUrls: ['./catalog.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./catalog.component.scss']
 })
 export class CatalogComponent implements OnInit {
 
