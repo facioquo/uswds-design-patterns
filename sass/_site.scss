@@ -60,15 +60,32 @@
   }
 }
 
+@mixin site-dark {
+
+  @include site-style;
+  color: color($theme-color-base-lighter);
+
+  h1,h2 {
+    color: rgba(230, 199, 76, 0.95);
+  }
+
+  h3 {
+    color: color($theme-color-base-lightest);
+  }
+}
+
 .site {
   @include site-style;
 }
 
+.site-dark {
+  @include site-dark;
+}
+
 .pattern-info-section {
 
-  @include site-style;
+  @include site-dark;
   @include u-padding-x(2);
-  padding-bottom: 2rem !important;
 
   .pattern-info-container {
 
@@ -84,16 +101,6 @@
 
     @include at-media-max("mobile-lg") {
       @include u-padding(2);
-    }
-
-    color: color($theme-color-base-lighter);
-
-    h2 {
-      color: rgba(230, 199, 76, 0.95);
-    }
-
-    h3 {
-      color: color($theme-color-base-lightest);
     }
   }
 }

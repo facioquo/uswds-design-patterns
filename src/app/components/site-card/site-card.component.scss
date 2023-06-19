@@ -4,7 +4,7 @@
 .usa-card__container {
 
   text-decoration: none;
-  background-color: color($theme-color-base-lightest);
+  background-color: color($theme-color-base-darker);
 
   border-style: solid;
   border-width: 1px;
@@ -13,32 +13,34 @@
   // hover effect
   &:hover {
 
+    background-color: color($theme-color-base-darker);
+
     .usa-card__header {
       text-decoration: underline;
     }
 
     box-shadow:
-      0px 10px 10px -3px color($theme-color-base-light, 0.20),
-      0px 16px 20px  1px color($theme-color-base-light, 0.14),
-      0px  6px 28px  2px color($theme-color-base-light, 0.12);
+      0px 10px 10px -3px color($theme-color-base-darkest, 0.20),
+      0px 16px 20px  1px color($theme-color-base-darkest, 0.14),
+      0px  6px 28px  2px color($theme-color-base-darkest, 0.12);
   }
 
   // click effect
   &:active {
 
-    background-color: color($theme-color-base-lighter);
+    background-color: color($theme-color-base-darkest);
 
     box-shadow:
-      0px 15px 15px -3px color($theme-color-base-light, 0.20),
-      0px 24px 30px  1px color($theme-color-base-light, 0.14),
-      0px  9px 40px  2px color($theme-color-base-light, 0.12);
+      0px 15px 15px -3px color($theme-color-base-darkest, 0.20),
+      0px 24px 30px  1px color($theme-color-base-darkest, 0.14),
+      0px  9px 40px  2px color($theme-color-base-darkest, 0.12);
   }
 
   .usa-card__heading {
-    color: color($theme-color-base-darker);
+    color: color($theme-color-base-lighter);
   }
 
-  .usa-card__body {
-    color: color($theme-color-base-dark);
+  .usa-card__body p {
+    color: color($theme-color-base-light);
   }
 }
