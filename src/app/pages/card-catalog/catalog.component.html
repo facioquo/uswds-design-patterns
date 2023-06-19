@@ -20,7 +20,8 @@
     <p class="usa-prose">
       A card catalog using the U.S. Web Design System <a class="usa-link usa-link--external"
         href="https://designsystem.digital.gov/components/card/" target="_blank">Card</a> component with "see more"
-      pagination. Learn more about <a class="usa-link" routerLink="./" fragment="info">our modifications</a> at the bottom of this page.
+      pagination. Learn more about <a class="usa-link" routerLink="./" fragment="info">our modifications</a> at the
+      bottom of this page.
     </p>
 
     <!-- CARDS in CARD GROUP
@@ -113,6 +114,17 @@
         <li>Smooth scroll to position first new items added to the card collection.</li>
         <li>Lazy load images so only nearby images download and render.</li>
       </ul>
+
+      <p>Use caution with large catalogs:</p>
+
+      <ul class="usa-list">
+        <li><strong>Show all</strong> should not be used with massive catalogs where showing all would impact page
+          performance.</li>
+        <li>For massive data collections, offload initial cards that exceed your limit with each subsequent <strong>Show
+            more</strong> command. A <strong>See previous</strong> button can be used at the top of your catalog to
+          similarly restore.</li>
+      </ul>
+
     </div>
 
     <!-- github | return to top -->
