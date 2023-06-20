@@ -3,6 +3,10 @@
 
 // IDENTIFIER
 
+.usa-identifier {
+  @include line-height('sans', 1);
+}
+
 .usa-identifier__logo-img {
   opacity: 0.8;
   height: 48px;
