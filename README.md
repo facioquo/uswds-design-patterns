@@ -11,17 +11,16 @@ npm install
 npm start
 ```
 
-## We use two base stylesheets
+## We use a base stylesheets
 
 Since our design pattern pages are isolated and
- based on default USWDS styles, we use two base stylesheets:
+ based on default USWDS styles, we use a base stylesheet:
 
-1. `SASS/uswds-styles.scss` is an out of the box USWDS styles base for design pattern pages.
-2. `SASS/site-styles.scss` is the common dark theme for our regular site pages and the shared `usa-banner` and `usa-identifier` components.
+`SASS/uswds-styles.scss` is an out of the box USWDS base for design pattern pages.
 
-For typical sites, you would only use one base stylesheet.
+The base `.site` familly of styles are for our regular dark themed site pages and components.
 
 ## Contributor notes
 
-- Use `href` instead of `routerLink` in `a` references between site and design pattern pages.  This allows the unique page styles to reset.
 - See [our first Pull Request](https://github.com/facioquo/uswds-design-patterns/pull/1) to learn how we installed the USWDS package.
+- Since then, we've consolidated down to one base stylesheet, to simplify.

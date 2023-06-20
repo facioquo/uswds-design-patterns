@@ -3,7 +3,7 @@
   <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs,,,">
     <ol class="usa-breadcrumb__list">
       <li class="usa-breadcrumb__list-item">
-        <a href="/" class="usa-breadcrumb__link"><span>Patterns</span></a>
+        <a routerLink="/" class="usa-breadcrumb__link"><span>Patterns</span></a>
       </li>
       <li class="usa-breadcrumb__list-item">
         <span>Card catalog</span>
@@ -19,9 +19,9 @@
     <h1>Card catalog</h1>
     <p class="usa-prose">
       A card catalog using the U.S. Web Design System <a class="usa-link usa-link--external"
-        href="https://designsystem.digital.gov/components/card/" target="_blank">Card</a> component
-      with "see more" pagination. Learn more about <button class="usa-button usa-button--unstyled"
-        (click)="u.scrollToStart('info')">our modifications</button> at the bottom of this page.
+        href="https://designsystem.digital.gov/components/card/" target="_blank">Card</a> component with "see more"
+      pagination. Learn more about <a class="usa-link" routerLink="./" fragment="info">our modifications</a> at the
+      bottom of this page.
     </p>
 
     <!-- CARDS in CARD GROUP
@@ -53,7 +53,7 @@
 
   <!-- "See more" pagination in standard button group -->
   <div class="grid-container">
-    <p class="usa-prose text-center">Showing {{ cards.length }} of {{ totalCards }} cards</p>
+    <p class="text-center">Showing {{ cards.length }} of {{ totalCards }} cards</p>
     <ul class="usa-button-group" *ngIf="cards.length < totalCards">
       <li class="usa-button-group__item">
         <button class="usa-button" (click)="showMore(true)">
@@ -71,7 +71,7 @@
 
 
 <!-- INFO SECTION | About this design pattern -->
-<section id="info" class="usa-section usa-section--dark usa-dark-background pattern-info-section">
+<section id="info" class="usa-section usa-dark-background pattern-info-section">
 
   <div class="pattern-info-container">
 
@@ -81,7 +81,7 @@
 
       <h3>Cards</h3>
 
-      <p class="usa-prose">
+      <p class="usa-prose usa-dark-background">
         Use this card design pattern when you want consistent <a class="usa-link usa-link--alt usa-link--external"
           href="https://designsystem.digital.gov/components/card/" target="_blank">Card</a> size proportions and
         alignment of its elements when sizes for images, card titles, and descriptions vary.
@@ -90,7 +90,9 @@
       <p>What we changed:</p>
 
       <ul class="usa-list">
-        <li>Card image box uses a fixed aspect ratio to ensure a consistent size.</li>
+        <li>Card image box uses a <a class="usa-link usa-link--external"
+            href="https://web.dev/patterns/layout/aspect-ratio-image-card/">fixed aspect ratio</a> to ensure a
+          consistent size.</li>
         <li>Card title and summary sections are fixed to 2 and 3 lines to ensure a consistent size. We limited the max
           allowable raw text, so overflow is rare. Ellipses indicate overflows ...</li>
         <li>Full card is clickable to maximize the size of click/touch target surface (we also removed the button).</li>
@@ -114,6 +116,17 @@
         <li>Smooth scroll to position first new items added to the card collection.</li>
         <li>Lazy load images so only nearby images download and render.</li>
       </ul>
+
+      <p>Use caution with large catalogs:</p>
+
+      <ul class="usa-list">
+        <li><strong>Show all</strong> should not be used with massive catalogs where showing all would impact page
+          performance.</li>
+        <li>For massive data collections, offload initial cards that exceed your limit with each subsequent <strong>Show
+            more</strong> command. A <strong>See previous</strong> button can be used at the top of your catalog to
+          similarly restore.</li>
+      </ul>
+
     </div>
 
     <!-- github | return to top -->

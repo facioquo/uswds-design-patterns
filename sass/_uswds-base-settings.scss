@@ -36,5 +36,20 @@ settings available: @uswds\uswds\packages\uswds-core\src\styles\settings
     'widescreen': false,   // 1400px
   ),
 
-  $theme-body-background-color: "base-lighter"
+  $theme-body-background-color: "base-lighter",
+
+  //site theme colors
+  $theme-color-base-darker: "gray-80",
+  $theme-color-primary-darkest: "blue-90",
+  $theme-text-reverse-color: "base-lighter",
+  $theme-focus-color: "blue-60",
+
+  // COMPONENT SETTINGS
+
+  // banner
+  $theme-banner-background-color: "base-darker",
+  $theme-banner-link-color: "base-light",
+
+  // identifier
+  $theme-identifier-background-color: "base-lighter"
 );

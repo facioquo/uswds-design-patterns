@@ -1,4 +1,4 @@
-<section class="usa-section home-section">
+<section class="usa-section usa-dark-background home-section">
   <div class="grid-container">
     <h1>Design patterns
       <span class="subtitle">using the U.S. Web Design System</span>
@@ -20,16 +20,16 @@
 </section>
 
 <!-- about / return to top -->
-<section class="usa-section padding-y-2">
+<section class="usa-section usa-dark-background">
   <div class="grid-container">
 
     <ul class="usa-button-group">
       <li class="usa-button-group__item">
-        <a class="usa-button usa-button--outline usa-button--inverse" routerLink="/about" type="button">
+        <a class="usa-button" routerLink="/about" type="button">
           Learn more about us</a>
       </li>
       <li class="usa-button-group__item" *ngIf="cards.length>9">
-        <button class="usa-button usa-button--outline usa-button--inverse" (click)="u.scrollToStart('top')">
+        <button class="usa-button usa-button--outline" (click)="u.scrollToStart('top')">
           Return to top
         </button>
       </li>

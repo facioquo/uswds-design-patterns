@@ -1,0 +1,106 @@
+@use "uswds-core" as *;
+
+// SITE STYLES
+
+// site mixin
+@mixin site-style {
+
+  h1 {
+    @include u-font-size('sans', 16);
+    line-height: 0.9em;
+
+    @include at-media-max("mobile-lg") {
+      @include u-font-size('sans', 14);
+    }
+  }
+
+  h2,
+  h3,
+  h4 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    opacity: 80% !important;
+  }
+
+  h2 {
+    @include u-font-size("sans", 13);
+    line-height: 0.9em;
+
+    @include at-media-max("mobile-lg") {
+      @include u-font-size("sans", 12);
+    }
+  }
+
+  h3 {
+    @include u-font-size("sans", 10);
+
+    @include at-media-max("mobile-lg") {
+      @include u-font-size("sans", 8);
+    }
+  }
+
+  h4 {
+    @include u-font-size("sans", 8);
+
+    @include at-media-max("mobile-lg") {
+      @include u-font-size("sans", 7);
+    }
+  }
+
+  .usa-list li {
+    max-width: unset;
+  }
+
+  .usa-prose {
+    @include u-font-size('sans', 7);
+
+    @include at-media-max("mobile-lg") {
+      @include u-font-size('sans', 6);
+    }
+  }
+}
+
+@mixin site-dark {
+
+  @include site-style;
+  color: color($theme-color-base-lighter);
+
+  h1,h2 {
+    color: rgba(230, 199, 76, 0.95);
+  }
+
+  h3 {
+    color: color($theme-color-base-lightest);
+  }
+}
+
+.site {
+  @include site-style;
+}
+
+.site-dark {
+  @include site-dark;
+}
+
+.pattern-info-section {
+
+  @include site-dark;
+  @include u-padding-x(2);
+
+  .pattern-info-container {
+
+    @include u-padding-x(6);
+    @include u-padding-y(4);
+    max-width: 800px;
+    margin: auto;
+
+    border: 5px;
+    border-style: solid;
+    border-radius: 1rem;
+    border-color: color($theme-color-base);
+
+    @include at-media-max("mobile-lg") {
+      @include u-padding(2);
+    }
+  }
+}
