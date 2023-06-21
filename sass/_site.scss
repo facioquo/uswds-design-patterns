@@ -40,10 +40,11 @@
   }
 
   h4 {
-    @include u-font-size("sans", 8);
+    @include u-font-size("sans", 7);
+    margin-top: 1.5rem;
 
     @include at-media-max("mobile-lg") {
-      @include u-font-size("sans", 7);
+      @include u-font-size("sans", 6);
     }
   }
 

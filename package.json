@@ -1,5 +1,5 @@
 {
-  "name": "learn-uswds",
+  "name": "uswds-design-patterns",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,25 +8,24 @@
     "build.prod": "ng build --configuration=production",
     "watch": "ng build --watch --configuration development"
   },
-  "private": true,
   "dependencies": {
-    "@angular/animations": "16.0.5",
-    "@angular/common": "16.0.5",
-    "@angular/compiler": "16.0.5",
-    "@angular/core": "16.0.5",
-    "@angular/forms": "16.0.5",
-    "@angular/platform-browser": "16.0.5",
-    "@angular/platform-browser-dynamic": "16.0.5",
-    "@angular/router": "16.0.5",
+    "@angular/animations": "16.1.1",
+    "@angular/common": "16.1.1",
+    "@angular/compiler": "16.1.1",
+    "@angular/core": "16.1.1",
+    "@angular/forms": "16.1.1",
+    "@angular/platform-browser": "16.1.1",
+    "@angular/platform-browser-dynamic": "16.1.1",
+    "@angular/router": "16.1.1",
     "@uswds/uswds": "3.5.0",
     "rxjs": "7.8.1",
     "tslib": "2.5.3",
-    "zone.js": "0.13.0"
+    "zone.js": "0.13.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "16.0.5",
-    "@angular/cli": "16.0.5",
-    "@angular/compiler-cli": "16.0.5",
+    "@angular-devkit/build-angular": "16.1.0",
+    "@angular/cli": "16.1.0",
+    "@angular/compiler-cli": "16.1.1",
     "typescript": "5.0.4"
   }
 }

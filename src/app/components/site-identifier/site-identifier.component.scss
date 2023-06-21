@@ -3,6 +3,10 @@
 
 // IDENTIFIER
 
+.usa-identifier {
+  @include typeset($theme-identifier-font-family, "sm", 2);
+}
+
 .usa-identifier__logo-img {
   opacity: 0.8;
   height: 48px;

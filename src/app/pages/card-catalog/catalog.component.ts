@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Meta } from '@angular/platform-browser';
 import { UtilityService } from 'src/app/services/utility.service';
 import { Card } from 'src/app/components/site-card/card.model';
@@ -15,10 +14,10 @@ import { Image } from './image.model';
 export class CatalogComponent implements OnInit {
 
   images: Image[] = picList;
+  autoScroll = false;
 
   constructor(
     public readonly u: UtilityService,
-    private readonly http: HttpClient,
     private meta: Meta
   ) {
     this.meta.addTags([
@@ -38,7 +37,6 @@ export class CatalogComponent implements OnInit {
 
     // show first page
     this.showMore(false);
-    console.log("images", this.images);
   }
 
   showMore(doScroll: boolean): void {
@@ -75,7 +73,7 @@ export class CatalogComponent implements OnInit {
       }
     }
 
-    if (doScroll) this.u.scrollToStart(scrollId, 500);
+    if (doScroll && this.autoScroll) this.u.scrollToStart(scrollId, 500);
   }
 
   showAll(): void {
@@ -90,6 +88,7 @@ export class CatalogComponent implements OnInit {
     }
 
     // scroll to first new card
-    this.u.scrollToStart(`card-${nextCard.id}`, 500);
+    if (this.autoScroll)
+      this.u.scrollToStart(`card-${nextCard.id}`, 500);
   }
 }

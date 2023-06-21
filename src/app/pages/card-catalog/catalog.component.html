@@ -20,7 +20,7 @@
     <p class="usa-prose">
       A card catalog using the U.S. Web Design System <a class="usa-link usa-link--external"
         href="https://designsystem.digital.gov/components/card/" target="_blank">Card</a> component with "see more"
-      pagination. Learn more about <a class="usa-link" routerLink="./" fragment="info">our modifications</a> at the
+      pagination. Learn more about <a class="usa-link" routerLink="./" fragment="info">this design pattern</a> at the
       bottom of this page.
     </p>
 
@@ -87,7 +87,7 @@
         alignment of its elements when sizes for images, card titles, and descriptions vary.
       </p>
 
-      <p>What we changed:</p>
+      <h4>What we changed:</h4>
 
       <ul class="usa-list">
         <li>Card image box uses a <a class="usa-link usa-link--external"
@@ -95,8 +95,8 @@
           consistent size.</li>
         <li>Card title and summary sections are fixed to 2 and 3 lines to ensure a consistent size. We limited the max
           allowable raw text, so overflow is rare. Ellipses indicate overflows ...</li>
-        <li>Full card is clickable to maximize the size of click/touch target surface (we also removed the button).</li>
-        <li>A hover shadow effect is applied to emphasize and clarify clickability and to give haptic response.</li>
+        <li>Full card is clickable to maximize the click/touch target (we also removed the button).</li>
+        <li>A hover shadow effect provides a haptic response to emphasize clickability.</li>
         <li>Images ease in on load to reduce the visual "pop" that occurs on late arrival.</li>
       </ul>
 
@@ -108,21 +108,29 @@
           href="https://designsystem.digital.gov/components/pagination/" target="_blank">Pagination</a>.
       </p>
 
-      <p>What we changed:</p>
+      <h4>What we changed:</h4>
 
       <ul class="usa-list">
-        <li><strong>See more</strong> and <strong>Show all</strong> pagination uses JavaScript to add the next page(s)
-          data to the card collection.</li>
-        <li>Smooth scroll to position first new items added to the card collection.</li>
+        <li><strong>See more</strong> and <strong>Show all</strong> pagination adds next page(s) cards
+          to the collection.</li>
         <li>Lazy load images so only nearby images download and render.</li>
+        <li>Optionally, auto-scroll to reposition page to new cards.</li>
+
+        <!-- enable auto-scroll -->
+        <div class="enable-scroll">
+          <div class="usa-checkbox">
+            <input class="usa-checkbox__input" id="enable-autoscroll" type="checkbox" name="auto-scroll"
+              [checked]="autoScroll" (change)="autoScroll = !autoScroll" />
+            <label class="usa-checkbox__label" for="enable-autoscroll">Turn on auto-scroll</label>
+          </div>
+        </div>
       </ul>
 
-      <p>Use caution with large catalogs:</p>
+      <h4>Use caution with large catalogs:</h4>
 
       <ul class="usa-list">
-        <li><strong>Show all</strong> should not be used with massive catalogs where showing all would impact page
-          performance.</li>
-        <li>For massive data collections, offload initial cards that exceed your limit with each subsequent <strong>Show
+        <li><strong>Show all</strong> should not be used with large catalogs that impact page performance.</li>
+        <li>For large data collections, offload initial cards that exceed a max limit with each subsequent <strong>Show
             more</strong> command. A <strong>See previous</strong> button can be used at the top of your catalog to
           similarly restore.</li>
       </ul>
