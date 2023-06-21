@@ -4,7 +4,7 @@
 // IDENTIFIER
 
 .usa-identifier {
-  @include line-height('sans', 1);
+  @include typeset($theme-identifier-font-family, "sm", 2);
 }
 
 .usa-identifier__logo-img {
