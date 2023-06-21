@@ -38,7 +38,6 @@ export class CatalogComponent implements OnInit {
 
     // show first page
     this.showMore(false);
-    console.log("images", this.images);
   }
 
   showMore(doScroll: boolean): void {
