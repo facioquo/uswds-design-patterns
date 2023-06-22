@@ -10,7 +10,7 @@
   border-width: 1px;
   border-color: color($theme-color-base-light);
 
-  // hover effect
+  /* hover effect */
   &:hover {
 
     background-color: color($theme-color-base-darker);
@@ -25,7 +25,7 @@
       0px  6px 28px  2px color($theme-color-base-darkest, 0.12);
   }
 
-  // click effect
+  /* click effect */
   &:active {
 
     background-color: color($theme-color-base-darkest);
