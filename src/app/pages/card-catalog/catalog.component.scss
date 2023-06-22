@@ -12,6 +12,7 @@
   @include u-padding-top(0);
 
   .usa-card-group {
+
     @include u-padding-top(2);
     min-height: 100vh;
   }
@@ -31,9 +32,10 @@
           text-decoration-color: color($theme-color-base-light);
         }
 
-        box-shadow: 0px 5px 5px -3px color($theme-color-base-light, 0.20),
-        0px 8px 8px 1px color($theme-color-base-light, 0.14),
-        0px 3px 14px 2px color($theme-color-base-light, 0.12);
+        box-shadow:
+          0 5px 5px -3px color($theme-color-base-light, 0.20),
+          0 8px  8px 1px color($theme-color-base-light, 0.14),
+          0 3px 14px 2px color($theme-color-base-light, 0.12);
       }
 
       /* click effect */
@@ -42,9 +44,9 @@
         background-color: color($theme-color-base-lighter);
 
         box-shadow:
-          0px 15px 15px -3px color($theme-color-base-light, 0.20),
-          0px 24px 30px 1px color($theme-color-base-light, 0.14),
-          0px 9px 40px 2px color($theme-color-base-light, 0.12);
+          0 15px 15px -3px color($theme-color-base-light, 0.20),
+          0 24px 30px  1px color($theme-color-base-light, 0.14),
+          0  9px 40px  2px color($theme-color-base-light, 0.12);
       }
 
       /* maintain image box size proportion */
@@ -83,7 +85,6 @@
     @include u-flex("justify-center");
   }
 }
-
 
 /* fade in images after loading. */
 .easeload {
