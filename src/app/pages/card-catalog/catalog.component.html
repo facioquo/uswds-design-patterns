@@ -52,7 +52,7 @@
   </div>
 
   <!-- "See more" pagination in standard button group -->
-  <div class="grid-container">
+  <div class="grid-container" *ngIf="!classic">
     <p class="text-center">Showing {{ cards.length }} of {{ totalCards }} cards</p>
     <ul class="usa-button-group" *ngIf="cards.length < totalCards">
       <li class="usa-button-group__item">
@@ -67,6 +67,52 @@
       </li>
     </ul>
   </div>
+
+  <!-- "Classic" pagination numbered index -->
+  <!-- https://designsystem.digital.gov/components/pagination/ -->
+  <div class="grid-container" *ngIf="classic">
+    <nav aria-label="Pagination" class="usa-pagination">
+      <ul class="usa-pagination__list">
+        <li class="usa-pagination__item usa-pagination__arrow">
+          <a href="javascript:void(0);" class="usa-pagination__link usa-pagination__previous-page"
+            aria-label="Previous page"><svg class="usa-icon" aria-hidden="true" role="img">
+              <use xlink:href="/assets/uswds/img/sprite.svg#navigate_before"></use>
+            </svg>
+            <span class="usa-pagination__link-text">Previous</span></a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no">
+          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Page 1">1</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__overflow" aria-label="ellipsis indicating non-visible pages">
+          <span>…</span>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no">
+          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Page 9">9</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no">
+          <a href="javascript:void(0);" class="usa-pagination__button usa-current" aria-label="Page 10"
+            aria-current="page">10</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no">
+          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Page 11">11</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__overflow" aria-label="ellipsis indicating non-visible pages">
+          <span>…</span>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no">
+          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Last page, page 24">24</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__arrow">
+          <a href="javascript:void(0);" class="usa-pagination__link usa-pagination__next-page"
+            aria-label="Next page"><span class="usa-pagination__link-text">Next </span><svg class="usa-icon"
+              aria-hidden="true" role="img">
+              <use xlink:href="/assets/uswds/img/sprite.svg#navigate_next"></use>
+            </svg></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
 </section>
 
 
@@ -156,7 +202,7 @@
             <label class="usa-label" for="slider-total-cards">Total cards ({{totalCards}})</label>
             <input id="slider-total-cards" name="total-cards" class="usa-range" type="range" min="10" max="800"
               step="10" [(ngModel)]="totalCards" aria-valuemin="10" aria-valuemax="800"
-              attr.aria-valuenow="{{totalCards}}" role="slider" (change)="changeTotalCards()"/>
+              attr.aria-valuenow="{{totalCards}}" role="slider" (change)="changeTotalCards()" />
 
             <!-- cards per pages -->
             <label class="usa-label" for="slider-page-cards">Cards per page ({{pageSize}})</label>
@@ -170,7 +216,20 @@
                 [checked]="autoScroll" (change)="autoScroll = !autoScroll" />
               <label class="usa-checkbox__label" for="enable-autoscroll">Turn on auto-scroll</label>
             </div>
-        </form>
+
+            <!-- style -->
+            <label class="usa-label">Style</label>
+            <ul class="usa-button-group usa-button-group--segmented">
+              <li class="usa-button-group__item">
+                <button type="button" [ngClass]="!classic ? 'usa-button' : 'usa-button usa-button--outline'"
+                  (click)="classic=false;">Show more</button>
+              </li>
+              <li class="usa-button-group__item">
+                <button type="button" [ngClass]="classic ? 'usa-button' : 'usa-button usa-button--outline'"
+                  (click)="classic=true">Classic</button>
+              </li>
+            </ul>
+          </form>
 
         </div>
       </div>

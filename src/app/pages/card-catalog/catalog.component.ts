@@ -15,6 +15,7 @@ export class CatalogComponent implements OnInit {
 
   images: Image[] = picList;
   autoScroll = false;
+  classic = false;
 
   constructor(
     public readonly u: UtilityService,
