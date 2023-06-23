@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 import { CatalogRoutingModule } from './catalog-routing.module';
 import { CatalogComponent } from './catalog.component';
 
@@ -12,7 +14,8 @@ import { CatalogComponent } from './catalog.component';
     CommonModule,
     HttpClientModule,
     NgOptimizedImage,
-    CatalogRoutingModule
+    CatalogRoutingModule,
+    FormsModule
   ]
 })
 export class CatalogModule { }

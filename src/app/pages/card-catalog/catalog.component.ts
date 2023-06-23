@@ -30,6 +30,7 @@ export class CatalogComponent implements OnInit {
 
   public page = 0;
   public pageSize = 18;
+  public pageMax = 180;
   public totalCards = 800;
   public cards: Card[] = [];
 
@@ -90,5 +91,16 @@ export class CatalogComponent implements OnInit {
     // scroll to first new card
     if (this.autoScroll)
       this.u.scrollToStart(`card-${nextCard.id}`, 500);
+  }
+
+  changeTotalCards() {
+    // maintain a rational page size
+    this.pageSize = this.pageMax = Math.min(180, this.totalCards, this.pageSize);
+    this.resetCatalog();
+  }
+
+  resetCatalog() {
+    this.cards = [];
+    this.showMore(false);
   }
 }

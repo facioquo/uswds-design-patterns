@@ -115,15 +115,6 @@
           to the collection.</li>
         <li>Lazy load images so only nearby images download and render.</li>
         <li>Optionally, auto-scroll to reposition page to new cards.</li>
-
-        <!-- enable auto-scroll -->
-        <div class="enable-scroll">
-          <div class="usa-checkbox">
-            <input class="usa-checkbox__input" id="enable-autoscroll" type="checkbox" name="auto-scroll"
-              [checked]="autoScroll" (change)="autoScroll = !autoScroll" />
-            <label class="usa-checkbox__label" for="enable-autoscroll">Turn on auto-scroll</label>
-          </div>
-        </div>
       </ul>
 
       <h4>Use caution with large catalogs:</h4>
@@ -150,5 +141,40 @@
         </button>
       </li>
     </ul>
+
+    <!-- page configuration -->
+    <div class="usa-summary-box" role="region" aria-labelledby="summary-box-key-information">
+      <div class="usa-summary-box__body">
+        <h3 class="usa-summary-box__heading" id="summary-box-key-information">
+          Page configuration
+        </h3>
+        <div class="usa-summary-box__text">
+
+          <form class="usa-form">
+
+            <!-- total cards -->
+            <label class="usa-label" for="slider-total-cards">Total cards ({{totalCards}})</label>
+            <input id="slider-total-cards" name="total-cards" class="usa-range" type="range" min="10" max="800"
+              step="10" [(ngModel)]="totalCards" aria-valuemin="10" aria-valuemax="800"
+              attr.aria-valuenow="{{totalCards}}" role="slider" (change)="changeTotalCards()"/>
+
+            <!-- cards per pages -->
+            <label class="usa-label" for="slider-page-cards">Cards per page ({{pageSize}})</label>
+            <input id="slider-page-cards" name="page-cards" class="usa-range" type="range" min="6" max="{{pageMax}}"
+              step="6" [(ngModel)]="pageSize" aria-valuemin="6" attr.aria-valuemax="{{pageMax}}"
+              attr.aria-valuenow="{{pageSize}}" role="slider" (change)="resetCatalog()" />
+
+            <!-- enable auto-scroll -->
+            <div class="usa-checkbox">
+              <input class="usa-checkbox__input" id="enable-autoscroll" type="checkbox" name="auto-scroll"
+                [checked]="autoScroll" (change)="autoScroll = !autoScroll" />
+              <label class="usa-checkbox__label" for="enable-autoscroll">Turn on auto-scroll</label>
+            </div>
+        </form>
+
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>

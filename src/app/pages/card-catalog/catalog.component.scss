@@ -5,7 +5,10 @@
 @forward "usa-card";
 @forward "usa-button";
 @forward "usa-button-group";
+
+@forward "usa-summary-box";
 @forward "usa-checkbox";
+@forward "usa-range";
 
 .catalog-section {
 
@@ -99,8 +102,23 @@
   transition: all 0.8s ease;
 }
 
-// enable auto-scroll
-.enable-scroll {
+// page configuration
+.usa-summary-box {
+
+  margin-top: 50px !important;
+  background-color: color($theme-color-base-light);
+  border: none;
+
+  .usa-summary-box__heading {
+    color: unset;
+    margin-top: 0;
+  }
+
+  .usa-range {
+    margin: 0;
+    padding-left: 0;
+    background-color: unset;
+  }
 
   .usa-checkbox {
     background-color: unset;
@@ -108,7 +126,6 @@
   }
 
   .usa-checkbox__label {
-    margin: 0;
-    color: color($theme-color-base-light);
+    margin-top: 24px;
   }
 }
