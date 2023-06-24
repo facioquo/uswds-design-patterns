@@ -30,14 +30,14 @@ export class CatalogComponent implements OnInit {
   }
 
   public page = 0;
-  public pageSize = 18;
+  public pageSize = 24;
   public pageMax = 180;
-  public totalCards = 800;
+  public totalCards = 820;
   public cards: Card[] = [];
 
   ngOnInit(): void {
 
-    // show first page
+    // load initial page
     this.showMore(false);
   }
 
@@ -96,7 +96,8 @@ export class CatalogComponent implements OnInit {
 
   changeTotalCards() {
     // maintain a rational page size
-    this.pageSize = this.pageMax = Math.min(180, this.totalCards, this.pageSize);
+    this.pageMax = Math.min(180, this.totalCards);
+    this.pageSize = Math.min(this.pageSize, this.pageMax);
     this.resetCatalog();
   }
 

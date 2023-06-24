@@ -116,6 +116,10 @@
     margin-top: 0;
   }
 
+  .usa-label {
+    padding-left: 1px;
+  }
+
   .usa-range {
     margin: 0;
     padding-left: 0;
@@ -124,7 +128,7 @@
 
   .usa-checkbox {
     background-color: unset;
-    width: fit-content;
+    padding-left: 1px;
   }
 
   .usa-checkbox__label {
