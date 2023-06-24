@@ -201,8 +201,8 @@
 
             <!-- total cards -->
             <label class="usa-label" for="slider-total-cards">Total cards ({{totalCards}})</label>
-            <input id="slider-total-cards" name="total-cards" class="usa-range" type="range" min="12" max="800"
-              step="6" [(ngModel)]="totalCards" aria-valuemin="12" aria-valuemax="800"
+            <input id="slider-total-cards" name="total-cards" class="usa-range" type="range" min="6" max="{{maxCards}}"
+              step="6" [(ngModel)]="totalCards" aria-valuemin="6" attr.aria-valuemax="{{maxCards}}"
               attr.aria-valuenow="{{totalCards}}" role="slider" (change)="changeTotalCards()" />
 
             <!-- cards per pages -->

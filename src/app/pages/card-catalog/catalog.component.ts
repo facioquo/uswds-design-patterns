@@ -32,7 +32,9 @@ export class CatalogComponent implements OnInit {
   public page = 0;
   public pageSize = 24;
   public pageMax = 180;
-  public totalCards = 820;
+
+  public maxCards = 840;
+  public totalCards = this.maxCards;
   public cards: Card[] = [];
 
   ngOnInit(): void {
@@ -81,7 +83,7 @@ export class CatalogComponent implements OnInit {
   showAll(): void {
 
     const remCards = this.totalCards - this.cards.length
-    const remPages = Math.ceil(remCards / this.pageSize);
+    const remPages = Math.floor(remCards / this.pageSize);
     const nextCard = this.images[this.page * this.pageSize + 1];
 
     // add remaining cards
