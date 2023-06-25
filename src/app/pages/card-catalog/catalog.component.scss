@@ -5,16 +5,15 @@
 @forward "usa-card";
 @forward "usa-button";
 @forward "usa-button-group";
-@forward "usa-checkbox";
 
 .catalog-section {
 
   @include u-padding-top(0);
+  min-height: 100vh;
 
   .usa-card-group {
 
     @include u-padding-top(2);
-    min-height: 100vh;
   }
 
   .usa-card {
@@ -80,32 +79,26 @@
     }
   }
 
+  /* fade in images after loading. */
+  .easeload {
+    opacity: 0;
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    -ms-transition: all 0.8s ease;
+    -o-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+  }
+
   /* "see more" button groups at bottom of page */
   .usa-button-group {
     @include u-flex("justify-center");
   }
-}
 
-/* fade in images after loading. */
-.easeload {
-  opacity: 0;
-  -webkit-transition: all 0.8s ease;
-  -moz-transition: all 0.8s ease;
-  -ms-transition: all 0.8s ease;
-  -o-transition: all 0.8s ease;
-  transition: all 0.8s ease;
-}
-
-/* enable auto-scroll */
-.enable-scroll {
-
-  .usa-checkbox {
-    background-color: unset;
-    width: fit-content;
-  }
-
-  .usa-checkbox__label {
-    margin: 0;
-    color: color($theme-color-base-light);
+  /* classic pagination */
+  a.usa-pagination__link,
+  a.usa-pagination__button {
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

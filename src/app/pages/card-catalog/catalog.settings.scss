@@ -1,0 +1,43 @@
+@use "/sass/uswds-styles" as *;
+@forward "usa-summary-box";
+@forward "usa-checkbox";
+@forward "usa-range";
+@forward "usa-pagination";
+@forward "usa-icon";
+
+// page configuration
+.usa-summary-box {
+
+  margin-top: 50px !important;
+  background-color: color($theme-color-base-light);
+  border: none;
+
+  .usa-summary-box__heading {
+    color: unset;
+    margin-top: 0;
+  }
+
+  .usa-label {
+    padding-left: 1px;
+  }
+
+  .usa-range {
+    height: 1.5rem;
+    margin: 0;
+    padding: 0 0 0 0;
+    background-color: unset;
+  }
+
+  .usa-checkbox {
+    background-color: unset;
+    padding-left: 1px;
+  }
+
+  .usa-checkbox__label {
+    margin-top: 24px;
+
+    &::before {
+      box-shadow: 0 0 0 1px color($theme-color-base);
+    }
+  }
+}

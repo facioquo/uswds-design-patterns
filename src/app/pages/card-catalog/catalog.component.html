@@ -19,9 +19,11 @@
     <h1>Card catalog</h1>
     <p class="usa-prose">
       A card catalog using the U.S. Web Design System <a class="usa-link usa-link--external"
-        href="https://designsystem.digital.gov/components/card/" target="_blank">Card</a> component with "see more"
-      pagination. Learn more about <a class="usa-link" routerLink="./" fragment="info">this design pattern</a> at the
-      bottom of this page.
+        href="https://designsystem.digital.gov/components/card/" target="_blank">Card</a>
+      component with "show more" card loading. Learn more about
+      <a class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a> or
+      <a class="usa-link point" role="button" (click)="u.scrollToStart('summary-box-key-information');">
+        change settings</a> at the bottom of this page.
     </p>
 
     <!-- CARDS in CARD GROUP
@@ -52,11 +54,11 @@
   </div>
 
   <!-- "See more" pagination in standard button group -->
-  <div class="grid-container">
+  <div class="grid-container" *ngIf="!classic">
     <p class="text-center">Showing {{ cards.length }} of {{ totalCards }} cards</p>
     <ul class="usa-button-group" *ngIf="cards.length < totalCards">
       <li class="usa-button-group__item">
-        <button class="usa-button" (click)="showMore(true)">
+        <button class="usa-button" (click)="showPage(page+1)">
           Show {{ pageSize }} more
         </button>
       </li>
@@ -67,6 +69,62 @@
       </li>
     </ul>
   </div>
+
+  <!-- "Classic" pagination numbered index -->
+  <!-- https://designsystem.digital.gov/components/pagination/ -->
+  <div class="grid-container" *ngIf="classic">
+    <nav aria-label="Pagination" class="usa-pagination">
+      <ul class="usa-pagination__list">
+        <li class="usa-pagination__item usa-pagination__arrow" *ngIf="pages>3 && page>3">
+          <a role="button" class="usa-pagination__link usa-pagination__previous-page" aria-label="Previous page"
+            (click)="showPage(page-1)">
+            <svg class="usa-icon" aria-hidden="true" role="img">
+              <use xlink:href="/assets/uswds/img/sprite.svg#navigate_before"></use>
+            </svg>
+            <span class="usa-pagination__link-text">Previous</span>
+          </a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no" *ngIf="pages>3 && page>3">
+          <a role="button" class="usa-pagination__button" aria-label="First page, page 1" (click)="showPage(1)">1</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__overflow" aria-label="ellipsis indicating non-visible pages"
+          *ngIf="pages>3 && page>3">
+          <span>…</span>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no" *ngIf="page>1">
+          <a role="button" class="usa-pagination__button" attr.aria-label="Page {{page-1}}"
+            (click)="showPage(page-1)">{{page-1}}</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no">
+          <a role="button" class="usa-pagination__button usa-current" attr.aria-label="Page {{page}}"
+            aria-current="page" (click)="u.scrollToStart('top')">{{page}}</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no" *ngIf="page+1<=pages">
+          <a role="button" class="usa-pagination__button" attr.aria-label="Page {{page+1}}"
+            (click)="showPage(page+1)">{{page+1}}</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__overflow" aria-label="ellipsis indicating non-visible pages"
+          *ngIf="pages>3 && page!=pages">
+          <span>…</span>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no" *ngIf="pages>3 && page!=pages">
+          <a role="button" class="usa-pagination__button" attr.aria-label="Last page, page {{pages}}"
+            (click)="showPage(pages)">{{pages}}</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__arrow" *ngIf="pages>3 && page!=pages">
+          <a role="button" class="usa-pagination__link usa-pagination__next-page" aria-label="Next page"
+            (click)="showPage(page+1)">
+            <span class="usa-pagination__link-text">Next </span>
+            <svg class="usa-icon" aria-hidden="true" role="img">
+              <use xlink:href="/assets/uswds/img/sprite.svg#navigate_next"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <p class="text-center">Showing {{cardStart}}-{{cardEnd}} of {{totalCards}} cards</p>
+  </div>
+
 </section>
 
 
@@ -115,15 +173,6 @@
           to the collection.</li>
         <li>Lazy load images so only nearby images download and render.</li>
         <li>Optionally, auto-scroll to reposition page to new cards.</li>
-
-        <!-- enable auto-scroll -->
-        <div class="enable-scroll">
-          <div class="usa-checkbox">
-            <input class="usa-checkbox__input" id="enable-autoscroll" type="checkbox" name="auto-scroll"
-              [checked]="autoScroll" (change)="autoScroll = !autoScroll" />
-            <label class="usa-checkbox__label" for="enable-autoscroll">Turn on auto-scroll</label>
-          </div>
-        </div>
       </ul>
 
       <h4>Use caution with large catalogs:</h4>
@@ -150,5 +199,53 @@
         </button>
       </li>
     </ul>
+
+    <!-- page configuration -->
+    <div class="usa-summary-box" role="region" aria-labelledby="summary-box-key-information">
+      <div class="usa-summary-box__body">
+        <h3 class="usa-summary-box__heading" id="summary-box-key-information">
+          Page settings
+        </h3>
+        <div class="usa-summary-box__text">
+
+          <form class="usa-form">
+
+            <!-- total cards -->
+            <label class="usa-label" for="slider-total-cards">Total cards ({{totalCards}})</label>
+            <input id="slider-total-cards" name="total-cards" class="usa-range" type="range" min="6" max="{{maxCards}}"
+              step="6" [(ngModel)]="totalCards" aria-valuemin="6" attr.aria-valuemax="{{maxCards}}"
+              attr.aria-valuenow="{{totalCards}}" role="slider" (change)="changeTotalCards()" />
+
+            <!-- cards per pages -->
+            <label class="usa-label" for="slider-page-cards">Cards per page ({{pageSize}})</label>
+            <input id="slider-page-cards" name="page-cards" class="usa-range" type="range" min="6" max="{{pageMax}}"
+              step="6" [(ngModel)]="pageSize" aria-valuemin="6" attr.aria-valuemax="{{pageMax}}"
+              attr.aria-valuenow="{{pageSize}}" role="slider" (change)="resetCatalog()" />
+
+            <!-- enable auto-scroll -->
+            <div class="usa-checkbox">
+              <input class="usa-checkbox__input" id="enable-autoscroll" type="checkbox" name="auto-scroll"
+                [checked]="autoScroll" (change)="autoScroll = !autoScroll" />
+              <label class="usa-checkbox__label" for="enable-autoscroll">Auto-scroll when paging</label>
+            </div>
+
+            <!-- style -->
+            <label class="usa-label">Style</label>
+            <ul class="usa-button-group usa-button-group--segmented">
+              <li class="usa-button-group__item">
+                <button type="button" [ngClass]="!classic ? 'usa-button' : 'usa-button usa-button--outline'"
+                  (click)="classic=false;">Show more</button>
+              </li>
+              <li class="usa-button-group__item">
+                <button type="button" [ngClass]="classic ? 'usa-button' : 'usa-button usa-button--outline'"
+                  (click)="classic=true;autoScroll=true;">Classic</button>
+              </li>
+            </ul>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
