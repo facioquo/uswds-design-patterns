@@ -26,7 +26,7 @@ export class HomeComponent {
     {
       id: 'card-catalog',
       title: 'Card catalog',
-      description: 'A catalog of <strong>Cards</strong> with consistent vertical spacing and "see more" pagination.',
+      description: 'A catalog of <strong>Cards</strong> with consistent vertical spacing and "show more" pagination.',
       link: '/card-catalog'
     }
   ];
