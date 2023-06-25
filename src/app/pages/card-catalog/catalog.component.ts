@@ -40,6 +40,8 @@ export class CatalogComponent implements OnInit {
   public totalCards = this.maxCards;
 
   public cards: Card[] = [];
+  public cardStart = 1;
+  public cardEnd = this.cardStart + this.pageSize;
 
   ngOnInit(): void {
 
@@ -47,15 +49,23 @@ export class CatalogComponent implements OnInit {
     this.resetCatalog();
   }
 
-  showNext(doScroll: boolean): void {
+  showPage(page: number, skipScroll: boolean = false): void {
 
     // increment page
-    this.page++;
+    this.page = page;
     let scrollId = "";
 
     // get images
-    const idxStart = this.page * this.pageSize - this.pageSize;
-    const idxEnd = idxStart + this.pageSize;
+    this.cardStart = (this.page - 1) * this.pageSize + 1;
+    this.cardEnd = this.cardStart - 1;
+
+    const idxStart = this.cardStart - 1;
+    const idxEnd = this.cardStart + this.pageSize - 1;
+
+    // only show current page (classic pagination)
+    if (this.classic) {
+      this.cards = [];
+    }
 
     // add new cards
     for (let i = idxStart; i < idxEnd; i++) {
@@ -71,22 +81,23 @@ export class CatalogComponent implements OnInit {
         image: `/assets/pics/${image.id}-600x315.webp`
       };
 
-      // add to collection
-      if (this.cards.length < this.totalCards)
-        this.cards.push(card);
-
       // set scroll target to first new card
       // (only if not already set)
       if (i === idxStart) {
         scrollId = card.id;
       }
 
-      // if classic, only show page cards
-
-
+      // add to collection
+      if (i < this.totalCards) {
+        this.cards.push(card);
+        this.cardEnd++;
+      }
+      else return;
     }
 
-    if (doScroll && this.autoScroll) this.u.scrollToStart(scrollId, 500);
+    // scroll when appropriate
+    if (this.autoScroll && !skipScroll)
+      this.u.scrollToStart(scrollId, 500);
   }
 
   showAll(): void {
@@ -95,7 +106,7 @@ export class CatalogComponent implements OnInit {
 
     // add remaining cards
     for (let i = this.page; i < this.pages; i++) {
-      this.showNext(false);
+      this.showPage(i, true);
     }
 
     // scroll to first new card
@@ -104,7 +115,7 @@ export class CatalogComponent implements OnInit {
   }
 
 
-  // SETTINGS CHANGES
+  // PAGINATION SETTINGS
 
   changeTotalCards() {
     // maintain a rational page size
@@ -119,8 +130,7 @@ export class CatalogComponent implements OnInit {
 
   resetCatalog() {
     this.cards = [];
-    this.page = 0;
     this.updatePageCount();
-    this.showNext(false);
+    this.showPage(1, false);
   }
 }

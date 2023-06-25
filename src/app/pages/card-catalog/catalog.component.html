@@ -58,7 +58,7 @@
     <p class="text-center">Showing {{ cards.length }} of {{ totalCards }} cards</p>
     <ul class="usa-button-group" *ngIf="cards.length < totalCards">
       <li class="usa-button-group__item">
-        <button class="usa-button" (click)="showNext(true)">
+        <button class="usa-button" (click)="showPage(page+1)">
           Show {{ pageSize }} more
         </button>
       </li>
@@ -75,46 +75,55 @@
   <div class="grid-container" *ngIf="classic">
     <nav aria-label="Pagination" class="usa-pagination">
       <ul class="usa-pagination__list">
-        <li class="usa-pagination__item usa-pagination__arrow">
-          <a href="javascript:void(0);" class="usa-pagination__link usa-pagination__previous-page"
-            aria-label="Previous page"><svg class="usa-icon" aria-hidden="true" role="img">
+        <li class="usa-pagination__item usa-pagination__arrow" *ngIf="pages>3 && page>3">
+          <a role="button" class="usa-pagination__link usa-pagination__previous-page" aria-label="Previous page"
+            (click)="showPage(page-1)">
+            <svg class="usa-icon" aria-hidden="true" role="img">
               <use xlink:href="/assets/uswds/img/sprite.svg#navigate_before"></use>
             </svg>
-            <span class="usa-pagination__link-text">Previous</span></a>
+            <span class="usa-pagination__link-text">Previous</span>
+          </a>
         </li>
-        <li class="usa-pagination__item usa-pagination__page-no">
-          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Page 1">1</a>
+        <li class="usa-pagination__item usa-pagination__page-no" *ngIf="pages>3 && page>3">
+          <a role="button" class="usa-pagination__button" aria-label="First page, page 1" (click)="showPage(1)">1</a>
         </li>
-        <li class="usa-pagination__item usa-pagination__overflow" aria-label="ellipsis indicating non-visible pages">
+        <li class="usa-pagination__item usa-pagination__overflow" aria-label="ellipsis indicating non-visible pages"
+          *ngIf="pages>3 && page>3">
           <span>…</span>
         </li>
-        <li class="usa-pagination__item usa-pagination__page-no">
-          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Page 9">9</a>
+        <li class="usa-pagination__item usa-pagination__page-no" *ngIf="page>1">
+          <a role="button" class="usa-pagination__button" attr.aria-label="Page {{page-1}}"
+            (click)="showPage(page-1)">{{page-1}}</a>
         </li>
         <li class="usa-pagination__item usa-pagination__page-no">
-          <a href="javascript:void(0);" class="usa-pagination__button usa-current" aria-label="Page 10"
-            aria-current="page">10</a>
+          <a role="button" class="usa-pagination__button usa-current" attr.aria-label="Page {{page}}"
+            aria-current="page" (click)="u.scrollToStart('top')">{{page}}</a>
         </li>
-        <li class="usa-pagination__item usa-pagination__page-no">
-          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Page 11">11</a>
+        <li class="usa-pagination__item usa-pagination__page-no" *ngIf="page+1<=pages">
+          <a role="button" class="usa-pagination__button" attr.aria-label="Page {{page+1}}"
+            (click)="showPage(page+1)">{{page+1}}</a>
         </li>
-        <li class="usa-pagination__item usa-pagination__overflow" aria-label="ellipsis indicating non-visible pages">
+        <li class="usa-pagination__item usa-pagination__overflow" aria-label="ellipsis indicating non-visible pages"
+          *ngIf="pages>3 && page!=pages">
           <span>…</span>
         </li>
-        <li class="usa-pagination__item usa-pagination__page-no">
-          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Last page, page 24">24</a>
+        <li class="usa-pagination__item usa-pagination__page-no" *ngIf="pages>3 && page!=pages">
+          <a role="button" class="usa-pagination__button" attr.aria-label="Last page, page {{pages}}"
+            (click)="showPage(pages)">{{pages}}</a>
         </li>
-        <li class="usa-pagination__item usa-pagination__arrow">
-          <a href="javscript:shownext();" class="usa-pagination__link usa-pagination__next-page"
-            aria-label="Next page"><span class="usa-pagination__link-text">Next </span><svg class="usa-icon"
-              aria-hidden="true" role="img">
+        <li class="usa-pagination__item usa-pagination__arrow" *ngIf="pages>3 && page!=pages">
+          <a role="button" class="usa-pagination__link usa-pagination__next-page" aria-label="Next page"
+            (click)="showPage(page+1)">
+            <span class="usa-pagination__link-text">Next </span>
+            <svg class="usa-icon" aria-hidden="true" role="img">
               <use xlink:href="/assets/uswds/img/sprite.svg#navigate_next"></use>
-            </svg></a>
+            </svg>
+          </a>
         </li>
       </ul>
     </nav>
+    <p class="text-center">Showing {{cardStart}}-{{cardEnd}} of {{totalCards}} cards</p>
   </div>
-
 
 </section>
 
@@ -199,8 +208,6 @@
         </h3>
         <div class="usa-summary-box__text">
 
-          <p class="text-center">Page {{ page }} of {{ pages }}, showing {{cards.length}} cards</p>
-
           <form class="usa-form">
 
             <!-- total cards -->
@@ -231,7 +238,7 @@
               </li>
               <li class="usa-button-group__item">
                 <button type="button" [ngClass]="classic ? 'usa-button' : 'usa-button usa-button--outline'"
-                  (click)="classic=true">Classic</button>
+                  (click)="classic=true;autoScroll=true;">Classic</button>
               </li>
             </ul>
           </form>
