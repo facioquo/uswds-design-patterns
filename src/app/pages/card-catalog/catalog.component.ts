@@ -8,8 +8,11 @@ import { Image } from './image.model';
 
 @Component({
   selector: 'app-catalog',
-  templateUrl: './catalog.component.html',
-  styleUrls: ['./catalog.component.scss']
+  templateUrl: 'catalog.component.html',
+  styleUrls: [
+    'catalog.component.scss',
+    'catalog.settings.scss'
+  ]
 })
 export class CatalogComponent implements OnInit {
 
@@ -30,20 +33,21 @@ export class CatalogComponent implements OnInit {
   }
 
   public page = 0;
+  public pages = 0;
   public pageSize = 24;
   public pageMax = 180;
-
   public maxCards = 840;
   public totalCards = this.maxCards;
+
   public cards: Card[] = [];
 
   ngOnInit(): void {
 
     // load initial page
-    this.showMore(false);
+    this.resetCatalog();
   }
 
-  showMore(doScroll: boolean): void {
+  showNext(doScroll: boolean): void {
 
     // increment page
     this.page++;
@@ -53,6 +57,7 @@ export class CatalogComponent implements OnInit {
     const idxStart = this.page * this.pageSize - this.pageSize;
     const idxEnd = idxStart + this.pageSize;
 
+    // add new cards
     for (let i = idxStart; i < idxEnd; i++) {
 
       const image = this.images[i];
@@ -75,6 +80,10 @@ export class CatalogComponent implements OnInit {
       if (i === idxStart) {
         scrollId = card.id;
       }
+
+      // if classic, only show page cards
+
+
     }
 
     if (doScroll && this.autoScroll) this.u.scrollToStart(scrollId, 500);
@@ -82,19 +91,20 @@ export class CatalogComponent implements OnInit {
 
   showAll(): void {
 
-    const remCards = this.totalCards - this.cards.length
-    const remPages = Math.floor(remCards / this.pageSize);
     const nextCard = this.images[this.page * this.pageSize + 1];
 
     // add remaining cards
-    for (let i = 0; i < remPages; i++) {
-      this.showMore(false);
+    for (let i = this.page; i < this.pages; i++) {
+      this.showNext(false);
     }
 
     // scroll to first new card
     if (this.autoScroll)
       this.u.scrollToStart(`card-${nextCard.id}`, 500);
   }
+
+
+  // SETTINGS CHANGES
 
   changeTotalCards() {
     // maintain a rational page size
@@ -103,8 +113,14 @@ export class CatalogComponent implements OnInit {
     this.resetCatalog();
   }
 
+  updatePageCount(){
+    this.pages = Math.ceil(this.totalCards / this.pageSize);
+  }
+
   resetCatalog() {
     this.cards = [];
-    this.showMore(false);
+    this.page = 0;
+    this.updatePageCount();
+    this.showNext(false);
   }
 }

@@ -6,12 +6,6 @@
 @forward "usa-button";
 @forward "usa-button-group";
 
-@forward "usa-summary-box";
-@forward "usa-checkbox";
-@forward "usa-range";
-@forward "usa-pagination";
-@forward "usa-icon";
-
 .catalog-section {
 
   @include u-padding-top(0);
@@ -102,36 +96,4 @@
   -ms-transition: all 0.8s ease;
   -o-transition: all 0.8s ease;
   transition: all 0.8s ease;
-}
-
-// page configuration
-.usa-summary-box {
-
-  margin-top: 50px !important;
-  background-color: color($theme-color-base-light);
-  border: none;
-
-  .usa-summary-box__heading {
-    color: unset;
-    margin-top: 0;
-  }
-
-  .usa-label {
-    padding-left: 1px;
-  }
-
-  .usa-range {
-    margin: 0;
-    padding-left: 0;
-    background-color: unset;
-  }
-
-  .usa-checkbox {
-    background-color: unset;
-    padding-left: 1px;
-  }
-
-  .usa-checkbox__label {
-    margin-top: 24px;
-  }
 }
