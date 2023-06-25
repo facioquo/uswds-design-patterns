@@ -1,8 +1,6 @@
 @use "/sass/uswds-styles" as *;
 @forward "usa-identifier";
 
-// IDENTIFIER
-
 .usa-identifier {
   @include typeset($theme-identifier-font-family, "sm", 2);
 }
@@ -21,7 +19,6 @@
 .usa-identifier__identity-disclaimer {
 
   a.usa-link {
-
 
     &:hover {
       color: color($theme-color-base-dark) !important;

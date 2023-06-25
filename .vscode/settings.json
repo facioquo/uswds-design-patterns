@@ -1,27 +1,27 @@
 {
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 3000,
-    "search.exclude": {
-        "**/*angular": true,
-        "**/dist": true,
-        "**/node_modules": true,
-        "**/package-lock.json": true
-    },
-    "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs": "active",
-    "editor.formatOnSave": true,
-    "cSpell.words": [
-        "apng",
-        "clickability",
-        "easeload",
-        "facioquo",
-        "FOIA",
-        "gulpfile",
-        "megamenu",
-        "ngsw",
-        "sidenav",
-        "skipnav",
-        "uswds",
-        "webp"
-    ]
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 3000,
+  "search.exclude": {
+    "**/*angular": true,
+    "**/dist": true,
+    "**/node_modules": true,
+    "**/package-lock.json": true
+  },
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.formatOnSave": true,
+  "cSpell.words": [
+    "apng",
+    "clickability",
+    "easeload",
+    "facioquo",
+    "FOIA",
+    "gulpfile",
+    "megamenu",
+    "ngsw",
+    "sidenav",
+    "skipnav",
+    "uswds",
+    "webp"
+  ]
 }

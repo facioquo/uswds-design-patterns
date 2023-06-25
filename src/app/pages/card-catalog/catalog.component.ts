@@ -8,10 +8,10 @@ import { Image } from './image.model';
 
 @Component({
   selector: 'app-catalog',
-  templateUrl: 'catalog.component.html',
+  templateUrl: './catalog.component.html',
   styleUrls: [
-    'catalog.component.scss',
-    'catalog.settings.scss'
+    './catalog.component.scss',
+    './catalog.settings.scss'
   ]
 })
 export class CatalogComponent implements OnInit {
