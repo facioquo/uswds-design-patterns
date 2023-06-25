@@ -19,10 +19,11 @@
     <h1>Card catalog</h1>
     <p class="usa-prose">
       A card catalog using the U.S. Web Design System <a class="usa-link usa-link--external"
-        href="https://designsystem.digital.gov/components/card/" target="_blank">Card</a> component with "show more"
-      card loading. Learn more about <a class="usa-link" routerLink="./" fragment="info">this design pattern</a> or
-      <a class="usa-link" routerLink="./" fragment="summary-box-key-information">change settings</a>
-      at the bottom of this page.
+        href="https://designsystem.digital.gov/components/card/" target="_blank">Card</a>
+      component with "show more" card loading. Learn more about
+      <a class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a> or
+      <a class="usa-link point" role="button" (click)="u.scrollToStart('summary-box-key-information');">
+        change settings</a> at the bottom of this page.
     </p>
 
     <!-- CARDS in CARD GROUP
@@ -104,7 +105,7 @@
           <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Last page, page 24">24</a>
         </li>
         <li class="usa-pagination__item usa-pagination__arrow">
-          <a href="javascript:void(0);" class="usa-pagination__link usa-pagination__next-page"
+          <a href="javscript:shownext();" class="usa-pagination__link usa-pagination__next-page"
             aria-label="Next page"><span class="usa-pagination__link-text">Next </span><svg class="usa-icon"
               aria-hidden="true" role="img">
               <use xlink:href="/assets/uswds/img/sprite.svg#navigate_next"></use>

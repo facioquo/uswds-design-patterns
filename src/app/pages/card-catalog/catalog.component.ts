@@ -113,7 +113,7 @@ export class CatalogComponent implements OnInit {
     this.resetCatalog();
   }
 
-  updatePageCount(){
+  updatePageCount() {
     this.pages = Math.ceil(this.totalCards / this.pageSize);
   }
 

@@ -66,7 +66,8 @@
   @include site-style;
   color: color($theme-color-base-lighter);
 
-  h1,h2 {
+  h1,
+  h2 {
     color: rgba(230, 199, 76, 0.95);
   }
 
@@ -104,4 +105,8 @@
       @include u-padding(2);
     }
   }
+}
+
+a.point:hover {
+  cursor: pointer;
 }
