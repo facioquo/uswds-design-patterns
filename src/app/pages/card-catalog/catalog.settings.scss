@@ -48,6 +48,11 @@
 
     &::before {
       box-shadow: 0 0 0 1px color($theme-color-base);
+      background-color: color($theme-color-base-lightest);
     }
+  }
+
+  .usa-button--outline {
+    background-color: color($theme-color-base-lightest);
   }
 }
