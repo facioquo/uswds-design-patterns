@@ -115,22 +115,22 @@ export class CatalogComponent implements OnInit {
   }
 
 
-  // PAGINATION SETTINGS
+  // CATALOG SETTINGS
 
   changeTotalCards() {
     // maintain a rational page size
     this.pageMax = Math.min(180, this.totalCards);
     this.pageSize = Math.min(this.pageSize, this.pageMax);
-    this.resetCatalog();
+    this.resetCatalog(true);
   }
 
   updatePageCount() {
     this.pages = Math.ceil(this.totalCards / this.pageSize);
   }
 
-  resetCatalog() {
+  resetCatalog(skipScroll = false) {
     this.cards = [];
     this.updatePageCount();
-    this.showPage(1, false);
+    this.showPage(1, skipScroll);
   }
 }
