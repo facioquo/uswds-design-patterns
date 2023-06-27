@@ -16,6 +16,8 @@
 
   @include at-media-max("mobile-lg") {
     @include u-margin(-2);
+    @include u-margin-bottom(7);
+    @include u-padding-x(2);
   }
 
   background-color: color($theme-color-base-lighter);
