@@ -5,12 +5,22 @@
 @forward "usa-pagination";
 @forward "usa-icon";
 
-// page configuration
+// page settings
 .usa-summary-box {
 
-  margin-top: 50px !important;
-  background-color: color($theme-color-base-light);
+  @include u-margin-x(-6);
+  @include u-margin-top(-4);
+  @include u-margin-bottom(7);
+  @include u-padding-x(6);
+  @include u-padding-y(4);
+
+  @include at-media-max("mobile-lg") {
+    @include u-margin(-2);
+  }
+
+  background-color: color($theme-color-base-lighter);
   border: none;
+  border-radius: 1rem;
 
   .usa-summary-box__heading {
     color: unset;

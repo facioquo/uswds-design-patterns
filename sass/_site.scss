@@ -96,11 +96,6 @@
     max-width: 800px;
     margin: auto;
 
-    border: 5px;
-    border-style: solid;
-    border-radius: 1rem;
-    border-color: color($theme-color-base);
-
     @include at-media-max("mobile-lg") {
       @include u-padding(2);
     }
