@@ -92,6 +92,10 @@
   /* "see more" button groups at bottom of page */
   .usa-button-group {
     @include u-flex("justify-center");
+
+    /* match classic height */
+    margin-top: 1rem;
+    margin-bottom: calc(1rem - 8px);
   }
 
   /* classic pagination */
