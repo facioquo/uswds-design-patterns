@@ -75,7 +75,7 @@ export class CatalogComponent implements OnInit {
       // define new card
       const card = {
         id: `card-${image.id.toString()}`,
-        title: this.u.randomWords(25, 65),
+        title: this.u.randomWords(15, 65),
         description: `<small>Photo by ${image.author}.</small><br />${this.u.randomWords(25, 90)}.`,
         link: image.url,
         image: `/assets/pics/${image.id}-600x315.webp`
