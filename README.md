@@ -1,6 +1,6 @@
 # Essential design patterns | U.S. Web Design System
 
-A basic Angular website demonstrating design patterns and experimentation with [U.S. Web Design System](https://designsystem.digital.gov) (USWDS).  Each pattern is a separate site page with its own isolated stylesheet and typescript file, to make it easy to see its implementation.  All design patterns are listed on the [uswds.facioquo.com](https://uswds.facioquo.com) home page.
+An Angular framework website demonstrating design patterns and experimentations with [U.S. Web Design System](https://designsystem.digital.gov) (USWDS).  Each pattern is a separate site page with its own isolated stylesheet and typescript file, to make it easy to see its implementation.  All design patterns are listed on the [uswds.facioquo.com](https://uswds.facioquo.com) home page.
 
 ## Getting started with this Angular site
 
@@ -18,7 +18,7 @@ Since our design pattern pages are isolated and
 
 `SASS/uswds-styles.scss` is an out of the box USWDS base for design pattern pages.
 
-The base `.site` familly of styles are for our regular dark themed site pages and components.
+`SASS/_site.scss` and the base `.site` family of styles are for our regular dark themed site pages and components.
 
 ## Contributor notes
 
