@@ -155,7 +155,7 @@
             <label class="usa-label" for="slider-page-cards">Cards per page ({{pageSize}})</label>
             <input id="slider-page-cards" name="page-cards" class="usa-range" type="range" min="6" max="{{pageMax}}"
               step="6" [(ngModel)]="pageSize" aria-valuemin="6" attr.aria-valuemax="{{pageMax}}"
-              attr.aria-valuenow="{{pageSize}}" role="slider" (change)="resetCatalog()" />
+              attr.aria-valuenow="{{pageSize}}" role="slider" (change)="changePageSize()" />
 
             <!-- enable auto-scroll -->
             <div class="usa-checkbox">
@@ -169,7 +169,7 @@
             <ul class="usa-button-group usa-button-group--segmented">
               <li class="usa-button-group__item">
                 <button type="button" [ngClass]="!classic ? 'usa-button' : 'usa-button usa-button--outline'"
-                  (click)="classic=false;">Show more</button>
+                  (click)="classic=false;">Show&nbsp;more</button>
               </li>
               <li class="usa-button-group__item">
                 <button type="button" [ngClass]="classic ? 'usa-button' : 'usa-button usa-button--outline'"
