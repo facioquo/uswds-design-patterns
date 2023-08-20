@@ -124,6 +124,13 @@ export class CatalogComponent implements OnInit {
     this.resetCatalog(true);
   }
 
+  changePageSize() {
+    this.cards = [];
+    this.updatePageCount();
+    this.showPage(1, true);
+    this.u.scrollToEnd(`settings`, 0);
+  }
+
   updatePageCount() {
     this.pages = Math.ceil(this.totalCards / this.pageSize);
   }
