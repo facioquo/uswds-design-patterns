@@ -22,7 +22,7 @@
         href="https://designsystem.digital.gov/components/card/" target="_blank"
         rel="noopener noreferrer nofollow">Card</a> component with “show more” card loading. Learn more about
       <a class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a> or
-      <a class="usa-link point" role="button" (click)="u.scrollToStart('settings');">change settings</a>
+      <a class="usa-link point" role="button" (click)="u.scrollToEnd('settings');">change settings</a>
       at the bottom of this page.
     </p>
 
@@ -133,10 +133,10 @@
 <!-- INFO SECTION | About this design pattern -->
 <section class="usa-section usa-dark-background pattern-info-section">
 
-  <div class="pattern-info-container">
+  <!-- Patterns settings -->
+  <div class="pattern-info-container" id="settings">
 
-    <!-- page settings -->
-    <div class="usa-summary-box" role="region" aria-labelledby="summary-box-key-information" id="settings">
+    <div class="usa-summary-box" role="region" aria-labelledby="summary-box-key-information">
       <div class="usa-summary-box__body">
         <h3 class="usa-summary-box__heading" id="summary-box-key-information">
           Catalog settings
@@ -181,8 +181,12 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <h2 id="info">About this pattern</h2>
+  <!-- About this design pattern -->
+  <div class="pattern-info-container" id="info">
+
+    <h2>About this pattern</h2>
 
     <div class="features">
 
