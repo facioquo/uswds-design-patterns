@@ -19,10 +19,10 @@
     <h1>Card catalog</h1>
     <p class="usa-prose">
       A card catalog using the U.S. Web Design System <a class="usa-link usa-link--external"
-        href="https://designsystem.digital.gov/components/card/" target="_blank">Card</a>
-      component with “show more” card loading. Learn more about
+        href="https://designsystem.digital.gov/components/card/" target="_blank"
+        rel="noopener noreferrer nofollow">Card</a> component with “show more” card loading. Learn more about
       <a class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a> or
-      <a class="usa-link point" role="button" (click)="u.scrollToStart('settings');">change settings</a>
+      <a class="usa-link point" role="button" (click)="u.scrollToEnd('settings');">change settings</a>
       at the bottom of this page.
     </p>
 
@@ -131,12 +131,12 @@
 
 
 <!-- INFO SECTION | About this design pattern -->
-<section  class="usa-section usa-dark-background pattern-info-section">
+<section class="usa-section usa-dark-background pattern-info-section">
 
-  <div class="pattern-info-container">
+  <!-- Patterns settings -->
+  <div class="pattern-info-container" id="settings">
 
-    <!-- page settings -->
-    <div class="usa-summary-box" role="region" aria-labelledby="summary-box-key-information" id="settings">
+    <div class="usa-summary-box" role="region" aria-labelledby="summary-box-key-information">
       <div class="usa-summary-box__body">
         <h3 class="usa-summary-box__heading" id="summary-box-key-information">
           Catalog settings
@@ -181,8 +181,12 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <h2 id="info">About this pattern</h2>
+  <!-- About this design pattern -->
+  <div class="pattern-info-container" id="info">
+
+    <h2>About this pattern</h2>
 
     <div class="features">
 
@@ -190,7 +194,8 @@
 
       <p class="usa-prose usa-dark-background">
         Use this card design pattern when you want consistent <a class="usa-link usa-link--alt usa-link--external"
-          href="https://designsystem.digital.gov/components/card/" target="_blank">Card</a> size proportions and
+          href="https://designsystem.digital.gov/components/card/" target="_blank"
+          rel="noopener noreferrer nofollow">Card</a> size proportions and
         alignment of its elements when sizes for images, card titles, and descriptions vary.
       </p>
 
@@ -198,7 +203,8 @@
 
       <ul class="usa-list">
         <li>Card image box uses a <a class="usa-link usa-link--external"
-            href="https://web.dev/patterns/layout/aspect-ratio-image-card/">fixed aspect ratio</a> to ensure a
+            href="https://web.dev/patterns/layout/aspect-ratio-image-card/" target="_blank"
+            rel="noopener noreferrer nofollow">fixed aspect ratio</a> to ensure a
           consistent size.</li>
         <li>Card title and summary sections are fixed to 2 and 3 lines to ensure a consistent size. We limited the max
           allowable raw text, so overflow is rare. Ellipses ... indicate overflows.</li>
@@ -213,7 +219,8 @@
       <p class="usa-prose">
         Use this pagination design pattern when you want to see more content without the large page
         shift that you'd get from classic numbered <a class="usa-link usa-link--alt usa-link--external"
-          href="https://designsystem.digital.gov/components/pagination/" target="_blank">Pagination</a>.
+          href="https://designsystem.digital.gov/components/pagination/" target="_blank"
+          rel="noopener noreferrer nofollow">Pagination</a>.
       </p>
 
       <h4>What we changed:</h4>
@@ -238,9 +245,9 @@
     <!-- github | return to top -->
     <ul class="usa-button-group padding-top-6">
       <li class="usa-button-group__item">
-        <a class="usa-button usa-link--external" type="button" target="_blank"
-          href="https://github.com/facioquo/uswds-design-patterns/tree/main/src/app/pages/card-catalog">
-          View on GitHub</a>
+        <a class="usa-button usa-link--external" type="button"
+          href="https://github.com/facioquo/uswds-design-patterns/tree/main/src/app/pages/card-catalog"
+          target="_blank">View on GitHub</a>
       </li>
       <li class="usa-button-group__item">
         <button class="usa-button usa-button--outline usa-button--inverse" (click)="u.scrollToStart('top')">

@@ -8,4 +8,5 @@ import { Card } from './card.model';
 })
 export class SiteCardComponent {
   @Input() card!: Card;
+  @Input() i!: number;
 }

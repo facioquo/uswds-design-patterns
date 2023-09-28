@@ -5,15 +5,15 @@
     </h1>
     <p class="usa-prose">
       The <a class="usa-link usa-link--external" href="https://designsystem.digital.gov" target="_blank"
-        rel="noreferrer">U.S. Web Design System</a> (USWDS) is a set of interactive website components and guidelines
-      used across government. This site is built entirely with this system by community contributors. Before using our
-      design patterns, check to see if there are more appropriate <a class="usa-link usa-link--external"
-        href="https://designsystem.digital.gov/patterns/" target="_blank" rel="noreferrer">official USWDS design
-        patterns</a>.
+        rel="noopener noreferrer nofollow">U.S. Web Design System</a> (USWDS) is a set of interactive website components
+      and guidelines used across government. This site is a collection of <strong><i>extended design patterns</i></strong>
+      built by a community of USWDS enthusiasts.  Before using our design patterns check to see if there
+      are more appropriate <a class="usa-link usa-link--external" href="https://designsystem.digital.gov/patterns/"
+      target="_blank" rel="noopener noreferrer nofollow">official USWDS design patterns</a>.
     </p>
     <ul class="usa-card-group padding-top-4">
-      <li class="tablet:grid-col-6 tablet-lg:grid-col-4" *ngFor="let card of cards">
-        <app-site-card [card]="card" />
+      <li class="tablet:grid-col-6 tablet-lg:grid-col-4" *ngFor="let card of cards; index as i">
+        <app-site-card [card]="card" [i]=i />
       </li>
     </ul>
   </div>
