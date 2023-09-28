@@ -32,10 +32,10 @@ export class HomeComponent {
     },
     {
       id: 'hero-overlay',
-      title: 'Hero fade-in overlay',
-      description: 'A full-width semi-transparent callout overlay with faded edge for a <strong>Hero</strong> section.',
+      title: 'Hero callout overlay',
+      description: 'A full-width <strong>Hero</strong> callout overlay with semi-transparent background and faded edge.',
       link: '/hero-overlay',
-      // image: '/assets/thumbnails/hero-overlay.jpg'
+      image: '/assets/thumbnails/hero-overlay.png'
     }
   ];
 }

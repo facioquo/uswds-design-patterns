@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 import { OverlayRoutingModule } from './overlay-routing.module';
 import { OverlayComponent } from './overlay.component';
@@ -12,10 +10,8 @@ import { OverlayComponent } from './overlay.component';
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
     NgOptimizedImage,
-    OverlayRoutingModule,
-    FormsModule
+    OverlayRoutingModule
   ]
 })
 export class OverlayModule { }

@@ -84,6 +84,10 @@
   @include site-dark;
 }
 
+.pattern-intro-section {
+  @include u-padding-y(0);
+}
+
 .pattern-info-section {
 
   @include site-dark;
@@ -102,6 +106,17 @@
   }
 }
 
+/* misc styles */
 a.point:hover {
   cursor: pointer;
+}
+
+/* fade in images after loading. */
+.easeload {
+  opacity: 0;
+  -webkit-transition: all 0.8s ease;
+  -moz-transition: all 0.8s ease;
+  -ms-transition: all 0.8s ease;
+  -o-transition: all 0.8s ease;
+  transition: all 0.8s ease;
 }

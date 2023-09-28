@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { UtilityService } from 'src/app/services/utility.service';
 
 @Component({
   selector: 'app-hero-overlay',
   templateUrl: './overlay.component.html',
-  styleUrls: [
-    './overlay.component.scss'
-  ]
+  styleUrls: ['./overlay.component.scss']
 })
-export class OverlayComponent implements OnInit {
+export class OverlayComponent {
 
   constructor(
     public readonly u: UtilityService,
@@ -18,13 +16,8 @@ export class OverlayComponent implements OnInit {
     this.meta.addTags([
       {
         name: 'description',
-        content: 'A hero section overlay with fade-in edge.'
+        content: 'A full-width Hero callout overlay with semi-transparent background and fade-in edge.'
       }
     ]);
   }
-
-  ngOnInit(): void {
-
-  }
-
 }
