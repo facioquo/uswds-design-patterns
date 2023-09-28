@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CatalogComponent } from './catalog.component';
+import { OverlayComponent } from './overlay.component';
 
 const routes: Routes = [
   {
     path: "", // "" for lazy-loading, see AppRoutingModule
-    title: "Card catalog | Extended design pattern for USWDS",
-    component: CatalogComponent
+    title: "Hero callout overlay | Extended design pattern for USWDS",
+    component: OverlayComponent
   }
 ];
 
@@ -15,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CatalogRoutingModule { }
+export class OverlayRoutingModule { }

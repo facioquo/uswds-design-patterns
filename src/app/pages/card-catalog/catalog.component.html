@@ -1,21 +1,20 @@
-<!-- Bread crumbs (unmodified) -->
-<div class="grid-container">
-  <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs,,,">
-    <ol class="usa-breadcrumb__list">
-      <li class="usa-breadcrumb__list-item">
-        <a routerLink="/" class="usa-breadcrumb__link"><span>Patterns</span></a>
-      </li>
-      <li class="usa-breadcrumb__list-item">
-        <span>Card catalog</span>
-      </li>
-    </ol>
-  </nav>
-</div>
-
-<!-- CATALOG -->
-<section class="usa-section catalog-section">
+<!-- pattern introduction section -->
+<section class="usa-section pattern-intro-section">
   <div class="grid-container">
 
+    <!-- bread crumbs -->
+    <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs,,,">
+      <ol class="usa-breadcrumb__list">
+        <li class="usa-breadcrumb__list-item">
+          <a routerLink="/" class="usa-breadcrumb__link"><span>Patterns</span></a>
+        </li>
+        <li class="usa-breadcrumb__list-item">
+          <span>Card catalog</span>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- pattern intro -->
     <h1>Card catalog</h1>
     <p class="usa-prose">
       A card catalog using the U.S. Web Design System <a class="usa-link usa-link--external"
@@ -26,12 +25,18 @@
       at the bottom of this page.
     </p>
 
-    <!-- CARDS in CARD GROUP
-      - add tablet-lg grid breakpoint
-      - changed card container to <a>
-      - removed card footer with button
-      - size constraints and hover effect in SCSS file
-    -->
+  </div>
+</section>
+
+<!-- CATALOG DESIGN PATTERN
+  - add tablet-lg grid breakpoint
+  - changed card container to <a>
+  - removed card footer with button
+  - size constraints and hover effect in SCSS file
+-->
+<section class="usa-section catalog-section">
+  <div class="grid-container">
+
     <ul class="usa-card-group">
       <li class="usa-card tablet:grid-col-6 tablet-lg:grid-col-4" *ngFor="let card of cards; index as i">
         <a class="usa-card__container" id="{{ card.id }}" href="{{ card.link }}" type="button" target="_blank"

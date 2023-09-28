@@ -7,7 +7,7 @@ import * as picList from 'src/assets/pics/pics.json';
 import { Image } from './image.model';
 
 @Component({
-  selector: 'app-catalog',
+  selector: 'app-card-catalog',
   templateUrl: './catalog.component.html',
   styleUrls: [
     './catalog.component.scss',

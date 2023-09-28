@@ -11,7 +11,7 @@ ref: https://designsystem.digital.gov/components/packages
 @forward "uswds-utilities";
 @forward "uswds-typography";
 
-/* GLOBAL STYLES */
+/* GLOBAL HTML STYLES */
 body {
   margin: 0;
   overflow-y: scroll;
@@ -20,14 +20,4 @@ body {
 main {
   display: block;
   min-height: 85vh;
-}
-
-/* fade in images after loading. */
-.easeload {
-  opacity: 0;
-  -webkit-transition: all 0.8s ease;
-  -moz-transition: all 0.8s ease;
-  -ms-transition: all 0.8s ease;
-  -o-transition: all 0.8s ease;
-  transition: all 0.8s ease;
 }

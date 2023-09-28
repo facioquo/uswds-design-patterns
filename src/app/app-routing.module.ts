@@ -16,6 +16,10 @@ const routes: Routes = [
   {
     path: 'card-catalog',
     loadChildren: () => import('./pages/card-catalog/catalog.module').then(m => m.CatalogModule)
+  },
+  {
+    path: 'hero-overlay',
+    loadChildren: () => import('./pages/hero-overlay/overlay.module').then(m => m.OverlayModule)
   }
 ];
 

@@ -6,7 +6,7 @@ import { AboutComponent } from './about.component';
 const routes: Routes = [
   {
     path: "", // "" for lazy-loading, see AppRoutingModule
-    title: "About us | Design patterns using the U.S. Web Design System",
+    title: "About | Extended design patterns for the U.S. Web Design System",
     component: AboutComponent
   }
 ];
