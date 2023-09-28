@@ -1,4 +1,4 @@
-# Extended design patterns for USWDS | [uswds.facioquo.com](https://uswds.facioquo.com)
+# Extended USWDS design patterns | [uswds.facioquo.com](https://uswds.facioquo.com)
 
 ![](/.offline/site-thumbnail.png)
 
