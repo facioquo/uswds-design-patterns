@@ -1,0 +1,85 @@
+<!-- Bread crumbs (unmodified) -->
+<div class="grid-container">
+  <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs,,,">
+    <ol class="usa-breadcrumb__list">
+      <li class="usa-breadcrumb__list-item">
+        <a routerLink="/" class="usa-breadcrumb__link"><span>Patterns</span></a>
+      </li>
+      <li class="usa-breadcrumb__list-item">
+        <span>Hero fade-in overlay</span>
+      </li>
+    </ol>
+  </nav>
+</div>
+
+<!-- CATALOG -->
+<section class="usa-section hero-overlay-section">
+  <div class="grid-container">
+
+    <h1>Hero fade-in overlay</h1>
+    <p class="usa-prose">
+      A semi-transparent callout overlay with faded edge, using the U.S. Web Design System <a class="usa-link usa-link--external" href="https://designsystem.digital.gov/templates/landing-page/" target="_blank" rel="noopener noreferrer nofollow">Landing page (Hero)</a> template. Learn more about <a class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a> at the bottom of this page.
+    </p>
+  </div>
+</section>
+
+<!-- HERO with OVERLAY
+  - add tablet-lg grid breakpoint
+  - changed A
+  - moved button to float right
+-->
+<section class="usa-hero" aria-label="Introduction">
+  <div class="grid-container">
+    <div class="usa-hero__callout">
+      <h1 class="usa-hero__heading">
+        <span class="usa-hero__heading--alt">Hero callout:</span>Bring attention to a project priority
+      </h1>
+      <p>
+        Support the callout with some short explanatory text. You don’t need more than a couple of sentences.
+      </p>
+      <a class="usa-button" href="">Call to action</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- INFO SECTION | About this design pattern -->
+<section class="usa-section usa-dark-background pattern-info-section">
+
+  <!-- About this design pattern -->
+  <div class="pattern-info-container" id="info">
+
+    <h2>About this pattern</h2>
+
+    <div class="features">
+
+      <h3>Hero callout</h3>
+
+      <p class="usa-prose usa-dark-background">
+        Use this callout overlay design pattern when you want ...
+      </p>
+
+      <h4>What we changed:</h4>
+
+      <ul class="usa-list">
+        <li>TBD</li>
+        <li>TBD</li>
+      </ul>
+    </div>
+
+    <!-- github | return to top -->
+    <ul class="usa-button-group padding-top-6">
+      <li class="usa-button-group__item">
+        <a class="usa-button usa-link--external" type="button"
+          href="https://github.com/facioquo/uswds-design-patterns/tree/main/src/app/pages/hero-overlay"
+          target="_blank">View on GitHub</a>
+      </li>
+      <li class="usa-button-group__item">
+        <button class="usa-button usa-button--outline usa-button--inverse" (click)="u.scrollToStart('top')">
+          Return to top
+        </button>
+      </li>
+    </ul>
+
+  </div>
+</section>

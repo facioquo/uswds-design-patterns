@@ -1,0 +1,13 @@
+@use "/sass/uswds-styles" as *;
+@forward "usa-section";
+@forward "usa-layout-grid";
+@forward "usa-breadcrumb";
+@forward "usa-button";
+@forward "usa-button-group";
+@forward "usa-hero";
+
+.hero-overlay-section {
+
+  @include u-padding-top(0);
+  @include u-padding-bottom(2);
+}

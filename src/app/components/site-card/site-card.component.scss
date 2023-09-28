@@ -43,6 +43,26 @@
     background-color: color($theme-color-base-lighter);
   }
 
+  /* when above tablet size, truncate text */
+  @include at-media("tablet") {
+
+    .usa-card__heading {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .usa-card__body p {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      line-height: 2.8ex;
+      height: 8.4ex;
+      overflow: hidden;
+    }
+  }
+
   /* misc styling */
   .usa-card__heading {
     color: color($theme-color-base-lighter);

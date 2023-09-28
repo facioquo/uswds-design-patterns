@@ -29,6 +29,13 @@ export class HomeComponent {
       description: 'A catalog of <strong>Cards</strong> with consistent vertical spacing and “show more” pagination.',
       link: '/card-catalog',
       image: '/assets/thumbnails/card-catalog.jpg'
+    },
+    {
+      id: 'hero-overlay',
+      title: 'Hero fade-in overlay',
+      description: 'A full-width semi-transparent callout overlay with faded edge for a <strong>Hero</strong> section.',
+      link: '/hero-overlay',
+      // image: '/assets/thumbnails/hero-overlay.jpg'
     }
   ];
 }
