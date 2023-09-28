@@ -20,6 +20,10 @@ const routes: Routes = [
   {
     path: 'hero-overlay',
     loadChildren: () => import('./pages/hero-overlay/overlay.module').then(m => m.OverlayModule)
+  },
+  {
+    path: 'vertical-step-indicator',
+    loadChildren: () => import('./pages/vertical-stepper/stepper.module').then(m => m.StepperModule)
   }
 ];
 

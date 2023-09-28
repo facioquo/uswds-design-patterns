@@ -1,6 +1,6 @@
 # Extended USWDS design patterns | [uswds.facioquo.com](https://uswds.facioquo.com)
 
-![](/.offline/site-thumbnail.png)
+[![website screenshot](/.offline/site-thumbnail.png)](https://uswds.facioquo.com)
 
 An Angular framework website demonstrating extended design patterns for [U.S. Web Design System](https://designsystem.digital.gov) (USWDS).  Each pattern is a separate site page with its own isolated stylesheet and typescript file, to make it easy to see its implementation.  All design patterns are listed on the [uswds.facioquo.com](https://uswds.facioquo.com) home page.
 

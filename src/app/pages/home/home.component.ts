@@ -36,6 +36,13 @@ export class HomeComponent {
       description: 'A full-width <strong>Hero</strong> callout overlay with semi-transparent background and faded edge.',
       link: '/hero-overlay/#hero',
       image: '/assets/thumbnails/hero-overlay.png'
+    },
+    {
+      id: 'vertical-step-indicator',
+      title: 'Vertical step indicator',
+      description: 'A vertical <strong>Step Indicator</strong> with matching sticky navigation menu.',
+      link: '/vertical-step-indicator',
+      image: '/assets/thumbnails/vertical-step-indicator.png'
     }
   ];
 }
