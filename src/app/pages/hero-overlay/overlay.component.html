@@ -19,7 +19,7 @@
     <p class="usa-prose">
       A semi-transparent callout overlay with faded edge, using the U.S. Web Design System
       <a class="usa-link usa-link--external" href="https://designsystem.digital.gov/templates/landing-page/"
-        target="_blank" rel="noopener noreferrer nofollow">Landing page Hero</a> template. Learn more about
+        target="_blank" rel="noopener noreferrer nofollow">landing page Hero</a> template. Learn more about
       <a class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a>
       at the bottom of this page.
     </p>
@@ -29,10 +29,10 @@
 
 <!-- HERO OVERLAY DESIGN PATTERN
   - add tablet-lg grid breakpoint
-  - changed A
-  - moved button to float right
+  - moved callout to horizontal/bottom pane
+  - moved button to flex right
 -->
-<section class="hero-overlay-section">
+<section id="hero" class="hero-overlay-section">
   <div class="usa-hero">
     <div class="usa-hero__callout">
       <div class="grid-container">
@@ -45,7 +45,7 @@
             You really want them to click this button »
           </div>
           <div class="callout-action">
-            <button type="button" class="usa-button usa-button--big" href="">Call to action</button>
+            <button type="button" class="usa-button usa-button--big" href="">Join us</button>
           </div>
         </div>
       </div>
@@ -67,14 +67,19 @@
       <h3>Hero callout</h3>
 
       <p class="usa-prose usa-dark-background">
-        Use this callout overlay design pattern when you want ...
+        Use this callout overlay design pattern when you want to avoid covering up your background image
+        with an opaque overlay.  See the official USWDS <a class="usa-link usa-link--external"
+        href="https://designsystem.digital.gov/templates/landing-page/" target="_blank"
+        rel="noopener noreferrer nofollow">landing page Hero</a> guidance for more information.
       </p>
 
       <h4>What we changed:</h4>
 
       <ul class="usa-list">
-        <li>TBD</li>
-        <li>TBD</li>
+        <li>moved the callout overlay from a card to a horizontal pane</li>
+        <li>made the overlay semi-transparent</li>
+        <li>added a smoothly faded edge</li>
+        <li>increased font and button size</li>
       </ul>
     </div>
 

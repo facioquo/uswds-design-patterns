@@ -34,7 +34,7 @@ export class HomeComponent {
       id: 'hero-overlay',
       title: 'Hero callout overlay',
       description: 'A full-width <strong>Hero</strong> callout overlay with semi-transparent background and faded edge.',
-      link: '/hero-overlay',
+      link: '/hero-overlay/#hero',
       image: '/assets/thumbnails/hero-overlay.png'
     }
   ];
