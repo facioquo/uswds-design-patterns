@@ -22,8 +22,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/hero-overlay/overlay.module').then(m => m.OverlayModule)
   },
   {
-    path: 'process-list-nav',
-    loadChildren: () => import('./pages/process-list-nav/process-nav.module').then(m => m.ProcessNavModule)
+    path: 'sticky-menu',
+    loadChildren: () => import('./pages/sticky-menu/sticky-menu.module').then(m => m.StickyMenuModule)
   }
 ];
 

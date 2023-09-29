@@ -3,11 +3,11 @@ import { Meta } from '@angular/platform-browser';
 import { UtilityService } from 'src/app/services/utility.service';
 
 @Component({
-  selector: 'app-hero-process-nav',
-  templateUrl: './process-nav.component.html',
-  styleUrls: ['./process-nav.component.scss']
+  selector: 'app-hero-sticky-menu',
+  templateUrl: './sticky-menu.component.html',
+  styleUrls: ['./sticky-menu.component.scss']
 })
-export class ProcessNavComponent {
+export class StickyMenuComponent {
 
   constructor(
     public readonly u: UtilityService,
@@ -16,7 +16,7 @@ export class ProcessNavComponent {
     this.meta.addTags([
       {
         name: 'description',
-        content: 'A vertical Step Indicator with matching sticky navigation menu..'
+        content: 'A matching sticky Side Navigation menu for the Process List.'
       }
     ]);
   }
