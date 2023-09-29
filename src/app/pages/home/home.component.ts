@@ -17,11 +17,12 @@ export class HomeComponent {
     this.meta.addTags([
       {
         name: 'description',
-        content: 'Design patterns using the U.S. Web Design System.'
+        content: 'A collection of extended design patterns using the U.S. Web Design System (USWDS), built by community enthusiasts.'
       }
     ]);
   }
 
+  // landing page card data
   public cards: Card[] = [
     {
       id: 'card-catalog',
