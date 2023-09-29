@@ -1,0 +1,203 @@
+<!-- pattern introduction section -->
+<section class="usa-section pattern-intro-section">
+  <div class="grid-container">
+
+    <!-- bread crumbs -->
+    <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs,,,">
+      <ol class="usa-breadcrumb__list">
+        <li class="usa-breadcrumb__list-item">
+          <a routerLink="/" class="usa-breadcrumb__link"><span>Patterns</span></a>
+        </li>
+        <li class="usa-breadcrumb__list-item">
+          <span>Sticky process menu</span>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- pattern intro -->
+    <h1>Sticky process menu</h1>
+    <p class="usa-prose">
+      A matching sticky <a class="usa-link usa-link--external"
+        href="https://designsystem.digital.gov/components/side-navigation/" target="_blank"
+        rel="noopener noreferrer nofollow">Side Navigation</a> menu pane to accompany the U.S. Web Design System
+      <a class="usa-link usa-link--external" href="https://designsystem.digital.gov/components/process-list/"
+        target="_blank" rel="noopener noreferrer nofollow">Process List</a> component. Learn more about <a
+        class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a> at the
+      bottom of this page.
+    </p>
+
+  </div>
+</section>
+
+<!-- VERTICAL STEP INDICATOR DESIGN PATTERN
+  - TBD
+-->
+<section class="usa-section process-nav-section">
+  <div class="grid-container">
+
+    <!-- side nav -->
+    <div class="grid-row grid-gap-md">
+
+      <nav id="process-nav" aria-label="application process step"
+        class="display-none tablet-lg:grid-col-2 tablet-lg:display-inline">
+        <h2>Steps</h2>
+        <ul class="usa-sidenav usa-sticky-sidenav">
+          <li class="usa-sidenav__item">
+            <a role="button" (click)="u.scrollToStart('pack-bags');">
+              Pack your bags
+            </a>
+          </li>
+          <li class="usa-sidenav__item">
+            <a role="button" (click)="u.scrollToStart('get-started');">
+              Begin the journey
+            </a>
+          </li>
+          <li class="usa-sidenav__item">
+            <a role="button" (click)="u.scrollToStart('journey');">
+              Overcome obstacles
+            </a>
+          </li>
+          <li class="usa-sidenav__item">
+            <a role="button" (click)="u.scrollToStart('completion');">
+              Reach your goals
+            </a>
+          </li>
+          <li class="usa-sidenav__item bullet-question">
+            <a routerLink="/about">
+              Get help
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- process list content -->
+      <div class="tablet-lg:grid-col-fill">
+
+        <ol class="usa-process-list padding-top-0">
+          <li class="usa-process-list__item" id="pack-bags">
+            <h3 class="usa-process-list__heading">Pack your bags</h3>
+            <p>
+              <a class="usa-link usa-link--external" href="https://baconipsum.com/" target="_blank"
+                rel="noopener nofollow">Bacon ipsum dolor</a> amet hamburger fatback meatball bacon kevin salami flank.
+              Sirloin beef pork belly, shank tri-tip kevin tail sausage meatloaf. Pork chop salami ball tip short loin
+              brisket pig cupim jerky pork belly tri-tip chuck short ribs prosciutto.
+            </p>
+            <p><strong>Don't forget about:</strong></p>
+            <ul class="usa-list">
+
+              <li>Strip steak</li>
+              <li>Turkey</li>
+              <li>Beef pastrami</li>
+            </ul>
+          </li>
+          <li class="usa-process-list__item" id="get-started">
+            <h3 class="usa-process-list__heading">Begin the journey</h3>
+            <p>
+              <a class="usa-link usa-link--external" href="https://baconipsum.com/" target="_blank"
+                rel="noopener nofollow">Tuna ipsum dolor</a> ling cod prickleback yellowtail snapper electric ray panga
+              Manta Ray jack hillstream loach bullhead shark minnow Pacific hake giant gourami round whitefish lake chub
+              mola queen parrotfish.
+            </p>
+            <p>
+              Mouthbrooder cobia, ladyfish European flounder lookdown catfish, glassfish, chum salmon. Four-eyed fish;
+              cow shark? Blue danio South American Lungfish, squeaker bullhead Sundaland noodlefish glassfish longneck
+              eel.
+            </p>
+          </li>
+          <li class="usa-process-list__item" id="journey">
+            <h3 class="usa-process-list__heading">Overcome obstacles</h3>
+            <p>T-bone sausage ball tip brisket alcatra spare ribs jowl beef ribs strip steak biltong. Brisket landjaeger
+              chicken pork chop fatback meatball alcatra drumstick pork belly jowl. Meatball spare ribs pig landjaeger,
+              t-bone salami filet mignon turducken pork boudin meatloaf cow jowl pastrami. Drumstick short loin meatloaf
+              swine jowl beef ribs. Jerky pork belly corned beef kevin, swine brisket chuck burgdoggen hamburger biltong
+              salami picanha strip steak.</p>
+          </li>
+
+          <li class="usa-process-list__item" id="completion">
+            <h3 class="usa-process-list__heading">Reach your goals</h3>
+            <p>Here's <strong>important</strong> information to complete your trip.</p>
+            <p>
+              Jewelfish spotted dogfish, "ocean sunfish fusilier fish panga," grouper pirarucu tiger barb; ronquil,
+              paddlefish stream catfish. Gianttail zebra pleco, zebra turkeyfish. Torrent fish orbicular batfish rock
+              bass spookfish blacktip reef shark kuhli loach Black tetra mackerel shark.
+            </p>
+            <p>
+              Garden eel rockfish lanternfish burma danio ghost carp sweeper bent-tooth Port Jackson shark airbreathing
+              catfish Lost River sucker. Yellowfin grouper orangestriped triggerfish mouthbrooder lefteye flounder
+              tilefish, tenpounder lanternfish river shark olive flounder, poolfish North American freshwater catfish
+              Steve fish.
+            </p>
+            <p>
+              Elver European flounder tenuis ruffe ronquil elephant fish lighthousefish. Duckbilled barracudina
+              sheepshead minnow, clownfish--cutlassfish collared dogfish! Bluegill central mudminnow whale shark
+              surgeonfish smelt-whiting giant sea bass rice eel lancetfish dartfish redmouth whalefish tadpole fish.
+            </p>
+            <p>
+              Veniam cow alcatra enim shankle brisket qui turkey eu ribeye fatback. Spare ribs strip steak tongue kevin,
+              dolor pork chop hamburger beef duis. Swine pork chop deserunt, chislic jowl shoulder doner qui. Short ribs
+              ex andouille cow. Dolor ham commodo, quis jowl landjaeger ut. Mollit dolor irure in, fatback shank esse ex
+              beef nulla.
+            </p>
+          </li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- INFO SECTION | About this design pattern -->
+<section class="usa-section usa-dark-background pattern-info-section">
+
+  <!-- About this design pattern -->
+  <div class="pattern-info-container" id="info">
+
+    <h2>About this pattern</h2>
+
+    <div class="features">
+
+      <h3>Side navigation</h3>
+
+      <p class="usa-prose usa-dark-background">
+        Use this design pattern when you are using the <a class="usa-link usa-link--external"
+          href="https://designsystem.digital.gov/components/process-list/" target="_blank"
+          rel="noopener noreferrer nofollow">Process List</a> and want a matching sticky version of the <a
+          class="usa-link usa-link--external" href="https://designsystem.digital.gov/components/side-navigation/"
+          target="_blank" rel="noopener noreferrer nofollow">Side Navigation</a> menu.
+      </p>
+
+      <h4>What we changed</h4>
+
+      <ul class="usa-list">
+        <li>Added matching numbered bubbles</li>
+        <li>Made it sticky so it's always on-screen when viewing the process list</li>
+      </ul>
+
+      <h3>Process list</h3>
+
+      <h4>What we changed</h4>
+
+      <ul class="usa-list">
+        <li>Removed maximum content width limitations</li>
+        <li>Matched background color of numbered bubbles</li>
+      </ul>
+
+    </div>
+
+    <!-- github | return to top -->
+    <ul class="usa-button-group padding-top-6">
+      <li class="usa-button-group__item">
+        <a class="usa-button usa-link--external" type="button"
+          href="https://github.com/facioquo/uswds-design-patterns/tree/main/src/app/pages/vertical-process-nav"
+          target="_blank">View on GitHub</a>
+      </li>
+      <li class="usa-button-group__item">
+        <button class="usa-button usa-button--outline usa-button--inverse" (click)="u.scrollToStart('top')">
+          Return to top
+        </button>
+      </li>
+    </ul>
+
+  </div>
+</section>
