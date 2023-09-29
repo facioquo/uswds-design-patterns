@@ -22,8 +22,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/hero-overlay/overlay.module').then(m => m.OverlayModule)
   },
   {
-    path: 'vertical-step-indicator',
-    loadChildren: () => import('./pages/vertical-stepper/stepper.module').then(m => m.StepperModule)
+    path: 'process-list-nav',
+    loadChildren: () => import('./pages/process-list-nav/process-nav.module').then(m => m.ProcessNavModule)
   }
 ];
 

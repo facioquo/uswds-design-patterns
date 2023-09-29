@@ -3,11 +3,11 @@ import { Meta } from '@angular/platform-browser';
 import { UtilityService } from 'src/app/services/utility.service';
 
 @Component({
-  selector: 'app-hero-stepper',
-  templateUrl: './stepper.component.html',
-  styleUrls: ['./stepper.component.scss']
+  selector: 'app-hero-process-nav',
+  templateUrl: './process-nav.component.html',
+  styleUrls: ['./process-nav.component.scss']
 })
-export class StepperComponent {
+export class ProcessNavComponent {
 
   constructor(
     public readonly u: UtilityService,

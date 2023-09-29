@@ -38,11 +38,11 @@ export class HomeComponent {
       image: '/assets/thumbnails/hero-overlay.png'
     },
     {
-      id: 'vertical-step-indicator',
-      title: 'Vertical step indicator',
-      description: 'A vertical <strong>Step Indicator</strong> with matching sticky navigation menu.',
-      link: '/vertical-step-indicator',
-      image: '/assets/thumbnails/vertical-step-indicator.png'
+      id: 'process-list-nav',
+      title: 'Sticky process menu',
+      description: 'A matching sticky <strong>Side Navigation</strong> menu for the <strong>Process List</strong>.',
+      link: '/process-list-nav',
+      image: '/assets/thumbnails/process-list-nav.png'
     }
   ];
 }
