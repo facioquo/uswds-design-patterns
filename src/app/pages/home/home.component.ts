@@ -36,6 +36,13 @@ export class HomeComponent {
       description: 'A full-width <strong>Hero</strong> callout overlay with semi-transparent background and faded edge.',
       link: '/hero-overlay/#hero',
       image: '/assets/thumbnails/hero-overlay.png'
+    },
+    {
+      id: 'process-list-nav',
+      title: 'Sticky process menu',
+      description: 'A matching sticky <strong>Side Navigation</strong> menu for the <strong>Process List</strong>.',
+      link: '/process-list-nav',
+      image: '/assets/thumbnails/process-list-nav.png'
     }
   ];
 }

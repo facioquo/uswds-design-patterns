@@ -20,6 +20,10 @@ const routes: Routes = [
   {
     path: 'hero-overlay',
     loadChildren: () => import('./pages/hero-overlay/overlay.module').then(m => m.OverlayModule)
+  },
+  {
+    path: 'process-list-nav',
+    loadChildren: () => import('./pages/process-list-nav/process-nav.module').then(m => m.ProcessNavModule)
   }
 ];
 
