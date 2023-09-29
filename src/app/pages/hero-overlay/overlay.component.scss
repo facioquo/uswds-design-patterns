@@ -7,15 +7,7 @@
 @forward "usa-hero";
 @forward "usa-modal";
 
-.pattern-intro-section {
-  @include u-padding-y(0); // who doesn't this inherit correctly from _site.scss?
-  @include u-margin-bottom(4);
-}
-
-.pattern-info-section {
-  @include u-padding-top(0);
-}
-
+/* HERO OVERLAY DESIGN PATTERN */
 .hero-overlay-section {
 
   .usa-hero {
@@ -120,4 +112,15 @@
       }
     }
   }
+}
+
+
+// adjustments to non-design pattern parts of the page
+.pattern-intro-section {
+  @include u-padding-y(0); // who doesn't this inherit correctly from _site.scss?
+  @include u-margin-bottom(4);
+}
+
+.pattern-info-section {
+  @include u-padding-top(0);
 }

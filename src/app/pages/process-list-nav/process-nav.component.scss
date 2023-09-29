@@ -5,58 +5,87 @@
 @forward "usa-sidenav";
 @forward "usa-button";
 @forward "usa-button-group";
+@forward "usa-summary-box";
 @forward "usa-process-list";
 
-/* PROCESS LIST STICKY NAV */
+/* PROCESS LIST STICKY NAV DESIGN PATTERN */
 .process-nav-section {
 
   background-color: color("base-lightest");
 
   // side navigation
-  .usa-sidenav {
-    counter-reset: usa-numbered-list;
+  nav {
 
-    .usa-sidenav__item {
-      border-top: none;
+    @include u-padding-bottom(4);
 
-      a {
-        &:hover {
-          background-color: color("base-lighter");
+    // < tablet
+    @include at-media-max("tablet-lg") {
+      padding-left: 1.1rem !important;
+    }
+
+    h2 {
+      @include u-margin-top(0);
+      @include u-margin-bottom(1);
+      @include u-font("sans", 8);
+    }
+
+    .usa-sticky-sidenav {
+      position: sticky;
+      top: 1rem;
+    }
+
+    .usa-sidenav {
+
+      counter-reset: usa-numbered-list;
+
+      .usa-sidenav__item {
+        border-top: none;
+        line-height: 1.1;
+
+        a {
+          padding-left: 2rem;
+          padding-right: 0.3rem;
+
+          &:hover {
+            background-color: color("base-lighter");
+            cursor: pointer;
+          }
+        }
+
+        &::before {
+          display: flex;
+          flex-direction: row;
+
+          position: absolute;
+          left: 0;
+          height: 1.5rem;
+          width: 1.5rem;
+
+          margin-top: 0.275rem;
+          align-items: center;
+          justify-content: center;
+
+          font-size: 0.9rem;
+          font-weight: bold;
+          color: color("base-dark");
+
+          border: 0.15rem solid color("base-dark");
+          border-radius: 50%;
+          background-color: color("base-lightest");
+
+          content: counter(usa-numbered-list, decimal);
+          counter-increment: usa-numbered-list;
         }
       }
 
-      &::before {
-        display: flex;
-        flex-direction: row;
-
-        position: absolute;
-        left: -1.5rem;
-        height: 1.5rem;
-        width: 1.5rem;
-
-        margin-top: 0.45rem;
-        align-items: center;
-        justify-content: center;
-
-        font-family: Source Sans Pro Web, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
-        font-size: 0.9rem;
-        font-weight: bold;
-        color: color("base-dark");
-
-        border: 0.15rem solid color("base-dark");
-        border-radius: 50%;
-        background-color: color("base-lightest");
-
-        content: counter(usa-numbered-list, decimal);
-        counter-increment: usa-numbered-list;
+      // custom bullets
+      .bullet-question::before {
+        content: "?";
       }
     }
 
-    // custom bullets
-    .bullet-question::before {
-      content: "?";
-    }
   }
+
 
   // process list
   .usa-process-list {
@@ -94,4 +123,3 @@
 .pattern-info-section {
   @include u-padding-top(0);
 }
-
