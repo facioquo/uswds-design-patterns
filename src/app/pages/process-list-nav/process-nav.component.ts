@@ -16,7 +16,7 @@ export class ProcessNavComponent {
     this.meta.addTags([
       {
         name: 'description',
-        content: 'A vertical Step Indicator with matching sticky navigation menu..'
+        content: 'A matching sticky Side Navigation menu for the Process List.'
       }
     ]);
   }
