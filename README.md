@@ -13,7 +13,7 @@ npm install
 npm start
 ```
 
-## We use a base stylesheets
+## We use a base stylesheet
 
 Since our design pattern pages are isolated and based on default USWDS styles, we use a base stylesheet:
 
