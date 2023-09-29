@@ -39,11 +39,11 @@ export class HomeComponent {
       image: '/assets/thumbnails/hero-overlay.png'
     },
     {
-      id: 'process-list-nav',
+      id: 'sticky-menu',
       title: 'Sticky process menu',
       description: 'A matching sticky <strong>Side Navigation</strong> menu for the <strong>Process List</strong>.',
-      link: '/process-list-nav',
-      image: '/assets/thumbnails/process-list-nav.png'
+      link: '/sticky-menu',
+      image: '/assets/thumbnails/sticky-menu.png'
     }
   ];
 }
