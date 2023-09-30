@@ -1,12 +1,12 @@
 <div class="usa-card" id="{{ card.id }}">
-  <a class="usa-card__container" type="button" routerLink="{{ card.link }}" fragment="{{ card.anchor }}">
+  <a class="usa-card__container" type="button" href="{{ card.link }}">
     <div class="usa-card__header">
       <h2 class="usa-card__heading">{{ card.title }}</h2>
     </div>
     <div class="usa-card__media">
       <div class="usa-card__img">
         <img class="easeload" onload="this.style.opacity=1" ngSrc="{{ card.image }}" width="800" height="600"
-          priority="{{(i<6)?true:false}}" alt="a random image" />
+          priority="{{(i<6)?true:false}}" alt="" />
       </div>
     </div>
     <div class="usa-card__body">
