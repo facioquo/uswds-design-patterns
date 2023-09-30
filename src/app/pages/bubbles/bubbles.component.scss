@@ -1,0 +1,141 @@
+@use "/sass/uswds-styles" as *;
+@forward "usa-section";
+@forward "usa-layout-grid";
+@forward "usa-breadcrumb";
+@forward "usa-button";
+@forward "usa-button-group";
+
+/* FLOATING BUBBLES DESIGN PATTERN */
+.bubbles-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  // individual bubbles
+  .bubble {
+    @include u-margin-top(2);
+    @include u-margin-x(2);
+
+    // <tablet
+    @include at-media-max("mobile-lg") {
+      @include u-margin-top(1);
+      @include u-margin-x(1);
+    }
+
+    // image button
+    a {
+      @include u-margin-x(0);
+
+      &:hover {
+        outline-style: solid;
+        outline-color: color("primary-vivid");
+        outline-width: 8px;
+
+        .bubble-label {
+          color: color("primary-light");
+        }
+      }
+    }
+
+    .usa-button {
+      @include u-bg("base-darker");
+      @include u-font("sans", "xs");
+      @include u-padding(0);
+      // font-weight: normal;
+
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+
+      // overlay
+      .bubble-overlay {
+        display: flex;
+        flex-direction: column;
+
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+
+        // label
+        .bubble-label {
+          display: block;
+          margin-top: auto;
+          margin-bottom: auto;
+
+          text-align: center;
+          line-height: 1em;
+          width: 100%;
+          overflow: hidden;
+        }
+      }
+    }
+
+    // unique images
+    .bubble-one {
+      background-image: url("/assets/pics/18-600x315.webp");
+      background-size: cover;
+    }
+
+    .bubble-two {
+      background-image: url("/assets/pics/19-600x315.webp");
+      background-size: cover;
+    }
+
+    .bubble-three {
+      background-image: url("/assets/pics/20-600x315.webp");
+      background-size: cover;
+    }
+
+    .bubble-four {
+      background-image: url("/assets/pics/21-600x315.webp");
+      background-size: cover;
+    }
+
+    .bubble-five {
+      background-image: url("/assets/pics/22-600x315.webp");
+      background-size: cover;
+    }
+
+    .bubble-six {
+      background-image: url("/assets/pics/23-600x315.webp");
+      background-size: cover;
+    }
+
+    .bubble-seven {
+      background-image: url("/assets/pics/24-600x315.webp");
+      background-size: cover;
+    }
+
+    .bubble-eight {
+      background-image: url("/assets/pics/25-600x315.webp");
+      background-size: cover;
+    }
+
+    .bubble-nine {
+      background-image: url("/assets/pics/26-600x315.webp");
+      background-size: cover;
+    }
+
+    .bubble-ten {
+      background-image: url("/assets/pics/27-600x315.webp");
+      background-size: cover;
+    }
+
+    .bubble-eleven {
+      background-image: url("/assets/pics/28-600x315.webp");
+      background-size: cover;
+    }
+  }
+}
+
+
+// adjustments to non-design pattern parts of the page
+.pattern-intro-section {
+  @include u-padding-y(0);
+  @include u-margin-bottom(4);
+}
+
+.pattern-info-section {
+  @include u-padding-top(0);
+}

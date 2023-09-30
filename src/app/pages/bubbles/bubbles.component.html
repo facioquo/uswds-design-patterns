@@ -1,0 +1,177 @@
+<!-- pattern introduction section -->
+<section class="usa-section pattern-intro-section">
+  <div class="grid-container">
+
+    <!-- bread crumbs -->
+    <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs,,,">
+      <ol class="usa-breadcrumb__list">
+        <li class="usa-breadcrumb__list-item">
+          <a class="usa-breadcrumb__link" routerLink="/" fragment="design-patterns"><span>Patterns</span></a>
+        </li>
+        <li class="usa-breadcrumb__list-item">
+          <span>Floating bubbles</span>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- pattern intro -->
+    <h1>Floating bubbles</h1>
+    <p class="usa-prose">
+      A floating collection of bubble-shaped cards without use of the U.S. Web Design System
+      <a class="usa-link usa-link--external" href="https://designsystem.digital.gov/utilities/layout-grid/"
+        target="_blank" rel="noopener noreferrer nofollow">Layout grid</a>.
+      Learn more about
+      <a class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a>
+      at the bottom of this page.
+    </p>
+
+  </div>
+</section>
+
+<!-- FLOATING BUBBLES DESIGN PATTERN -->
+<section class="usa-section bubbles-section">
+
+    <div class="bubble">
+      <a class="usa-button bubble-one" href="/">
+        <div class="bubble-overlay">
+          <div class="bubble-label">Bubble One</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="bubble">
+      <a class="usa-button bubble-two" href="/">
+        <div class="bubble-overlay">
+          <div class="bubble-label">Bubble Two</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="bubble">
+      <a class="usa-button bubble-three" href="/">
+        <div class="bubble-overlay">
+          <div class="bubble-label">Bubble Three</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="bubble">
+      <a class="usa-button bubble-four" href="/">
+        <div class="bubble-overlay">
+          <div class="bubble-label">Bubble Four</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="bubble">
+      <a class="usa-button bubble-five" href="/">
+        <div class="bubble-overlay">
+          <div class="bubble-label">Bubble Five</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="bubble">
+      <a class="usa-button bubble-six" href="/">
+        <div class="bubble-overlay">
+          <div class="bubble-label">Bubble Six</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="bubble">
+      <a class="usa-button bubble-seven" href="/">
+        <div class="bubble-overlay">
+          <div class="bubble-label">Bubble Seven</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="bubble">
+      <a class="usa-button bubble-eight" href="/">
+        <div class="bubble-overlay">
+          <div class="bubble-label">Bubble Eight</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="bubble">
+      <a class="usa-button bubble-nine" href="/">
+        <div class="bubble-overlay">
+          <div class="bubble-label">Bubble Nine</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="bubble">
+      <a class="usa-button bubble-ten" href="/">
+        <div class="bubble-overlay">
+          <div class="bubble-label">Bubble Ten</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="bubble">
+      <a class="usa-button bubble-eleven" href="/">
+        <div class="bubble-overlay">
+          <div class="bubble-label">Bubble Eleven</div>
+        </div>
+      </a>
+    </div>
+
+</section>
+
+
+<!-- INFO SECTION | About this design pattern -->
+<section class="usa-section usa-dark-background pattern-info-section">
+
+  <!-- About this design pattern -->
+  <div class="pattern-info-container" id="info">
+
+    <h2>About this pattern</h2>
+
+    <div class="features">
+
+      <h3>Side navigation</h3>
+
+      <p class="usa-prose usa-dark-background">
+        Use this design pattern when you want consistent spacing between fixed size [bubble] cards
+        for different screen widths, where the USWDS <a class="usa-link usa-link--external"
+          href="https://designsystem.digital.gov/utilities/layout-grid/" target="_blank"
+          rel="noopener noreferrer nofollow">Layout grid</a> doesn't work. This can be done with
+        complex use of USWDS utilities; however, use of standard CSS flex properties is simpler.
+      </p>
+
+      <h4>What we changed</h4>
+
+      <p class="usa-prose usa-dark-background">
+        This isn't a modification of a USWDS component, but it does adhere to its broad guidelines and styling.
+      </p>
+
+      <ul class="usa-list">
+        <li>TBD</li>
+      </ul>
+
+    </div>
+
+    <!-- github | return to top -->
+    <ul class="usa-button-group padding-top-6">
+      <li class="usa-button-group__item">
+        <a class="usa-button" type="button" target="_blank" rel="noopener nofollow"
+          href="https://github.com/facioquo/uswds-design-patterns/tree/main/src/app/pages/bubbles">View on
+          GitHub</a>
+      </li>
+      <li class="usa-button-group__item">
+        <a class="usa-button usa-button--outline usa-button--inverse" routerLink="/" fragment="design-patterns">More
+          patterns</a>
+      </li>
+      <li class="usa-button-group__item">
+        <button class="usa-button usa-button--outline usa-button--inverse usa-button--unstyled mobile-lg:padding-left-2"
+          (click)="u.scrollToStart('top')">
+          Return to top
+        </button>
+      </li>
+    </ul>
+
+  </div>
+</section>

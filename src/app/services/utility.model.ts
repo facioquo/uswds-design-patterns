@@ -1768,7 +1768,7 @@ export const WORD_LIST: string[] = [
   "town",
   "toy",
   "trace",
-  "track",
+  "bubble",
   "trade",
   "traffic",
   "trail",

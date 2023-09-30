@@ -7,7 +7,7 @@ export const CARD_LIST: Card[] = [
     "title": "Card catalog",
     "description": "A catalog of <strong>Cards</strong> with consistent vertical spacing and “show more” pagination.",
     "link": "/card-catalog",
-    "image": "/assets/thumbnails/card-catalog.jpg"
+    "image": "/assets/thumbnails/card-catalog.png"
   },
   {
     "id": "hero-overlay",
@@ -21,7 +21,7 @@ export const CARD_LIST: Card[] = [
     "title": "Floating bubbles",
     "description": "A floating collection of bubble-shaped cards without use of the <strong>Grid</strong> layout.",
     "link": "/bubbles",
-    "image": "/assets/thumbnails/bubbles.jpg"
+    "image": "/assets/thumbnails/bubbles.png"
   },
   {
     "id": "sticky-menu",
