@@ -19,7 +19,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.meta.addTags([
       {
         name: 'description',
-        content: 'A full-width Hero callout overlay with semi-transparent background and fade-in edge.'
+        content: this.u.lookupPattern("hero-overlay", "description")
       }
     ]);
   }

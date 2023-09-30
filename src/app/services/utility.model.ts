@@ -1,5 +1,5 @@
 // words list
-export const wordList = [
+export const WORD_LIST: string[] = [
   "ability",
   "able",
   "aboard",

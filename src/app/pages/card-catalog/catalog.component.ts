@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { UtilityService } from 'src/app/services/utility.service';
-import { Card } from 'src/app/components/site-card/card.model';
 
-import * as picList from 'src/assets/pics/pics.json';
-import { Image } from './image.model';
+import { Card } from 'src/app/components/site-card/card.model';
+import { Image, IMAGES } from './image.model';
 
 @Component({
   selector: 'app-card-catalog',
@@ -16,7 +15,7 @@ import { Image } from './image.model';
 })
 export class CatalogComponent implements OnInit {
 
-  images: Image[] = picList;
+  images: Image[] = IMAGES;
   autoScroll = false;
   classic = false;
 
@@ -27,7 +26,7 @@ export class CatalogComponent implements OnInit {
     this.meta.addTags([
       {
         name: 'description',
-        content: 'A card catalog with fixed image aspect ratio, consistent section sizing, full-surface clickability (to replace the button), a hover effect, and "see more" pagination.'
+        content: this.u.lookupPattern("card-catalog", "description")
       }
     ]);
   }

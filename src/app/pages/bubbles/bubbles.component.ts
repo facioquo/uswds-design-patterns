@@ -3,11 +3,11 @@ import { Meta } from '@angular/platform-browser';
 import { UtilityService } from 'src/app/services/utility.service';
 
 @Component({
-  selector: 'app-hero-sticky-menu',
-  templateUrl: './sticky-menu.component.html',
-  styleUrls: ['./sticky-menu.component.scss']
+  selector: 'app-hero-bubbles',
+  templateUrl: './bubbles.component.html',
+  styleUrls: ['./bubbles.component.scss']
 })
-export class StickyMenuComponent {
+export class BubblesComponent {
 
   constructor(
     public readonly u: UtilityService,
@@ -16,7 +16,7 @@ export class StickyMenuComponent {
     this.meta.addTags([
       {
         name: 'description',
-        content: this.u.lookupPattern("sticky-menu", "description")
+        content: this.u.lookupPattern("bubbles", "description")
       }
     ]);
   }
