@@ -28,22 +28,21 @@ export class HomeComponent {
       id: 'card-catalog',
       title: 'Card catalog',
       description: 'A catalog of <strong>Cards</strong> with consistent vertical spacing and “show more” pagination.',
-      link: '/card-catalog/',
+      link: '/card-catalog',
       image: '/assets/thumbnails/card-catalog.jpg'
     },
     {
       id: 'hero-overlay',
       title: 'Hero callout overlay',
       description: 'A full-width <strong>Hero</strong> callout overlay with semi-transparent background and faded edge.',
-      link: '/hero-overlay/',
-      anchor: "hero",
+      link: '/hero-overlay/#hero',
       image: '/assets/thumbnails/hero-overlay.png'
     },
     {
       id: 'sticky-menu',
       title: 'Sticky process menu',
       description: 'A matching sticky <strong>Side Navigation</strong> menu for the <strong>Process List</strong>.',
-      link: '/sticky-menu/',
+      link: '/sticky-menu',
       image: '/assets/thumbnails/sticky-menu.png'
     }
   ];
