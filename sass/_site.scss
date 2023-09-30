@@ -111,6 +111,22 @@ a.point:hover {
   cursor: pointer;
 }
 
+
+/* DISPLAY CONTROLS */
+
+/* show/hide mobile breakpoints */
+@include at-media-max("tablet-lg") {
+  .not-mobile {
+    display: none;
+  }
+}
+
+@include at-media("tablet-lg") {
+  .mobile-only {
+    display: none;
+  }
+}
+
 /* fade in images after loading. */
 .easeload {
   opacity: 0;
