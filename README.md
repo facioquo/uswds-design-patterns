@@ -1,8 +1,8 @@
-# Extended USWDS design patterns | [uswds.facioquo.com](https://uswds.facioquo.com)
+# Design pattern idea book for USWDS | [uswds.facioquo.com](https://uswds.facioquo.com)
 
 [![website screenshot](/.offline/site-thumbnail.png)](https://uswds.facioquo.com)
 
-An Angular framework website demonstrating extended design patterns for [U.S. Web Design System](https://designsystem.digital.gov) (USWDS).  Each pattern is a separate site page with its own isolated HTML, SASS stylesheet, and TS typescript files, to make it their implementations easy to see.  All design patterns are listed on the [uswds.facioquo.com](https://uswds.facioquo.com) home page.  Links to the GitHub code are in the descriptions at the bottom of each pattern page.
+An Angular framework website demonstrating design patterns for [U.S. Web Design System](https://designsystem.digital.gov) (USWDS).  Each pattern is a separate site page with its own isolated HTML, SASS stylesheet, and TS typescript files, to make it their implementations easy to see.  All design patterns are listed on the [uswds.facioquo.com](https://uswds.facioquo.com) home page.  Links to the GitHub code are in the descriptions at the bottom of each pattern page.
 
 **Don't see a good design pattern?**  [Submit request](https://github.com/facioquo/uswds-design-patterns/issues/new/choose) or [contribute](https://github.com/facioquo/.github/blob/main/CONTRIBUTING.md) some code.
 
