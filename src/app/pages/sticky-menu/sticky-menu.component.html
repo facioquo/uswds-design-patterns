@@ -6,7 +6,7 @@
     <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs,,,">
       <ol class="usa-breadcrumb__list">
         <li class="usa-breadcrumb__list-item">
-          <a routerLink="/" class="usa-breadcrumb__link"><span>Patterns</span></a>
+          <a class="usa-breadcrumb__link" routerLink="/" fragment="design-patterns"><span>Patterns</span></a>
         </li>
         <li class="usa-breadcrumb__list-item">
           <span>Sticky process menu</span>
@@ -188,12 +188,19 @@
     <!-- github | return to top -->
     <ul class="usa-button-group padding-top-6">
       <li class="usa-button-group__item">
-        <a class="usa-button usa-link--external" type="button"
-          href="https://github.com/facioquo/uswds-design-patterns/tree/main/src/app/pages/sticky-menu"
-          target="_blank">View on GitHub</a>
+        <a class="usa-button usa-link--external" type="button" target="_blank" rel="noopener nofollow"
+          href="https://github.com/facioquo/uswds-design-patterns/tree/main/src/app/pages/sticky-menu">
+          View on GitHub&nbsp;
+        </a>
       </li>
       <li class="usa-button-group__item">
-        <button class="usa-button usa-button--outline usa-button--inverse" (click)="u.scrollToStart('top')">
+        <a class="usa-button usa-button--outline usa-button--inverse" routerLink="/" fragment="design-patterns">
+          More patterns
+        </a>
+      </li>
+      <li class="usa-button-group__item">
+        <button class="usa-button usa-button--outline usa-button--inverse usa-button--unstyled mobile-lg:padding-left-2"
+          (click)="u.scrollToStart('top')">
           Return to top
         </button>
       </li>
