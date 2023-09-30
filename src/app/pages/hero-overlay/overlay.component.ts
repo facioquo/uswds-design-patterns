@@ -24,11 +24,11 @@ export class OverlayComponent implements OnInit, OnDestroy {
     ]);
   }
 
-  ngOnInit(){
+  ngOnInit() {
     modal.on("call-to-action-modal");
   }
 
-  ngOnDestroy(): void{
+  ngOnDestroy() {
     modal.off();
   }
 }

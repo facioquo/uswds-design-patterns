@@ -62,6 +62,9 @@
                 "bundleName": "uswds"
               }
             ],
+            "allowedCommonJsDependencies": [
+              "@uswds/uswds/js/usa-modal"
+            ],
             "buildOptimizer": true,
             "sourceMap": true,
             "vendorChunk": false,
