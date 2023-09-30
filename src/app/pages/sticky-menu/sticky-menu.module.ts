@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 import { StickyMenuRoutingModule } from './sticky-menu-routing.module';
 import { StickyMenuComponent } from './sticky-menu.component';
@@ -10,7 +10,6 @@ import { StickyMenuComponent } from './sticky-menu.component';
   ],
   imports: [
     CommonModule,
-    NgOptimizedImage,
     StickyMenuRoutingModule
   ]
 })

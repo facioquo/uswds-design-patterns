@@ -11,6 +11,9 @@ ref: https://designsystem.digital.gov/components/packages
 @forward "uswds-utilities";
 @forward "uswds-typography";
 
+// must be loaded entirely
+@forward "usa-modal";
+
 /* GLOBAL HTML STYLES */
 body {
   margin: 0;
