@@ -15,6 +15,9 @@ settings available: @uswds\uswds\packages\uswds-core\src\styles\settings
   $utilities-use-important: true,
   $output-these-utilities:(
     "color",
+    "margin",
+    "margin-horizontal",
+    "margin-vertical",
     "padding",
     "text-align"
   ),

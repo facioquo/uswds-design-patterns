@@ -17,7 +17,7 @@ export class HomeComponent {
     this.meta.addTags([
       {
         name: 'description',
-        content: 'A collection of extended design patterns using the U.S. Web Design System (USWDS), built by community enthusiasts.'
+        content: 'A design pattern idea book for designers and developers using the U.S. Web Design System (USWDS), built by community enthusiasts.'
       }
     ]);
   }
