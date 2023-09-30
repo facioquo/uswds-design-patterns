@@ -1,12 +1,12 @@
 {
-  "name": "Design Patterns | U.S. Web Design System",
+  "name": "Extended design patterns for the U.S. Web Design System",
   "short_name": "uswds-design-patterns",
   "description": "Essential design patterns using the U.S. Web Design System.",
-  "theme_color": "#181818",
-  "background_color": "#181818",
+  "theme_color": "#2e2e2e",
+  "background_color": "#2e2e2e",
   "icons": [
     {
-      "src": "logo.svg",
+      "src": "social/logo.svg",
       "type": "image/svg+xml",
       "sizes": "150x150"
     },
