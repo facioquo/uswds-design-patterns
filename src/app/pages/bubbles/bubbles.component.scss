@@ -1,0 +1,147 @@
+@use "/sass/uswds-styles" as *;
+@forward "usa-section";
+@forward "usa-layout-grid";
+@forward "usa-breadcrumb";
+@forward "usa-button";
+@forward "usa-button-group";
+
+/* FLOATING BUBBLES DESIGN PATTERN */
+.bubbles-section {
+
+  @include u-padding-top(0);
+  @include u-padding-x(4);
+
+  // mobile view
+  @include at-media-max("desktop") {
+    @include u-padding-x(2);
+  }
+
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 64rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-grow: 1;
+
+  /* to highlight content, margin, padding
+  border-style: solid;
+  border-width: 1px;
+  background: #CCC;
+  background-clip: content-box; */
+
+  // individual bubbles
+  .bubble {
+
+    @include u-margin(0);
+    @include u-margin-bottom(2);
+    @include u-margin-x(2);
+
+    // mobile view
+    @include at-media-max("tablet") {
+      @include u-margin-bottom(1);
+      @include u-margin-x(1);
+    }
+
+    /* to highlight content, margin, padding
+    border-style: dashed;
+    border-width: 1px; */
+
+    // image button
+    a {
+      @include u-margin-x(0);
+
+      color: color("base-lightest");
+      text-decoration: none;
+
+      background-size: cover;
+      background-position: center;
+
+      /* hover effect */
+      &:hover {
+
+        .bubble-label {
+          color: color("white");
+          text-decoration: underline;
+          text-decoration-color: color("base-lightest");
+        }
+
+        box-shadow:
+          0 5px  5px -3px color("base-light", 0.20),
+          0 8px  8px  1px color("base-light", 0.14),
+          0 3px 14px  2px color("base-light", 0.12);
+      }
+
+      /* click effect */
+      &:active {
+
+        box-shadow:
+          0 15px 15px -3px color("base-light", 0.20),
+          0 24px 30px  1px color("base-light", 0.14),
+          0  9px 40px  2px color("base-light", 0.12);
+      }
+    }
+
+    .usa-button {
+      @include u-bg("base-darkest");
+      @include u-font("sans", 8);
+      @include u-padding(0);
+
+      :focus {
+        color: color($theme-focus-color);
+      }
+
+      width: 205px;
+      aspect-ratio: 1;
+
+      border-radius: 50%;
+      border-style: solid;
+      border-width: 3px;
+      border-color: color("base-dark");
+
+      &:hover{
+        border-width: 3px;
+        border-color: color("base-lightest");
+      }
+
+      // overlay
+      .bubble-overlay {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-position: center;
+        background-color: rgba(28, 29, 31, 0.55);
+
+        &:hover {
+          background-color: rgba(28, 29, 31, 0.8);
+        }
+
+        // label
+        .bubble-label {
+          display: block;
+          margin: auto;
+
+          text-align: center;
+          line-height: line-height("sans", 2);
+          width: calc(100% - 2em);
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}
+
+
+// adjustments to non-design pattern parts of the page
+.pattern-intro-section {
+  @include u-padding-y(0);
+  @include u-margin-bottom(4);
+}
+
+.pattern-info-section {
+  @include u-padding-top(0);
+}

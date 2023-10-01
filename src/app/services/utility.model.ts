@@ -1,5 +1,5 @@
 // words list
-export const wordList = [
+export const WORD_LIST: string[] = [
   "ability",
   "able",
   "aboard",
@@ -1768,7 +1768,7 @@ export const wordList = [
   "town",
   "toy",
   "trace",
-  "track",
+  "bubble",
   "trade",
   "traffic",
   "trail",

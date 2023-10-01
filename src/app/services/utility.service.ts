@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { wordList } from "./utility.model";
+import { WORD_LIST } from "./utility.model";
+import { CARD_LIST } from 'src/app/pages/home/patterns.model';
+import { Card } from 'src/app/components/site-card/card.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +10,28 @@ import { wordList } from "./utility.model";
 export class UtilityService {
 
   constructor() { }
+
+  // DESIGN PATTERN LOOKUP
+  lookupPattern(id: string, token: string): string {
+
+    const card = CARD_LIST.find(x => x.id = id);
+
+    if (card === undefined) return "";
+
+    switch (token) {
+      case "id":
+        return card.id;
+      case "title":
+        return card.title;
+      case "description":
+        return card.description;
+      case "link":
+        return card.link;
+      default:
+        return "";
+    }
+  };
+
 
   // PAGE SCROLLING
   scrollToStart(id: string, offset: number = 200) {
@@ -22,6 +47,7 @@ export class UtilityService {
       element!.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'end' });
     }, offset);
   }
+
 
   // RANDOM WORD GENERATOR
   // enter minimum and maximum characters of words to generate.
@@ -64,7 +90,7 @@ export class UtilityService {
 
       // stop when target met or timeout
       timeout++;
-      rightSize = words.length >= randomSize || timeout > 0.75 * wordList.length;
+      rightSize = words.length >= randomSize || timeout > 0.75 * WORD_LIST.length;
     }
 
     // capitalize the first letter of the word set
@@ -79,7 +105,7 @@ export class UtilityService {
 
   // random word
   randomWord(): string {
-    return wordList[this.randInt(wordList.length)];
+    return WORD_LIST[this.randInt(WORD_LIST.length)];
   }
 
   // random int

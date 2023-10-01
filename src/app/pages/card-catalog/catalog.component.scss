@@ -22,38 +22,40 @@
     a.usa-card__container {
 
       text-decoration: none;
-      border-color: color($theme-color-base-lighter);
+      border-color: color("base-lighter");
 
       /* hover effect */
       &:hover {
 
+        border-color: color("base-lightest");
+
         .usa-card__header {
           text-decoration: underline;
-          text-decoration-color: color($theme-color-base-light);
+          text-decoration-color: color("base-light");
         }
 
         box-shadow:
-          0 5px 5px -3px color($theme-color-base-light, 0.20),
-          0 8px  8px 1px color($theme-color-base-light, 0.14),
-          0 3px 14px 2px color($theme-color-base-light, 0.12);
+          0 5px  5px -3px color("base-light", 0.20),
+          0 8px  8px  1px color("base-light", 0.14),
+          0 3px 14px  2px color("base-light", 0.12);
       }
 
       /* click effect */
       &:active {
 
-        background-color: color($theme-color-base-lighter);
+        background-color: color("base-lighter");
 
         box-shadow:
-          0 15px 15px -3px color($theme-color-base-light, 0.20),
-          0 24px 30px  1px color($theme-color-base-light, 0.14),
-          0  9px 40px  2px color($theme-color-base-light, 0.12);
+          0 15px 15px -3px color("base-light", 0.20),
+          0 24px 30px  1px color("base-light", 0.14),
+          0  9px 40px  2px color("base-light", 0.12);
       }
 
       /* maintain image box size proportion */
       .usa-card__img {
 
         aspect-ratio: 600/315;
-        background-color: color($theme-color-base-lighter);
+        background-color: color("base-lighter");
       }
 
       /* when above tablet size, truncate text */

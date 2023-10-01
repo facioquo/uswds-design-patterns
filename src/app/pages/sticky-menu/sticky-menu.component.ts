@@ -16,7 +16,7 @@ export class StickyMenuComponent {
     this.meta.addTags([
       {
         name: 'description',
-        content: 'A matching sticky Side Navigation menu for the Process List.'
+        content: this.u.lookupPattern("sticky-menu", "description")
       }
     ]);
   }

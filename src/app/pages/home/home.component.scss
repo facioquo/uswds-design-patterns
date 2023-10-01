@@ -11,16 +11,41 @@
   @include u-padding-top(4);
   @include u-padding-bottom(0);
 
-  .subtitle {
-    @include u-font-size('sans', 9);
-    font-weight: 400;
-    color: color($theme-color-base-light);
-    line-height: 1.2em;
-    margin-top: 0.25em;
-    display: block;
+  /* SITE TITLE */
+  h1 {
+
+    @include u-margin-top(2);
+    @include u-font-size('sans', 18);
+    line-height: 0.9em;
 
     @include at-media-max("mobile-lg") {
-      @include u-font-size('sans', 7);
+      @include u-font-size('sans', 16);
+      line-height: line-height('sans', 1);
+    }
+
+    .supertitle {
+      @include u-font-size('sans', 14);
+      color: inherit;
+
+      @include at-media-max("mobile-lg") {
+        @include u-font-size('sans', 11);
+      }
+    }
+
+    .subtitle {
+      @include u-font-size('sans', 10);
+      color: color("base-light");
+
+      @include at-media-max("mobile-lg") {
+        @include u-font-size('sans', 6);
+      }
+    }
+
+    .supertitle,
+    .subtitle {
+      display: block;
+      font-weight: 400;
+      line-height: line-height('sans', 1);
     }
   }
 }
