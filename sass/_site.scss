@@ -23,11 +23,11 @@
   }
 
   h2 {
-    @include u-font-size("sans", 13);
+    @include u-font-size("sans", 12);
     line-height: 0.9em;
 
     @include at-media-max("mobile-lg") {
-      @include u-font-size("sans", 12);
+      @include u-font-size("sans", 11);
     }
   }
 
