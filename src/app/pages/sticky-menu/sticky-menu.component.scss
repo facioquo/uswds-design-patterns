@@ -10,7 +10,7 @@
 /* PROCESS LIST STICKY NAV DESIGN PATTERN */
 .sticky-menu-section {
 
-  background-color: color("base-lightest");
+  @include u-padding-top(3);
 
   // side navigation
   nav {
@@ -42,11 +42,13 @@
         line-height: 1.1;
 
         a {
-          padding-left: 2rem;
-          padding-right: 0.3rem;
+          padding-left: 2.3rem;
+          padding-right: 0;
+          color: color("base-darkest");
 
           &:hover {
-            background-color: color("base-lighter");
+            color: color($theme-link-color);
+            background-color: color("base-light");
             cursor: pointer;
           }
         }
@@ -56,7 +58,7 @@
           flex-direction: row;
 
           position: absolute;
-          left: 0;
+          left: 0.3rem;
           height: 1.5rem;
           width: 1.5rem;
 
@@ -66,11 +68,11 @@
 
           font-size: 0.9rem;
           font-weight: bold;
-          color: color("base-dark");
+          color: color("base-darkest");
 
-          border: 0.15rem solid color("base-dark");
+          border: 0.15rem solid color("base-darker");
           border-radius: 50%;
-          background-color: color("base-lightest");
+          background-color: color("base-lighter");
 
           content: counter(usa-numbered-list, decimal);
           counter-increment: usa-numbered-list;
@@ -92,6 +94,7 @@
     .usa-process-list__item {
 
       max-width: unset;
+      border-left-color: color("primary-light");
 
       h3 {
         @include u-margin-bottom(2);
@@ -105,8 +108,8 @@
 
       // match our background colors
       &::before {
-        background-color: color("base-lightest");
-        box-shadow: 0 0 0 0.25rem color("base-lightest");
+        background-color: color("base-lighter");
+        box-shadow: 0 0 0 0.25rem color("base-lighter");
       }
     }
   }
