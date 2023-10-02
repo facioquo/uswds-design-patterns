@@ -6,7 +6,7 @@
   "background_color": "#2e2e2e",
   "icons": [
     {
-      "src": "social/logo.svg",
+      "src": "images/logo.svg",
       "type": "image/svg+xml",
       "sizes": "150x150"
     },

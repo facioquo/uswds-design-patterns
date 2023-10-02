@@ -12,7 +12,7 @@
   .usa-hero {
     @include u-margin-bottom(0);
     @include u-text("white");
-    background-image: url("/assets/pics/field-with-sunset.jpg");
+    background-image: url("/assets/images/field-with-sunset.jpg");
     background-color: color("base-darkest");
     position: relative;
     overflow: hidden;

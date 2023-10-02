@@ -74,7 +74,7 @@ export class CatalogComponent implements OnInit {
         title: this.u.randomWords(15, 65),
         description: `<small>Photo by ${image.author}.</small><br />${this.u.randomWords(25, 90)}.`,
         link: image.url,
-        image: `/assets/pics/${image.id}-600x315.webp`
+        image: `/assets/stock/${image.id}-600x315.webp`
       };
 
       // set scroll target to first new card
