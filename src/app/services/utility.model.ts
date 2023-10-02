@@ -392,6 +392,7 @@ export const WORD_LIST: string[] = [
   "curious",
   "current",
   "curve",
+  "curmudgeon",
   "customs",
   "cut",
   "cutting",

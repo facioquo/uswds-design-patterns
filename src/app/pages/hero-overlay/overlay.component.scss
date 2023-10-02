@@ -12,7 +12,7 @@
   .usa-hero {
     @include u-margin-bottom(0);
     @include u-text("white");
-    background-image: url("/assets/pics/field-with-sunset.jpg");
+    background-image: url("/assets/images/field-with-sunset.webp");
     background-color: color("base-darkest");
     position: relative;
     overflow: hidden;
@@ -60,7 +60,12 @@
       .usa-hero__heading {
         @include u-font-size('sans', 16);
         color: inherit;
-        line-height: 0.9;
+        line-height: line-height("sans", 1);
+
+        // < mobile
+        @include at-media-max("mobile-lg") {
+          @include u-font-size('sans', 15);
+        }
       }
 
       .callout-container {
@@ -71,15 +76,22 @@
         // < tablet
         @include at-media-max("tablet-lg") {
           display: inline-block;
+          max-width: 35em;
         }
       }
 
       .callout-message {
-        @include u-margin-top(2);
+        @include u-margin-top(1);
         @include u-font-size('sans', 11);
         font-weight: 300;
         color: inherit;
-        line-height: 1.3;
+        line-height: line-height("sans", 2);
+
+        // < mobile
+        @include at-media-max("mobile-lg") {
+          @include u-font-size('sans', 9);
+          line-height: line-height("sans", 3);
+        }
       }
 
       .callout-action {

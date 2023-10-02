@@ -1,6 +1,6 @@
 # Design pattern idea book for USWDS | [uswds.facioquo.com](https://uswds.facioquo.com)
 
-[![website screenshot](/src/assets/social/social-card.png)](https://uswds.facioquo.com)
+[![website screenshot](/src/assets/images/social-card.png)](https://uswds.facioquo.com)
 
 An Angular framework website demonstrating design patterns for [U.S. Web Design System](https://designsystem.digital.gov) (USWDS).  Each pattern is a separate site page with its own isolated HTML, SASS stylesheet, and TS typescript files, to make implementations easy to see in an unabstracted way.  Links to the GitHub code are in the descriptions at the bottom of each pattern page.
 

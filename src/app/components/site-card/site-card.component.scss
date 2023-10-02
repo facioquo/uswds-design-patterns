@@ -1,5 +1,6 @@
 @use "/sass/uswds-styles" as *;
 @forward "usa-card";
+@forward "usa-icon";
 
 .usa-card__container {
 
@@ -42,7 +43,18 @@
   .usa-card__img {
 
     aspect-ratio: 4/3;
-    background-color: color("base-lighter");
+    background-color: unset;
+
+    .usa-icon {
+      margin-top: auto;
+      margin-bottom: auto;
+      height: 150px;
+      width: 150px;
+      fill: color("base-dark");
+      fill-opacity: 50%;
+      left: calc(50% - 75px);
+      top: calc(50% - 75px);
+    }
   }
 
   /* when above tablet size, truncate text */

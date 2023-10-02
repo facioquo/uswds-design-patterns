@@ -41,7 +41,7 @@ export class BubblesComponent implements OnInit {
         title: this.u.randomWords(20, 35),
         description: "",
         link: image.url,
-        image: `/assets/pics/${image.id}-600x315.webp`
+        image: `/assets/stock/${image.id}-600x315.webp`
       };
       this.cards.push(card);
     }

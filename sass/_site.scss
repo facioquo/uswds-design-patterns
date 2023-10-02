@@ -70,7 +70,7 @@
 
   @include site;
   @include u-bg("base-darker");
-  color: color("base-lighter");
+  color: color("base-light");
 
   /* base elements */
   h1,
@@ -79,7 +79,7 @@
   }
 
   h3 {
-    color: color("base-lightest");
+    color: color("base-lighter");
   }
 
   p {
@@ -140,9 +140,9 @@ a.point:hover {
 /* fade in images after loading. */
 .easeload {
   opacity: 0;
-  -webkit-transition: all 0.8s ease;
-  -moz-transition: all 0.8s ease;
-  -ms-transition: all 0.8s ease;
-  -o-transition: all 0.8s ease;
-  transition: all 0.8s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
