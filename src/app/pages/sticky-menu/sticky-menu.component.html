@@ -1,33 +1,16 @@
 <!-- pattern introduction section -->
-<section class="usa-section pattern-header">
-  <div class="grid-container">
+<app-pattern-header [patternName]="'Sticky process menu'" class="site">
+  <p class="usa-prose">
+    A matching sticky <a class="usa-link usa-link--external"
+      href="https://designsystem.digital.gov/components/side-navigation/" target="_blank"
+      rel="noopener noreferrer nofollow">Side Navigation</a> menu pane to accompany the U.S. Web Design System
+    <a class="usa-link usa-link--external" href="https://designsystem.digital.gov/components/process-list/"
+      target="_blank" rel="noopener noreferrer nofollow">Process List</a> component. Learn more about <a
+      class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a> at the
+    bottom of this page.
+  </p>
+</app-pattern-header>
 
-    <!-- bread crumbs -->
-    <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs,,,">
-      <ol class="usa-breadcrumb__list">
-        <li class="usa-breadcrumb__list-item">
-          <a class="usa-breadcrumb__link" routerLink="/" fragment="design-patterns"><span>Patterns</span></a>
-        </li>
-        <li class="usa-breadcrumb__list-item">
-          <span>Sticky process menu</span>
-        </li>
-      </ol>
-    </nav>
-
-    <!-- pattern intro -->
-    <h1>Sticky process menu</h1>
-    <p class="usa-prose">
-      A matching sticky <a class="usa-link usa-link--external"
-        href="https://designsystem.digital.gov/components/side-navigation/" target="_blank"
-        rel="noopener noreferrer nofollow">Side Navigation</a> menu pane to accompany the U.S. Web Design System
-      <a class="usa-link usa-link--external" href="https://designsystem.digital.gov/components/process-list/"
-        target="_blank" rel="noopener noreferrer nofollow">Process List</a> component. Learn more about <a
-        class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a> at the
-      bottom of this page.
-    </p>
-
-  </div>
-</section>
 
 <!-- VERTICAL STEP INDICATOR DESIGN PATTERN -->
 <section class="usa-section sticky-menu-section">
@@ -77,10 +60,9 @@
             <p class="usa-prose">
               Before leaving on your journey, consult with <a class="usa-link usa-link--external"
                 href="https://baconipsum.com" target="_blank" rel="noopener nofollow">bacon ipsum dolor</a> to assess
-              your hunting and gathering objectives. Pack according. You may like to eat amet hamburger fatback meatball
-              bacon kevin salami flank; or possibly sirloin beef pork belly, shank tri-tip kevin tail sausage meatloaf.
-              Also available are pork chop salami ball tip short loin brisket pig cupim jerky pork belly tri-tip chuck
-              short ribs prosciutto.
+              your hunting and gathering objectives. Pack according. You may like to eat sirloin beef pork belly, shank
+              tri-tip kevin tail sausage meatloaf. Also available are hamburger fatback meatball bacon kevin salami
+              brisket beef jerky pork belly tri-tip chuck short ribs prosciutto.
             </p>
 
             <h4>Don't forget about:</h4>
@@ -137,7 +119,7 @@
 
 
 <!-- INFO SECTION | About this design pattern -->
-<app-pattern-footer [githubFolder]="'sticky-menu'" id="info">
+<app-pattern-footer [githubFolder]="'sticky-menu'" class="site-dark" id="info">
 
   <p class="usa-prose">
     Use this design pattern when you are using the <a class="usa-link usa-link--external"
@@ -145,7 +127,7 @@
       rel="noopener noreferrer nofollow">Process List</a> and want a matching sticky version of the <a
       class="usa-link usa-link--external" href="https://designsystem.digital.gov/components/side-navigation/"
       target="_blank" rel="noopener noreferrer nofollow">Side Navigation</a> menu.
-      Here's what we changed:
+    Here's what we changed:
   </p>
 
   <h3>Side Navigation</h3>

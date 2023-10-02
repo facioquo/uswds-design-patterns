@@ -6,6 +6,27 @@
 
 /* styles unique to the footer */
 
+section {
+  @include site-dark;
+  @include u-padding-x(2);
+  @include u-padding-y(8);
+}
+
+.content-container {
+
+  @include site-dark();
+  max-width: 700px;
+  margin: auto;
+
+  @include at-media-max("mobile-lg") {
+    @include u-padding-x(0);
+  }
+}
+
+h2 {
+  @include u-margin-top(0);
+}
+
 .usa-button-group {
   @include u-margin-top(6);
 }

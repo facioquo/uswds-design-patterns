@@ -1,32 +1,15 @@
 <!-- pattern introduction section -->
-<section class="usa-section pattern-intro-section">
-  <div class="grid-container">
+<app-pattern-header [patternName]="'Card catalog'" class="site">
+  <p class="usa-prose">
+    A card catalog using the U.S. Web Design System <a class="usa-link usa-link--external"
+      href="https://designsystem.digital.gov/components/card/" target="_blank"
+      rel="noopener noreferrer nofollow">Card</a> component with “show more” card loading. Learn more about
+    <a class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a> or
+    <a class="usa-link point" role="button" (click)="u.scrollToEnd('settings');">change settings</a>
+    at the bottom of this page.
+  </p>
+  </app-pattern-header>
 
-    <!-- bread crumbs -->
-    <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs,,,">
-      <ol class="usa-breadcrumb__list">
-        <li class="usa-breadcrumb__list-item">
-          <a class="usa-breadcrumb__link" routerLink="/" fragment="design-patterns"><span>Patterns</span></a>
-        </li>
-        <li class="usa-breadcrumb__list-item">
-          <span>Card catalog</span>
-        </li>
-      </ol>
-    </nav>
-
-    <!-- pattern intro -->
-    <h1>Card catalog</h1>
-    <p class="usa-prose">
-      A card catalog using the U.S. Web Design System <a class="usa-link usa-link--external"
-        href="https://designsystem.digital.gov/components/card/" target="_blank"
-        rel="noopener noreferrer nofollow">Card</a> component with “show more” card loading. Learn more about
-      <a class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a> or
-      <a class="usa-link point" role="button" (click)="u.scrollToEnd('settings');">change settings</a>
-      at the bottom of this page.
-    </p>
-
-  </div>
-</section>
 
 <!-- CATALOG DESIGN PATTERN
   - add tablet-lg grid breakpoint
@@ -190,7 +173,7 @@
 </section>
 
 <!-- INFO SECTION | About this design pattern -->
-<app-pattern-footer [githubFolder]="'card-catalog'" id="info">
+<app-pattern-footer [githubFolder]="'card-catalog'" class="site-dark" id="info">
 
   <h3>Cards</h3>
 

@@ -1,33 +1,15 @@
 <!-- pattern introduction section -->
-<section class="usa-section pattern-intro-section">
-  <div class="grid-container">
-
-    <!-- bread crumbs -->
-    <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs,,,">
-      <ol class="usa-breadcrumb__list">
-        <li class="usa-breadcrumb__list-item">
-          <a class="usa-breadcrumb__link" routerLink="/" fragment="design-patterns"><span>Patterns</span></a>
-        </li>
-        <li class="usa-breadcrumb__list-item">
-          <span>Floating bubbles</span>
-        </li>
-      </ol>
-    </nav>
-
-    <!-- pattern intro -->
-    <h1>Floating bubbles</h1>
-    <p class="usa-prose">
-      A floating collection of bubble-shaped cards without use of the U.S. Web Design System
-      <a class="usa-link usa-link--external"
-         href="https://designsystem.digital.gov/utilities/layout-grid/"
-         target="_blank" rel="noopener noreferrer nofollow">Layout grid</a>.
-      Learn more about
-      <a class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a>
-      at the bottom of this page.
-    </p>
-
-  </div>
-</section>
+<app-pattern-header [patternName]="'Floating bubbles'" class="site">
+  <p class="usa-prose">
+    A floating collection of bubble-shaped cards without use of the U.S. Web Design System
+    <a class="usa-link usa-link--external"
+       href="https://designsystem.digital.gov/utilities/layout-grid/"
+       target="_blank" rel="noopener noreferrer nofollow">Layout grid</a>.
+    Learn more about
+    <a class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a>
+    at the bottom of this page.
+  </p>
+</app-pattern-header>
 
 
 <!-- FLOATING BUBBLES DESIGN PATTERN -->
@@ -47,7 +29,7 @@
 
 
 <!-- INFO SECTION | About this design pattern -->
-<app-pattern-footer [githubFolder]="'bubbles'" id="info">
+<app-pattern-footer [githubFolder]="'bubbles'" class="site-dark" id="info">
 
   <p class="usa-prose usa-dark-background">
     Use this design pattern when you want consistent spacing between fixed size [bubble] cards and

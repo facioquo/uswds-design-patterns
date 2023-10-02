@@ -1,31 +1,14 @@
 <!-- pattern introduction section -->
-<section class="usa-section pattern-intro-section">
-  <div class="grid-container">
+<app-pattern-header [patternName]="'Hero callout overlay'" class="site">
+  <p class="usa-prose">
+    A semi-transparent callout overlay with faded edge, using the U.S. Web Design System
+    <a class="usa-link usa-link--external" href="https://designsystem.digital.gov/templates/landing-page/"
+      target="_blank" rel="noopener noreferrer nofollow">landing page Hero</a> template. Learn more about
+    <a class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a>
+    at the bottom of this page.
+  </p>
+</app-pattern-header>
 
-    <!-- bread crumbs -->
-    <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs,,,">
-      <ol class="usa-breadcrumb__list">
-        <li class="usa-breadcrumb__list-item">
-          <a class="usa-breadcrumb__link" routerLink="/" fragment="design-patterns"><span>Patterns</span></a>
-        </li>
-        <li class="usa-breadcrumb__list-item">
-          <span>Hero callout overlay</span>
-        </li>
-      </ol>
-    </nav>
-
-    <!-- pattern intro -->
-    <h1>Hero callout overlay</h1>
-    <p class="usa-prose">
-      A semi-transparent callout overlay with faded edge, using the U.S. Web Design System
-      <a class="usa-link usa-link--external" href="https://designsystem.digital.gov/templates/landing-page/"
-        target="_blank" rel="noopener noreferrer nofollow">landing page Hero</a> template. Learn more about
-      <a class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a>
-      at the bottom of this page.
-    </p>
-
-  </div>
-</section>
 
 <!-- HERO OVERLAY DESIGN PATTERN
   - add tablet-lg grid breakpoint
@@ -93,7 +76,7 @@
 
 
 <!-- INFO SECTION | About this design pattern -->
-<app-pattern-footer [githubFolder]="'hero-overlay'" id="info">
+<app-pattern-footer [githubFolder]="'hero-overlay'" class="site-dark" id="info">
 
   <p class="usa-prose usa-dark-background">
     Use this design pattern when you want to avoid covering up your background image

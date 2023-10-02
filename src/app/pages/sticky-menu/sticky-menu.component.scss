@@ -1,10 +1,7 @@
 @use "/sass/uswds-styles" as *;
 @forward "usa-section";
 @forward "usa-layout-grid";
-@forward "usa-breadcrumb";
 @forward "usa-sidenav";
-@forward "usa-button";
-@forward "usa-button-group";
 @forward "usa-process-list";
 
 /* PROCESS LIST STICKY NAV DESIGN PATTERN */
@@ -118,8 +115,8 @@
           @include u-margin-top(0.5);
 
           li {
-            line-height: line-height("sans", 2);
             @include u-margin-y(0);
+            line-height: line-height("sans", 2);
             max-width: unset;
           }
         }
@@ -132,11 +129,4 @@
       }
     }
   }
-}
-
-
-/* adjustments to non-design pattern parts of the page */
-.pattern-intro-section {
-  @include u-padding-y(0);
-  @include u-margin-bottom(4);
 }
