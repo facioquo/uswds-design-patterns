@@ -1,16 +1,15 @@
 @use "uswds-core" as *;
 
-/* SITE STYLES */
+/* SITE MIXINS */
 
-/* site mixin */
-@mixin site-style {
+@mixin site {
 
   h1 {
-    @include u-font-size('sans', 16);
-    line-height: 0.9em;
+    @include u-font-size('sans', 14);
+    line-height: line-height("sans", 1);
 
     @include at-media-max("mobile-lg") {
-      @include u-font-size('sans', 14);
+      @include u-font-size('sans', 13);
     }
   }
 
@@ -24,7 +23,7 @@
 
   h2 {
     @include u-font-size("sans", 12);
-    line-height: 0.9em;
+    line-height: line-height("sans", 1);
 
     @include at-media-max("mobile-lg") {
       @include u-font-size("sans", 11);
@@ -32,7 +31,9 @@
   }
 
   h3 {
-    @include u-font-size("sans", 10);
+    @include u-font-size("sans", 9);
+    font-weight: 400;
+    margin-top: 1.5rem;
 
     @include at-media-max("mobile-lg") {
       @include u-font-size("sans", 8);
@@ -48,71 +49,80 @@
     }
   }
 
-  .usa-list li {
-    max-width: unset;
-  }
-
   .usa-prose {
     @include u-font-size('sans', 7);
+    line-height: line-height("sans", 4);
 
     @include at-media-max("mobile-lg") {
       @include u-font-size('sans', 6);
+      line-height: line-height("sans", 3);
     }
+  }
+
+  .usa-list li {
+    @include u-margin-bottom(1);
+    max-width: unset;
+    line-height: line-height("sans", 2);
   }
 }
 
 @mixin site-dark {
 
-  @include site-style;
-  color: color($theme-color-base-lighter);
+  @include site;
+  @include u-bg("base-darker");
+  color: color("base-lighter");
 
+  /* base elements */
   h1,
   h2 {
     color: rgba(230, 199, 76, 0.95);
   }
 
   h3 {
-    color: color($theme-color-base-lightest);
+    color: color("base-lightest");
+  }
+
+  p {
+    color: inherit;
+  }
+
+  /* override, re-style for darkness */
+  .usa-prose {
+    background-color: unset;
+  }
+
+  .usa-link,
+  .usa-link--alt,
+  .usa-link--external {
+
+    color: inherit !important;
+    text-decoration: underline;
+
+    &:active,
+    &:visited {
+      color: unset;
+    }
+
+    &:hover {
+      color: color("base-lightest") !important;
+      cursor: pointer;
+    }
   }
 }
 
 .site {
-  @include site-style;
+  @include site;
 }
 
 .site-dark {
   @include site-dark;
 }
 
-.pattern-intro-section {
-  @include u-padding-y(0);
-}
+/* SITE STYLES */
 
-.pattern-info-section {
-
-  @include site-dark;
-  @include u-padding-x(2);
-
-  .pattern-info-container {
-
-    @include u-padding-x(6);
-    @include u-padding-y(4);
-    max-width: 800px;
-    margin: auto;
-
-    @include at-media-max("mobile-lg") {
-      @include u-padding-x(0);
-    }
-  }
-}
-
-/* misc styles */
 a.point:hover {
   cursor: pointer;
 }
-
-
-/* DISPLAY CONTROLS */
 
 /* show/hide mobile breakpoints */
 @include at-media-max("tablet-lg") {

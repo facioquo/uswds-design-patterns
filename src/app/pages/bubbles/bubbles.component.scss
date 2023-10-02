@@ -1,9 +1,6 @@
 @use "/sass/uswds-styles" as *;
 @forward "usa-section";
-@forward "usa-layout-grid";
-@forward "usa-breadcrumb";
 @forward "usa-button";
-@forward "usa-button-group";
 
 /* FLOATING BUBBLES DESIGN PATTERN */
 .bubbles-section {
@@ -133,15 +130,4 @@
       }
     }
   }
-}
-
-
-// adjustments to non-design pattern parts of the page
-.pattern-intro-section {
-  @include u-padding-y(0);
-  @include u-margin-bottom(4);
-}
-
-.pattern-info-section {
-  @include u-padding-top(0);
 }

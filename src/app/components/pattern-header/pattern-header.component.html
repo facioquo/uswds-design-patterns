@@ -1,0 +1,21 @@
+<section>
+  <div class="grid-container">
+
+    <!-- bread crumbs -->
+    <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs,,,">
+      <ol class="usa-breadcrumb__list">
+        <li class="usa-breadcrumb__list-item">
+          <a class="usa-breadcrumb__link" routerLink="/" fragment="design-patterns"><span>Patterns</span></a>
+        </li>
+        <li class="usa-breadcrumb__list-item">
+          <span>{{ patternName }}</span>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- pattern intro -->
+    <h1>{{ patternName }}</h1>
+    <ng-content></ng-content>
+
+  </div>
+</section>

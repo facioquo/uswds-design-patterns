@@ -1,32 +1,15 @@
 <!-- pattern introduction section -->
-<section class="usa-section pattern-intro-section">
-  <div class="grid-container">
+<app-pattern-header [patternName]="'Card catalog'" class="site">
+  <p class="usa-prose">
+    A card catalog using the U.S. Web Design System <a class="usa-link usa-link--external"
+      href="https://designsystem.digital.gov/components/card/" target="_blank"
+      rel="noopener noreferrer nofollow">Card</a> component with “show more” card loading. Learn more about
+    <a class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a> or
+    <a class="usa-link point" role="button" (click)="u.scrollToEnd('settings');">change settings</a>
+    at the bottom of this page.
+  </p>
+</app-pattern-header>
 
-    <!-- bread crumbs -->
-    <nav class="usa-breadcrumb usa-breadcrumb--wrap" aria-label="Breadcrumbs,,,">
-      <ol class="usa-breadcrumb__list">
-        <li class="usa-breadcrumb__list-item">
-          <a class="usa-breadcrumb__link" routerLink="/" fragment="design-patterns"><span>Patterns</span></a>
-        </li>
-        <li class="usa-breadcrumb__list-item">
-          <span>Card catalog</span>
-        </li>
-      </ol>
-    </nav>
-
-    <!-- pattern intro -->
-    <h1>Card catalog</h1>
-    <p class="usa-prose">
-      A card catalog using the U.S. Web Design System <a class="usa-link usa-link--external"
-        href="https://designsystem.digital.gov/components/card/" target="_blank"
-        rel="noopener noreferrer nofollow">Card</a> component with “show more” card loading. Learn more about
-      <a class="usa-link point" role="button" (click)="u.scrollToStart('info');"> this design pattern</a> or
-      <a class="usa-link point" role="button" (click)="u.scrollToEnd('settings');">change settings</a>
-      at the bottom of this page.
-    </p>
-
-  </div>
-</section>
 
 <!-- CATALOG DESIGN PATTERN
   - add tablet-lg grid breakpoint
@@ -135,136 +118,94 @@
 </section>
 
 
-<!-- INFO SECTION | About this design pattern -->
-<section class="usa-section usa-dark-background pattern-info-section">
+<!-- SETTINGS | for this design pattern -->
+<app-pattern-settings id="settings" class="form-controls">
 
-  <!-- Patterns settings -->
-  <div class="pattern-info-container" id="settings">
+  <form class="usa-form">
 
-    <div class="usa-summary-box" role="region" aria-labelledby="summary-box-key-information">
-      <div class="usa-summary-box__body">
-        <h3 class="usa-summary-box__heading" id="summary-box-key-information">
-          Catalog settings
-        </h3>
-        <div class="usa-summary-box__text">
+    <!-- total cards -->
+    <label class="usa-label" for="slider-total-cards">Total cards ({{totalCards}})</label>
+    <input id="slider-total-cards" name="total-cards" class="usa-range" type="range" min="6" max="{{maxCards}}" step="6"
+      [(ngModel)]="totalCards" aria-valuemin="6" attr.aria-valuemax="{{maxCards}}" attr.aria-valuenow="{{totalCards}}"
+      role="slider" (change)="changeTotalCards()" />
 
-          <form class="usa-form">
+    <!-- cards per pages -->
+    <label class="usa-label" for="slider-page-cards">Cards per page ({{pageSize}})</label>
+    <input id="slider-page-cards" name="page-cards" class="usa-range" type="range" min="6" max="{{pageMax}}" step="6"
+      [(ngModel)]="pageSize" aria-valuemin="6" attr.aria-valuemax="{{pageMax}}" attr.aria-valuenow="{{pageSize}}"
+      role="slider" (change)="changePageSize()" />
 
-            <!-- total cards -->
-            <label class="usa-label" for="slider-total-cards">Total cards ({{totalCards}})</label>
-            <input id="slider-total-cards" name="total-cards" class="usa-range" type="range" min="6" max="{{maxCards}}"
-              step="6" [(ngModel)]="totalCards" aria-valuemin="6" attr.aria-valuemax="{{maxCards}}"
-              attr.aria-valuenow="{{totalCards}}" role="slider" (change)="changeTotalCards()" />
-
-            <!-- cards per pages -->
-            <label class="usa-label" for="slider-page-cards">Cards per page ({{pageSize}})</label>
-            <input id="slider-page-cards" name="page-cards" class="usa-range" type="range" min="6" max="{{pageMax}}"
-              step="6" [(ngModel)]="pageSize" aria-valuemin="6" attr.aria-valuemax="{{pageMax}}"
-              attr.aria-valuenow="{{pageSize}}" role="slider" (change)="changePageSize()" />
-
-            <!-- enable auto-scroll -->
-            <div class="usa-checkbox">
-              <input class="usa-checkbox__input" id="enable-autoscroll" type="checkbox" name="auto-scroll"
-                [checked]="autoScroll" (change)="autoScroll = !autoScroll" />
-              <label class="usa-checkbox__label" for="enable-autoscroll">Auto-scroll when paging</label>
-            </div>
-
-            <!-- style -->
-            <label class="usa-label">Style</label>
-            <ul class="usa-button-group usa-button-group--segmented">
-              <li class="usa-button-group__item">
-                <button type="button" [ngClass]="!classic ? 'usa-button' : 'usa-button usa-button--outline'"
-                  (click)="classic=false;">Show&nbsp;more</button>
-              </li>
-              <li class="usa-button-group__item">
-                <button type="button" [ngClass]="classic ? 'usa-button' : 'usa-button usa-button--outline'"
-                  (click)="classic=true;">Classic</button>
-              </li>
-            </ul>
-          </form>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- About this design pattern -->
-  <div class="pattern-info-container" id="info">
-
-    <h2>About this pattern</h2>
-
-    <div class="features">
-
-      <h3>Cards</h3>
-
-      <p class="usa-prose usa-dark-background">
-        Use this card design pattern when you want consistent <a class="usa-link usa-link--alt usa-link--external"
-          href="https://designsystem.digital.gov/components/card/" target="_blank"
-          rel="noopener noreferrer nofollow">Card</a> size proportions and
-        alignment of its elements when sizes for images, card titles, and descriptions vary.
-      </p>
-
-      <h4>What we changed</h4>
-
-      <ul class="usa-list">
-        <li>Card image box uses a <a class="usa-link usa-link--external"
-            href="https://web.dev/patterns/layout/aspect-ratio-image-card/" target="_blank"
-            rel="noopener noreferrer nofollow">fixed aspect ratio</a> to ensure a
-          consistent size.</li>
-        <li>Card title and summary sections are fixed to 2 and 3 lines to ensure a consistent size. We limited the max
-          allowable raw text, so overflow is rare. Ellipses ... indicate overflows.</li>
-        <li>Full card is clickable to maximize the click/touch target (we also removed the button).</li>
-        <li>A hover shadow effect provides a haptic response to emphasize clickability.</li>
-        <li>Images ease in on load to reduce the visual "pop" that occurs on late arrival.</li>
-        <li>Lazy load images so only nearby images download and render.</li>
-      </ul>
-
-      <h3>Pagination</h3>
-
-      <p class="usa-prose">
-        Use this pagination design pattern when you want to see more content without the large page
-        shift that you'd get from classic numbered <a class="usa-link usa-link--alt usa-link--external"
-          href="https://designsystem.digital.gov/components/pagination/" target="_blank"
-          rel="noopener noreferrer nofollow">Pagination</a>.
-      </p>
-
-      <h4>What we changed</h4>
-
-      <ul class="usa-list">
-        <li><strong>See more</strong> and <strong>Show all</strong> pagination adds next page(s) cards
-          to the collection.</li>
-        <li>Optionally, auto-scroll to reposition page to new cards.</li>
-      </ul>
-
-      <h4>Use caution with large catalogs</h4>
-
-      <ul class="usa-list">
-        <li><strong>Show all</strong> should not be used with large catalogs that impact page performance.</li>
-        <li>If you decide to use with a large catalog, offload initial cards that exceed a max limit with each
-          subsequent <strong>Show more</strong>. A <strong>See previous</strong> button can be used at the top
-          of your catalog to similarly restore.</li>
-      </ul>
-
+    <!-- enable auto-scroll -->
+    <div class="usa-checkbox">
+      <input class="usa-checkbox__input" id="enable-autoscroll" type="checkbox" name="auto-scroll"
+        [checked]="autoScroll" (change)="autoScroll = !autoScroll" />
+      <label class="usa-checkbox__label" for="enable-autoscroll">Auto-scroll when paging</label>
     </div>
 
-    <!-- github | return to top -->
-    <ul class="usa-button-group padding-top-6">
+    <!-- style -->
+    <label class="usa-label">Style</label>
+    <ul class="usa-button-group usa-button-group--segmented">
       <li class="usa-button-group__item">
-        <a class="usa-button" type="button" target="_blank" rel="noopener nofollow"
-          href="https://github.com/facioquo/uswds-design-patterns/tree/main/src/app/pages/card-catalog"
-          >View on GitHub</a>
+        <button type="button" [ngClass]="!classic ? 'usa-button' : 'usa-button usa-button--outline'"
+          (click)="classic=false;">Show&nbsp;more</button>
       </li>
       <li class="usa-button-group__item">
-        <a class="usa-button usa-button--outline usa-button--inverse"
-           routerLink="/" fragment="design-patterns">More patterns</a>
-      </li>
-      <li class="usa-button-group__item">
-        <button class="usa-button usa-button--outline usa-button--inverse usa-button--unstyled mobile-lg:padding-left-2"
-          (click)="u.scrollToStart('top')">
-          Return to top
-        </button>
+        <button type="button" [ngClass]="classic ? 'usa-button' : 'usa-button usa-button--outline'"
+          (click)="classic=true;">Classic</button>
       </li>
     </ul>
+  </form>
 
-  </div>
-</section>
+</app-pattern-settings>
+
+<!-- INFO SECTION | About this design pattern -->
+<app-pattern-footer [githubFolder]="'card-catalog'" class="site-dark" id="info">
+
+  <h3>Cards</h3>
+
+  <p class="usa-prose usa-dark-background">
+    Use this card design pattern when you want consistent <a class="usa-link usa-link--alt usa-link--external"
+      href="https://designsystem.digital.gov/components/card/" target="_blank"
+      rel="noopener noreferrer nofollow">Card</a> size proportions and
+    alignment of its elements when sizes for images, card titles, and descriptions vary.
+    Here's what we changed:
+  </p>
+
+  <ul class="usa-list">
+    <li>Card image box uses a <a class="usa-link usa-link--external"
+        href="https://web.dev/patterns/layout/aspect-ratio-image-card/" target="_blank"
+        rel="noopener noreferrer nofollow">fixed aspect ratio</a> to ensure a
+      consistent size.</li>
+    <li>Card title and summary sections are fixed to 2 and 3 lines to ensure a consistent size. We limited the max
+      allowable raw text, so overflow is rare. Ellipses ... indicate overflows.</li>
+    <li>Full card is clickable to maximize the click/touch target (we also removed the button).</li>
+    <li>A hover shadow effect provides a haptic response to emphasize clickability.</li>
+    <li>Images ease in on load to reduce the visual "pop" that occurs on late arrival.</li>
+    <li>Lazy load images so only nearby images download and render.</li>
+  </ul>
+
+  <h3>Pagination</h3>
+
+  <p class="usa-prose">
+    Use this pagination design pattern when you want to see more content without the large page
+    shift that you'd get from classic numbered <a class="usa-link usa-link--alt usa-link--external"
+      href="https://designsystem.digital.gov/components/pagination/" target="_blank"
+      rel="noopener noreferrer nofollow">Pagination</a>. Here's what we changed:
+  </p>
+
+  <ul class="usa-list">
+    <li><strong>See more</strong> and <strong>Show all</strong> pagination adds next page(s) cards
+      to the collection.</li>
+    <li>Optionally, auto-scroll to reposition page to new cards.</li>
+  </ul>
+
+  <h4>Use caution with large catalogs</h4>
+
+  <ul class="usa-list">
+    <li><strong>Show all</strong> should not be used with large catalogs that impact page performance.</li>
+    <li>If you decide to use with a large catalog, offload initial cards that exceed a max limit with each
+      subsequent <strong>Show more</strong>. A <strong>See previous</strong> button can be used at the top
+      of your catalog to similarly restore.</li>
+  </ul>
+
+</app-pattern-footer>

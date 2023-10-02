@@ -1,0 +1,36 @@
+@use "/sass/uswds-styles" as *;
+@forward "usa-button";
+@forward "usa-button-group";
+@forward "usa-checkbox";
+@forward "usa-range";
+@forward "usa-pagination";
+@forward "usa-icon";
+
+/* CONTROLS: pattern settings */
+.form-controls {
+
+  .usa-checkbox {
+    background-color: unset;
+    padding-left: 1px;
+  }
+
+  .usa-checkbox__label {
+    margin-top: 24px;
+
+    &::before {
+      box-shadow: 0 0 0 1px color($theme-color-base);
+      background-color: color($theme-color-base-lightest);
+    }
+  }
+
+  .usa-label {
+    padding-left: 1px;
+  }
+
+  .usa-range {
+    height: 1.5rem;
+    margin: 0;
+    padding: 0 0 0 0;
+    background-color: unset;
+  }
+}

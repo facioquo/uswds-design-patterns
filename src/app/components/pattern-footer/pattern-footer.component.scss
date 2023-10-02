@@ -1,0 +1,50 @@
+@use "/sass/uswds-styles" as *;
+@forward "usa-section";
+@forward "usa-layout-grid";
+@forward "usa-button";
+@forward "usa-button-group";
+
+/* styles unique to the footer */
+
+section {
+  @include site-dark;
+  @include u-padding-x(2);
+  @include u-padding-y(8);
+}
+
+.content-container {
+
+  @include site-dark();
+  max-width: 700px;
+  margin: auto;
+
+  @include at-media-max("mobile-lg") {
+    @include u-padding-x(0);
+  }
+
+  h2 {
+    @include u-margin-top(0);
+  }
+}
+
+.usa-button-group {
+  @include u-margin-top(6);
+}
+
+.return-to-top {
+
+  button {
+    box-shadow: none;
+    text-decoration: underline;
+
+    &:hover {
+      box-shadow: none;
+      background-color: color("base-dark");
+    }
+  }
+
+  @include at-media-max("tablet") {
+    @include u-margin-top(4);
+    flex-basis: 100%;
+  }
+}
