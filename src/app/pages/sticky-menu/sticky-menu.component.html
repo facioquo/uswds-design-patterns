@@ -1,5 +1,5 @@
 <!-- pattern introduction section -->
-<section class="usa-section pattern-intro-section">
+<section class="usa-section pattern-header">
   <div class="grid-container">
 
     <!-- bread crumbs -->
@@ -36,7 +36,8 @@
     <!-- side nav -->
     <div class="grid-row grid-gap-sm">
 
-      <nav id="sticky-menu" class="tablet:grid-col-auto" aria-label="steps of the journey">
+      <nav id="sticky-menu" aria-label="steps of the journey">
+
         <h2>Steps</h2>
         <ul class="usa-sidenav usa-sticky-sidenav">
           <li class="usa-sidenav__item">
@@ -68,7 +69,7 @@
       </nav>
 
       <!-- process list content -->
-      <div class="tablet:grid-col-fill">
+      <div id="process list" class="process-list-pane">
 
         <ol class="usa-process-list padding-top-0">
           <li class="usa-process-list__item" id="pack-bags">
@@ -81,8 +82,8 @@
               Also available are pork chop salami ball tip short loin brisket pig cupim jerky pork belly tri-tip chuck
               short ribs prosciutto.
             </p>
-            <h4>Don't forget about:</h4>
 
+            <h4>Don't forget about:</h4>
             <ul class="usa-list">
               <li>Strip steak</li>
               <li>Turkey</li>
@@ -136,61 +137,27 @@
 
 
 <!-- INFO SECTION | About this design pattern -->
-<section class="usa-section usa-dark-background pattern-info-section">
+<app-pattern-footer [githubFolder]="'sticky-menu'" id="info">
 
-  <!-- About this design pattern -->
-  <div class="pattern-info-container" id="info">
+  <p class="usa-prose">
+    Use this design pattern when you are using the <a class="usa-link usa-link--external"
+      href="https://designsystem.digital.gov/components/process-list/" target="_blank"
+      rel="noopener noreferrer nofollow">Process List</a> and want a matching sticky version of the <a
+      class="usa-link usa-link--external" href="https://designsystem.digital.gov/components/side-navigation/"
+      target="_blank" rel="noopener noreferrer nofollow">Side Navigation</a> menu.
+      Here's what we changed:
+  </p>
 
-    <h2>About this pattern</h2>
+  <h3>Side Navigation</h3>
+  <ul class="usa-list">
+    <li>Added matching numbered bubbles</li>
+    <li>Made it sticky so it's always on-screen when viewing the process list</li>
+  </ul>
 
-    <div class="features">
+  <h3>Process List</h3>
+  <ul class="usa-list">
+    <li>Removed maximum content width limitations</li>
+    <li>Matched background color of numbered bubbles</li>
+  </ul>
 
-      <h3>Side navigation</h3>
-
-      <p class="usa-prose usa-dark-background">
-        Use this design pattern when you are using the <a class="usa-link usa-link--external"
-          href="https://designsystem.digital.gov/components/process-list/" target="_blank"
-          rel="noopener noreferrer nofollow">Process List</a> and want a matching sticky version of the <a
-          class="usa-link usa-link--external" href="https://designsystem.digital.gov/components/side-navigation/"
-          target="_blank" rel="noopener noreferrer nofollow">Side Navigation</a> menu.
-      </p>
-
-      <h4>What we changed</h4>
-
-      <ul class="usa-list">
-        <li>Added matching numbered bubbles</li>
-        <li>Made it sticky so it's always on-screen when viewing the process list</li>
-      </ul>
-
-      <h3>Process list</h3>
-
-      <h4>What we changed</h4>
-
-      <ul class="usa-list">
-        <li>Removed maximum content width limitations</li>
-        <li>Matched background color of numbered bubbles</li>
-      </ul>
-
-    </div>
-
-    <!-- github | return to top -->
-    <ul class="usa-button-group padding-top-6">
-      <li class="usa-button-group__item">
-        <a class="usa-button" type="button" target="_blank" rel="noopener nofollow"
-          href="https://github.com/facioquo/uswds-design-patterns/tree/main/src/app/pages/sticky-menu">View on
-          GitHub</a>
-      </li>
-      <li class="usa-button-group__item">
-        <a class="usa-button usa-button--outline usa-button--inverse" routerLink="/" fragment="design-patterns">More
-          patterns</a>
-      </li>
-      <li class="usa-button-group__item">
-        <button class="usa-button usa-button--outline usa-button--inverse usa-button--unstyled mobile-lg:padding-left-2"
-          (click)="u.scrollToStart('top')">
-          Return to top
-        </button>
-      </li>
-    </ul>
-
-  </div>
-</section>
+</app-pattern-footer>

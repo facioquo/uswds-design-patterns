@@ -3,7 +3,6 @@ import { WORD_LIST } from "./utility.model";
 import { CARD_LIST } from 'src/app/pages/home/patterns.model';
 import { Card } from 'src/app/components/site-card/card.model';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +13,7 @@ export class UtilityService {
   // DESIGN PATTERN LOOKUP
   lookupPattern(id: string, token: string): string {
 
-    const card = CARD_LIST.find(x => x.id = id);
+    const card: Card | undefined = CARD_LIST.find(x => x.id = id);
 
     if (card === undefined) return "";
 

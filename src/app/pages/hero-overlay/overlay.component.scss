@@ -121,7 +121,3 @@
   @include u-padding-y(0); // who doesn't this inherit correctly from _site.scss?
   @include u-margin-bottom(4);
 }
-
-.pattern-info-section {
-  @include u-padding-top(0);
-}

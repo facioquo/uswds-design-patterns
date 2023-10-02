@@ -47,43 +47,14 @@
 
 
 <!-- INFO SECTION | About this design pattern -->
-<section class="usa-section usa-dark-background pattern-info-section">
+<app-pattern-footer [githubFolder]="'bubbles'" id="info">
 
-  <!-- About this design pattern -->
-  <div class="pattern-info-container" id="info">
-
-    <h2>About this pattern</h2>
-
-    <div class="features">
-
-      <p class="usa-prose usa-dark-background">
-        Use this design pattern when you want consistent spacing between fixed size [bubble] cards and
-        symmetrical centering of 3-6 objects.  It'd be difficult to do this using the standard USWDS
-        <a class="usa-link usa-link--external"
-           href="https://designsystem.digital.gov/utilities/layout-grid/"
-           target="_blank"
-           rel="noopener noreferrer nofollow">Layout grid</a>.
-      </p>
-    </div>
-
-    <!-- github | return to top -->
-    <ul class="usa-button-group padding-top-6">
-      <li class="usa-button-group__item">
-        <a class="usa-button"
-           href="https://github.com/facioquo/uswds-design-patterns/tree/main/src/app/pages/bubbles"
-           type="button" target="_blank" rel="noopener nofollow">View on GitHub</a>
-      </li>
-      <li class="usa-button-group__item">
-        <a class="usa-button usa-button--outline usa-button--inverse"
-           routerLink="/" fragment="design-patterns">More patterns</a>
-      </li>
-      <li class="usa-button-group__item">
-        <button class="usa-button usa-button--outline usa-button--inverse usa-button--unstyled mobile-lg:padding-left-2"
-          (click)="u.scrollToStart('top')">
-          Return to top
-        </button>
-      </li>
-    </ul>
-
-  </div>
-</section>
+  <p class="usa-prose usa-dark-background">
+    Use this design pattern when you want consistent spacing between fixed size [bubble] cards and
+    symmetrical centering of 3-6 objects.  It'd be difficult to do this using the standard USWDS
+    <a class="usa-link usa-link--external"
+        href="https://designsystem.digital.gov/utilities/layout-grid/"
+        target="_blank"
+        rel="noopener noreferrer nofollow">Layout grid</a>.
+  </p>
+</app-pattern-footer>

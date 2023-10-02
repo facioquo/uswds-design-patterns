@@ -1,31 +1,31 @@
 <section class="pattern-footer">
+  <div class="info-container">
 
-  <h2>About this pattern</h2>
+    <h2 class="margin-top-0">About this pattern</h2>
 
-  <router-outlet></router-outlet>
+    <ng-content></ng-content>
 
-  <!-- navigate further -->
-  <ul class="usa-button-group">
+    <!-- navigate further -->
+    <ul class="usa-button-group">
 
-    <li class="usa-button-group__item">
-      <a class="usa-button"
-        type="button"
-        href="https://github.com/facioquo/uswds-design-patterns/tree/main/src/app/pages/{{ githubFolder }}"
-        target="_blank" rel="noopener nofollow">View on GitHub</a>
-    </li>
+      <li class="usa-button-group__item">
+        <a class="usa-button" type="button"
+          href="https://github.com/facioquo/uswds-design-patterns/tree/main/src/app/pages/{{ githubFolder }}"
+          target="_blank" rel="noopener nofollow">View on GitHub</a>
+      </li>
 
-    <li class="usa-button-group__item">
-      <a class="usa-button usa-button--outline usa-button--inverse"
-         routerLink="/" fragment="design-patterns">More patterns</a>
-    </li>
+      <li class="usa-button-group__item">
+        <a class="usa-button usa-button--outline usa-button--inverse"
+           routerLink="/" fragment="design-patterns">More patterns</a>
+      </li>
 
-    <li class="usa-button-group__item return-to-top">
-      <button class="usa-button usa-button--outline usa-button--inverse"
-        (click)="u.scrollToStart('top')">
-        Return to top
-      </button>
-    </li>
+      <li class="usa-button-group__item return-to-top">
+        <button class="usa-button usa-button--outline usa-button--inverse"
+          (click)="u.scrollToStart('top')">
+          Return to top
+        </button>
+      </li>
 
-  </ul>
-
+    </ul>
+  </div>
 </section>

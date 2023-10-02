@@ -17,14 +17,16 @@ import { SiteBannerComponent } from './components/site-banner/site-banner.compon
     SiteBannerComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    NgOptimizedImage,
-    AppRoutingModule
+    NgOptimizedImage
   ],
   providers: [
     Meta,
     UtilityService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

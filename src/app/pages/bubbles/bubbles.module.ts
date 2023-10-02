@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BubblesRoutingModule } from './bubbles-routing.module';
+import { PatternModule } from 'src/app/components/pattern.module';
+
 import { BubblesComponent } from './bubbles.component';
 
 @NgModule({
@@ -10,7 +12,8 @@ import { BubblesComponent } from './bubbles.component';
   ],
   imports: [
     CommonModule,
-    BubblesRoutingModule
+    BubblesRoutingModule,
+    PatternModule
   ]
 })
 export class BubblesModule { }

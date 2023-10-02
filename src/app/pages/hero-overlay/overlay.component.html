@@ -93,51 +93,22 @@
 
 
 <!-- INFO SECTION | About this design pattern -->
-<section class="usa-section usa-dark-background pattern-info-section">
+<app-pattern-footer [githubFolder]="'hero-overlay'" id="info">
 
-  <!-- About this design pattern -->
-  <div class="pattern-info-container" id="info">
+  <p class="usa-prose usa-dark-background">
+    Use this design pattern when you want to avoid covering up your background image
+    with an opaque overlay. See the official USWDS <a class="usa-link usa-link--external"
+      href="https://designsystem.digital.gov/templates/landing-page/" target="_blank"
+      rel="noopener noreferrer nofollow">landing page Hero</a> guidance for more information.
+      Here's what we changed:
+  </p>
 
-    <h2>About this pattern</h2>
+  <ul class="usa-list">
+    <li>Moved the callout overlay from a card to a horizontal pane</li>
+    <li>Made the overlay semi-transparent</li>
+    <li>Added a smoothly faded edge</li>
+    <li>Increased font and button size</li>
+    <li>Modified full-pane mobile views</li>
+  </ul>
 
-    <div class="features">
-
-      <p class="usa-prose usa-dark-background">
-        Use this design pattern when you want to avoid covering up your background image
-        with an opaque overlay. See the official USWDS <a class="usa-link usa-link--external"
-          href="https://designsystem.digital.gov/templates/landing-page/" target="_blank"
-          rel="noopener noreferrer nofollow">landing page Hero</a> guidance for more information.
-      </p>
-
-      <h3>What we changed</h3>
-
-      <ul class="usa-list">
-        <li>Moved the callout overlay from a card to a horizontal pane</li>
-        <li>Made the overlay semi-transparent</li>
-        <li>Added a smoothly faded edge</li>
-        <li>Increased font and button size</li>
-        <li>Modified full-pane mobile views</li>
-      </ul>
-    </div>
-
-    <!-- github | return to top -->
-    <ul class="usa-button-group padding-top-6">
-      <li class="usa-button-group__item">
-        <a class="usa-button" type="button" target="_blank" rel="noopener nofollow"
-          href="https://github.com/facioquo/uswds-design-patterns/tree/main/src/app/pages/hero-overlay"
-          >View on GitHub</a>
-      </li>
-      <li class="usa-button-group__item">
-        <a class="usa-button usa-button--outline usa-button--inverse"
-           routerLink="/" fragment="design-patterns">More patterns</a>
-      </li>
-      <li class="usa-button-group__item">
-        <button class="usa-button usa-button--outline usa-button--inverse usa-button--unstyled mobile-lg:padding-left-2"
-          (click)="u.scrollToStart('top')">
-          Return to top
-        </button>
-      </li>
-    </ul>
-
-  </div>
-</section>
+</app-pattern-footer>

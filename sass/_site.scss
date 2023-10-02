@@ -1,13 +1,12 @@
 @use "uswds-core" as *;
 
-/* SITE STYLES */
+/* SITE MIXINS & STYLES */
 
-/* site mixin */
 @mixin site-style {
 
   h1 {
     @include u-font-size('sans', 16);
-    line-height: 0.9em;
+    line-height: line-height("sans", 1);
 
     @include at-media-max("mobile-lg") {
       @include u-font-size('sans', 14);
@@ -24,7 +23,7 @@
 
   h2 {
     @include u-font-size("sans", 12);
-    line-height: 0.9em;
+    line-height: line-height("sans", 1);
 
     @include at-media-max("mobile-lg") {
       @include u-font-size("sans", 11);
@@ -32,7 +31,9 @@
   }
 
   h3 {
-    @include u-font-size("sans", 10);
+    @include u-font-size("sans", 9);
+    font-weight: 400;
+    margin-top: 1.5rem;
 
     @include at-media-max("mobile-lg") {
       @include u-font-size("sans", 8);
@@ -64,15 +65,44 @@
 @mixin site-dark {
 
   @include site-style;
-  color: color($theme-color-base-lighter);
+  @include u-bg("base-darker");
+  color: color("base-lighter");
 
+  /* base elements */
   h1,
   h2 {
-    color: rgba(230, 199, 76, 0.95);
+    color: rgba(230, 199, 76, 0.9);
   }
 
   h3 {
-    color: color($theme-color-base-lightest);
+    color: color("base-lightest");
+  }
+
+  p {
+    color: inherit;
+  }
+
+  /* override, re-style for darkness */
+  .usa-prose {
+    background-color: unset;
+  }
+
+  .usa-link,
+  .usa-link--alt,
+  .usa-link--external {
+
+    color: inherit !important;
+    text-decoration: underline;
+
+    &:active,
+    &:visited {
+      color: unset;
+    }
+
+    &:hover {
+      color: color("base-lightest") !important;
+      cursor: pointer;
+    }
   }
 }
 
@@ -84,20 +114,26 @@
   @include site-dark;
 }
 
-.pattern-intro-section {
+/* MAIN SECTIONS */
+.pattern-header {
+  @include site-style;
   @include u-padding-y(0);
 }
 
-.pattern-info-section {
+.pattern-footer {
 
   @include site-dark;
   @include u-padding-x(2);
+  @include u-padding-y(8);
 
-  .pattern-info-container {
+  @include at-media-max("mobile-lg") {
+    @include u-padding-x(1);
+  }
 
-    @include u-padding-x(6);
-    @include u-padding-y(4);
-    max-width: 800px;
+  .info-container {
+
+    @include site-dark();
+    max-width: 700px;
     margin: auto;
 
     @include at-media-max("mobile-lg") {
@@ -105,6 +141,7 @@
     }
   }
 }
+
 
 /* misc styles */
 a.point:hover {

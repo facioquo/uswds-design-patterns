@@ -4,8 +4,10 @@
 @forward "usa-button";
 @forward "usa-button-group";
 
-section {
-  @include site-dark;
+/* styles unique to the footer */
+
+.usa-button-group {
+  @include u-margin-top(6);
 }
 
 .return-to-top {
@@ -14,7 +16,7 @@ section {
     box-shadow: none;
     text-decoration: underline;
 
-    &:hover{
+    &:hover {
       box-shadow: none;
       background-color: color("base-dark");
     }
