@@ -70,7 +70,7 @@
 
   @include site;
   @include u-bg("base-darker");
-  color: color("base-lighter");
+  color: color("base-light");
 
   /* base elements */
   h1,
@@ -79,7 +79,7 @@
   }
 
   h3 {
-    color: color("base-lightest");
+    color: color("base-lighter");
   }
 
   p {
