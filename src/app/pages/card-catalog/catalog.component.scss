@@ -1,9 +1,12 @@
 @use "/sass/uswds-styles" as *;
+@forward "/sass/site-form-controls";
 @forward "usa-section";
 @forward "usa-layout-grid";
 @forward "usa-button";
 @forward "usa-button-group";
 @forward "usa-card";
+@forward "usa-pagination";
+@forward "usa-icon";
 
 /* CARD CATALOG DESIGN PATTERN */
 .catalog-section {

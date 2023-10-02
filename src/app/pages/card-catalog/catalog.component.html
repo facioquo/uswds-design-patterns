@@ -8,7 +8,7 @@
     <a class="usa-link point" role="button" (click)="u.scrollToEnd('settings');">change settings</a>
     at the bottom of this page.
   </p>
-  </app-pattern-header>
+</app-pattern-header>
 
 
 <!-- CATALOG DESIGN PATTERN
@@ -118,59 +118,45 @@
 </section>
 
 
-<!-- INFO SECTION | About this design pattern -->
-<section class="usa-section usa-dark-background pattern-info-section">
+<!-- SETTINGS | for this design pattern -->
+<app-pattern-settings id="settings" class="form-controls">
 
-  <!-- Patterns settings -->
-  <div class="pattern-info-container" id="settings">
+  <form class="usa-form">
 
-    <div class="usa-summary-box" role="region" aria-labelledby="summary-box-key-information">
-      <div class="usa-summary-box__body">
-        <h3 class="usa-summary-box__heading" id="summary-box-key-information">
-          Catalog settings
-        </h3>
-        <div class="usa-summary-box__text">
+    <!-- total cards -->
+    <label class="usa-label" for="slider-total-cards">Total cards ({{totalCards}})</label>
+    <input id="slider-total-cards" name="total-cards" class="usa-range" type="range" min="6" max="{{maxCards}}" step="6"
+      [(ngModel)]="totalCards" aria-valuemin="6" attr.aria-valuemax="{{maxCards}}" attr.aria-valuenow="{{totalCards}}"
+      role="slider" (change)="changeTotalCards()" />
 
-          <form class="usa-form">
+    <!-- cards per pages -->
+    <label class="usa-label" for="slider-page-cards">Cards per page ({{pageSize}})</label>
+    <input id="slider-page-cards" name="page-cards" class="usa-range" type="range" min="6" max="{{pageMax}}" step="6"
+      [(ngModel)]="pageSize" aria-valuemin="6" attr.aria-valuemax="{{pageMax}}" attr.aria-valuenow="{{pageSize}}"
+      role="slider" (change)="changePageSize()" />
 
-            <!-- total cards -->
-            <label class="usa-label" for="slider-total-cards">Total cards ({{totalCards}})</label>
-            <input id="slider-total-cards" name="total-cards" class="usa-range" type="range" min="6" max="{{maxCards}}"
-              step="6" [(ngModel)]="totalCards" aria-valuemin="6" attr.aria-valuemax="{{maxCards}}"
-              attr.aria-valuenow="{{totalCards}}" role="slider" (change)="changeTotalCards()" />
-
-            <!-- cards per pages -->
-            <label class="usa-label" for="slider-page-cards">Cards per page ({{pageSize}})</label>
-            <input id="slider-page-cards" name="page-cards" class="usa-range" type="range" min="6" max="{{pageMax}}"
-              step="6" [(ngModel)]="pageSize" aria-valuemin="6" attr.aria-valuemax="{{pageMax}}"
-              attr.aria-valuenow="{{pageSize}}" role="slider" (change)="changePageSize()" />
-
-            <!-- enable auto-scroll -->
-            <div class="usa-checkbox">
-              <input class="usa-checkbox__input" id="enable-autoscroll" type="checkbox" name="auto-scroll"
-                [checked]="autoScroll" (change)="autoScroll = !autoScroll" />
-              <label class="usa-checkbox__label" for="enable-autoscroll">Auto-scroll when paging</label>
-            </div>
-
-            <!-- style -->
-            <label class="usa-label">Style</label>
-            <ul class="usa-button-group usa-button-group--segmented">
-              <li class="usa-button-group__item">
-                <button type="button" [ngClass]="!classic ? 'usa-button' : 'usa-button usa-button--outline'"
-                  (click)="classic=false;">Show&nbsp;more</button>
-              </li>
-              <li class="usa-button-group__item">
-                <button type="button" [ngClass]="classic ? 'usa-button' : 'usa-button usa-button--outline'"
-                  (click)="classic=true;">Classic</button>
-              </li>
-            </ul>
-          </form>
-
-        </div>
-      </div>
+    <!-- enable auto-scroll -->
+    <div class="usa-checkbox">
+      <input class="usa-checkbox__input" id="enable-autoscroll" type="checkbox" name="auto-scroll"
+        [checked]="autoScroll" (change)="autoScroll = !autoScroll" />
+      <label class="usa-checkbox__label" for="enable-autoscroll">Auto-scroll when paging</label>
     </div>
-  </div>
-</section>
+
+    <!-- style -->
+    <label class="usa-label">Style</label>
+    <ul class="usa-button-group usa-button-group--segmented">
+      <li class="usa-button-group__item">
+        <button type="button" [ngClass]="!classic ? 'usa-button' : 'usa-button usa-button--outline'"
+          (click)="classic=false;">Show&nbsp;more</button>
+      </li>
+      <li class="usa-button-group__item">
+        <button type="button" [ngClass]="classic ? 'usa-button' : 'usa-button usa-button--outline'"
+          (click)="classic=true;">Classic</button>
+      </li>
+    </ul>
+  </form>
+
+</app-pattern-settings>
 
 <!-- INFO SECTION | About this design pattern -->
 <app-pattern-footer [githubFolder]="'card-catalog'" class="site-dark" id="info">
@@ -204,7 +190,7 @@
     Use this pagination design pattern when you want to see more content without the large page
     shift that you'd get from classic numbered <a class="usa-link usa-link--alt usa-link--external"
       href="https://designsystem.digital.gov/components/pagination/" target="_blank"
-      rel="noopener noreferrer nofollow">Pagination</a>.  Here's what we changed:
+      rel="noopener noreferrer nofollow">Pagination</a>. Here's what we changed:
   </p>
 
   <ul class="usa-list">

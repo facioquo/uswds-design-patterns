@@ -4,12 +4,14 @@ import { RouterModule } from '@angular/router';
 
 import { PatternHeaderComponent } from './pattern-header/pattern-header.component';
 import { PatternFooterComponent } from './pattern-footer/pattern-footer.component';
+import { PatternSettingsComponent } from './pattern-settings/pattern-settings.component';
 import { UtilityService } from '../services/utility.service';
 
 @NgModule({
   declarations: [
     PatternHeaderComponent,
-    PatternFooterComponent
+    PatternFooterComponent,
+    PatternSettingsComponent
   ],
   imports: [
     CommonModule,
@@ -18,6 +20,7 @@ import { UtilityService } from '../services/utility.service';
   exports: [
     PatternHeaderComponent,
     PatternFooterComponent,
+    PatternSettingsComponent,
     RouterModule
   ],
   providers: [
