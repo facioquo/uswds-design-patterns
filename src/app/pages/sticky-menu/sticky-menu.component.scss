@@ -12,15 +12,19 @@
 
   @include u-padding-top(3);
 
-  // side navigation
+  /* SIDE NAVIGATION PANE */
   nav {
 
-    @include u-padding-bottom(4);
+    /* use value of 2 or 3 instead of "auto"
+      if you want longer menu items to wrap */
+    @include grid-col("auto");
 
-    // < tablet
-    @include at-media-max("tablet-lg") {
-      padding-left: 1.1rem !important;
+    /* don't show when < tablet width */
+    @include at-media-max("tablet") {
+      display: none;
     }
+
+    @include u-padding-bottom(4);
 
     h2 {
       @include u-margin-top(0);
@@ -38,21 +42,24 @@
       counter-reset: usa-numbered-list;
 
       .usa-sidenav__item {
-        border-top: none;
-        line-height: 1.1;
 
+        border-top: none;
+        line-height: line-height("sans", 2);
+
+        /* add space for new bullet */
         a {
           padding-left: 2.3rem;
-          padding-right: 0;
+          padding-right: 0.3rem;
           color: color("base-darkest");
 
           &:hover {
             color: color($theme-link-color);
-            background-color: color("base-light");
+            background-color: color("base-lightest");
             cursor: pointer;
           }
         }
 
+        /* numbered bullet styles */
         &::before {
           display: flex;
           flex-direction: row;
@@ -62,7 +69,7 @@
           height: 1.5rem;
           width: 1.5rem;
 
-          margin-top: 0.275rem;
+          margin-top: 0.3rem;
           align-items: center;
           justify-content: center;
 
@@ -79,7 +86,7 @@
         }
       }
 
-      // custom bullets
+      /* custom bullet */
       .bullet-question::before {
         content: "?";
       }
@@ -88,35 +95,47 @@
   }
 
 
-  // process list
-  .usa-process-list {
+  /* PROCESS LIST PANE */
+  .process-list-pane {
 
-    .usa-process-list__item {
+    @include grid-col("fill");
 
-      max-width: unset;
-      border-left-color: color("primary-light");
+    .usa-process-list {
 
-      h3 {
-        @include u-margin-bottom(2);
-      }
+      .usa-process-list__item {
 
-      ul {
-        li {
-          max-width: unset;
+        max-width: unset;
+        border-left-color: color("primary-light");
+
+        h3,
+        h4 {
+          @include u-margin-bottom(2);
         }
-      }
 
-      // match our background colors
-      &::before {
-        background-color: color("base-lighter");
-        box-shadow: 0 0 0 0.25rem color("base-lighter");
+        ul,
+        ol {
+
+          @include u-margin-top(0.5);
+
+          li {
+            line-height: line-height("sans", 2);
+            @include u-margin-y(0);
+            max-width: unset;
+          }
+        }
+
+        /* number circle, matches our background colors */
+        &::before {
+          background-color: color("base-lighter");
+          box-shadow: 0 0 0 0.25rem color("base-lighter");
+        }
       }
     }
   }
 }
 
 
-// adjustments to non-design pattern parts of the page
+/* adjustments to non-design pattern parts of the page */
 .pattern-intro-section {
   @include u-padding-y(0);
   @include u-margin-bottom(4);

@@ -1,0 +1,27 @@
+@use "/sass/uswds-styles" as *;
+@forward "usa-section";
+@forward "usa-layout-grid";
+@forward "usa-button";
+@forward "usa-button-group";
+
+section {
+  @include site-dark;
+}
+
+.return-to-top {
+
+  button {
+    box-shadow: none;
+    text-decoration: underline;
+
+    &:hover{
+      box-shadow: none;
+      background-color: color("base-dark");
+    }
+  }
+
+  @include at-media-max("tablet") {
+    @include u-margin-top(4);
+    flex-basis: 100%;
+  }
+}
