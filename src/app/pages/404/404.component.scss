@@ -1,0 +1,63 @@
+@use "/sass/uswds-styles" as *;
+@forward "usa-section";
+@forward "usa-layout-grid";
+@forward "usa-breadcrumb";
+
+.usa-section {
+  @include site-dark;
+  @include u-padding-top(0);
+  @include u-padding-bottom(2);
+  background-color: unset;
+
+  .usa-breadcrumb {
+    background-color: rgba(28, 29, 31, 0.5);
+    box-shadow: 0 0 1rem 1rem rgba(28, 29, 31, 0.5);
+  }
+}
+
+.content-container {
+
+  @include u-padding-x(2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .content {
+
+    max-width: 750px;
+
+    .usa-prose {
+      @include u-font-size("sans", 10);
+      color: color("base-lightest");
+
+      code {
+        font-weight: 200;
+      }
+
+      @include at-media-max("mobile-lg") {
+        @include u-font-size("sans", 8);
+        font-weight: unset;
+      }
+    }
+  }
+}
+
+.bg-img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: url("/assets/images/lost-in-woods.webp");
+  background-position: center;
+  background-size: cover;
+  z-index: -2;
+}
+
+.bg-fill {
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  background-color: #000;
+  opacity: 40%;
+  z-index: -1;
+}

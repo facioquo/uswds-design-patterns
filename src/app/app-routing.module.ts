@@ -24,6 +24,10 @@ const routes: Routes = [
   {
     path: 'sticky-menu',
     loadChildren: () => import('./pages/sticky-menu/sticky-menu.module').then(m => m.StickyMenuModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/404/404.module').then(m => m.PageNotFoundModule)
   }
 ];
 
