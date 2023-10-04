@@ -6,7 +6,7 @@ import { OverlayComponent } from './overlay.component';
 const routes: Routes = [
   {
     path: "", // "" for lazy-loading, see AppRoutingModule
-    title: "Hero callout overlay | Enriched design pattern for USWDS",
+    title: "Hero callout overlay | Design pattern for USWDS",
     component: OverlayComponent
   }
 ];
