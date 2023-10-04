@@ -23,12 +23,20 @@
       line-height: line-height('sans', 1);
     }
 
+    @include at-media-max("mobile") {
+      @include u-font-size('sans', 15);
+    }
+
     .supertitle {
       @include u-font-size('sans', 14);
       color: inherit;
 
       @include at-media-max("mobile-lg") {
         @include u-font-size('sans', 11);
+      }
+
+      @include at-media-max("mobile") {
+        @include u-font-size('sans', 10);
       }
     }
 
