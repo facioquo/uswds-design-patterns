@@ -32,7 +32,7 @@ export class HomeComponent {
   public suggestionCard: Card = {
     "id": "ghost-card",
     "title": "» make a suggestion",
-    "description": "Do you have an ideas to share on our site?  Send us a link or a screenshot.",
+    "description": "What are we missing?  Send us new design pattern ideas.",
     "link": "https://github.com/facioquo/uswds-design-patterns/issues/new?labels=enhancement&template=feature_request.md",
     "image": "add",
     "imageType": "usa-icon"
