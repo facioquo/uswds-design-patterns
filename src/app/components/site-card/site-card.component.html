@@ -5,11 +5,17 @@
     </div>
     <div class="usa-card__media">
       <div class="usa-card__img">
+
+        <!-- design pattern thumbnails -->
         <img *ngIf="!card.imageType" class="easeload" onload="this.style.opacity=1"
           ngSrc="{{ card.image }}" width="800" height="600" priority="{{(i<6)?true:false}}" alt="" />
-        <svg *ngIf="card.imageType==='usa-icon'" class="usa-icon" alt="">
-          <use [attr.href]="'/assets/uswds/img/sprite.svg#'+card.image"></use>
-        </svg>
+
+        <!-- if icon is used instead (and for suggestion card) -->
+        <div *ngIf="card.imageType==='usa-icon'" class="icon-container">
+          <svg  class="usa-icon" alt="">
+            <use [attr.href]="'/assets/uswds/img/sprite.svg#'+card.image"></use>
+          </svg>
+        </div>
       </div>
     </div>
     <div class="usa-card__body">

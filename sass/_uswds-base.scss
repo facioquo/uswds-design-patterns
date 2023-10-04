@@ -23,4 +23,8 @@ body {
 main {
   display: block;
   min-height: 85vh;
+
+  @include at-media-max("tablet") {
+    min-height: 70vh;
+  }
 }

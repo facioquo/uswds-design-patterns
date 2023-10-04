@@ -45,15 +45,21 @@
     aspect-ratio: 4/3;
     background-color: unset;
 
-    .usa-icon {
-      margin-top: auto;
-      margin-bottom: auto;
-      height: 150px;
-      width: 150px;
-      fill: color("base-dark");
-      fill-opacity: 50%;
-      left: calc(50% - 75px);
-      top: calc(50% - 75px);
+    /* special case for SVG icons */
+    .icon-container {
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+
+      .usa-icon {
+        height: 200px;
+        width: 200px;
+        fill: color("base-dark");
+        fill-opacity: 50%;
+      }
     }
   }
 

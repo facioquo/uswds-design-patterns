@@ -32,7 +32,7 @@ export class CatalogComponent implements OnInit {
   public pages = 0;
   public pageSize = 24;
   public pageMax = 180;
-  public maxCards = 840;
+  public maxCards = this.images.length;
   public totalCards = this.maxCards;
 
   public cards: Card[] = [];

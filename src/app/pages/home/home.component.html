@@ -21,6 +21,7 @@
 
     <!-- catalog -->
     <ul class="usa-card-group padding-top-4" id="design-patterns">
+
       <!-- cards -->
       <li class="tablet:grid-col-6 tablet-lg:grid-col-4" *ngFor="let card of cards; index as i">
         <app-site-card [card]="card" [i]=i />
@@ -30,6 +31,7 @@
       <li class="tablet:grid-col-6 tablet-lg:grid-col-4">
         <app-site-card [card]="suggestionCard" [i]="cards.length+1" />
       </li>
+
     </ul>
   </div>
 </section>
@@ -51,9 +53,9 @@
     <h2 class="margin-top-8">About us</h2>
 
     <p class="usa-prose">
-      We're an open group of community designers, developers, and content specialists who are passionate about
+      We're an open group of community designers, developers, and content specialists who are passionate about the
       <a class="usa-link usa-link--external" href="https://designsystem.digital.gov/about/" target="_blank"
-        rel="noopener noreferrer nofollow">the U.S. Web Design System</a>. We are not sponsored by the U.S. government,
+        rel="noopener noreferrer nofollow">U.S. Web Design System</a>. We are not sponsored by the U.S. government,
       the U.S. Web Design System team, or the General Services Administration.
     </p>
 
@@ -61,10 +63,8 @@
       <strong>Have design ideas or suggestions? &nbsp;</strong>
       <a class="usa-link" target="_blank" rel="noopener nofollow"
         href="https://github.com/facioquo/uswds-design-patterns/issues/new?labels=enhancement&template=feature_request.md"
-        >Submit an issue</a>
-        or
-        <a class="usa-link" target="_blank" rel="noopener nofollow"
-          href="https://github.com/facioquo/uswds-design-patterns">join us as a code contributor</a> on GitHub.
+        >Submit an issue</a> or join us as a code contributor <a class="usa-link" target="_blank" rel="noopener nofollow"
+          href="https://github.com/facioquo/uswds-design-patterns">on GitHub</a>.
   </p>
 
   </div>
