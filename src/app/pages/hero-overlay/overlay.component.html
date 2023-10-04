@@ -4,10 +4,13 @@
     A semi-transparent callout overlay with faded edge, using the U.S. Web Design System
     <strong>landing page Hero</strong> template.
 
-    Learn more about
-    <a class="usa-link point" role="button" (click)="u.scrollToStart('info');">this design pattern</a>
-    at the bottom of the page.
-  </p>
+    <!-- learn more -->
+    <a class="usa-link learn-more" role="button" (click)="u.scrollToStart('info');">
+      Learn more
+      <svg class="usa-icon" alt="">
+        <use href="/assets/uswds/img/sprite.svg#arrow_downward"></use>
+      </svg>
+    </a>
 </app-pattern-header>
 
 

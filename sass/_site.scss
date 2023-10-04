@@ -124,6 +124,15 @@ a.point:hover {
   cursor: pointer;
 }
 
+.learn-more {
+  cursor: pointer;
+  white-space: nowrap;
+
+  .usa-icon {
+    vertical-align: middle;
+  }
+}
+
 /* show/hide mobile breakpoints */
 @include at-media-max("tablet-lg") {
   .not-mobile {

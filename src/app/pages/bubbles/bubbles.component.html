@@ -4,9 +4,13 @@
     A floating collection of bubble-shaped cards without use of the U.S. Web Design System
     <strong>Layout grid</strong>.
 
-    Learn more about
-    <a class="usa-link point" role="button" (click)="u.scrollToStart('info');">this design pattern</a>
-    at the bottom of the page.
+    <!-- learn more -->
+    <a class="usa-link learn-more" role="button" (click)="u.scrollToStart('info');">
+      Learn more
+      <svg class="usa-icon" alt="">
+        <use href="/assets/uswds/img/sprite.svg#arrow_downward"></use>
+      </svg>
+    </a>
   </p>
 </app-pattern-header>
 
@@ -33,7 +37,7 @@
   <p class="usa-prose usa-dark-background">
     Use this design pattern with a small collection of fixed-size [bubble] cards
     when you want consistent spacing, fluid wrapping, and symmetrical centering.
-    
+
     It'd be difficult to do this using the standard
     <a class="usa-link usa-link--external"
         href="https://designsystem.digital.gov/utilities/layout-grid/"
