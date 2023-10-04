@@ -25,6 +25,6 @@ main {
   min-height: 85vh;
 
   @include at-media-max("tablet") {
-    min-height: 75vh;
+    min-height: 70vh;
   }
 }

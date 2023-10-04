@@ -2,7 +2,8 @@
 @forward "usa-identifier";
 
 .usa-identifier {
-  @include typeset($theme-identifier-font-family, "sm", 2);
+  @include typeset("sans", "sm", 2);
+  background-color: #dfe1e250;
 }
 
 .usa-identifier__logo-img {
@@ -21,7 +22,7 @@
   a.usa-link {
 
     &:hover {
-      color: color($theme-color-base-dark) !important;
+      color: color("base-dark") !important;
     }
 
     &:visited {
