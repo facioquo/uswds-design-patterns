@@ -6,7 +6,7 @@ import { BubblesComponent } from './bubbles.component';
 const routes: Routes = [
   {
     path: "", // "" for lazy-loading, see AppRoutingModule
-    title: "Floating bubbles | Enriched design pattern for USWDS",
+    title: "Floating bubbles | Design pattern for USWDS",
     component: BubblesComponent
   }
 ];
