@@ -2,8 +2,8 @@
   "name": "Design pattern idea book for U.S. Web Design System",
   "short_name": "uswds-design-patterns",
   "description": "Essential design patterns using the U.S. Web Design System.",
-  "theme_color": "#2e2e2e",
-  "background_color": "#2e2e2e",
+  "theme_color": "#1b1b1b",
+  "background_color": "#1b1b1b",
   "icons": [
     {
       "src": "images/logo.svg",

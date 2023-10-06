@@ -69,7 +69,7 @@
 @mixin site-dark {
 
   @include site;
-  @include u-bg("base-darker");
+  @include u-bg("base-darkest");
   color: color("base-light");
 
   /* base elements */
@@ -120,7 +120,7 @@
 
 /* SITE STYLES */
 
-a.point:hover {
+a.pointer:hover {
   cursor: pointer;
 }
 
