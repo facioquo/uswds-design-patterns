@@ -69,7 +69,7 @@
 @mixin site-dark {
 
   @include site;
-  @include u-bg("base-darker");
+  @include u-bg("base-darkest");
   color: color("base-light");
 
   /* base elements */
@@ -97,6 +97,7 @@
 
     color: inherit !important;
     text-decoration: underline;
+    cursor: pointer;
 
     &:active,
     &:visited {
@@ -105,7 +106,6 @@
 
     &:hover {
       color: color("base-lightest") !important;
-      cursor: pointer;
     }
   }
 }
@@ -120,7 +120,7 @@
 
 /* SITE STYLES */
 
-a.point:hover {
+.pointer {
   cursor: pointer;
 }
 
