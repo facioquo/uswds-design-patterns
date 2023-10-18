@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+
 import { UtilityService } from 'src/app/services/utility.service';
 
 import { Card } from 'src/app/components/site-card/card.model';
@@ -13,15 +13,9 @@ import { Image, IMAGES } from '../card-catalog/image.model';
 export class BubblesComponent implements OnInit {
 
   constructor(
-    public readonly u: UtilityService,
-    private meta: Meta
+    public readonly u: UtilityService
   ) {
-    this.meta.addTags([
-      {
-        name: 'description',
-        content: this.u.lookupPattern("bubbles", "description")
-      }
-    ]);
+    this.u.updateMetaTags("bubbles");
   }
 
   public cards: Card[] = [];
@@ -29,7 +23,7 @@ export class BubblesComponent implements OnInit {
 
   ngOnInit(): void {
 
-     // make random cards
+    // make random cards
     let max = 7;
     for (let i = 0; i < max; i++) {
 

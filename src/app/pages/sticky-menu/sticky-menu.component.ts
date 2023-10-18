@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+
 import { UtilityService } from 'src/app/services/utility.service';
 
 @Component({
@@ -10,14 +10,8 @@ import { UtilityService } from 'src/app/services/utility.service';
 export class StickyMenuComponent {
 
   constructor(
-    public readonly u: UtilityService,
-    private meta: Meta
+    public readonly u: UtilityService
   ) {
-    this.meta.addTags([
-      {
-        name: 'description',
-        content: this.u.lookupPattern("sticky-menu", "description")
-      }
-    ]);
+    this.u.updateMetaTags("sticky-menu");
   }
 }

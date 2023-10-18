@@ -1,35 +1,84 @@
 import { Injectable } from '@angular/core';
+import { Meta, MetaDefinition } from '@angular/platform-browser';
+
 import { WORD_LIST } from "./utility.model";
-import { CARD_LIST } from 'src/app/pages/home/patterns.model';
-import { Card } from 'src/app/components/site-card/card.model';
+import { Card, CARD_LIST } from 'src/app/pages/home/patterns.model';
+
+const URL_BASE = "https://uswds.facioquo.com";
+const URL_IMAGE_SOCIAL = URL_BASE.concat("/assets/images/social-card.png?v=2023-10-18");
+const SITE_DESCRIPTION = "A design pattern idea book for designers and developers using the U.S. Web Design System (USWDS), built by community enthusiasts.";
+const VERSION_DATE = "2023-10-18";
+
+export {
+  URL_BASE,
+  URL_IMAGE_SOCIAL,
+  SITE_DESCRIPTION,
+  VERSION_DATE
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilityService {
 
-  constructor() { }
+  constructor(
+    private meta: Meta
+  ) { }
 
-  // DESIGN PATTERN LOOKUP
-  lookupPattern(id: string, token: string): string {
+  // DESIGN PATTERN META
+  publishMetaTags(tags: MetaDefinition[]): void {
 
-    const card: Card | undefined = CARD_LIST.find(x => x.id = id);
+    tags.forEach((tag: MetaDefinition) => {
 
-    if (card === undefined) return "";
+      // var exists = this.meta.getTag(attrib)
 
-    switch (token) {
-      case "id":
-        return card.id;
-      case "title":
-        return card.title;
-      case "description":
-        return card.description;
-      case "link":
-        return card.link;
-      default:
-        return "";
-    }
-  };
+    });
+  }
+
+  updateMetaTags(id: string): void {
+
+    const tags = this.patternMetaTags(id);
+    this.publishMetaTags(tags);
+  }
+
+  // DESIGN PATTERN META
+  patternMetaTags(id: string): MetaDefinition[] {
+
+    const card = this.getPatternCard(id);
+
+    const metaImage = card.imageMeta
+      ? URL_BASE.concat(card.imageMeta)
+      : URL_IMAGE_SOCIAL;
+
+    const tags: MetaDefinition[] = [
+      {
+        name: 'image',
+        content: metaImage
+      },
+      {
+        name: 'description',
+        content: card.description
+      },
+      {
+        property: 'og.image',
+        content: metaImage
+      },
+      {
+        property: 'og.description',
+        content: card.description
+      },
+    ];
+
+    return tags;
+  }
+
+  // DESIGN PATTERN CARD LOOKUP
+  getPatternCard(id: string): Card {
+    const card = CARD_LIST.find(x => x.id === id);
+    return card
+      ? card
+      : {} as Card
+  }
 
 
   // PAGE SCROLLING

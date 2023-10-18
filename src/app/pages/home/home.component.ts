@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { MetaDefinition } from '@angular/platform-browser';
 
-import { UtilityService } from 'src/app/services/utility.service';
+import {
+  UtilityService,
+  URL_IMAGE_SOCIAL,
+  SITE_DESCRIPTION
+} from 'src/app/services/utility.service';
 
-import { Card } from 'src/app/components/site-card/card.model';
-import { CARD_LIST } from './patterns.model';
+import { Card, CARD_LIST } from './patterns.model';
 
 @Component({
   selector: 'app-home',
@@ -14,15 +17,28 @@ import { CARD_LIST } from './patterns.model';
 export class HomeComponent {
 
   constructor(
-    public readonly u: UtilityService,
-    private meta: Meta
+    public readonly u: UtilityService
   ) {
-    this.meta.addTags([
+    const tags: MetaDefinition[] = [
+      {
+        name: 'image',
+        content: URL_IMAGE_SOCIAL
+      },
       {
         name: 'description',
-        content: 'A design pattern idea book for designers and developers using the U.S. Web Design System (USWDS), built by community enthusiasts.'
-      }
-    ]);
+        content: SITE_DESCRIPTION
+      },
+      {
+        property: 'og.image',
+        content: URL_IMAGE_SOCIAL
+      },
+      {
+        property: 'og.description',
+        content: SITE_DESCRIPTION
+      },
+    ]
+
+    this.u.publishMetaTags(tags);
   }
 
   // landing page card data

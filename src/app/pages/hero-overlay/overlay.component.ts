@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+
 import { UtilityService } from 'src/app/services/utility.service';
 
 //@ts-ignore
@@ -13,15 +13,9 @@ import modal from "@uswds/uswds/js/usa-modal";
 export class OverlayComponent implements OnInit, OnDestroy {
 
   constructor(
-    public readonly u: UtilityService,
-    private meta: Meta
+    public readonly u: UtilityService
   ) {
-    this.meta.addTags([
-      {
-        name: 'description',
-        content: this.u.lookupPattern("hero-overlay", "description")
-      }
-    ]);
+    this.u.updateMetaTags("hero-overlay");
   }
 
   ngOnInit() {

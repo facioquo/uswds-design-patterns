@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+
 import { UtilityService } from 'src/app/services/utility.service';
 
 import { Card } from 'src/app/components/site-card/card.model';
@@ -17,15 +17,9 @@ export class CatalogComponent implements OnInit {
   classic = false;
 
   constructor(
-    public readonly u: UtilityService,
-    private meta: Meta
+    public readonly u: UtilityService
   ) {
-    this.meta.addTags([
-      {
-        name: 'description',
-        content: this.u.lookupPattern("card-catalog", "description")
-      }
-    ]);
+    this.u.updateMetaTags("card-catalog");
   }
 
   public page = 0;
