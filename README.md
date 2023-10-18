@@ -2,7 +2,7 @@
 
 [uswds.facioquo.com](https://uswds.facioquo.com)
 
-[![website screenshot](/src/assets/images/social-card.png?v=2023-10-18)](https://uswds.facioquo.com)
+[![website screenshot](/src/assets/images/social-card.png?v=2023.10.18)](https://uswds.facioquo.com)
 
 A website demonstrating design patterns for [U.S. Web Design System](https://designsystem.digital.gov) (USWDS).  Each pattern is a separate site page with its own isolated HTML, SASS stylesheet, and TS typescript files, to make their implementation easy to see and reuse.
 

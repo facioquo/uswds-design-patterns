@@ -5,9 +5,9 @@ import { WORD_LIST } from "./utility.model";
 import { Card, CARD_LIST } from 'src/app/pages/home/patterns.model';
 
 const URL_BASE = "https://uswds.facioquo.com";
-const URL_IMAGE_SOCIAL = URL_BASE.concat("/assets/images/social-card.png?v=2023-10-18");
+const URL_IMAGE_SOCIAL = URL_BASE.concat("/assets/images/social-card.png?v=2023.10.18");
 const SITE_DESCRIPTION = "A design pattern idea book for designers and developers using the U.S. Web Design System (USWDS), built by community enthusiasts.";
-const VERSION_DATE = "2023-10-18";
+const VERSION_DATE = "2023.10.18";
 
 export {
   URL_BASE,
