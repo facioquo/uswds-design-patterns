@@ -12,7 +12,7 @@ export class PageNotFoundComponent {
     private readonly u: UtilityService
   ) {
 
-    const title = "Page not found | Idea book for USWDS"
+    const description = "This is not a page.  Try again.";
 
     this.u.pushMetaTags([
       {
@@ -21,15 +21,15 @@ export class PageNotFoundComponent {
       },
       {
         property: 'og:title',
-        content: title
+        content: "Page not found"
       },
       {
         name: 'description',
-        content: title
+        content: description
       },
       {
         property: 'og:description',
-        content: title
+        content: description
       },
     ]);
   }

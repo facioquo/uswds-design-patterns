@@ -73,9 +73,6 @@ export class UtilityService {
       ? URL_BASE.concat(card.imageMeta)
       : URL_IMAGE_SOCIAL;
 
-    // const title = pageTitleWithSuffix(card.title);
-    const title = card.title;
-
     this.pushMetaTags([
       {
         name: 'image',
@@ -87,7 +84,7 @@ export class UtilityService {
       },
       {
         property: 'og:title',
-        content: title
+        content: card.title
       },
       {
         name: 'description',

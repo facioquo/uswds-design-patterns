@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 import {
   UtilityService,
-  URL_IMAGE_SOCIAL,
   SITE_DESCRIPTION,
   SITE_TITLE
 } from 'src/app/services/utility.service';
@@ -23,14 +22,6 @@ export class HomeComponent {
       {
         property: 'og:title',
         content: SITE_TITLE
-      },
-      {
-        name: 'image',
-        content: URL_IMAGE_SOCIAL
-      },
-      {
-        property: 'og:image',
-        content: URL_IMAGE_SOCIAL
       },
       {
         name: 'description',
