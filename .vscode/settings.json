@@ -20,6 +20,7 @@
     "gulpfile",
     "megamenu",
     "ngsw",
+    "nguniversal",
     "nofollow",
     "sidenav",
     "skipnav",
