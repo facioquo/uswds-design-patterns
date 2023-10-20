@@ -42,18 +42,20 @@ jobs:
           tokenSuffix: __
 
       - powershell: |
-          $DateMarker = Get-Date -Format "yyyy.MM.dd"
-          $FilesToChange = Get-ChildItem -Path $(Pipeline.Workspace)/s/src/*.* -Recurse -Force  |  Select-String -Pattern "YYYY.MM.DD" -AllMatches | Foreach {$_.Path} | Select-Object -Unique
+          Write-Host "------------------------------------------------------------"
+          Write-Host "Adding date marker in $(Pipeline.Workspace)/s/src files."
+          Write-Host "------------------------------------------------------------"
 
-          Write-Host "------------------------------------------------------------"
-          Write-Host "Add $DateMarker markers, $(Pipeline.Workspace)/s/src"
-          Write-Host "------------------------------------------------------------"
+          $DateMarker = Get-Date -Format "yyyy.MM.dd"
+
+          Write-Host "Marker $DateMarker updated on:"
+
+          $FilesToChange = Get-ChildItem -Path $(Pipeline.Workspace)/s/src/*.* -Recurse -Force  |  Select-String -Pattern "YYYY.MM.DD" -AllMatches | Foreach {$_.Path} | Select-Object -Unique
 
           foreach ($SingleFile in $FilesToChange)
           {
               (Get-Content $SingleFile -Encoding UTF8) -replace 'YYYY.MM.DD', $DateMarker | Set-Content $SingleFile
-              Write-Host "Updated for: " $SingleFile
-              Write-Host " -----------------------------------"
+              Write-Host $SingleFile
           }
         displayName: 'Add version markers'
 
