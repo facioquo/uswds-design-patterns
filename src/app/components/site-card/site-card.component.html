@@ -8,7 +8,7 @@
 
         <!-- design pattern thumbnails -->
         <img *ngIf="!card.imageType" class="easeload" onload="this.style.opacity=1"
-          ngSrc="{{ card.image }}" width="800" height="600" priority="{{(i<6)?true:false}}" alt="" />
+          ngSrc="{{ card.image }}" width="605" height="454" priority="{{(i<6)?true:false}}" alt="" />
 
         <!-- if icon is used instead (and for suggestion card) -->
         <div *ngIf="card.imageType==='usa-icon'" class="icon-container">
