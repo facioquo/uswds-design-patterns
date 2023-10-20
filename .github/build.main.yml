@@ -54,7 +54,7 @@ jobs:
 
           foreach ($SingleFile in $FilesToChange)
           {
-              (Get-Content $SingleFile -Encoding UTF8) -replace 'YYYY.MM.DD', $DateMarker | Set-Content $SingleFile
+              (Get-Content $SingleFile -Encoding UTF8) -replace "YYYY.MM.DD", "$DateMarker" | Set-Content $SingleFile
               Write-Host $SingleFile
           }
         displayName: 'Add version markers'
