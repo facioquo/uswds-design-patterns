@@ -1,6 +1,10 @@
 {
   "name": "uswds-design-patterns",
-  "version": "2023.10.18",
+  "license": "CC0-1.0",
+  "homepage": "https://github.com/facioquo/uswds-design-patterns",
+  "repository": "https://github.com/facioquo/uswds-design-patterns",
+  "bugs": "https://github.com/facioquo/uswds-design-patterns/issues",
+  "author": "FacioQuo <info@facioquo.com> (http://facioquo.com)",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open --live-reload",
