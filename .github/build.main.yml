@@ -43,14 +43,14 @@ jobs:
 
       - powershell: |
           $DateMarker = Get-Date -Format "yyyy.MM.dd"
-          $FilesToChange = Get-ChildItem -Path $(Agent.WorkFolder)/src/*.* -Recurse -Force  |  Select-String -Pattern "YYYY.MM.DD" -AllMatches | Foreach {$_.Path} | Select-Object -Unique
+          $FilesToChange = Get-ChildItem -Path $(Agent.TempDirectory)/src/*.* -Recurse -Force  |  Select-String -Pattern "YYYY.MM.DD" -AllMatches | Foreach {$_.Path} | Select-Object -Unique
 
           Write-Host "------------------------------------------------------------"
-          Write-Host "Add $DateMarker markers, $(Agent.WorkFolder)/src"
+          Write-Host "Add $DateMarker markers, $(Agent.TempDirectory)/src"
           Write-Host "------------------------------------------------------------"
 
           $DateMarker = Get-Date -Format "yyyy.MM.dd-HH:mm K"
-          $FilesToChange = Get-ChildItem -Path $(Agent.WorkFolder)/src/*.* -Recurse -Force  |  Select-String -Pattern "YYYY.MM.DD" -AllMatches | Foreach {$_.Path} | Select-Object -Unique
+          $FilesToChange = Get-ChildItem -Path $(Agent.TempDirectory)/src/*.* -Recurse -Force  |  Select-String -Pattern "YYYY.MM.DD" -AllMatches | Foreach {$_.Path} | Select-Object -Unique
 
           foreach ($SingleFile in $FilesToChange)
           {
