@@ -41,6 +41,25 @@ jobs:
           tokenPrefix: __
           tokenSuffix: __
 
+      - powershell: |
+          $DateMarker = Get-Date -Format "yyyy.MM.dd"
+          $FilesToChange = Get-ChildItem -Path $(Agent.WorkFolder)/src/*.* -Recurse -Force  |  Select-String -Pattern "YYYY.MM.DD" -AllMatches | Foreach {$_.Path} | Select-Object -Unique
+
+          Write-Host "------------------------------------------------------------"
+          Write-Host "Add $DateMarker markers, $(Agent.WorkFolder)/src"
+          Write-Host "------------------------------------------------------------"
+
+          $DateMarker = Get-Date -Format "yyyy.MM.dd-HH:mm K"
+          $FilesToChange = Get-ChildItem -Path $(Agent.WorkFolder)/src/*.* -Recurse -Force  |  Select-String -Pattern "YYYY.MM.DD" -AllMatches | Foreach {$_.Path} | Select-Object -Unique
+
+          foreach ($SingleFile in $FilesToChange)
+          {
+              (Get-Content $SingleFile -Encoding UTF8) -replace 'YYYY.MM.DD', $DateMarker | Set-Content $SingleFile
+              Write-Host "Updated for: " $SingleFile
+              Write-Host " -----------------------------------"
+          }
+        displayName: 'Add version markers'
+
       - task: Npm@1
         displayName: Build
         inputs:
