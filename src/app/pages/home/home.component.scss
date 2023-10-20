@@ -47,6 +47,10 @@
       @include at-media-max("mobile-lg") {
         @include u-font-size('sans', 6);
       }
+
+      @include at-media-max("mobile") {
+        @include u-font-size('sans', 5);
+      }
     }
 
     .supertitle,

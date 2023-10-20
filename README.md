@@ -1,4 +1,4 @@
-# Idea Book: design patterns for U.S. Web Design System (USWDS)
+# Idea book: design patterns for U.S. Web Design System (USWDS) sites
 
 [uswds.facioquo.com](https://uswds.facioquo.com)
 
