@@ -7,7 +7,7 @@ import {
   SITE_DESCRIPTION
 } from 'src/app/services/utility.service';
 
-import { Card, CARD_LIST } from './patterns.model';
+import { Card, PATTERNS } from '../patterns.model';
 
 @Component({
   selector: 'app-home',
@@ -29,11 +29,11 @@ export class HomeComponent {
         content: SITE_DESCRIPTION
       },
       {
-        property: 'og.image',
+        property: 'og:image',
         content: URL_IMAGE_SOCIAL
       },
       {
-        property: 'og.description',
+        property: 'og:description',
         content: SITE_DESCRIPTION
       },
     ]
@@ -42,7 +42,7 @@ export class HomeComponent {
   }
 
   // landing page card data
-  public cards: Card[] = CARD_LIST;
+  public cards: Card[] = PATTERNS;
 
   // ghost card for suggestions
   public suggestionCard: Card = {

@@ -2,7 +2,7 @@ import { Card } from "src/app/components/site-card/card.model";
 export { Card } from "src/app/components/site-card/card.model";
 
 // DESIGN PATTERNS META DATA
-export const CARD_LIST: Card[] = [
+export const PATTERNS: Card[] = [
   {
     "id": "card-catalog",
     "title": "Card catalog",

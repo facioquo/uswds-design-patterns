@@ -1,25 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UtilityService } from 'src/app/services/utility.service';
-
 import { Card } from 'src/app/components/site-card/card.model';
-import { Image, IMAGES } from './image.model';
+import { Image, IMAGES } from '../image.model';
+
+export const ID = "card-catalog";
 
 @Component({
-  selector: 'app-card-catalog',
-  templateUrl: './catalog.component.html',
-  styleUrls: ['./catalog.component.scss']
+  selector: ID,
+  templateUrl: './card-catalog.component.html',
+  styleUrls: ['./card-catalog.component.scss']
 })
-export class CatalogComponent implements OnInit {
+export class CardCatalogComponent implements OnInit {
 
   images: Image[] = IMAGES;
   autoScroll = false;
   classic = false;
 
+  public pattern: Card = this.u.getPatternCard(ID);
+
   constructor(
     public readonly u: UtilityService
   ) {
-    this.u.updateMetaTags("card-catalog");
+    this.u.updateMetaTags(ID);
   }
 
   public page = 0;
@@ -36,7 +39,7 @@ export class CatalogComponent implements OnInit {
   ngOnInit(): void {
 
     // load initial page
-    this.resetCatalog();
+    this.resetCardCatalog();
   }
 
   showPage(page: number, skipScroll: boolean = false): void {
@@ -111,7 +114,7 @@ export class CatalogComponent implements OnInit {
     // maintain a rational page size
     this.pageMax = Math.min(180, this.totalCards);
     this.pageSize = Math.min(this.pageSize, this.pageMax);
-    this.resetCatalog(true);
+    this.resetCardCatalog(true);
   }
 
   changePageSize() {
@@ -125,7 +128,7 @@ export class CatalogComponent implements OnInit {
     this.pages = Math.ceil(this.totalCards / this.pageSize);
   }
 
-  resetCatalog(skipScroll = false) {
+  resetCardCatalog(skipScroll = false) {
     this.cards = [];
     this.updatePageCount();
     this.showPage(1, skipScroll);

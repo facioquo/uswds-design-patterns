@@ -21,7 +21,7 @@ export class AppComponent {
         content: URL_IMAGE_SOCIAL
       },
       {
-        property: 'og.image',
+        property: 'og:image',
         content: URL_IMAGE_SOCIAL
       }
     ]

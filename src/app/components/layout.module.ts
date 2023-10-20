@@ -27,4 +27,4 @@ import { UtilityService } from '../services/utility.service';
     UtilityService
   ]
 })
-export class PatternModule { }
+export class LayoutModule { }

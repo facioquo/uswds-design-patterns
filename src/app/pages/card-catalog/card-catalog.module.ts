@@ -3,22 +3,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { PatternModule } from 'src/app/components/pattern.module';
-
-import { CatalogRoutingModule } from './catalog-routing.module';
-import { CatalogComponent } from './catalog.component';
+import { LayoutModule } from 'src/app/components/layout.module';
+import { CardCatalogRoutingModule } from './card-catalog-routing.module';
+import { CardCatalogComponent } from './card-catalog.component';
 
 @NgModule({
   declarations: [
-    CatalogComponent
+    CardCatalogComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     NgOptimizedImage,
-    CatalogRoutingModule,
+    CardCatalogRoutingModule,
     FormsModule,
-    PatternModule
+    LayoutModule
   ]
 })
-export class CatalogModule { }
+export class CardCatalogModule { }

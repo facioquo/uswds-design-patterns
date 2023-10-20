@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
-import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+import { ExtraOptions, PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
+import { SITE_TITLE, patternTitleWithSuffix } from "./services/utility.service";
 
 // define app module routes here, e.g., to lazily load a page module
 // do not place feature module routes here
@@ -7,24 +9,33 @@ import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
+    title: SITE_TITLE,
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
-  {
-    path: 'bubbles',
-    loadChildren: () => import('./pages/bubbles/bubbles.module').then(m => m.BubblesModule)
-  },
+
+  // design patterns
   {
     path: 'card-catalog',
-    loadChildren: () => import('./pages/card-catalog/catalog.module').then(m => m.CatalogModule)
+    title: patternTitleWithSuffix('card-catalog'),
+    loadChildren: () => import('./pages/card-catalog/card-catalog.module').then(m => m.CardCatalogModule)
   },
   {
     path: 'hero-overlay',
-    loadChildren: () => import('./pages/hero-overlay/overlay.module').then(m => m.OverlayModule)
+    title: patternTitleWithSuffix('hero-overlay'),
+    loadChildren: () => import('./pages/hero-overlay/hero-overlay.module').then(m => m.HeroOverlayModule)
+  },
+  {
+    path: 'bubbles',
+    title: patternTitleWithSuffix('bubbles'),
+    loadChildren: () => import('./pages/bubbles/bubbles.module').then(m => m.BubblesModule)
   },
   {
     path: 'sticky-menu',
+    title: patternTitleWithSuffix('sticky-menu'),
     loadChildren: () => import('./pages/sticky-menu/sticky-menu.module').then(m => m.StickyMenuModule)
   },
+
+  // 404 page
   {
     path: '**',
     loadChildren: () => import('./pages/404/404.module').then(m => m.PageNotFoundModule)
@@ -32,6 +43,7 @@ const routes: Routes = [
 ];
 
 const routerOptions: ExtraOptions = {
+  preloadingStrategy: PreloadAllModules,
   useHash: false,
   anchorScrolling: 'enabled'
 };
@@ -41,4 +53,3 @@ const routerOptions: ExtraOptions = {
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-

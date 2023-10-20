@@ -1,21 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UtilityService } from 'src/app/services/utility.service';
-
 import { Card } from 'src/app/components/site-card/card.model';
-import { Image, IMAGES } from '../card-catalog/image.model';
+import { Image, IMAGES } from '../image.model';
+
+export const ID = "bubbles";
 
 @Component({
-  selector: 'app-hero-bubbles',
+  selector: ID,
   templateUrl: './bubbles.component.html',
   styleUrls: ['./bubbles.component.scss']
 })
 export class BubblesComponent implements OnInit {
 
+  public pattern: Card = this.u.getPatternCard(ID);
+
   constructor(
     public readonly u: UtilityService
   ) {
-    this.u.updateMetaTags("bubbles");
+    this.u.updateMetaTags(ID);
   }
 
   public cards: Card[] = [];
