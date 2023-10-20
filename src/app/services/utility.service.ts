@@ -47,20 +47,17 @@ export class UtilityService {
               ? `name='${tag.name}'`
               : "UNDEFINED";
 
-      console.log("ATTRIB", attrib, tag);
-      const existing = this.meta.getTag(attrib);
-      console.log("EXISTS", existing);
+      // check if tag exists
+      const exists = this.meta.getTag(attrib);
 
-      // update
-      if (existing !== null) {
-        const tagout = this.meta.updateTag(tag, attrib)
-        console.log("UPDATE", tagout);
+      // update to replace
+      if (exists !== null) {
+        this.meta.updateTag(tag, attrib)
       }
 
-      // add if missing
+      // or add if missing
       else {
-        const tagout = this.meta.addTag(tag)
-        console.log("ADD", tagout);
+        this.meta.addTag(tag)
       }
     });
   }
