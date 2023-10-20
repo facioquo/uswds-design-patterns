@@ -1,6 +1,6 @@
 {
   "name": "uswds-design-patterns",
-  "version": "2023.10.18",
+  "version": "YYYY.MM.DD",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open --live-reload",
