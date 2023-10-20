@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { MetaDefinition } from '@angular/platform-browser';
 
 import {
   UtilityService,
   URL_IMAGE_SOCIAL,
-  SITE_DESCRIPTION
+  SITE_DESCRIPTION,
+  SITE_TITLE
 } from 'src/app/services/utility.service';
 
 import { Card, PATTERNS } from '../patterns.model';
@@ -19,9 +19,17 @@ export class HomeComponent {
   constructor(
     public readonly u: UtilityService
   ) {
-    const tags: MetaDefinition[] = [
+    this.u.pushMetaTags([
+      {
+        property: 'og:title',
+        content: SITE_TITLE
+      },
       {
         name: 'image',
+        content: URL_IMAGE_SOCIAL
+      },
+      {
+        property: 'og:image',
         content: URL_IMAGE_SOCIAL
       },
       {
@@ -29,16 +37,10 @@ export class HomeComponent {
         content: SITE_DESCRIPTION
       },
       {
-        property: 'og:image',
-        content: URL_IMAGE_SOCIAL
-      },
-      {
         property: 'og:description',
         content: SITE_DESCRIPTION
       },
-    ]
-
-    this.u.publishMetaTags(tags);
+    ]);
   }
 
   // landing page card data

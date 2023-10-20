@@ -20,7 +20,7 @@ export class HeroOverlayComponent implements OnInit, OnDestroy {
   constructor(
     public readonly u: UtilityService
   ) {
-    this.u.updateMetaTags(ID);
+    this.u.pushMetaTagsForPattern(ID);
   }
 
   ngOnInit() {

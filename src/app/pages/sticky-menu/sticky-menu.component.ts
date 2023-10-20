@@ -17,6 +17,6 @@ export class StickyMenuComponent {
   constructor(
     public readonly u: UtilityService
   ) {
-    this.u.updateMetaTags(ID);
+    this.u.pushMetaTagsForPattern(ID);
   }
 }

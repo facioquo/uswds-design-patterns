@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { UtilityService } from 'src/app/services/utility.service';
 
 @Component({
   selector: 'app-404',
@@ -9,13 +9,28 @@ import { Meta } from '@angular/platform-browser';
 export class PageNotFoundComponent {
 
   constructor(
-    private meta: Meta
+    private readonly u: UtilityService
   ) {
-    this.meta.addTags([
+
+    const title = "Page not found | Idea book for USWDS"
+
+    this.u.pushMetaTags([
       {
         name: 'robots',
         content: 'noindex, nofollow'
-      }
+      },
+      {
+        property: 'og:title',
+        content: title
+      },
+      {
+        name: 'description',
+        content: title
+      },
+      {
+        property: 'og:description',
+        content: title
+      },
     ]);
   }
 }

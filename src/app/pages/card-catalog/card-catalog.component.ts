@@ -22,7 +22,7 @@ export class CardCatalogComponent implements OnInit {
   constructor(
     public readonly u: UtilityService
   ) {
-    this.u.updateMetaTags(ID);
+    this.u.pushMetaTagsForPattern(ID);
   }
 
   public page = 0;

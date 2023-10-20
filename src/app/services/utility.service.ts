@@ -7,7 +7,7 @@ import { Card, PATTERNS } from 'src/app/pages/patterns.model';
 const URL_BASE = "https://uswds.facioquo.com";
 const URL_IMAGE_SOCIAL = URL_BASE.concat("/assets/images/social-card.png?v=2023.10.18");
 const SITE_TITLE = "Idea book: design patterns for U.S. Web Design System sites";
-const SITE_DESCRIPTION = "A design pattern idea book for designers and developers using the U.S. Web Design System (USWDS), built by community enthusiasts.";
+const SITE_DESCRIPTION = "A design pattern idea book for designers and developers using the U.S. Web Design System (USWDS).";
 const VERSION_DATE = "2023.10.18";
 
 export {
@@ -29,19 +29,15 @@ export class UtilityService {
   ) { }
 
   // DESIGN PATTERN META
-  publishMetaTags(tags: MetaDefinition[]): void {
-
-    const title = this.t.getTitle();
-
-    console.log("NEW PAGE LOAD", title);
+  pushMetaTags(tags: MetaDefinition[]): void {
 
     tags.forEach((tag: MetaDefinition) => {
 
-      if (tag.name == "og:title" && tag.content) {
+      if (tag.property == "og:title" && tag.content) {
         this.t.setTitle(tag.content);
       }
 
-      // get tag
+      // get best attribute
       const attrib =
         tag.id !== undefined
           ? `id='${tag.id}'`
@@ -61,7 +57,7 @@ export class UtilityService {
         console.log("UPDATE", tagout);
       }
 
-      // add
+      // add if missing
       else {
         const tagout = this.meta.addTag(tag)
         console.log("ADD", tagout);
@@ -69,14 +65,7 @@ export class UtilityService {
     });
   }
 
-  updateMetaTags(id: string): void {
-
-    const tags = this.patternMetaTags(id);
-    this.publishMetaTags(tags);
-  }
-
-  // DESIGN PATTERN META
-  patternMetaTags(id: string): MetaDefinition[] {
+  pushMetaTagsForPattern(id: string): void {
 
     const card = this.getPatternCard(id);
 
@@ -87,36 +76,30 @@ export class UtilityService {
     // const title = pageTitleWithSuffix(card.title);
     const title = card.title;
 
-    const tags: MetaDefinition[] = [
+    this.pushMetaTags([
       {
-        // id: "nm-img",
         name: 'image',
         content: metaImage
       },
       {
-        // id: "nm-dsc",
-        name: 'description',
-        content: card.description
+        property: 'og:image',
+        content: metaImage
       },
       {
-        // id: "og-ttl",
         property: 'og:title',
         content: title
       },
       {
-        // id: "og-dsc",
-        property: 'og:description',
+        name: 'description',
         content: card.description
       },
       {
-        // id: "og-img",
-        property: 'og:image',
-        content: metaImage
+        property: 'og:description',
+        content: card.description
       },
-    ];
-
-    return tags;
+    ]);
   }
+
 
   // DESIGN PATTERN CARD LOOKUP
   getPatternCard(id: string): Card {
@@ -210,7 +193,7 @@ export class UtilityService {
 }
 
 export function pageTitleWithSuffix(title: string): string {
-  return title.concat(" | Design pattern for USWDS");
+  return title.concat(" | Design pattern for USWDS sites");
 }
 
 export function patternTitleWithSuffix(id: string): string {
