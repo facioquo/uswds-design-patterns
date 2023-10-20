@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
 
-import { UtilityService } from 'src/app/services/utility.service';
+import {
+  UtilityService,
+  SITE_DESCRIPTION,
+  SITE_TITLE
+} from 'src/app/services/utility.service';
 
-import { Card } from 'src/app/components/site-card/card.model';
-import { CARD_LIST } from './patterns.model';
+import { Card, PATTERNS } from '../patterns.model';
 
 @Component({
   selector: 'app-home',
@@ -14,19 +16,26 @@ import { CARD_LIST } from './patterns.model';
 export class HomeComponent {
 
   constructor(
-    public readonly u: UtilityService,
-    private meta: Meta
+    public readonly u: UtilityService
   ) {
-    this.meta.addTags([
+    this.u.pushMetaTags([
+      {
+        property: 'og:title',
+        content: SITE_TITLE
+      },
       {
         name: 'description',
-        content: 'A design pattern idea book for designers and developers using the U.S. Web Design System (USWDS), built by community enthusiasts.'
-      }
+        content: SITE_DESCRIPTION
+      },
+      {
+        property: 'og:description',
+        content: SITE_DESCRIPTION
+      },
     ]);
   }
 
   // landing page card data
-  public cards: Card[] = CARD_LIST;
+  public cards: Card[] = PATTERNS;
 
   // ghost card for suggestions
   public suggestionCard: Card = {

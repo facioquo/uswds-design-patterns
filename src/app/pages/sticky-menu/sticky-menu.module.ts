@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PatternModule } from 'src/app/components/pattern.module';
+import { LayoutModule } from 'src/app/components/layout.module';
 import { StickyMenuRoutingModule } from './sticky-menu-routing.module';
-
 import { StickyMenuComponent } from './sticky-menu.component';
 
 @NgModule({
@@ -12,7 +11,7 @@ import { StickyMenuComponent } from './sticky-menu.component';
   ],
   imports: [
     CommonModule,
-    PatternModule,
+    LayoutModule,
     StickyMenuRoutingModule
   ]
 })

@@ -1,35 +1,110 @@
 import { Injectable } from '@angular/core';
+import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
+
 import { WORD_LIST } from "./utility.model";
-import { CARD_LIST } from 'src/app/pages/home/patterns.model';
-import { Card } from 'src/app/components/site-card/card.model';
+import { Card, PATTERNS } from 'src/app/pages/patterns.model';
+
+const URL_BASE = "https://uswds.facioquo.com";
+const URL_IMAGE_SOCIAL = URL_BASE.concat("/assets/images/social-card.png?v=2023.10.18");
+const SITE_TITLE = "Idea book: design patterns for U.S. Web Design System sites";
+const SITE_DESCRIPTION = "A design pattern idea book for designers and developers using the U.S. Web Design System (USWDS).";
+const VERSION_DATE = "2023.10.18";
+
+export {
+  URL_BASE,
+  URL_IMAGE_SOCIAL,
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+  VERSION_DATE
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilityService {
 
-  constructor() { }
+  constructor(
+    private meta: Meta,
+    private t: Title
+  ) { }
 
-  // DESIGN PATTERN LOOKUP
-  lookupPattern(id: string, token: string): string {
+  // DESIGN PATTERN META
+  pushMetaTags(tags: MetaDefinition[]): void {
 
-    const card: Card | undefined = CARD_LIST.find(x => x.id = id);
+    tags.forEach((tag: MetaDefinition) => {
 
-    if (card === undefined) return "";
+      if (tag.property == "og:title" && tag.content) {
+        this.t.setTitle(tag.content);
+      }
 
-    switch (token) {
-      case "id":
-        return card.id;
-      case "title":
-        return card.title;
-      case "description":
-        return card.description;
-      case "link":
-        return card.link;
-      default:
-        return "";
-    }
-  };
+      // get best attribute
+      const attrib =
+        tag.id !== undefined
+          ? `id='${tag.id}'`
+          : tag.property !== undefined
+            ? `property='${tag.property}'`
+            : tag.name !== undefined
+              ? `name='${tag.name}'`
+              : "UNDEFINED";
+
+      console.log("ATTRIB", attrib, tag);
+      const existing = this.meta.getTag(attrib);
+      console.log("EXISTS", existing);
+
+      // update
+      if (existing !== null) {
+        const tagout = this.meta.updateTag(tag, attrib)
+        console.log("UPDATE", tagout);
+      }
+
+      // add if missing
+      else {
+        const tagout = this.meta.addTag(tag)
+        console.log("ADD", tagout);
+      }
+    });
+  }
+
+  pushMetaTagsForPattern(id: string): void {
+
+    const card = this.getPatternCard(id);
+
+    const metaImage = card.imageMeta
+      ? URL_BASE.concat(card.imageMeta)
+      : URL_IMAGE_SOCIAL;
+
+    this.pushMetaTags([
+      {
+        name: 'image',
+        content: metaImage
+      },
+      {
+        property: 'og:image',
+        content: metaImage
+      },
+      {
+        property: 'og:title',
+        content: card.title
+      },
+      {
+        name: 'description',
+        content: card.description
+      },
+      {
+        property: 'og:description',
+        content: card.description
+      },
+    ]);
+  }
+
+
+  // DESIGN PATTERN CARD LOOKUP
+  getPatternCard(id: string): Card {
+    const card = PATTERNS.find(x => x.id === id);
+    return card
+      ? card
+      : {} as Card
+  }
 
 
   // PAGE SCROLLING
@@ -111,4 +186,15 @@ export class UtilityService {
   randInt(lessThan: number): number {
     return Math.floor(Math.random() * lessThan);
   }
+
+}
+
+export function pageTitleWithSuffix(title: string): string {
+  return title.concat(" | Design pattern for USWDS sites");
+}
+
+export function patternTitleWithSuffix(id: string): string {
+  const card = PATTERNS.find(x => x.id === id);
+  if (card === undefined) return "Unknown pattern ID";
+  return pageTitleWithSuffix(card.title);
 }

@@ -2,43 +2,62 @@
 <html lang="en-US">
 
 <head>
+  <title>Idea book: design patterns for USWDS sites</title>
   <base href="/">
-  <title>Idea book: design patterns for U.S. Web Design System sites</title>
 
+  <!-- site info -->
+  <meta name="author" content="FacioQuo">
+  <meta name="image" content="https://uswds.facioquo.com/assets/images/social-card.png?v=2023.10.18">
+  <meta name="description" content="A design pattern idea book for designers and developers using the U.S. Web Design System.">
+
+  <!-- system info -->
   <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="image" property="og:image" content="https://uswds.facioquo.com/assets/images/social-card.png">
-  <meta name="author" content="FacioQuo, an open-source community organization">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="translucent">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Idea book: design patterns for USWDS sites" />
+  <meta property="og:site_name" content="Idea book: design patterns for USWDS sites">
+  <meta property="og:image" content="https://uswds.facioquo.com/assets/images/social-card.png?v=2023.10.18">
+  <meta property="og:description" content="A design pattern idea book for designers and developers using the U.S. Web Design System." />
+
+  <!-- icons and theming, cache as v=2023.10.18 | tip: replace YYYY.MM.DD date in all files -->
+  <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico?v=2023.10.18">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png?v=2023.10.18">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png?v=2023.10.18">
+  <link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg?v=2023.10.18" color="#1b1b1b">
+  <link rel="manifest" href="assets/icons/manifest.json?v=2023.10.18">
+  <meta name="msapplication-config" content="assets/icons/browserconfig.xml?v=2023.10.18">
+  <meta name="msapplication-TileColor" content="#1b1b1b">
   <meta name="theme-color" content="#1b1b1b">
 
+  <!-- pre-connects -->
   <link rel="preconnect" href="https://fwd.facioquo.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
-  <link defer rel="manifest" href="/assets/manifest.json">
-  <link defer rel="icon" type="image/x-icon" href="favicon.ico">
-  <link defer rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
-  <link defer rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
-  <link defer rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" color="#1b1b1b">
-
+  <!--structured data-->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
+      "@type": "Website",
       "name": "Idea book for U.S. Web Design System sites",
-      "url": "https://uswds.facioquo.com/"
+      "url": "https://uswds.facioquo.com/",
+      "description": "A design pattern idea book for designers and developers using the U.S. Web Design System (USWDS), built by community enthusiasts.",
+      "author": {
+        "@type": "Organization",
+        "name": "FacioQuo",
+        "url": "https://facioquo.com/",
+        "logo": "https://facioquo.com/assets/logo.svg"
+      }
     }
   </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "FacioQuo",
-      "url": "https://facioquo.com/",
-      "logo": "https://facioquo.com/assets/logo.svg"
-    },
-  </script>
 
+  <!-- Google Analytics -->
   <script defer src="https://www.googletagmanager.com/gtag/js?id=__GaTag__"></script>
   <script defer>
     window.dataLayer = window.dataLayer || [];
@@ -46,6 +65,8 @@
     gtag('js', new Date());
     gtag('config', '__GaTag__');
   </script>
+
+  <!-- injected items -->
 </head>
 
 <body>

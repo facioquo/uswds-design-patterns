@@ -2,17 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { LayoutModule } from 'src/app/components/layout.module';
-import { BubblesRoutingModule } from './bubbles-routing.module';
-import { BubblesComponent } from './bubbles.component';
+import { HeroOverlayRoutingModule } from './hero-overlay-routing.module';
+import { HeroOverlayComponent } from './hero-overlay.component';
 
 @NgModule({
   declarations: [
-    BubblesComponent
+    HeroOverlayComponent
   ],
   imports: [
     CommonModule,
-    BubblesRoutingModule,
+    HeroOverlayRoutingModule,
     LayoutModule
   ]
 })
-export class BubblesModule { }
+export class HeroOverlayModule { }

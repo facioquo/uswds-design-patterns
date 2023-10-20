@@ -1,27 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
-import { UtilityService } from 'src/app/services/utility.service';
 
+import { UtilityService } from 'src/app/services/utility.service';
 import { Card } from 'src/app/components/site-card/card.model';
-import { Image, IMAGES } from '../card-catalog/image.model';
+import { Image, IMAGES } from '../image.model';
+
+export const ID = "bubbles";
 
 @Component({
-  selector: 'app-hero-bubbles',
+  selector: ID,
   templateUrl: './bubbles.component.html',
   styleUrls: ['./bubbles.component.scss']
 })
 export class BubblesComponent implements OnInit {
 
+  public pattern: Card = this.u.getPatternCard(ID);
+
   constructor(
-    public readonly u: UtilityService,
-    private meta: Meta
+    public readonly u: UtilityService
   ) {
-    this.meta.addTags([
-      {
-        name: 'description',
-        content: this.u.lookupPattern("bubbles", "description")
-      }
-    ]);
+    this.u.pushMetaTagsForPattern(ID);
   }
 
   public cards: Card[] = [];
@@ -29,7 +26,7 @@ export class BubblesComponent implements OnInit {
 
   ngOnInit(): void {
 
-     // make random cards
+    // make random cards
     let max = 7;
     for (let i = 0; i < max; i++) {
 

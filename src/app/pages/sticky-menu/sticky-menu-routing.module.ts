@@ -6,7 +6,6 @@ import { StickyMenuComponent } from './sticky-menu.component';
 const routes: Routes = [
   {
     path: "", // "" for lazy-loading, see AppRoutingModule
-    title: "Sticky process menu | Design pattern for USWDS",
     component: StickyMenuComponent
   }
 ];
