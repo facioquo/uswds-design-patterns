@@ -43,12 +43,12 @@ jobs:
 
       - powershell: |
           Write-Host "Target folder: $(Pipeline.Workspace)/s/src/"
-          Write-Host "Replacing YYYY.MM.DD with $(Date:yyyy.MM.dd)-$(BuildID) ..."
+          Write-Host "Replacing YYYY.MM.DD with $(Build.BuildNumber) ..."
 
           $FilesToChange = Get-ChildItem -Path $(Pipeline.Workspace)/s/src/*.* -Recurse -Force  |  Select-String -Pattern "YYYY.MM.DD" -AllMatches | Foreach {$_.Path} | Select-Object -Unique
           foreach ($SingleFile in $FilesToChange)
           {
-              (Get-Content $SingleFile -Encoding UTF8) -replace "YYYY.MM.DD", "$(Date:yyyy.MM.dd)-$(BuildID)" | Set-Content $SingleFile
+              (Get-Content $SingleFile -Encoding UTF8) -replace "YYYY.MM.DD", "$(Build.BuildNumber)" | Set-Content $SingleFile
               Write-Host $SingleFile
           }
           Write-Host "... Done!"
