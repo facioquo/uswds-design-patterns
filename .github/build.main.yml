@@ -54,22 +54,26 @@ jobs:
           Write-Host "... Done!"
         displayName: 'Add cache markers'
 
-      - powershell: |
-          $webapp=Get-AzWebApp -ResourceGroupName Default-EastUS -Name facioquo-preview
-
-          # Set default / path to public subdirectory
-          $webapp.SiteConfig.VirtualApplications[0].PhysicalPath= "site\wwwroot\public"
-
-          # Add a virtual application
-          $virtualApp = New-Object Microsoft.Azure.Management.WebSites.Models.VirtualApplication
-          $virtualApp.VirtualPath = "/$(Build.BuildNumber)"
-          $virtualApp.PhysicalPath = "site\wwwroot\$(Build.BuildNumber)"
-          $virtualApp.PreloadEnabled = $false
-          $webapp.SiteConfig.VirtualApplications.Add($virtualApp)
-
-          # Save settings
-          Set-AzWebApp $webapp
+      - task: AzurePowerShell@5
         displayName: 'Define preview site'
+        inputs:
+          azureSubscription: 'Primary - FacioQuo (bd1bd6fa-2346-4a0b-ac1c-89134b4cd8f3)'
+          ScriptType: 'InlineScript'
+          Inline: |
+            $webapp=Get-AzWebApp -ResourceGroupName Default-EastUS -Name facioquo-preview
+            
+            # Set default / path to public subdirectory
+            $webapp.SiteConfig.VirtualApplications[0].PhysicalPath= "site\wwwroot\public"
+            
+            # Add a virtual application
+            $virtualApp = New-Object Microsoft.Azure.Management.WebSites.Models.VirtualApplication
+            $virtualApp.VirtualPath = "/$(Build.BuildNumber)"
+            $virtualApp.PhysicalPath = "site\wwwroot\$(Build.BuildNumber)"
+            $virtualApp.PreloadEnabled = $false
+            $webapp.SiteConfig.VirtualApplications.Add($virtualApp)
+            
+            # Save settings
+            Set-AzWebApp $webapp
         condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/main'))
 
       - task: Npm@1
