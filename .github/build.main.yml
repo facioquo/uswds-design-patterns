@@ -23,9 +23,9 @@ jobs:
         clean: true
 
       - task: UseNode@1
-        displayName: Use Node 18.16.x
+        displayName: Use Node 18.18.x
         inputs:
-          version: 18.16.x
+          version: 18.18.x
 
       - task: Npm@1
         displayName: Install packages
@@ -61,17 +61,17 @@ jobs:
           ScriptType: 'InlineScript'
           Inline: |
             $webapp=Get-AzWebApp -ResourceGroupName ${env:AZURERESOURCEGROUP} -Name ${env:PREVIEWAZUREAPPSERVICE}
-            
+
             # Set default / path to public subdirectory
             $webapp.SiteConfig.VirtualApplications[0].PhysicalPath= "site\wwwroot\public"
-            
+
             # Add a virtual application
             $virtualApp = New-Object Microsoft.Azure.Management.WebSites.Models.VirtualApplication
             $virtualApp.VirtualPath = "/$(Build.BuildNumber)"
             $virtualApp.PhysicalPath = "site\wwwroot\$(Build.BuildNumber)"
             $virtualApp.PreloadEnabled = $false
             $webapp.SiteConfig.VirtualApplications.Add($virtualApp)
-            
+
             # Save settings
             Set-AzWebApp $webapp
         condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/main'))
