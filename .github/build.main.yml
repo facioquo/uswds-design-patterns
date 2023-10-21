@@ -54,6 +54,24 @@ jobs:
           Write-Host "... Done!"
         displayName: 'Add cache markers'
 
+      - powershell: |
+          $webapp=Get-AzWebApp -ResourceGroupName Default-EastUS -Name facioquo-preview
+
+          # Set default / path to public subdirectory
+          $webapp.SiteConfig.VirtualApplications[0].PhysicalPath= "site\wwwroot\public"
+
+          # Add a virtual application
+          $virtualApp = New-Object Microsoft.Azure.Management.WebSites.Models.VirtualApplication
+          $virtualApp.VirtualPath = "/$(Build.BuildNumber)"
+          $virtualApp.PhysicalPath = "site\wwwroot\$(Build.BuildNumber)"
+          $virtualApp.PreloadEnabled = $false
+          $webapp.SiteConfig.VirtualApplications.Add($virtualApp)
+
+          # Save settings
+          Set-AzWebApp $webapp
+        displayName: 'Define preview site'
+        condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/main'))
+
       - task: Npm@1
         displayName: Build
         inputs:
