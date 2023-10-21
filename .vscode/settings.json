@@ -22,6 +22,8 @@
     "ngsw",
     "nguniversal",
     "nofollow",
+    "prerender",
+    "prodlike",
     "sidenav",
     "skipnav",
     "supertitle",

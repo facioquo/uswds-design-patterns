@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, Meta } from '@angular/platform-browser';
+import { BrowserModule, Meta, provideClientHydration } from '@angular/platform-browser';
 import { NgOptimizedImage } from '@angular/common'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,7 +23,8 @@ import { SiteBannerComponent } from './components/site-banner/site-banner.compon
   ],
   providers: [
     Meta,
-    UtilityService
+    UtilityService,
+    provideClientHydration()
   ],
   bootstrap: [
     AppComponent

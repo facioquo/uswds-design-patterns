@@ -55,18 +55,25 @@ jobs:
         displayName: 'Add cache markers'
 
       - task: Npm@1
-        displayName: Build
+        displayName: Build SSR app
         inputs:
           command: custom
           verbose: false
-          customCommand: run build.prod
+          customCommand: run build.ssr
 
       - task: ArchiveFiles@2
-        displayName: Stage artifacts
+        displayName: Stage browser artifacts
         inputs:
-          rootFolderOrFile: dist/app
+          rootFolderOrFile: dist/browser
           includeRootFolder: false
           archiveFile: $(Build.ArtifactStagingDirectory)/Website.zip
+
+      - task: ArchiveFiles@2
+        displayName: Stage server artifacts
+        inputs:
+          rootFolderOrFile: dist/server
+          includeRootFolder: false
+          archiveFile: $(Build.ArtifactStagingDirectory)/Server.zip
 
       - task: PublishBuildArtifacts@1
         displayName: Save artifacts

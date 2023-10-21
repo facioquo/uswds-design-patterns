@@ -7,10 +7,15 @@
   "author": "FacioQuo <info@facioquo.com> (http://facioquo.com)",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open --live-reload",
+    "spa": "ng serve --open --live-reload",
+    "start": "ng run app:serve-ssr --open",
     "build": "ng build",
     "build.prod": "ng build --configuration=production",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "dev:ssr": "ng run app:serve-ssr",
+    "build:ssr": "ng build && ng run app:server",
+    "serve:ssr": "node dist/server/main.js",
+    "prodlike": "ng build && ng run app:server && node dist/server/main.js"
   },
   "dependencies": {
     "@angular/animations": "16.2.10",
@@ -20,6 +25,7 @@
     "@angular/forms": "16.2.10",
     "@angular/platform-browser": "16.2.10",
     "@angular/platform-browser-dynamic": "16.2.10",
+    "@angular/platform-server": "^16.2.10",
     "@angular/router": "16.2.10",
     "@nguniversal/express-engine": "^16.2.0",
     "@uswds/uswds": "3.6.1",
@@ -31,6 +37,7 @@
     "@angular-devkit/build-angular": "16.2.7",
     "@angular/cli": "16.2.7",
     "@angular/compiler-cli": "16.2.10",
+    "@nguniversal/builders": "^16.2.0",
     "typescript": "5.1.6"
   }
 }
