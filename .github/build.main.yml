@@ -23,9 +23,9 @@ jobs:
         clean: true
 
       - task: UseNode@1
-        displayName: Use Node 18.16.x
+        displayName: Use Node 18.18.x
         inputs:
-          version: 18.16.x
+          version: 18.18.x
 
       - task: Npm@1
         displayName: Install packages
@@ -59,7 +59,7 @@ jobs:
         inputs:
           command: custom
           verbose: false
-          customCommand: run build.ssr
+          customCommand: run build:ssr
 
       - task: ArchiveFiles@2
         displayName: Stage browser artifacts
