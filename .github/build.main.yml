@@ -74,6 +74,8 @@ jobs:
             
             # Save settings
             Set-AzWebApp $webapp
+          FailOnStandardError: true
+          azurePowerShellVersion: 'LatestVersion'
         condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/main'))
 
       - task: Npm@1
