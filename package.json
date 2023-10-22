@@ -11,7 +11,7 @@
     "start": "ng run app:serve-ssr --open",
     "build": "ng build --configuration=development",
     "build.prod": "ng build --configuration=production",
-    "watch": "ng build --configuration=development --watch"
+    "watch": "ng build --configuration=development --watch",
     "dev:ssr": "ng run app:serve-ssr",
     "build:ssr": "ng build && ng run app:server",
     "serve:ssr": "node dist/server/main.js",
