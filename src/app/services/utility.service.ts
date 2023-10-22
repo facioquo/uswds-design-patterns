@@ -186,12 +186,21 @@ export class UtilityService {
 
 }
 
-export function pageTitleWithSuffix(title: string): string {
-  return title.concat(" | Design pattern for USWDS sites");
+
+export function titleWithSuffix(
+  baseTitle: string,
+  suffix: string = " | Idea book: design patterns for USWDS sites")
+  : string {
+  return baseTitle.concat(" | ").concat(suffix);
 }
 
-export function patternTitleWithSuffix(id: string): string {
-  const card = PATTERNS.find(x => x.id === id);
-  if (card === undefined) return "Unknown pattern ID";
-  return pageTitleWithSuffix(card.title);
+export function patternTitle(patternID: string): string {
+
+  const pattern = PATTERNS.find(x => x.id === patternID);
+
+  if (pattern !== undefined) {
+    return titleWithSuffix(pattern.title, "Design pattern for USWDS sites");
+  } else {
+    return titleWithSuffix("UNKNOWN ID", "Design pattern for USWDS sites");
+  }
 }
