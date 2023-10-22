@@ -6,7 +6,6 @@ import { PageNotFoundComponent } from './404.component';
 const routes: Routes = [
   {
     path: "", // "" for lazy-loading, see AppRoutingModule
-    title: "Page not found | Idea book for USWDS",
     component: PageNotFoundComponent
   }
 ];

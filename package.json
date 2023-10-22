@@ -9,9 +9,9 @@
     "ng": "ng",
     "spa": "ng serve --open --live-reload",
     "start": "ng run app:serve-ssr --open",
-    "build": "ng build",
+    "build": "ng build --configuration=development",
     "build.prod": "ng build --configuration=production",
-    "watch": "ng build --watch --configuration development",
+    "watch": "ng build --configuration=development --watch"
     "dev:ssr": "ng run app:serve-ssr",
     "build:ssr": "ng build && ng run app:server",
     "serve:ssr": "node dist/server/main.js",

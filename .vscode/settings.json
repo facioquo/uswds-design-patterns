@@ -11,15 +11,11 @@
   "editor.guides.bracketPairs": "active",
   "editor.formatOnSave": true,
   "cSpell.words": [
-    "apng",
     "callout",
     "clickability",
     "easeload",
     "facioquo",
-    "FOIA",
     "gulpfile",
-    "megamenu",
-    "ngsw",
     "nguniversal",
     "nofollow",
     "prerender",
@@ -29,6 +25,7 @@
     "supertitle",
     "tagout",
     "uswds",
-    "webp"
+    "webp",
+    "wwwroot"
   ]
 }
