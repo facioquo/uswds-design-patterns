@@ -29,28 +29,43 @@ jobs:
           node-version: '18'
           cache: 'npm'
 
-      - name: Add cache markers
-        shell: pwsh
-        working-directory: ./src
-        run: |
-          Write-Host "Replacing YYYY.MM.DD with ${{ github.run_id }} ..."
-
-          $FilesToChange = Get-ChildItem -Path *.* -Recurse -Force  |  Select-String -Pattern "YYYY.MM.DD" -AllMatches | Foreach {$_.Path} | Select-Object -Unique
-          foreach ($SingleFile in $FilesToChange)
-          {
-              (Get-Content $SingleFile -Encoding UTF8) -replace "YYYY.MM.DD", "${{ github.run_id }}" | Set-Content $SingleFile
-              Write-Host $SingleFile
-          }
-          Write-Host "... Done!"
-
-
-
       - name: Define tag
         id: tag
         run: echo "tag=$(date +'%Y.%m.%d')-${{ github.run_id }}" >> $GITHUB_OUTPUT
 
-      - name: Show tag
-        run: echo "${{ steps.tag.outputs.tag }}"
+      - name: Add cache markers
+        shell: pwsh
+        working-directory: ./src
+        run: |
+          Write-Host "Replacing YYYY.MM.DD with ${{ steps.tag.outputs.tag }} ..."
+
+          $FilesToChange = Get-ChildItem -Path *.* -Recurse -Force  |  Select-String -Pattern "YYYY.MM.DD" -AllMatches | Foreach {$_.Path} | Select-Object -Unique
+          foreach ($SingleFile in $FilesToChange)
+          {
+              (Get-Content $SingleFile -Encoding UTF8) -replace "YYYY.MM.DD", "${{ steps.tag.outputs.tag }}" | Set-Content $SingleFile
+              Write-Host $SingleFile
+          }
+          Write-Host "... Done!"
+
+      - name: Install packages
+        run: npm install
+
+      - name: Build site (production)
+        if: github.ref == 'refs/heads/main'
+        run: npm run build.prod
+
+      - name: Build site (preview)
+        if: github.ref != 'refs/heads/main'
+        run: npm run build
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_KEY }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
+          directory: dist/app
+          wranglerVersion: '3'
 
       - name: Tag and draft release note
         uses: ncipollo/release-action@v1
