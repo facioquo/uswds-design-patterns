@@ -62,3 +62,16 @@ jobs:
           projectName: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
           directory: dist/app
           wranglerVersion: '3'
+
+      - name: Set tag
+        id: tag
+        run: echo "tag=$(date +'%Y.%m.%d')-${{ github.run_id }}" >> $GITHUB_OUTPUT
+
+      - name: Tag and draft release note
+        uses: ncipollo/release-action@v1
+        if: github.ref == 'refs/heads/main'
+        with:
+          generateReleaseNotes: true
+          draft: true
+          tag: ${{ steps.tag.outputs.tag }}
+          commit: ${{ github.ref_name }}
