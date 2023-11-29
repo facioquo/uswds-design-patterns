@@ -1,0 +1,56 @@
+name: Deploy website
+
+on: [workflow_dispatch]
+
+concurrency:
+  group: cloudflare-pages
+
+jobs:
+  deploy:
+    name: Cloudflare Pages
+    runs-on: ubuntu-latest
+
+    environment:
+      name: cloudflare-pages
+
+    steps:
+
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Add cache markers
+        shell: pwsh
+        run: |
+          Write-Host "Target folder: $GITHUB_WORKSPACE/src/"
+          Write-Host "Replacing YYYY.MM.DD with $GITHUB_RUN_ID ..."
+
+          $FilesToChange = Get-ChildItem -Path $GITHUB_WORKSPACE/src/*.* -Recurse -Force  |  Select-String -Pattern "YYYY.MM.DD" -AllMatches | Foreach {$_.Path} | Select-Object -Unique
+          foreach ($SingleFile in $FilesToChange)
+          {
+              (Get-Content $SingleFile -Encoding UTF8) -replace "YYYY.MM.DD", "$GITHUB_RUN_ID" | Set-Content $SingleFile
+              Write-Host $SingleFile
+          }
+          Write-Host "... Done!"
+
+      - name: Build site (production)
+        if: github.ref == 'refs/heads/main'
+        run: npx ng build --configuration=production
+
+      - name: Build site (preview)
+        if: github.ref != 'refs/heads/main'
+        run: npx ng build --configuration=development
+
+      - name: Save artifacts (no secrets)
+        uses: actions/upload-artifact@v3
+        with:
+          name: website
+          path: dist/app
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_KEY }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
+          directory: dist/app
+          wranglerVersion: '3'
