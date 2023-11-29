@@ -72,6 +72,6 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           generateReleaseNotes: true
-          draft: true
+          draft: false
           tag: ${{ steps.tag.outputs.tag }}
           commit: ${{ github.ref_name }}
