@@ -59,11 +59,12 @@ jobs:
         run: npm run build
 
       - name: Publish to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_KEY }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy ./dist/app --project-name=${{ vars.CLOUDFLARE_PROJECT_NAME }}
+          projectName: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
+          directory: dist/app
           wranglerVersion: 'latest'
 
       - name: Tag and release note
