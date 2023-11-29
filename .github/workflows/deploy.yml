@@ -66,8 +66,9 @@ jobs:
           projectName: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           directory: dist/app
+          wranglerVersion: 'latest'
 
-      - name: Tag and draft release note
+      - name: Tag and release note
         uses: ncipollo/release-action@v1
         if: github.ref == 'refs/heads/main'
         with:
