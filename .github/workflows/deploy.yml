@@ -29,16 +29,20 @@ jobs:
           node-version: '18'
           cache: 'npm'
 
+      - name: Define tag
+        id: tag
+        run: echo "tag=$(date +'%Y.%m.%d')-${{ github.run_id }}" >> $GITHUB_OUTPUT
+
       - name: Add cache markers
         shell: pwsh
         working-directory: ./src
         run: |
-          Write-Host "Replacing YYYY.MM.DD with ${{ github.run_id }} ..."
+          Write-Host "Replacing YYYY.MM.DD with ${{ steps.tag.outputs.tag }} ..."
 
           $FilesToChange = Get-ChildItem -Path *.* -Recurse -Force  |  Select-String -Pattern "YYYY.MM.DD" -AllMatches | Foreach {$_.Path} | Select-Object -Unique
           foreach ($SingleFile in $FilesToChange)
           {
-              (Get-Content $SingleFile -Encoding UTF8) -replace "YYYY.MM.DD", "${{ github.run_id }}" | Set-Content $SingleFile
+              (Get-Content $SingleFile -Encoding UTF8) -replace "YYYY.MM.DD", "${{ steps.tag.outputs.tag }}" | Set-Content $SingleFile
               Write-Host $SingleFile
           }
           Write-Host "... Done!"
@@ -61,4 +65,13 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
           directory: dist/app
-          wranglerVersion: '3'
+          wranglerVersion: 'latest'
+
+      - name: Tag and release note
+        uses: ncipollo/release-action@v1
+        if: github.ref == 'refs/heads/main'
+        with:
+          generateReleaseNotes: true
+          draft: false
+          tag: ${{ steps.tag.outputs.tag }}
+          commit: ${{ github.ref_name }}
