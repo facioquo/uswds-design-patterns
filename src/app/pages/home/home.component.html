@@ -23,9 +23,11 @@
     <ul class="usa-card-group padding-top-4" id="design-patterns">
 
       <!-- cards -->
-      <li class="tablet:grid-col-6 tablet-lg:grid-col-4" *ngFor="let card of cards; index as i">
+      @for (card of cards; track card; let i = $index) {
+      <li class="tablet:grid-col-6 tablet-lg:grid-col-4">
         <app-site-card [card]="card" [i]=i />
       </li>
+      }
 
       <!-- suggest more -->
       <li class="tablet:grid-col-6 tablet-lg:grid-col-4">
@@ -40,7 +42,8 @@
 <section class="usa-section usa-dark-background site-dark padding-top-2">
   <div class="grid-container">
 
-    <ul class="usa-button-group padding-left-2 margin-bottom-4" *ngIf="cards.length>9">
+    @if (cards.length > 9) {
+    <ul class="usa-button-group padding-left-2 margin-bottom-4">
       <li class="usa-button-group__item">
         <button class="usa-button usa-button--outline usa-button--inverse usa-button--unstyled"
           (click)="u.scrollToStart('top')">
@@ -48,6 +51,7 @@
         </button>
       </li>
     </ul>
+    }
 
     <!-- about us -->
     <h2 class="margin-top-8">About us</h2>

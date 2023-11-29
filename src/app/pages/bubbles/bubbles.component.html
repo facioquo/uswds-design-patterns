@@ -18,15 +18,17 @@
 <!-- FLOATING BUBBLES DESIGN PATTERN -->
 <section class="usa-section bubbles-section">
 
-    <div class="bubble" *ngFor="let card of cards; index as i">
-      <a type=button class="usa-button" href="{{ card.link }}" aria-label=""
-         [attr.style]="'background-image: url(' + card.image + ');'"
-         target="_blank" rel="noopener noreferrer nofollow">
-        <div class="bubble-overlay">
-          <div class="bubble-label">{{ card.title }}</div>
-        </div>
-      </a>
-    </div>
+  @for (card of cards; track card; let i = $index) {
+  <div class="bubble">
+    <a type=button class="usa-button" href="{{ card.link }}" aria-label=""
+      [attr.style]="'background-image: url(' + card.image + ');'"
+      target="_blank" rel="noopener noreferrer nofollow">
+      <div class="bubble-overlay">
+        <div class="bubble-label">{{ card.title }}</div>
+      </div>
+    </a>
+  </div>
+  }
 
 </section>
 
@@ -40,8 +42,8 @@
 
     It'd be difficult to do this using the standard
     <a class="usa-link usa-link--external"
-        href="https://designsystem.digital.gov/utilities/layout-grid/"
-        target="_blank"
-        rel="noopener noreferrer nofollow">Layout grid</a>.
+       href="https://designsystem.digital.gov/utilities/layout-grid/"
+       target="_blank"
+       rel="noopener noreferrer nofollow">Layout grid</a>.
   </p>
 </app-pattern-footer>
