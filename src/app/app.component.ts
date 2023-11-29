@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, isDevMode } from '@angular/core';
 
 import {
   UtilityService,
@@ -38,5 +38,13 @@ export class AppComponent {
         content: URL_IMAGE_SOCIAL
       }
     ]);
+
+    if (isDevMode()) {
+      this.u.pushMetaTags([
+        {
+          name: 'robots',
+          content: 'noindex, nofollow'
+        }]);
+    }
   }
 }
