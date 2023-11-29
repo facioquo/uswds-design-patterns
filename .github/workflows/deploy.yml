@@ -33,12 +33,12 @@ jobs:
         shell: pwsh
         working-directory: ./src
         run: |
-          Write-Host "Replacing YYYY.MM.DD with $GITHUB_RUN_ID ..."
+          Write-Host "Replacing YYYY.MM.DD with ${{ github.run_id }} ..."
 
           $FilesToChange = Get-ChildItem -Path *.* -Recurse -Force  |  Select-String -Pattern "YYYY.MM.DD" -AllMatches | Foreach {$_.Path} | Select-Object -Unique
           foreach ($SingleFile in $FilesToChange)
           {
-              (Get-Content $SingleFile -Encoding UTF8) -replace "YYYY.MM.DD", "$GITHUB_RUN_ID" | Set-Content $SingleFile
+              (Get-Content $SingleFile -Encoding UTF8) -replace "YYYY.MM.DD", "${{ github.run_id }}" | Set-Content $SingleFile
               Write-Host $SingleFile
           }
           Write-Host "... Done!"
