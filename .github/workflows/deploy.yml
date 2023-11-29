@@ -39,11 +39,11 @@ jobs:
 
       - name: Build site (production)
         if: github.ref == 'refs/heads/main'
-        run: npx ng build --configuration=production
+        run: npm run build.prod
 
       - name: Build site (preview)
         if: github.ref != 'refs/heads/main'
-        run: npx ng build --configuration=development
+        run: npm run build
 
       - name: Save artifacts (no secrets)
         uses: actions/upload-artifact@v3
