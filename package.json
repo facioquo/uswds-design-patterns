@@ -21,7 +21,7 @@
     "@angular/platform-browser": "17.0.5",
     "@angular/platform-browser-dynamic": "17.0.5",
     "@angular/router": "17.0.5",
-    "@uswds/uswds": "3.7.0",
+    "@uswds/uswds": "3.7.1",
     "rxjs": "7.8.1",
     "tslib": "2.5.3",
     "zone.js": "0.14.2"
