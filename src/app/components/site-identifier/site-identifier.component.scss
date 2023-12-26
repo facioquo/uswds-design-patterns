@@ -21,6 +21,8 @@
 
   a.usa-link {
 
+    color: inherit !important;
+
     &:hover {
       color: color("base-dark") !important;
     }
