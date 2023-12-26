@@ -5,18 +5,18 @@
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <url>
-    <loc>https://uswds.facioquo.com/</loc>
+    <loc>https://uswds.facioquo.com</loc>
   </url>
   <url>
-    <loc>https://uswds.facioquo.com/bubbles/</loc>
-  </url>  
-  <url>
-    <loc>https://uswds.facioquo.com/card-catalog/</loc>
+    <loc>https://uswds.facioquo.com/bubbles</loc>
   </url>
   <url>
-    <loc>https://uswds.facioquo.com/hero-overlay/</loc>
+    <loc>https://uswds.facioquo.com/card-catalog</loc>
   </url>
   <url>
-    <loc>https://uswds.facioquo.com/sticky-menu/</loc>
+    <loc>https://uswds.facioquo.com/hero-overlay</loc>
+  </url>
+  <url>
+    <loc>https://uswds.facioquo.com/sticky-menu</loc>
   </url>
 </urlset>
