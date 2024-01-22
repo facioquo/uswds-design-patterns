@@ -31,7 +31,7 @@ jobs:
 
       - name: Define tag
         id: tag
-        run: echo "tag=$(date +'%Y.%m.%d')-${{ github.run_id }}" >> $GITHUB_OUTPUT
+        run: echo "tag=$(date +'%Y.%m.%d')-${{ github.run_number }}" >> $GITHUB_OUTPUT
 
       - name: Add cache markers
         shell: pwsh
