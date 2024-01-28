@@ -24,28 +24,21 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
       - name: Define tag
         id: tag
-        run: echo "tag=$(date +'%Y.%m.%d')-${{ github.run_id }}" >> $GITHUB_OUTPUT
+        run: echo "tag=$(date +'%Y.%m.%d')-${{ github.run_number }}" >> $GITHUB_OUTPUT
 
-      - name: Add cache markers
-        shell: pwsh
-        working-directory: ./src
-        run: |
-          Write-Host "Replacing YYYY.MM.DD with ${{ steps.tag.outputs.tag }} ..."
-
-          $FilesToChange = Get-ChildItem -Path *.* -Recurse -Force  |  Select-String -Pattern "YYYY.MM.DD" -AllMatches | Foreach {$_.Path} | Select-Object -Unique
-          foreach ($SingleFile in $FilesToChange)
-          {
-              (Get-Content $SingleFile -Encoding UTF8) -replace "YYYY.MM.DD", "${{ steps.tag.outputs.tag }}" | Set-Content $SingleFile
-              Write-Host $SingleFile
-          }
-          Write-Host "... Done!"
+      - name: Replace cache markers
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "YYYY.MM.DD"
+          replace: "${{ steps.tag.outputs.tag }}"
+          regex: false
 
       - name: Install packages
         run: npm install
