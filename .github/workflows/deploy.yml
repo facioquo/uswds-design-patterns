@@ -31,13 +31,13 @@ jobs:
 
       - name: Define tag
         id: tag
-        run: echo "tag=$(date +'%Y.%m.%d')-${{ github.run_number }}" >> $GITHUB_OUTPUT
+        run: echo "version=$(date +'%Y.%m.%d')-${{ github.run_number }}" >> $GITHUB_OUTPUT
 
       - name: Replace cache markers
         uses: jacobtomlinson/gha-find-replace@v3
         with:
           find: "YYYY.MM.DD"
-          replace: "${{ steps.tag.outputs.tag }}"
+          replace: "${{ steps.tag.outputs.version }}"
           regex: false
 
       - name: Install packages
@@ -65,6 +65,6 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           generateReleaseNotes: true
-          draft: false
-          tag: ${{ steps.tag.outputs.tag }}
+          draft: true
+          tag: ${{ steps.tag.outputs.version }}
           commit: ${{ github.ref_name }}
