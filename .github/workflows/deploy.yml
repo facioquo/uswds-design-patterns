@@ -55,7 +55,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          directory: dist/app
+          directory: dist/app/browser
           wranglerVersion: 'latest'
 
       - name: Tag and release note
