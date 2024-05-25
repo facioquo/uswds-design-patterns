@@ -14,7 +14,8 @@
   },
   "engines": {
     "npm": ">=9.0.0",
-    "node": ">=20.0.0"
+    "node": ">=20.0.0",
+    "yarn": ">=1.13.0"
   },
   "dependencies": {
     "@angular/animations": "18.0.0",
