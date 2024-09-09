@@ -16,15 +16,14 @@ jobs:
       name: website
 
     steps:
-
       - name: Checkout source
         uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       - name: Define tag
         id: tag
@@ -36,6 +35,13 @@ jobs:
           find: "YYYY.MM.DD"
           replace: "${{ steps.tag.outputs.version }}"
           regex: false
+
+      - name: Update configs
+        shell: pwsh
+        working-directory: src
+        run: |
+          (Get-Content index.html).Replace("__GaTag__", "G-D7NC4KR9YR") | Set-Content index.html
+          Write-Host "... Done!"
 
       - name: Install packages
         run: npm install
@@ -56,7 +62,7 @@ jobs:
           projectName: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           directory: dist/app/browser
-          wranglerVersion: 'latest'
+          wranglerVersion: "latest"
 
       - name: Tag and release note
         uses: ncipollo/release-action@v1

@@ -38,7 +38,7 @@
   <link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg?v=YYYY.MM.DD" color="#1b1b1b">
 
   <!--structured data-->
-  <script type="application/ld+json">
+  <script async type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Website",
@@ -52,6 +52,17 @@
         "logo": "https://facioquo.com/assets/logo.svg"
       }
     }
+  </script>
+
+  <!-- Google Analytics -->
+  <script defer src="https://www.googletagmanager.com/gtag/js?id=__GaTag__"></script>
+  <script defer>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', '__GaTag__', {
+      cookie_flags: 'SameSite=Lax; Secure'
+    });
   </script>
 
   <!-- injected items -->
