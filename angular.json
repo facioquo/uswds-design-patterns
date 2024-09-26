@@ -66,14 +66,19 @@
             "allowedCommonJsDependencies": [
               "@uswds/uswds/js/usa-modal"
             ],
-            "sourceMap": true,
-            "extractLicenses": false,
-            "namedChunks": false,
+            "sourceMap": {
+              "scripts": true,
+              "styles": true,
+              "hidden": false,
+              "vendor": false
+            },
+            "namedChunks": true,
             "browser": "src/main.ts"
           },
           "configurations": {
             "production": {
-              "optimization": true
+              "optimization": true,
+              "namedChunks": false
             },
             "development": {
               "optimization": false

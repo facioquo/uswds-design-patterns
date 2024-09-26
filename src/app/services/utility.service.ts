@@ -187,11 +187,15 @@ export class UtilityService {
 }
 
 
+// EXPORTED FUNCTIONS
+
 export function titleWithSuffix(
   baseTitle: string,
-  suffix: string = " | Idea book: design patterns for USWDS sites")
+  suffix: string = "Idea book: design patterns for USWDS sites")
   : string {
-  return baseTitle.concat(" | ").concat(suffix);
+  return baseTitle.length > 0
+    ? baseTitle.concat(" | ").concat(suffix)
+    : suffix;
 }
 
 export function patternTitle(patternID: string): string {
