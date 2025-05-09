@@ -6,9 +6,10 @@ import { Card } from '../patterns.model';
 export const ID = "sticky-menu";
 
 @Component({
-  selector: ID,
-  templateUrl: './sticky-menu.component.html',
-  styleUrls: ['./sticky-menu.component.scss']
+    selector: ID,
+    templateUrl: './sticky-menu.component.html',
+    styleUrls: ['./sticky-menu.component.scss'],
+    standalone: false
 })
 export class StickyMenuComponent {
 

@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { UtilityService } from 'src/app/services/utility.service';
 
 @Component({
-  selector: 'app-pattern-footer',
-  templateUrl: './pattern-footer.component.html',
-  styleUrls: ['./pattern-footer.component.scss']
+    selector: 'app-pattern-footer',
+    templateUrl: './pattern-footer.component.html',
+    styleUrls: ['./pattern-footer.component.scss'],
+    standalone: false
 })
 export class PatternFooterComponent {
   @Input() githubFolder: string = "";

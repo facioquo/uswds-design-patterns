@@ -15,8 +15,11 @@ section {
 .content-container {
 
   @include site-dark();
-  max-width: 700px;
-  margin: auto;
+
+  & {
+    max-width: 700px;
+    margin: auto;
+  }
 
   @include at-media-max("mobile-lg") {
     @include u-padding-x(0);

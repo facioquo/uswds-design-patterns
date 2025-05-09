@@ -7,9 +7,10 @@ import { Image, IMAGES } from '../image.model';
 export const ID = "card-catalog";
 
 @Component({
-  selector: ID,
-  templateUrl: './card-catalog.component.html',
-  styleUrls: ['./card-catalog.component.scss']
+    selector: ID,
+    templateUrl: './card-catalog.component.html',
+    styleUrls: ['./card-catalog.component.scss'],
+    standalone: false
 })
 export class CardCatalogComponent implements OnInit {
 
