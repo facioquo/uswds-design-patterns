@@ -7,9 +7,10 @@ import { Image, IMAGES } from '../image.model';
 export const ID = "bubbles";
 
 @Component({
-  selector: ID,
-  templateUrl: './bubbles.component.html',
-  styleUrls: ['./bubbles.component.scss']
+    selector: ID,
+    templateUrl: './bubbles.component.html',
+    styleUrls: ['./bubbles.component.scss'],
+    standalone: false
 })
 export class BubblesComponent implements OnInit {
 

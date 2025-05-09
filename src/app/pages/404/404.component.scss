@@ -6,7 +6,10 @@
 .usa-section {
   @include site-dark;
   @include u-padding-y(0);
-  background-color: unset;
+
+  & {
+    background-color: unset;
+  }
 
   .usa-breadcrumb {
     background-color: rgba(28, 29, 31, 0.5);
