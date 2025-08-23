@@ -7,14 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { UtilityService } from './services/utility.service';
 
 import { AppComponent } from './app.component';
+import { BootstrapComponent } from './bootstrap.component';
 import { SiteIdentifierComponent } from './components/site-identifier/site-identifier.component';
 import { SiteBannerComponent } from './components/site-banner/site-banner.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    BootstrapComponent
   ],
   imports: [
+    AppComponent,
     AppRoutingModule,
     BrowserModule,
     NgOptimizedImage,
@@ -26,7 +28,7 @@ import { SiteBannerComponent } from './components/site-banner/site-banner.compon
     UtilityService
   ],
   bootstrap: [
-    AppComponent
+    BootstrapComponent
   ]
 })
 export class AppModule { }

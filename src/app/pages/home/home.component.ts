@@ -6,7 +6,7 @@ import {
   SITE_TITLE
 } from 'src/app/services/utility.service';
 
-import { Card, PATTERNS } from '../patterns.model';
+import { type Card, PATTERNS } from '../patterns.model';
 import { SiteCardComponent } from '../../components/site-card/site-card.component';
 
 @Component({

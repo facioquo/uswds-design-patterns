@@ -1,10 +1,17 @@
-import { Component, OnInit, OnDestroy, inject } from '@angular/core';
+import { Component, type OnInit, type OnDestroy, inject } from '@angular/core';
 
 import { UtilityService } from 'src/app/services/utility.service';
-import { Card } from '../patterns.model';
+import { type Card } from '../patterns.model';
 
-// @ts-expect-error: modal import has no types, safe to ignore for USWDS modal
+// USWDS modal has no types; declare a minimal interface for linting
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+type UswdsModal = {
+  on: (id: string) => void;
+  off: () => void;
+};
+// @ts-expect-error - upstream package is untyped; runtime provides the expected shape
 import modal from "@uswds/uswds/js/usa-modal";
+const modalApi = modal as unknown as UswdsModal;
 import { PatternHeaderComponent } from '../../components/pattern-header/pattern-header.component';
 import { PatternFooterComponent } from '../../components/pattern-footer/pattern-footer.component';
 
@@ -27,10 +34,10 @@ export class HeroOverlayComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    modal.on("call-to-action-modal");
+    modalApi.on("call-to-action-modal");
   }
 
   ngOnDestroy() {
-    modal.off();
+    modalApi.off();
   }
 }

@@ -8,12 +8,37 @@ module.exports = tseslint.config(
     files: ["**/*.ts"],
     extends: [
       eslint.configs.recommended,
-      ...tseslint.configs.recommended,
-      ...tseslint.configs.stylistic,
+      ...tseslint.configs.recommendedTypeChecked,
+      ...tseslint.configs.stylisticTypeChecked,
       ...angular.configs.tsRecommended,
     ],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: __dirname,
+      },
+    },
     processor: angular.processInlineTemplates,
     rules: {
+      // TypeScript-focused preferences
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        { prefer: "type-imports", fixStyle: "inline-type-imports", disallowTypeAnnotations: false }
+      ],
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_", caughtErrorsIgnorePattern: "^_" }
+      ],
+      "@typescript-eslint/no-floating-promises": "error",
+
+      // General JS/TS code-style and safety
+      "curly": ["error", "all"],
+      "eqeqeq": ["error", "always"],
+      "prefer-const": "error",
+      "no-var": "error",
+      "object-shorthand": ["error", "always"],
+      "no-console": ["warn", { allow: ["warn", "error"] }],
+
       "@angular-eslint/directive-selector": [
         "error",
         {

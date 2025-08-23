@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ExtraOptions, PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { type ExtraOptions, PreloadAllModules, RouterModule, type Routes } from '@angular/router';
 
 import { SITE_TITLE, patternTitle, titleWithSuffix } from "./services/utility.service";
 

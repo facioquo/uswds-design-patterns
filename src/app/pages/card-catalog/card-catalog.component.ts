@@ -1,8 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, type OnInit, inject } from '@angular/core';
 
 import { UtilityService } from 'src/app/services/utility.service';
-import { Card } from 'src/app/components/site-card/card.model';
-import { Image, IMAGES } from '../image.model';
+import { type Card } from 'src/app/components/site-card/card.model';
+import { type Image, IMAGES } from '../image.model';
 import { PatternHeaderComponent } from '../../components/pattern-header/pattern-header.component';
 import { NgOptimizedImage, NgClass } from '@angular/common';
 import { PatternSettingsComponent } from '../../components/pattern-settings/pattern-settings.component';
@@ -91,12 +91,12 @@ export class CardCatalogComponent implements OnInit {
         this.cards.push(card);
         this.cardEnd++;
       }
-      else return;
+      else {return;}
     }
 
     // scroll when appropriate
     if (this.autoScroll && !skipScroll)
-      this.u.scrollToStart(scrollId, 500);
+      {this.u.scrollToStart(scrollId, 500);}
   }
 
   showAll(): void {
@@ -110,7 +110,7 @@ export class CardCatalogComponent implements OnInit {
 
     // scroll to first new card
     if (this.autoScroll)
-      this.u.scrollToStart(`card-${nextCard.id}`, 500);
+      {this.u.scrollToStart(`card-${nextCard.id}`, 500);}
   }
 
 

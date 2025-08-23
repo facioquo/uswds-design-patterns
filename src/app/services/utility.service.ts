@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
-import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
+import { Meta, type MetaDefinition, Title } from '@angular/platform-browser';
 
 import { WORD_LIST } from "./utility.model";
-import { Card, PATTERNS } from 'src/app/pages/patterns.model';
+import { type Card, PATTERNS } from 'src/app/pages/patterns.model';
 
 const URL_BASE = "https://uswds.facioquo.com";
 const URL_IMAGE_SOCIAL = URL_BASE.concat("/assets/images/social-card.png?v=YYYY.MM.DD");
@@ -31,7 +31,7 @@ export class UtilityService {
 
     tags.forEach((tag: MetaDefinition) => {
 
-      if (tag.property == "og:title" && tag.content) {
+      if (tag.property === "og:title" && tag.content) {
         this.t.setTitle(tag.content);
       }
 
@@ -48,14 +48,11 @@ export class UtilityService {
       // check if tag exists
       const exists = this.meta.getTag(attrib);
 
-      // update to replace
+      // update to replace or add if missing
       if (exists !== null) {
-        this.meta.updateTag(tag, attrib)
-      }
-
-      // or add if missing
-      else {
-        this.meta.addTag(tag)
+        this.meta.updateTag(tag, attrib);
+      } else {
+        this.meta.addTag(tag);
       }
     });
   }
@@ -96,9 +93,7 @@ export class UtilityService {
   // DESIGN PATTERN CARD LOOKUP
   getPatternCard(id: string): Card {
     const card = PATTERNS.find(x => x.id === id);
-    return card
-      ? card
-      : {} as Card
+    return card ?? ({} as Card);
   }
 
 
@@ -128,7 +123,7 @@ export class UtilityService {
     let randomSize = 0;
 
     // adjust for problematic params
-    if (min > max) min = max;
+    if (min > max) { min = max; }
     min = Math.min(min, max - 20);
     min = Math.max(min, 5);
     max = Math.max(min + 20, max);

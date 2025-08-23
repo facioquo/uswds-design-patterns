@@ -1,4 +1,7 @@
 import { Component, isDevMode, inject } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { SiteIdentifierComponent } from './components/site-identifier/site-identifier.component';
+import { SiteBannerComponent } from './components/site-banner/site-banner.component';
 
 import {
   UtilityService,
@@ -9,7 +12,8 @@ import {
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  imports: [RouterOutlet, SiteBannerComponent, SiteIdentifierComponent]
 })
 export class AppComponent {
   private readonly u = inject(UtilityService);

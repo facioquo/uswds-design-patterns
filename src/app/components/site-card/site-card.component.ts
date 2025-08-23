@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Card } from './card.model';
+import { type Card } from './card.model';
 import { NgOptimizedImage } from '@angular/common';
 
 @Component({

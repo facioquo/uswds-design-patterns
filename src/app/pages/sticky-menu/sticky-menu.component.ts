@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 
 import { UtilityService } from 'src/app/services/utility.service';
-import { Card } from '../patterns.model';
+import { type Card } from '../patterns.model';
 import { PatternHeaderComponent } from '../../components/pattern-header/pattern-header.component';
 import { PatternFooterComponent } from '../../components/pattern-footer/pattern-footer.component';
 
