@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Meta, MetaDefinition, Title } from '@angular/platform-browser';
 
 import { WORD_LIST } from "./utility.model";
@@ -22,11 +22,9 @@ export {
   providedIn: 'root'
 })
 export class UtilityService {
+  private meta = inject(Meta);
+  private t = inject(Title);
 
-  constructor(
-    private meta: Meta,
-    private t: Title
-  ) { }
 
   // DESIGN PATTERN META
   pushMetaTags(tags: MetaDefinition[]): void {
@@ -105,14 +103,14 @@ export class UtilityService {
 
 
   // PAGE SCROLLING
-  scrollToStart(id: string, offset: number = 200) {
+  scrollToStart(id: string, offset = 200) {
     setTimeout(() => {
       const element = document.getElementById(id);
       element!.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
     }, offset);
   }
 
-  scrollToEnd(id: string, offset: number = 200) {
+  scrollToEnd(id: string, offset = 200) {
     setTimeout(() => {
       const element = document.getElementById(id);
       element!.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'end' });
@@ -122,12 +120,12 @@ export class UtilityService {
 
   // RANDOM WORD GENERATOR
   // enter minimum and maximum characters of words to generate.
-  randomWords(min: number, max: number, suffix: string = ""): string {
+  randomWords(min: number, max: number, suffix = ""): string {
 
-    let words: string = "";
-    let timeout: number = 0;
-    let rightSize: boolean = false;
-    let randomSize: number = 0;
+    let words = "";
+    let timeout = 0;
+    let rightSize = false;
+    let randomSize = 0;
 
     // adjust for problematic params
     if (min > max) min = max;
@@ -191,7 +189,7 @@ export class UtilityService {
 
 export function titleWithSuffix(
   baseTitle: string,
-  suffix: string = "Idea book: design patterns for USWDS sites")
+  suffix = "Idea book: design patterns for USWDS sites")
   : string {
   return baseTitle.length > 0
     ? baseTitle.concat(" | ").concat(suffix)

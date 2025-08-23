@@ -5,7 +5,8 @@
     <strong>landing page Hero</strong> template.
 
     <!-- learn more -->
-    <a class="usa-link learn-more" role="button" (click)="u.scrollToStart('info');">
+    <a class="usa-link learn-more" role="button" tabindex="0" (click)="u.scrollToStart('info');"
+      (keyup.enter)="u.scrollToStart('info');">
       Learn more
       <svg class="usa-icon" alt="">
         <use href="/assets/uswds/img/sprite.svg#arrow_downward"></use>

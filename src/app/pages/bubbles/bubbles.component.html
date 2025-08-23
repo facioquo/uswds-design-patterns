@@ -5,7 +5,8 @@
     <strong>Layout grid</strong>.
 
     <!-- learn more -->
-    <a class="usa-link learn-more" role="button" (click)="u.scrollToStart('info');">
+    <a class="usa-link learn-more" role="button" tabindex="0" (click)="u.scrollToStart('info');"
+      (keyup.enter)="u.scrollToStart('info');">
       Learn more
       <svg class="usa-icon" alt="">
         <use href="/assets/uswds/img/sprite.svg#arrow_downward"></use>
@@ -21,8 +22,7 @@
   @for (card of cards; track card; let i = $index) {
   <div class="bubble">
     <a type=button class="usa-button" href="{{ card.link }}" aria-label=""
-      [attr.style]="'background-image: url(' + card.image + ');'"
-      target="_blank" rel="noopener noreferrer nofollow">
+      [attr.style]="'background-image: url(' + card.image + ');'" target="_blank" rel="noopener noreferrer nofollow">
       <div class="bubble-overlay">
         <div class="bubble-label">{{ card.title }}</div>
       </div>
@@ -41,9 +41,7 @@
     when you want consistent spacing, fluid wrapping, and symmetrical centering.
 
     It'd be difficult to do this using the standard
-    <a class="usa-link usa-link--external"
-       href="https://designsystem.digital.gov/utilities/layout-grid/"
-       target="_blank"
-       rel="noopener noreferrer nofollow">Layout grid</a>.
+    <a class="usa-link usa-link--external" href="https://designsystem.digital.gov/utilities/layout-grid/"
+      target="_blank" rel="noopener noreferrer nofollow">Layout grid</a>.
   </p>
 </app-pattern-footer>

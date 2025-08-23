@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import { UtilityService } from 'src/app/services/utility.service';
 import { Card } from '../patterns.model';
+import { PatternHeaderComponent } from '../../components/pattern-header/pattern-header.component';
+import { PatternFooterComponent } from '../../components/pattern-footer/pattern-footer.component';
 
 export const ID = "sticky-menu";
 
@@ -9,15 +11,15 @@ export const ID = "sticky-menu";
     selector: ID,
     templateUrl: './sticky-menu.component.html',
     styleUrls: ['./sticky-menu.component.scss'],
-    standalone: false
+    imports: [PatternHeaderComponent, PatternFooterComponent]
 })
 export class StickyMenuComponent {
+  readonly u = inject(UtilityService);
+
 
   public pattern: Card = this.u.getPatternCard(ID);
 
-  constructor(
-    public readonly u: UtilityService
-  ) {
+  constructor() {
     this.u.pushMetaTagsForPattern(ID);
   }
 }

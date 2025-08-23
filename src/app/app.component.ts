@@ -1,4 +1,4 @@
-import { Component, isDevMode } from '@angular/core';
+import { Component, isDevMode, inject } from '@angular/core';
 
 import {
   UtilityService,
@@ -8,15 +8,14 @@ import {
 } from './services/utility.service';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    standalone: false
+  selector: 'app-root',
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
+  private readonly u = inject(UtilityService);
 
-  constructor(
-    private readonly u: UtilityService
-  ) {
+
+  constructor() {
     this.u.pushMetaTags([
       {
         property: 'og:site_name',

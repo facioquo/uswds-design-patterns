@@ -4,8 +4,10 @@
     A card catalog using the U.S. Web Design System <strong>Card</strong> component with “show more” card loading.
 
     Learn more about
-    <a class="usa-link pointer" role="button" (click)="u.scrollToStart('info');">this design pattern</a> or
-    <a class="usa-link pointer" role="button" (click)="u.scrollToEnd('settings');">change settings</a>
+    <a class="usa-link pointer" role="button" tabindex="0" (click)="u.scrollToStart('info');"
+      (keyup.enter)="u.scrollToStart('info');">this design pattern</a> or
+    <a class="usa-link pointer" role="button" tabindex="0" (click)="u.scrollToEnd('settings');"
+      (keyup.enter)="u.scrollToEnd('settings');">change settings</a>
     at the bottom of the page.
   </p>
 </app-pattern-header>
@@ -47,8 +49,7 @@
   @if (!classic) {
   <div class="grid-container">
     <p class="text-center">Showing {{ cards.length }} of {{ totalCards }} cards</p>
-    @if (cards.length < totalCards) {
-    <ul class="usa-button-group">
+    @if (cards.length < totalCards) { <ul class="usa-button-group">
       <li class="usa-button-group__item">
         <button class="usa-button" (click)="showPage(page+1)">
           Show {{ pageSize }} more
@@ -59,8 +60,8 @@
           Show all
         </button>
       </li>
-    </ul>
-    }
+      </ul>
+      }
   </div>
   }
 
@@ -76,7 +77,7 @@
         @if (pages>3 && page>1) {
         <li class="usa-pagination__item usa-pagination__arrow">
           <a role="button" class="usa-pagination__link usa-pagination__previous-page" aria-label="Previous page"
-            (click)="showPage(page-1)">
+            tabindex="0" (click)="showPage(page-1)" (keyup.enter)="showPage(page-1)">
             <svg class="usa-icon" aria-hidden="true" role="img">
               <use href="/assets/uswds/img/sprite.svg#navigate_before"></use>
             </svg>
@@ -86,7 +87,8 @@
         }
         @if (pages>3 && page>=3) {
         <li class="usa-pagination__item usa-pagination__page-no">
-          <a role="button" class="usa-pagination__button" aria-label="First page, page 1" (click)="showPage(1)">1</a>
+          <a role="button" class="usa-pagination__button" aria-label="First page, page 1" tabindex="0"
+            (click)="showPage(1)" (keyup.enter)="showPage(1)">1</a>
         </li>
         <li class="usa-pagination__item usa-pagination__overflow" aria-label="ellipsis indicating non-visible pages">
           <span>…</span>
@@ -94,40 +96,40 @@
         }
         @if (page>1) {
         <li class="usa-pagination__item usa-pagination__page-no">
-          <a role="button" class="usa-pagination__button" attr.aria-label="Page {{page-1}}"
-            (click)="showPage(page-1)">{{page-1}}</a>
+          <a role="button" class="usa-pagination__button" attr.aria-label="Page {{page-1}}" tabindex="0"
+            (click)="showPage(page-1)" (keyup.enter)="showPage(page-1)">{{page-1}}</a>
         </li>
         }
         <li class="usa-pagination__item usa-pagination__page-no">
           <a role="button" class="usa-pagination__button usa-current" attr.aria-label="Page {{page}}"
-            aria-current="page" (click)="u.scrollToStart('top')">{{page}}</a>
+            aria-current="page" tabindex="0" (click)="u.scrollToStart('top')"
+            (keyup.enter)="u.scrollToStart('top')">{{page}}</a>
         </li>
-        @if (page+1<=pages) {
-        <li class="usa-pagination__item usa-pagination__page-no">
-        <a role="button" class="usa-pagination__button" attr.aria-label="Page {{page+1}}"
-          (click)="showPage(page+1)">{{page+1}}</a>
-        </li>
-        }
-        @if (pages>3 && page<=pages-2) {
-        <li class="usa-pagination__item usa-pagination__overflow" aria-label="ellipsis indicating non-visible pages">
-        <span>…</span>
-        </li>
-        <li class="usa-pagination__item usa-pagination__page-no">
-          <a role="button" class="usa-pagination__button" attr.aria-label="Last page, page {{pages}}"
-            (click)="showPage(pages)">{{pages}}</a>
-        </li>
-        }
-        @if (pages>3 && page!=pages) {
-        <li class="usa-pagination__item usa-pagination__arrow">
-          <a role="button" class="usa-pagination__link usa-pagination__next-page" aria-label="Next page"
-            (click)="showPage(page+1)">
-            <span class="usa-pagination__link-text">Next </span>
-            <svg class="usa-icon" aria-hidden="true" role="img">
-              <use href="/assets/uswds/img/sprite.svg#navigate_next"></use>
-            </svg>
-          </a>
-        </li>
-        }
+        @if (page+1<=pages) { <li class="usa-pagination__item usa-pagination__page-no">
+          <a role="button" class="usa-pagination__button" attr.aria-label="Page {{page+1}}" tabindex="0"
+            (click)="showPage(page+1)" (keyup.enter)="showPage(page+1)">{{page+1}}</a>
+          </li>
+          }
+          @if (pages>3 && page<=pages-2) { <li class="usa-pagination__item usa-pagination__overflow"
+            aria-label="ellipsis indicating non-visible pages">
+            <span>…</span>
+            </li>
+            <li class="usa-pagination__item usa-pagination__page-no">
+              <a role="button" class="usa-pagination__button" attr.aria-label="Last page, page {{pages}}" tabindex="0"
+                (click)="showPage(pages)" (keyup.enter)="showPage(pages)">{{pages}}</a>
+            </li>
+            }
+            @if (pages>3 && page!==pages) {
+            <li class="usa-pagination__item usa-pagination__arrow">
+              <a role="button" class="usa-pagination__link usa-pagination__next-page" aria-label="Next page"
+                tabindex="0" (click)="showPage(page+1)" (keyup.enter)="showPage(page+1)">
+                <span class="usa-pagination__link-text">Next </span>
+                <svg class="usa-icon" aria-hidden="true" role="img">
+                  <use href="/assets/uswds/img/sprite.svg#navigate_next"></use>
+                </svg>
+              </a>
+            </li>
+            }
       </ul>
     </nav>
   </div>
@@ -161,7 +163,7 @@
     </div>
 
     <!-- style -->
-    <label class="usa-label">Style</label>
+    <label class="usa-label" for="style-select">Style</label>
     <ul class="usa-button-group usa-button-group--segmented">
       <li class="usa-button-group__item">
         <button type="button" [ngClass]="!classic ? 'usa-button' : 'usa-button usa-button--outline'"

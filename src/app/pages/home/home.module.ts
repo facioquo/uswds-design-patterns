@@ -6,14 +6,12 @@ import { HomeComponent } from './home.component';
 import { SiteCardComponent } from 'src/app/components/site-card/site-card.component';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    SiteCardComponent
-  ],
-  imports: [
-    CommonModule,
-    NgOptimizedImage,
-    HomeRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        NgOptimizedImage,
+        HomeRoutingModule,
+        HomeComponent,
+        SiteCardComponent
+    ]
 })
 export class HomeModule { }

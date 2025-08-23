@@ -5,7 +5,8 @@
     <strong>Process List</strong> component.
 
     <!-- learn more -->
-    <a class="usa-link learn-more" role="button" (click)="u.scrollToStart('info');">
+    <a class="usa-link learn-more" role="button" tabindex="0" (click)="u.scrollToStart('info');"
+      (keyup.enter)="u.scrollToStart('info');">
       Learn more
       <svg class="usa-icon" alt="">
         <use href="/assets/uswds/img/sprite.svg#arrow_downward"></use>
@@ -27,27 +28,31 @@
         <h2>Steps</h2>
         <ul class="usa-sidenav usa-sticky-sidenav">
           <li class="usa-sidenav__item">
-            <a role="button" (click)="u.scrollToStart('pack-bags');">
+            <a role="button" tabindex="0" (click)="u.scrollToStart('pack-bags');"
+              (keyup.enter)="u.scrollToStart('pack-bags');">
               Pack your bags
             </a>
           </li>
           <li class="usa-sidenav__item">
-            <a role="button" (click)="u.scrollToStart('get-started');">
+            <a role="button" tabindex="0" (click)="u.scrollToStart('get-started');"
+              (keyup.enter)="u.scrollToStart('get-started');">
               Begin the journey
             </a>
           </li>
           <li class="usa-sidenav__item">
-            <a role="button" (click)="u.scrollToStart('journey');">
+            <a role="button" tabindex="0" (click)="u.scrollToStart('journey');"
+              (keyup.enter)="u.scrollToStart('journey');">
               Overcome obstacles
             </a>
           </li>
           <li class="usa-sidenav__item">
-            <a role="button" (click)="u.scrollToStart('completion');">
+            <a role="button" tabindex="0" (click)="u.scrollToStart('completion');"
+              (keyup.enter)="u.scrollToStart('completion');">
               Reach your goals
             </a>
           </li>
           <li class="usa-sidenav__item bullet-question">
-            <a (click)="u.scrollToStart('info');">
+            <a role="button" tabindex="0" (click)="u.scrollToStart('info');" (keyup.enter)="u.scrollToStart('info');">
               Get help
             </a>
           </li>

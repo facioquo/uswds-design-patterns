@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import {
   UtilityService,
@@ -7,18 +7,19 @@ import {
 } from 'src/app/services/utility.service';
 
 import { Card, PATTERNS } from '../patterns.model';
+import { SiteCardComponent } from '../../components/site-card/site-card.component';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
-    standalone: false
+    imports: [SiteCardComponent]
 })
 export class HomeComponent {
+  readonly u = inject(UtilityService);
 
-  constructor(
-    public readonly u: UtilityService
-  ) {
+
+  constructor() {
     this.u.pushMetaTags([
       {
         property: 'og:title',

@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 
 import { UtilityService } from 'src/app/services/utility.service';
 import { Card } from 'src/app/components/site-card/card.model';
 import { Image, IMAGES } from '../image.model';
+import { PatternHeaderComponent } from '../../components/pattern-header/pattern-header.component';
+import { NgOptimizedImage, NgClass } from '@angular/common';
+import { PatternSettingsComponent } from '../../components/pattern-settings/pattern-settings.component';
+import { FormsModule } from '@angular/forms';
+import { PatternFooterComponent } from '../../components/pattern-footer/pattern-footer.component';
 
 export const ID = "card-catalog";
 
@@ -10,9 +15,11 @@ export const ID = "card-catalog";
     selector: ID,
     templateUrl: './card-catalog.component.html',
     styleUrls: ['./card-catalog.component.scss'],
-    standalone: false
+    imports: [PatternHeaderComponent, NgOptimizedImage, PatternSettingsComponent, FormsModule, NgClass, PatternFooterComponent]
 })
 export class CardCatalogComponent implements OnInit {
+  readonly u = inject(UtilityService);
+
 
   images: Image[] = IMAGES;
   autoScroll = false;
@@ -20,9 +27,7 @@ export class CardCatalogComponent implements OnInit {
 
   public pattern: Card = this.u.getPatternCard(ID);
 
-  constructor(
-    public readonly u: UtilityService
-  ) {
+  constructor() {
     this.u.pushMetaTagsForPattern(ID);
   }
 
@@ -43,7 +48,7 @@ export class CardCatalogComponent implements OnInit {
     this.resetCardCatalog();
   }
 
-  showPage(page: number, skipScroll: boolean = false): void {
+  showPage(page: number, skipScroll = false): void {
 
     // increment page
     this.page = page;

@@ -1,16 +1,15 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { UtilityService } from 'src/app/services/utility.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-pattern-footer',
     templateUrl: './pattern-footer.component.html',
     styleUrls: ['./pattern-footer.component.scss'],
-    standalone: false
+    imports: [RouterLink]
 })
 export class PatternFooterComponent {
-  @Input() githubFolder: string = "";
+  readonly u = inject(UtilityService);
 
-  constructor(
-    public readonly u: UtilityService
-  ) { }
+  @Input() githubFolder = "";
 }

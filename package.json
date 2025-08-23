@@ -10,11 +10,13 @@
     "start": "ng serve --open --live-reload",
     "build": "ng build --configuration=development",
     "build.prod": "ng build --configuration=production",
-    "watch": "ng build --configuration=development --watch"
+    "watch": "ng build --configuration=development --watch",
+    "lint": "ng lint",
+    "lint:fix": "ng lint --fix"
   },
   "engines": {
-    "npm": ">=10.2.0",
-    "node": ">=22.0.0",
+    "npm": ">=11.4.0",
+    "node": ">=22.17.0",
     "yarn": ">=1.22.0"
   },
   "dependencies": {
@@ -35,6 +37,9 @@
     "@angular/build": "20.0.4",
     "@angular/cli": "20.0.4",
     "@angular/compiler-cli": "20.0.5",
-    "typescript": "5.8.3"
+    "angular-eslint": "20.1.1",
+    "eslint": "9.30.0",
+    "typescript": "5.8.3",
+    "typescript-eslint": "8.35.0"
   }
 }

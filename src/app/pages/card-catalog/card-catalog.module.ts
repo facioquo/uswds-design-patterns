@@ -8,18 +8,16 @@ import { CardCatalogRoutingModule } from './card-catalog-routing.module';
 import { CardCatalogComponent } from './card-catalog.component';
 
 @NgModule({
-  declarations: [
-    CardCatalogComponent
-  ],
-  imports: [
-    CommonModule,
-    NgOptimizedImage,
-    CardCatalogRoutingModule,
-    FormsModule,
-    LayoutModule
-  ],
-  providers: [
-    provideHttpClient(withInterceptorsFromDi())
-  ]
+    imports: [
+        CommonModule,
+        NgOptimizedImage,
+        CardCatalogRoutingModule,
+        FormsModule,
+        LayoutModule,
+        CardCatalogComponent
+    ],
+    providers: [
+        provideHttpClient(withInterceptorsFromDi())
+    ]
 })
 export class CardCatalogModule { }

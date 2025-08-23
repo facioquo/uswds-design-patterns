@@ -8,23 +8,21 @@ import { PatternSettingsComponent } from './pattern-settings/pattern-settings.co
 import { UtilityService } from '../services/utility.service';
 
 @NgModule({
-  declarations: [
-    PatternHeaderComponent,
-    PatternFooterComponent,
-    PatternSettingsComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
-  exports: [
-    PatternHeaderComponent,
-    PatternFooterComponent,
-    PatternSettingsComponent,
-    RouterModule
-  ],
-  providers: [
-    UtilityService
-  ]
+    imports: [
+        CommonModule,
+        RouterModule,
+        PatternHeaderComponent,
+        PatternFooterComponent,
+        PatternSettingsComponent
+    ],
+    exports: [
+        PatternHeaderComponent,
+        PatternFooterComponent,
+        PatternSettingsComponent,
+        RouterModule
+    ],
+    providers: [
+        UtilityService
+    ]
 })
 export class LayoutModule { }

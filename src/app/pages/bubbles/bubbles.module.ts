@@ -6,13 +6,11 @@ import { BubblesRoutingModule } from './bubbles-routing.module';
 import { BubblesComponent } from './bubbles.component';
 
 @NgModule({
-  declarations: [
-    BubblesComponent
-  ],
-  imports: [
-    CommonModule,
-    BubblesRoutingModule,
-    LayoutModule
-  ]
+    imports: [
+        CommonModule,
+        BubblesRoutingModule,
+        LayoutModule,
+        BubblesComponent
+    ]
 })
 export class BubblesModule { }

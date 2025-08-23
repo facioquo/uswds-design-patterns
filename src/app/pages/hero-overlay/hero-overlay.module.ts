@@ -6,13 +6,11 @@ import { HeroOverlayRoutingModule } from './hero-overlay-routing.module';
 import { HeroOverlayComponent } from './hero-overlay.component';
 
 @NgModule({
-  declarations: [
-    HeroOverlayComponent
-  ],
-  imports: [
-    CommonModule,
-    HeroOverlayRoutingModule,
-    LayoutModule
-  ]
+    imports: [
+        CommonModule,
+        HeroOverlayRoutingModule,
+        LayoutModule,
+        HeroOverlayComponent
+    ]
 })
 export class HeroOverlayModule { }

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 
 import { UtilityService } from 'src/app/services/utility.service';
 import { Card } from 'src/app/components/site-card/card.model';
 import { Image, IMAGES } from '../image.model';
+import { PatternHeaderComponent } from '../../components/pattern-header/pattern-header.component';
+import { PatternFooterComponent } from '../../components/pattern-footer/pattern-footer.component';
 
 export const ID = "bubbles";
 
@@ -10,15 +12,15 @@ export const ID = "bubbles";
     selector: ID,
     templateUrl: './bubbles.component.html',
     styleUrls: ['./bubbles.component.scss'],
-    standalone: false
+    imports: [PatternHeaderComponent, PatternFooterComponent]
 })
 export class BubblesComponent implements OnInit {
+  readonly u = inject(UtilityService);
+
 
   public pattern: Card = this.u.getPatternCard(ID);
 
-  constructor(
-    public readonly u: UtilityService
-  ) {
+  constructor() {
     this.u.pushMetaTagsForPattern(ID);
   }
 
@@ -28,7 +30,7 @@ export class BubblesComponent implements OnInit {
   ngOnInit(): void {
 
     // make random cards
-    let max = 7;
+    const max = 7;
     for (let i = 0; i < max; i++) {
 
       const rand = this.u.randInt(800);

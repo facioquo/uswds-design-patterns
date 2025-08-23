@@ -6,13 +6,11 @@ import { StickyMenuRoutingModule } from './sticky-menu-routing.module';
 import { StickyMenuComponent } from './sticky-menu.component';
 
 @NgModule({
-  declarations: [
-    StickyMenuComponent
-  ],
-  imports: [
-    CommonModule,
-    LayoutModule,
-    StickyMenuRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        LayoutModule,
+        StickyMenuRoutingModule,
+        StickyMenuComponent
+    ]
 })
 export class StickyMenuModule { }
