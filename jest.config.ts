@@ -17,7 +17,10 @@ const config: Config = {
     ],
   },
   moduleFileExtensions: ['ts', 'html', 'js', 'json'],
-  transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
+  // Transform ESM from specific libs often shipped untranspiled
+  transformIgnorePatterns: [
+    'node_modules/(?!(?:@angular|rxjs|lit|@lit)/)'
+  ],
   moduleNameMapper: {
     '^src/(.*)$': '<rootDir>/src/$1',
   '\\.(css|scss)$': 'identity-obj-proxy',

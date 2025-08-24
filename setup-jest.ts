@@ -35,3 +35,20 @@ try {
 	// ignore if already initialized in watch mode
 }
 
+// matchMedia stub for components using media queries in tests
+if (!('matchMedia' in window)) {
+	Object.defineProperty(window, 'matchMedia', {
+		writable: true,
+		value: (query: string) => ({
+			matches: false,
+			media: query,
+			onchange: null,
+			addListener: () => {}, // deprecated
+			removeListener: () => {}, // deprecated
+			addEventListener: () => {},
+			removeEventListener: () => {},
+			dispatchEvent: () => false,
+		}),
+	});
+}
+
