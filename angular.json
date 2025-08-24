@@ -29,8 +29,11 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/assets",
-              "src/robots.txt",
-              "src/sitemap.xml",
+              {
+                "glob": "**/*",
+                "input": "src/public",
+                "output": "/"
+              },
               {
                 "glob": "**/*",
                 "input": "./node_modules/@uswds/uswds/dist/img/",

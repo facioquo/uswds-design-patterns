@@ -1,28 +1,8 @@
 {
-  "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 3000,
   "search.exclude": {
     "**/*angular": true,
     "**/dist": true,
     "**/node_modules": true,
     "**/package-lock.json": true
-  },
-  "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": "active",
-  "editor.formatOnSave": true,
-  "cSpell.words": [
-    "callout",
-    "clickability",
-    "easeload",
-    "facioquo",
-    "gulpfile",
-    "nofollow",
-    "sidenav",
-    "skipnav",
-    "supertitle",
-    "tagout",
-    "uswds",
-    "webp",
-    "wwwroot"
-  ]
+  }
 }
