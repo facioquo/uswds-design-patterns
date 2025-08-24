@@ -21,6 +21,29 @@ npm install
 npm start
 ```
 
+## Testing
+
+This project uses Jest for unit/component tests and Playwright for end-to-end tests.
+
+Unit tests (Jest):
+
+```bash
+npm test          # run once
+npm run test:watch
+npm run test:coverage
+```
+
+End-to-end tests (Playwright):
+
+```bash
+npm run e2e           # headless on Chromium/Firefox/WebKit
+npm run e2e:headed    # headed browsers
+npm run e2e:ui        # Playwright test UI
+npm run e2e:report    # open last HTML report
+```
+
+By default, e2e tests start a dev server at <http://localhost:4200>. You can also start the app yourself (`npm run start:test`) and reuse the server locally.
+
 ## We use base stylesheets
 
 Since our design pattern pages are based on default USWDS styles, we use its base stylesheets: `SASS/uswds-styles.scss` is an out of the box USWDS baseline.  It's also the primary SASS entry point.  `SASS/_site.scss` and the base `.site` family of styles are for our regular dark themed site pages and components.
