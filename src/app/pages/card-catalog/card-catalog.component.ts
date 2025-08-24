@@ -12,25 +12,26 @@ import { PatternFooterComponent } from "../../components/pattern-footer/pattern-
 export const ID = "card-catalog";
 
 @Component({
-    selector: ID,
-    templateUrl: "./card-catalog.component.html",
-    styleUrls: ["./card-catalog.component.scss"],
-    imports: [PatternHeaderComponent, NgOptimizedImage, PatternSettingsComponent, FormsModule, NgClass, PatternFooterComponent]
+  selector: ID,
+  templateUrl: "./card-catalog.component.html",
+  styleUrls: ["./card-catalog.component.scss"],
+  imports: [
+    PatternHeaderComponent,
+    NgOptimizedImage,
+    PatternSettingsComponent,
+    FormsModule,
+    NgClass,
+    PatternFooterComponent,
+  ],
 })
 export class CardCatalogComponent implements OnInit {
   readonly u = inject(UtilityService);
-
 
   images: Image[] = IMAGES;
   autoScroll = false;
   classic = false;
 
   public pattern: Card = this.u.getPatternCard(ID);
-
-  constructor() {
-    this.u.pushMetaTagsForPattern(ID);
-  }
-
   public page = 0;
   public pages = 0;
   public pageSize = 24;
@@ -43,13 +44,11 @@ export class CardCatalogComponent implements OnInit {
   public cardEnd = this.cardStart + this.pageSize;
 
   ngOnInit(): void {
-
     // load initial page
     this.resetCardCatalog();
   }
 
   showPage(page: number, skipScroll = false): void {
-
     // increment page
     this.page = page;
     let scrollId = "";
@@ -68,7 +67,6 @@ export class CardCatalogComponent implements OnInit {
 
     // add new cards
     for (let i = idxStart; i < idxEnd; i++) {
-
       const image = this.images[i];
 
       // define new card
@@ -77,7 +75,7 @@ export class CardCatalogComponent implements OnInit {
         title: this.u.randomWords(15, 65),
         description: `<small>Photo by ${image.author}.</small><br />${this.u.randomWords(25, 90)}.`,
         link: image.url,
-        image: `/assets/stock/${image.id}-600x315.webp`
+        image: `/assets/stock/${image.id}-600x315.webp`,
       };
 
       // set scroll target to first new card
@@ -90,17 +88,18 @@ export class CardCatalogComponent implements OnInit {
       if (i < this.totalCards) {
         this.cards.push(card);
         this.cardEnd++;
+      } else {
+        return;
       }
-      else {return;}
     }
 
     // scroll when appropriate
-    if (this.autoScroll && !skipScroll)
-      {this.u.scrollToStart(scrollId, 500);}
+    if (this.autoScroll && !skipScroll) {
+      this.u.scrollToStart(scrollId, 500);
+    }
   }
 
   showAll(): void {
-
     const nextCard = this.images[this.page * this.pageSize + 1];
 
     // add remaining cards
@@ -109,10 +108,10 @@ export class CardCatalogComponent implements OnInit {
     }
 
     // scroll to first new card
-    if (this.autoScroll)
-      {this.u.scrollToStart(`card-${nextCard.id}`, 500);}
+    if (this.autoScroll) {
+      this.u.scrollToStart(`card-${nextCard.id}`, 500);
+    }
   }
-
 
   // CATALOG SETTINGS
 

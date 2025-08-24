@@ -13,13 +13,13 @@ settings available: @uswds\uswds\packages\uswds-core\src\styles\settings
 
   // utilities
   $utilities-use-important: true,
-  $output-these-utilities:(
+  $output-these-utilities: (
     "color",
     "margin",
     "margin-horizontal",
     "margin-vertical",
     "padding",
-    "text-align"
+    "text-align",
   ),
 
   // typography
@@ -28,16 +28,25 @@ settings available: @uswds\uswds\packages\uswds-core\src\styles\settings
 
   // Turn on breakpoints
   $theme-utility-breakpoints: (
-    'card':       false,   // 160px
-    'card-lg':    false,   // 240px
-    'mobile':     false,   // 320px
-    'mobile-lg':  true,    // 480px
-    'tablet':     true,    // 640px
-    'tablet-lg':  true,    // 880px  >> turned on
-    'desktop':    true,    // 1024px
-    'desktop-lg': false,   // 1200px
-    'widescreen': false,   // 1400px
-  ),
+      "card": false,
+      // 160px
+      "card-lg": false,
+      // 240px
+      "mobile": false,
+      // 320px
+      "mobile-lg": true,
+      // 480px
+      "tablet": true,
+      // 640px
+      "tablet-lg": true,
+      // 880px  >> turned on
+      "desktop": true,
+      // 1024px
+      "desktop-lg": false,
+      // 1200px
+      "widescreen": false,
+      // 1400px
+    ),
 
   $theme-body-background-color: "base-lighter",
 
@@ -48,7 +57,6 @@ settings available: @uswds\uswds\packages\uswds-core\src\styles\settings
   $theme-focus-color: "blue-60",
 
   // COMPONENT SETTINGS
-
   // banner
   $theme-banner-background-color: "base-darkest",
   $theme-banner-link-color: "base-light",

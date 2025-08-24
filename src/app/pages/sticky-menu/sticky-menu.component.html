@@ -1,12 +1,17 @@
 <!-- pattern introduction section -->
 <app-pattern-header [patternName]="pattern.title" class="site">
   <p class="usa-prose">
-    A matching sticky <strong>Side Navigation</strong> menu pane to accompany the U.S. Web Design System
-    <strong>Process List</strong> component.
+    A matching sticky <strong>Side Navigation</strong> menu pane to accompany the U.S. Web Design
+    System <strong>Process List</strong> component.
 
     <!-- learn more -->
-    <a class="usa-link learn-more" role="button" tabindex="0" (click)="u.scrollToStart('info');"
-      (keyup.enter)="u.scrollToStart('info');">
+    <a
+      class="usa-link learn-more"
+      role="button"
+      tabindex="0"
+      (click)="u.scrollToStart('info')"
+      (keyup.enter)="u.scrollToStart('info')"
+    >
       Learn more
       <svg class="usa-icon" alt="">
         <use href="/assets/uswds/img/sprite.svg#arrow_downward"></use>
@@ -15,44 +20,61 @@
   </p>
 </app-pattern-header>
 
-
 <!-- VERTICAL STEP INDICATOR DESIGN PATTERN -->
 <section class="usa-section sticky-menu-section">
   <div class="grid-container">
-
     <!-- side nav -->
     <div class="grid-row grid-gap-sm">
-
       <nav id="sticky-menu" aria-label="steps of the journey">
-
         <h2>Steps</h2>
         <ul class="usa-sidenav usa-sticky-sidenav">
           <li class="usa-sidenav__item">
-            <a role="button" tabindex="0" (click)="u.scrollToStart('pack-bags');"
-              (keyup.enter)="u.scrollToStart('pack-bags');">
+            <a
+              role="button"
+              tabindex="0"
+              (click)="u.scrollToStart('pack-bags')"
+              (keyup.enter)="u.scrollToStart('pack-bags')"
+            >
               Pack your bags
             </a>
           </li>
           <li class="usa-sidenav__item">
-            <a role="button" tabindex="0" (click)="u.scrollToStart('get-started');"
-              (keyup.enter)="u.scrollToStart('get-started');">
+            <a
+              role="button"
+              tabindex="0"
+              (click)="u.scrollToStart('get-started')"
+              (keyup.enter)="u.scrollToStart('get-started')"
+            >
               Begin the journey
             </a>
           </li>
           <li class="usa-sidenav__item">
-            <a role="button" tabindex="0" (click)="u.scrollToStart('journey');"
-              (keyup.enter)="u.scrollToStart('journey');">
+            <a
+              role="button"
+              tabindex="0"
+              (click)="u.scrollToStart('journey')"
+              (keyup.enter)="u.scrollToStart('journey')"
+            >
               Overcome obstacles
             </a>
           </li>
           <li class="usa-sidenav__item">
-            <a role="button" tabindex="0" (click)="u.scrollToStart('completion');"
-              (keyup.enter)="u.scrollToStart('completion');">
+            <a
+              role="button"
+              tabindex="0"
+              (click)="u.scrollToStart('completion')"
+              (keyup.enter)="u.scrollToStart('completion')"
+            >
               Reach your goals
             </a>
           </li>
           <li class="usa-sidenav__item bullet-question">
-            <a role="button" tabindex="0" (click)="u.scrollToStart('info');" (keyup.enter)="u.scrollToStart('info');">
+            <a
+              role="button"
+              tabindex="0"
+              (click)="u.scrollToStart('info')"
+              (keyup.enter)="u.scrollToStart('info')"
+            >
               Get help
             </a>
           </li>
@@ -61,16 +83,22 @@
 
       <!-- process list content -->
       <div id="process list" class="process-list-pane">
-
         <ol class="usa-process-list padding-top-0">
           <li class="usa-process-list__item" id="pack-bags">
             <h3 class="usa-process-list__heading">Pack your bags</h3>
             <p class="usa-prose">
-              Before leaving on your journey, consult with <a class="usa-link usa-link--external"
-                href="https://baconipsum.com" target="_blank" rel="noopener nofollow">bacon ipsum dolor</a> to assess
-              your hunting and gathering objectives. Pack accordingly. You may like to eat sirloin beef pork belly shank
-              tri-tip kevin tail sausage meatloaf. Also available are hamburger fatback meatball bacon kevin salami
-              brisket beef jerky pork belly tri-tip chuck short ribs prosciutto.
+              Before leaving on your journey, consult with
+              <a
+                class="usa-link usa-link--external"
+                href="https://baconipsum.com"
+                target="_blank"
+                rel="noopener nofollow"
+                >bacon ipsum dolor</a
+              >
+              to assess your hunting and gathering objectives. Pack accordingly. You may like to eat
+              sirloin beef pork belly shank tri-tip kevin tail sausage meatloaf. Also available are
+              hamburger fatback meatball bacon kevin salami brisket beef jerky pork belly tri-tip
+              chuck short ribs prosciutto.
             </p>
 
             <h4>Don't forget about:</h4>
@@ -83,20 +111,28 @@
           <li class="usa-process-list__item" id="get-started">
             <h3 class="usa-process-list__heading">Begin the journey</h3>
             <p class="usa-prose">
-              Once started, consider <a class="usa-link usa-link--external" href="https://tunaipsum.com" target="_blank"
-                rel="noopener nofollow">tuna ipsum dolor</a> pescatarian options for ling cod prickleback yellowtail
-              snapper electric ray panga Manta Ray jack hillstream loach bullhead shark minnow Pacific hake giant
-              gourami round whitefish lake chub mola queen parrotfish.
+              Once started, consider
+              <a
+                class="usa-link usa-link--external"
+                href="https://tunaipsum.com"
+                target="_blank"
+                rel="noopener nofollow"
+                >tuna ipsum dolor</a
+              >
+              pescatarian options for ling cod prickleback yellowtail snapper electric ray panga
+              Manta Ray jack hillstream loach bullhead shark minnow Pacific hake giant gourami round
+              whitefish lake chub mola queen parrotfish.
             </p>
           </li>
           <li class="usa-process-list__item" id="journey">
             <h3 class="usa-process-list__heading">Overcome obstacles</h3>
             <p class="usa-prose">
-              You may end up eating t-bone sausage ball tip brisket alcatra spare ribs jowl beef ribs
-              strip steak biltong. Brisket landjaeger chicken pork chop fatback meatball alcatra drumstick pork belly
-              jowl. Meatball spare ribs pig landjaeger, t-bone salami filet mignon turducken pork boudin meatloaf cow
-              jowl pastrami. Drumstick short loin meatloaf swine jowl beef ribs. Jerky pork belly corned beef kevin,
-              swine brisket chuck salami strip steak. Expect to:
+              You may end up eating t-bone sausage ball tip brisket alcatra spare ribs jowl beef
+              ribs strip steak biltong. Brisket landjaeger chicken pork chop fatback meatball
+              alcatra drumstick pork belly jowl. Meatball spare ribs pig landjaeger, t-bone salami
+              filet mignon turducken pork boudin meatloaf cow jowl pastrami. Drumstick short loin
+              meatloaf swine jowl beef ribs. Jerky pork belly corned beef kevin, swine brisket chuck
+              salami strip steak. Expect to:
             </p>
             <ul class="usa-list">
               <li>Go fishing</li>
@@ -108,36 +144,46 @@
           <li class="usa-process-list__item" id="completion">
             <h3 class="usa-process-list__heading">Reach your goals</h3>
             <p class="usa-prose">
-              Ideally, you'll find garden eel rockfish lanternfish burma danio ghost carp sweeper bent-tooth shark
-              airbreathing catfish sucker. Yellowfin grouper orangestriped triggerfish mouthbrooder lefteye flounder
-              tilefish, tenpounder lanternfish river shark olive flounder, poolfish North American freshwater catfish.
+              Ideally, you'll find garden eel rockfish lanternfish burma danio ghost carp sweeper
+              bent-tooth shark airbreathing catfish sucker. Yellowfin grouper orangestriped
+              triggerfish mouthbrooder lefteye flounder tilefish, tenpounder lanternfish river shark
+              olive flounder, poolfish North American freshwater catfish.
             </p>
             <h4><strong>Important</strong> information to complete your trip.</h4>
             <p class="usa-prose">
-              In the end, the gems that will create lasting memories may include eating elver European flounder tenuis
-              ruffe ronquil elephant fish lighthousefish. Duckbilled barracudina sheepshead minnow,
-              clownfish collared dogfish Bluegill central mudminnow whale shark surgeonfish smelt-whiting
-              giant sea bass eel lancetfish dartfish redmouth whalefish tadpole fish.
+              In the end, the gems that will create lasting memories may include eating elver
+              European flounder tenuis ruffe ronquil elephant fish lighthousefish. Duckbilled
+              barracudina sheepshead minnow, clownfish collared dogfish Bluegill central mudminnow
+              whale shark surgeonfish smelt-whiting giant sea bass eel lancetfish dartfish redmouth
+              whalefish tadpole fish.
             </p>
           </li>
         </ol>
       </div>
-
     </div>
   </div>
 </section>
 
-
 <!-- INFO SECTION | About this design pattern -->
 <app-pattern-footer [githubFolder]="'sticky-menu'" class="site-dark" id="info">
-
   <p class="usa-prose">
-    Use this design pattern when you are using the <a class="usa-link usa-link--external"
-      href="https://designsystem.digital.gov/components/process-list/" target="_blank"
-      rel="noopener noreferrer nofollow">Process List</a> and want a matching sticky version of the <a
-      class="usa-link usa-link--external" href="https://designsystem.digital.gov/components/side-navigation/"
-      target="_blank" rel="noopener noreferrer nofollow">Side Navigation</a> menu.
-    Here's what we changed:
+    Use this design pattern when you are using the
+    <a
+      class="usa-link usa-link--external"
+      href="https://designsystem.digital.gov/components/process-list/"
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      >Process List</a
+    >
+    and want a matching sticky version of the
+    <a
+      class="usa-link usa-link--external"
+      href="https://designsystem.digital.gov/components/side-navigation/"
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      >Side Navigation</a
+    >
+    menu. Here's what we changed:
   </p>
 
   <h3>Side Navigation</h3>
@@ -151,5 +197,4 @@
     <li>Removed maximum content width limitations</li>
     <li>Matched background color of numbered bubbles</li>
   </ul>
-
 </app-pattern-footer>

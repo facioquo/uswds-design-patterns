@@ -5,8 +5,13 @@
     <strong>Layout grid</strong>.
 
     <!-- learn more -->
-    <a class="usa-link learn-more" role="button" tabindex="0" (click)="u.scrollToStart('info');"
-      (keyup.enter)="u.scrollToStart('info');">
+    <a
+      class="usa-link learn-more"
+      role="button"
+      tabindex="0"
+      (click)="u.scrollToStart('info')"
+      (keyup.enter)="u.scrollToStart('info')"
+    >
       Learn more
       <svg class="usa-icon" alt="">
         <use href="/assets/uswds/img/sprite.svg#arrow_downward"></use>
@@ -15,33 +20,39 @@
   </p>
 </app-pattern-header>
 
-
 <!-- FLOATING BUBBLES DESIGN PATTERN -->
 <section class="usa-section bubbles-section">
-
   @for (card of cards; track card; let i = $index) {
-  <div class="bubble">
-    <a type=button class="usa-button" href="{{ card.link }}" aria-label=""
-      [attr.style]="'background-image: url(' + card.image + ');'" target="_blank" rel="noopener noreferrer nofollow">
-      <div class="bubble-overlay">
-        <div class="bubble-label">{{ card.title }}</div>
-      </div>
-    </a>
-  </div>
+    <div class="bubble">
+      <a
+        type="button"
+        class="usa-button"
+        href="{{ card.link }}"
+        aria-label=""
+        [attr.style]="'background-image: url(' + card.image + ');'"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+      >
+        <div class="bubble-overlay">
+          <div class="bubble-label">{{ card.title }}</div>
+        </div>
+      </a>
+    </div>
   }
-
 </section>
-
 
 <!-- INFO SECTION | About this design pattern -->
 <app-pattern-footer [githubFolder]="'bubbles'" class="site-dark" id="info">
-
   <p class="usa-prose usa-dark-background">
-    Use this design pattern with a small collection of fixed-size [bubble] cards
-    when you want consistent spacing, fluid wrapping, and symmetrical centering.
-
-    It'd be difficult to do this using the standard
-    <a class="usa-link usa-link--external" href="https://designsystem.digital.gov/utilities/layout-grid/"
-      target="_blank" rel="noopener noreferrer nofollow">Layout grid</a>.
+    Use this design pattern with a small collection of fixed-size [bubble] cards when you want
+    consistent spacing, fluid wrapping, and symmetrical centering. It'd be difficult to do this
+    using the standard
+    <a
+      class="usa-link usa-link--external"
+      href="https://designsystem.digital.gov/utilities/layout-grid/"
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      >Layout grid</a
+    >.
   </p>
 </app-pattern-footer>

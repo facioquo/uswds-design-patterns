@@ -8,18 +8,12 @@ import { PatternFooterComponent } from "../../components/pattern-footer/pattern-
 export const ID = "sticky-menu";
 
 @Component({
-    selector: ID,
-    templateUrl: "./sticky-menu.component.html",
-    styleUrls: ["./sticky-menu.component.scss"],
-    imports: [PatternHeaderComponent, PatternFooterComponent]
+  selector: ID,
+  templateUrl: "./sticky-menu.component.html",
+  styleUrls: ["./sticky-menu.component.scss"],
+  imports: [PatternHeaderComponent, PatternFooterComponent],
 })
 export class StickyMenuComponent {
   readonly u = inject(UtilityService);
-
-
   public pattern: Card = this.u.getPatternCard(ID);
-
-  constructor() {
-    this.u.pushMetaTagsForPattern(ID);
-  }
 }

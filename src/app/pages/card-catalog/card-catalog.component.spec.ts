@@ -8,8 +8,13 @@ describe("CardCatalogComponent", () => {
 
   beforeEach(async () => {
     u = {
-      getPatternCard: () => ({ id: "card-catalog", title: "Card catalog", description: "", link: "", image: "" }),
-      pushMetaTagsForPattern: jest.fn(),
+      getPatternCard: () => ({
+        id: "card-catalog",
+        title: "Card catalog",
+        description: "",
+        link: "",
+        image: "",
+      }),
       randomWords: jest.fn().mockReturnValue("Title"),
       randInt: jest.fn().mockReturnValue(0),
       scrollToStart: jest.fn(),

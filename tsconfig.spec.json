@@ -1,20 +1,11 @@
 {
-	"extends": "./tsconfig.json",
-	"compilerOptions": {
-		"outDir": "./out-tsc/spec",
-		"types": [
-			"jest",
-			"node"
-		],
-		"emitDecoratorMetadata": true,
-		"experimentalDecorators": true
-	},
-	"files": [
-		"setup-jest.ts"
-	],
-	"include": [
-		"src/**/*.spec.ts",
-		"src/**/*.d.ts"
-	]
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "types": ["jest", "node"],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "files": ["setup-jest.ts"],
+  "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
 }
-

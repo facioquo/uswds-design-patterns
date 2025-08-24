@@ -2,6 +2,7 @@
 const eslint = require("@eslint/js");
 const tseslint = require("typescript-eslint");
 const angular = require("angular-eslint");
+const eslintConfigPrettier = require("eslint-config-prettier");
 
 module.exports = tseslint.config(
   {
@@ -23,26 +24,27 @@ module.exports = tseslint.config(
       // TypeScript-focused preferences
       "@typescript-eslint/consistent-type-imports": [
         "error",
-        { prefer: "type-imports", fixStyle: "inline-type-imports", disallowTypeAnnotations: false }
+        { prefer: "type-imports", fixStyle: "inline-type-imports", disallowTypeAnnotations: false },
       ],
+      "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
       "@typescript-eslint/no-unused-vars": [
         "warn",
-        { argsIgnorePattern: "^_", varsIgnorePattern: "^_", caughtErrorsIgnorePattern: "^_" }
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_", caughtErrorsIgnorePattern: "^_" },
       ],
       "@typescript-eslint/no-floating-promises": "error",
       "@typescript-eslint/prefer-nullish-coalescing": "error",
       "@typescript-eslint/explicit-module-boundary-types": "warn",
-      "@typescript-eslint/no-explicit-any": ["warn", { "ignoreRestArgs": true }],
+      "@typescript-eslint/no-explicit-any": ["warn", { ignoreRestArgs: true }],
       "@typescript-eslint/no-non-null-assertion": "warn",
 
       // General JS/TS code-style and safety
-      "curly": ["error", "all"],
-      "eqeqeq": ["error", "always"],
+      curly: ["error", "all"],
+      eqeqeq: ["error", "always"],
       "prefer-const": "error",
       "no-var": "error",
       "object-shorthand": ["error", "always"],
       "no-console": ["warn", { allow: ["warn", "error"] }],
-      "quotes": ["error", "double", { "avoidEscape": true }],
+      quotes: ["error", "double", { avoidEscape: true }],
 
       "@angular-eslint/directive-selector": [
         "error",
@@ -62,6 +64,11 @@ module.exports = tseslint.config(
       ],
     },
   },
+  // Turn off all ESLint rules that conflict with Prettier formatting
+  {
+    files: ["**/*.{ts,js,tsx,jsx,html,scss,md,json,yml,yaml}"],
+    extends: [eslintConfigPrettier],
+  },
   // Relax selected rules in test specs to reduce friction while keeping production code strict
   {
     files: ["**/*.spec.ts", "**/__tests__/**/*.ts"],
@@ -74,10 +81,7 @@ module.exports = tseslint.config(
   },
   {
     files: ["**/*.html"],
-    extends: [
-      ...angular.configs.templateRecommended,
-      ...angular.configs.templateAccessibility,
-    ],
+    extends: [...angular.configs.templateRecommended, ...angular.configs.templateAccessibility],
     rules: {},
   }
 );

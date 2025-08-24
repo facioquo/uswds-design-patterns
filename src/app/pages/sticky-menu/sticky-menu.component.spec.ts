@@ -6,8 +6,13 @@ import { UtilityService } from "src/app/services/utility.service";
 describe("StickyMenuComponent", () => {
   beforeEach(async () => {
     const u = {
-      getPatternCard: () => ({ id: "sticky-menu", title: "Sticky process menu", description: "", link: "", image: "" }),
-      pushMetaTagsForPattern: jest.fn(),
+      getPatternCard: () => ({
+        id: "sticky-menu",
+        title: "Sticky process menu",
+        description: "",
+        link: "",
+        image: "",
+      }),
     } as unknown as UtilityService;
 
     await TestBed.configureTestingModule({

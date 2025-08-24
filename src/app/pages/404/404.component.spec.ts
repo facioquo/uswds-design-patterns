@@ -1,16 +1,16 @@
 import { TestBed } from "@angular/core/testing";
 import { PageNotFoundComponent } from "./404.component";
 import { provideRouter } from "@angular/router";
-import { UtilityService } from "src/app/services/utility.service";
+import { Meta } from "@angular/platform-browser";
 
 describe("PageNotFoundComponent", () => {
-  it("pushes 404 meta tags on construct", () => {
-    const pushMetaTags = jest.fn();
+  it("sets robots noindex on construct", () => {
     TestBed.configureTestingModule({
       imports: [PageNotFoundComponent],
-      providers: [provideRouter([]), { provide: UtilityService, useValue: { pushMetaTags } }],
+      providers: [provideRouter([]), Meta],
     });
     TestBed.createComponent(PageNotFoundComponent);
-    expect(pushMetaTags).toHaveBeenCalled();
+    const meta = TestBed.inject(Meta);
+    expect(meta.getTag("name='robots'")?.content).toBe("noindex, nofollow");
   });
 });

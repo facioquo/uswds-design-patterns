@@ -1,39 +1,39 @@
 <section class="usa-section usa-dark-background home-section">
   <div class="grid-container">
-
     <h1>
-      <span class="supertitle">
-        design pattern
-      </span>
+      <span class="supertitle"> design pattern </span>
       idea book
-      <span class="subtitle">
-        for U.S. Web Design System sites
-      </span>
+      <span class="subtitle"> for U.S. Web Design System sites </span>
     </h1>
 
     <!-- intro -->
     <p class="usa-prose">
-      Design pattern ideas, enriched features, and source code samples for developers who use the <strong>U.S. Web Design System (USWDS)</strong>,
-      a set of interactive website components and guidelines used across government. Before using ours, check to see if there are
-      more appropriate <a class="usa-link usa-link--external" target="_blank" rel="noopener noreferrer nofollow"
-        href="https://designsystem.digital.gov/patterns/">official USWDS design patterns</a>.
+      Design pattern ideas, enriched features, and source code samples for developers who use the
+      <strong>U.S. Web Design System (USWDS)</strong>, a set of interactive website components and
+      guidelines used across government. Before using ours, check to see if there are more
+      appropriate
+      <a
+        class="usa-link usa-link--external"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        href="https://designsystem.digital.gov/patterns/"
+        >official USWDS design patterns</a
+      >.
     </p>
 
     <!-- catalog -->
     <ul class="usa-card-group padding-top-4" id="design-patterns">
-
       <!-- cards -->
       @for (card of cards; track card; let i = $index) {
-      <li class="tablet:grid-col-6 tablet-lg:grid-col-4">
-        <app-site-card [card]="card" [i]=i />
-      </li>
+        <li class="tablet:grid-col-6 tablet-lg:grid-col-4">
+          <app-site-card [card]="card" [i]="i" />
+        </li>
       }
 
       <!-- suggest more -->
       <li class="tablet:grid-col-6 tablet-lg:grid-col-4">
-        <app-site-card [card]="suggestionCard" [i]="cards.length+1" />
+        <app-site-card [card]="suggestionCard" [i]="cards.length + 1" />
       </li>
-
     </ul>
   </div>
 </section>
@@ -41,35 +41,52 @@
 <!-- about / return to top -->
 <section class="usa-section usa-dark-background site-dark padding-top-2">
   <div class="grid-container">
-
     @if (cards.length > 9) {
-    <ul class="usa-button-group padding-left-2 margin-bottom-4">
-      <li class="usa-button-group__item">
-        <button class="usa-button usa-button--outline usa-button--inverse usa-button--unstyled"
-          (click)="u.scrollToStart('top')">
-          Return to top
-        </button>
-      </li>
-    </ul>
+      <ul class="usa-button-group padding-left-2 margin-bottom-4">
+        <li class="usa-button-group__item">
+          <button
+            class="usa-button usa-button--outline usa-button--inverse usa-button--unstyled"
+            (click)="u.scrollToStart('top')"
+          >
+            Return to top
+          </button>
+        </li>
+      </ul>
     }
 
     <!-- about us -->
     <h2 class="margin-top-8">About us</h2>
 
     <p class="usa-prose">
-      We're an open group of community designers, developers, and content specialists who are passionate about the
-      <a class="usa-link usa-link--external" href="https://designsystem.digital.gov/about/" target="_blank"
-        rel="noopener noreferrer nofollow">U.S. Web Design System</a>. We are not sanctioned or sponsored by
-      the U.S. government, the U.S. Web Design System team, or the General Services Administration.
+      We're an open group of community designers, developers, and content specialists who are
+      passionate about the
+      <a
+        class="usa-link usa-link--external"
+        href="https://designsystem.digital.gov/about/"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        >U.S. Web Design System</a
+      >. We are not sanctioned or sponsored by the U.S. government, the U.S. Web Design System team,
+      or the General Services Administration.
     </p>
 
     <p class="usa-prose">
       <strong>Have design ideas or suggestions? &nbsp;</strong>
-      <a class="usa-link" target="_blank" rel="noopener nofollow"
+      <a
+        class="usa-link"
+        target="_blank"
+        rel="noopener nofollow"
         href="https://github.com/facioquo/uswds-design-patterns/issues/new?labels=enhancement&template=feature_request.md"
-        >Submit an issue</a> or join us as a code contributor <a class="usa-link" target="_blank" rel="noopener nofollow"
-          href="https://github.com/facioquo/uswds-design-patterns">on GitHub</a>.
-  </p>
-
+        >Submit an issue</a
+      >
+      or join us as a code contributor
+      <a
+        class="usa-link"
+        target="_blank"
+        rel="noopener nofollow"
+        href="https://github.com/facioquo/uswds-design-patterns"
+        >on GitHub</a
+      >.
+    </p>
   </div>
 </section>

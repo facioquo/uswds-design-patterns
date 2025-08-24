@@ -9,30 +9,22 @@ import { PatternFooterComponent } from "../../components/pattern-footer/pattern-
 export const ID = "bubbles";
 
 @Component({
-    selector: ID,
-    templateUrl: "./bubbles.component.html",
-    styleUrls: ["./bubbles.component.scss"],
-    imports: [PatternHeaderComponent, PatternFooterComponent]
+  selector: ID,
+  templateUrl: "./bubbles.component.html",
+  styleUrls: ["./bubbles.component.scss"],
+  imports: [PatternHeaderComponent, PatternFooterComponent],
 })
 export class BubblesComponent implements OnInit {
   readonly u = inject(UtilityService);
 
-
   public pattern: Card = this.u.getPatternCard(ID);
-
-  constructor() {
-    this.u.pushMetaTagsForPattern(ID);
-  }
-
   public cards: Card[] = [];
   private images: Image[] = IMAGES;
 
   ngOnInit(): void {
-
     // make random cards
     const max = 7;
     for (let i = 0; i < max; i++) {
-
       const rand = this.u.randInt(800);
       const image = this.images[rand];
 
@@ -41,7 +33,7 @@ export class BubblesComponent implements OnInit {
         title: this.u.randomWords(20, 35),
         description: "",
         link: image.url,
-        image: `/assets/stock/${image.id}-600x315.webp`
+        image: `/assets/stock/${image.id}-600x315.webp`,
       };
       this.cards.push(card);
     }

@@ -6,10 +6,8 @@
 @forward "usa-hero";
 // modal styles loaded with app
 
-
 /* HERO OVERLAY DESIGN PATTERN */
 .hero-overlay-section {
-
   .usa-hero {
     @include u-margin-bottom(0);
     @include u-text("white");
@@ -60,13 +58,13 @@
       }
 
       .usa-hero__heading {
-        @include u-font-size('sans', 16);
+        @include u-font-size("sans", 16);
         color: inherit;
         line-height: line-height("sans", 1);
 
         // < mobile
         @include at-media-max("mobile-lg") {
-          @include u-font-size('sans', 14);
+          @include u-font-size("sans", 14);
         }
       }
 
@@ -84,14 +82,14 @@
 
       .callout-message {
         @include u-margin-top(1);
-        @include u-font-size('sans', 11);
+        @include u-font-size("sans", 11);
         font-weight: 300;
         color: inherit;
         line-height: line-height("sans", 2);
 
         // < mobile
         @include at-media-max("mobile-lg") {
-          @include u-font-size('sans', 9);
+          @include u-font-size("sans", 9);
           line-height: line-height("sans", 3);
         }
       }

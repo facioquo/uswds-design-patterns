@@ -26,14 +26,6 @@
           }
         }
       ]
-    },
-    {
-      "label": "verify",
-      "type": "npm",
-      "script": "verify",
-      "group": "build",
-      "problemMatcher": ["$eslint-stylish"],
-      "detail": "Run lint, build, unit tests with coverage, and e2e tests"
     }
   ]
 }

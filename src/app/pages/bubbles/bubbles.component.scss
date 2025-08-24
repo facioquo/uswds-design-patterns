@@ -4,7 +4,6 @@
 
 /* FLOATING BUBBLES DESIGN PATTERN */
 .bubbles-section {
-
   @include u-padding-top(2);
   @include u-padding-x(4);
 
@@ -32,7 +31,6 @@
 
   // individual bubbles
   .bubble {
-
     @include u-margin(0);
     @include u-margin-bottom(2);
     @include u-margin-x(2);
@@ -59,23 +57,22 @@
 
       /* hover effect */
       &:hover {
-
         .bubble-label {
           color: color("white");
           text-decoration: underline;
           text-decoration-color: color("base-lightest");
         }
 
-        box-shadow: 0 5px 5px -3px color("base-light", 0.20),
-        0 8px 8px 1px color("base-light", 0.14),
-        0 3px 14px 2px color("base-light", 0.12);
+        box-shadow:
+          0 5px 5px -3px color("base-light", 0.2),
+          0 8px 8px 1px color("base-light", 0.14),
+          0 3px 14px 2px color("base-light", 0.12);
       }
 
       /* click effect */
       &:active {
-
         box-shadow:
-          0 15px 15px -3px color("base-light", 0.20),
+          0 15px 15px -3px color("base-light", 0.2),
           0 24px 30px 1px color("base-light", 0.14),
           0 9px 40px 2px color("base-light", 0.12);
       }
