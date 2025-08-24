@@ -10,7 +10,7 @@ describe('HomeComponent', () => {
       imports: [HomeComponent],
       providers: [provideRouter([]), { provide: UtilityService, useValue: { pushMetaTags } }],
     });
-    const fixture = TestBed.createComponent(HomeComponent);
+  TestBed.createComponent(HomeComponent);
     expect(pushMetaTags).toHaveBeenCalled();
   });
 });

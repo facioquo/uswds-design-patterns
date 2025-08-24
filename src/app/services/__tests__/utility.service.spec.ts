@@ -1,6 +1,6 @@
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { Meta, Title } from '@angular/platform-browser';
-import { UtilityService, URL_IMAGE_SOCIAL, SITE_TITLE } from '../utility.service';
+import { UtilityService, URL_IMAGE_SOCIAL } from '../utility.service';
 import { titleWithSuffix, patternTitle } from '../utility.service';
 
 describe('UtilityService', () => {
@@ -40,12 +40,12 @@ describe('UtilityService', () => {
 	});
 
 		it('scrollToStart scrolls after timeout', fakeAsync(() => {
-		const el = document.createElement('div');
+			const el: HTMLElement = document.createElement('div');
 		el.id = 'target';
 		document.body.appendChild(el);
-			// ensure scrollIntoView exists for spying
-			(el as any).scrollIntoView = (el as any).scrollIntoView || (() => undefined);
-			const spy = jest.spyOn(el, 'scrollIntoView' as any);
+				// ensure scrollIntoView exists for spying with proper typing
+				el.scrollIntoView = () => undefined;
+				const spy = jest.spyOn(el, 'scrollIntoView');
 
 		util.scrollToStart('target', 100);
 		tick(100);

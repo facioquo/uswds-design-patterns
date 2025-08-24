@@ -1,4 +1,4 @@
-import { TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { TestBed, fakeAsync } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { CardCatalogComponent } from './card-catalog.component';
 import { UtilityService } from 'src/app/services/utility.service';
@@ -36,6 +36,7 @@ describe('CardCatalogComponent', () => {
     const cmp = fixture.componentInstance;
     cmp.pageSize = 12;
     cmp.changePageSize();
+  // eslint-disable-next-line @typescript-eslint/unbound-method
     expect(u.scrollToEnd).toHaveBeenCalledWith('settings', 0);
   }));
 });
