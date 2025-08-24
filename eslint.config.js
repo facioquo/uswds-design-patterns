@@ -30,6 +30,10 @@ module.exports = tseslint.config(
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_", caughtErrorsIgnorePattern: "^_" }
       ],
       "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/prefer-nullish-coalescing": "error",
+      "@typescript-eslint/explicit-module-boundary-types": "warn",
+      "@typescript-eslint/no-explicit-any": ["warn", { "ignoreRestArgs": true }],
+      "@typescript-eslint/no-non-null-assertion": "warn",
 
       // General JS/TS code-style and safety
       "curly": ["error", "all"],
@@ -38,6 +42,7 @@ module.exports = tseslint.config(
       "no-var": "error",
       "object-shorthand": ["error", "always"],
       "no-console": ["warn", { allow: ["warn", "error"] }],
+      "quotes": ["error", "double", { "avoidEscape": true }],
 
       "@angular-eslint/directive-selector": [
         "error",
@@ -55,6 +60,16 @@ module.exports = tseslint.config(
           style: "kebab-case",
         },
       ],
+    },
+  },
+  // Relax selected rules in test specs to reduce friction while keeping production code strict
+  {
+    files: ["**/*.spec.ts", "**/__tests__/**/*.ts"],
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-member-access": "off",
+      "@typescript-eslint/unbound-method": "off",
     },
   },
   {

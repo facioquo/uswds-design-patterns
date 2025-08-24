@@ -1,7 +1,7 @@
-import { Component, type OnInit, type OnDestroy, inject } from '@angular/core';
+import { Component, type OnInit, type OnDestroy, inject } from "@angular/core";
 
-import { UtilityService } from 'src/app/services/utility.service';
-import { type Card } from '../patterns.model';
+import { UtilityService } from "src/app/services/utility.service";
+import { type Card } from "../patterns.model";
 
 // USWDS modal has no types; declare a minimal interface for linting
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
@@ -12,15 +12,15 @@ type UswdsModal = {
 // @ts-expect-error - upstream package is untyped; runtime provides the expected shape
 import modal from "@uswds/uswds/js/usa-modal";
 const modalApi = modal as unknown as UswdsModal;
-import { PatternHeaderComponent } from '../../components/pattern-header/pattern-header.component';
-import { PatternFooterComponent } from '../../components/pattern-footer/pattern-footer.component';
+import { PatternHeaderComponent } from "../../components/pattern-header/pattern-header.component";
+import { PatternFooterComponent } from "../../components/pattern-footer/pattern-footer.component";
 
 export const ID = "hero-overlay";
 
 @Component({
   selector: ID,
-  templateUrl: './hero-overlay.component.html',
-  styleUrls: ['./hero-overlay.component.scss'],
+  templateUrl: "./hero-overlay.component.html",
+  styleUrls: ["./hero-overlay.component.scss"],
   imports: [PatternHeaderComponent, PatternFooterComponent]
 })
 export class HeroOverlayComponent implements OnInit, OnDestroy {
@@ -33,11 +33,11 @@ export class HeroOverlayComponent implements OnInit, OnDestroy {
     this.u.pushMetaTagsForPattern(ID);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     modalApi.on("call-to-action-modal");
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     modalApi.off();
   }
 }

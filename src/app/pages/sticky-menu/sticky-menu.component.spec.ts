@@ -1,12 +1,12 @@
-import { TestBed } from '@angular/core/testing';
-import { StickyMenuComponent } from './sticky-menu.component';
-import { provideRouter } from '@angular/router';
-import { UtilityService } from 'src/app/services/utility.service';
+import { TestBed } from "@angular/core/testing";
+import { StickyMenuComponent } from "./sticky-menu.component";
+import { provideRouter } from "@angular/router";
+import { UtilityService } from "src/app/services/utility.service";
 
-describe('StickyMenuComponent', () => {
+describe("StickyMenuComponent", () => {
   beforeEach(async () => {
     const u = {
-      getPatternCard: () => ({ id: 'sticky-menu', title: 'Sticky process menu', description: '', link: '', image: '' }),
+      getPatternCard: () => ({ id: "sticky-menu", title: "Sticky process menu", description: "", link: "", image: "" }),
       pushMetaTagsForPattern: jest.fn(),
     } as unknown as UtilityService;
 
@@ -16,7 +16,7 @@ describe('StickyMenuComponent', () => {
     }).compileComponents();
   });
 
-  it('creates component', () => {
+  it("creates component", () => {
     const fixture = TestBed.createComponent(StickyMenuComponent);
     expect(fixture.componentInstance).toBeTruthy();
   });

@@ -1,12 +1,12 @@
-import { TestBed } from '@angular/core/testing';
-import { HeroOverlayComponent } from './hero-overlay.component';
-import { provideRouter } from '@angular/router';
-import { UtilityService } from 'src/app/services/utility.service';
+import { TestBed } from "@angular/core/testing";
+import { HeroOverlayComponent } from "./hero-overlay.component";
+import { provideRouter } from "@angular/router";
+import { UtilityService } from "src/app/services/utility.service";
 
-describe('HeroOverlayComponent', () => {
+describe("HeroOverlayComponent", () => {
 	beforeEach(async () => {
 		const u = {
-			getPatternCard: () => ({ id: 'hero-overlay', title: 'Hero callout overlay', description: '', link: '', image: '' }),
+			getPatternCard: () => ({ id: "hero-overlay", title: "Hero callout overlay", description: "", link: "", image: "" }),
 			pushMetaTagsForPattern: jest.fn(),
 		} as unknown as UtilityService;
 
@@ -16,7 +16,7 @@ describe('HeroOverlayComponent', () => {
 		}).compileComponents();
 	});
 
-	it('creates and initializes modal', () => {
+	it("creates and initializes modal", () => {
 		const fixture = TestBed.createComponent(HeroOverlayComponent);
 		const cmp = fixture.componentInstance;
 		expect(cmp).toBeTruthy();

@@ -1,18 +1,18 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject } from "@angular/core";
 
 import {
   UtilityService,
   SITE_DESCRIPTION,
   SITE_TITLE
-} from 'src/app/services/utility.service';
+} from "src/app/services/utility.service";
 
-import { type Card, PATTERNS } from '../patterns.model';
-import { SiteCardComponent } from '../../components/site-card/site-card.component';
+import { type Card, PATTERNS } from "../patterns.model";
+import { SiteCardComponent } from "../../components/site-card/site-card.component";
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss'],
+    selector: "app-home",
+    templateUrl: "./home.component.html",
+    styleUrls: ["./home.component.scss"],
     imports: [SiteCardComponent]
 })
 export class HomeComponent {
@@ -22,15 +22,15 @@ export class HomeComponent {
   constructor() {
     this.u.pushMetaTags([
       {
-        property: 'og:title',
+        property: "og:title",
         content: SITE_TITLE
       },
       {
-        name: 'description',
+        name: "description",
         content: SITE_DESCRIPTION
       },
       {
-        property: 'og:description',
+        property: "og:description",
         content: SITE_DESCRIPTION
       },
     ]);

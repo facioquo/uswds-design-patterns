@@ -1,8 +1,8 @@
-import { Injectable, inject } from '@angular/core';
-import { Meta, type MetaDefinition, Title } from '@angular/platform-browser';
+import { Injectable, inject } from "@angular/core";
+import { Meta, type MetaDefinition, Title } from "@angular/platform-browser";
 
 import { WORD_LIST } from "./utility.model";
-import { type Card, PATTERNS } from 'src/app/pages/patterns.model';
+import { type Card, PATTERNS } from "src/app/pages/patterns.model";
 
 const URL_BASE = "https://uswds.facioquo.com";
 const URL_IMAGE_SOCIAL = URL_BASE.concat("/assets/images/social-card.png?v=YYYY.MM.DD");
@@ -19,7 +19,7 @@ export {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class UtilityService {
   private meta = inject(Meta);
@@ -67,23 +67,23 @@ export class UtilityService {
 
     this.pushMetaTags([
       {
-        name: 'image',
+        name: "image",
         content: metaImage
       },
       {
-        property: 'og:image',
+        property: "og:image",
         content: metaImage
       },
       {
-        property: 'og:title',
+        property: "og:title",
         content: card.title
       },
       {
-        name: 'description',
+        name: "description",
         content: card.description
       },
       {
-        property: 'og:description',
+        property: "og:description",
         content: card.description
       },
     ]);
@@ -98,17 +98,21 @@ export class UtilityService {
 
 
   // PAGE SCROLLING
-  scrollToStart(id: string, offset = 200) {
+  scrollToStart(id: string, offset = 200): void {
     setTimeout(() => {
       const element = document.getElementById(id);
-      element!.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
+      }
     }, offset);
   }
 
-  scrollToEnd(id: string, offset = 200) {
+  scrollToEnd(id: string, offset = 200): void {
     setTimeout(() => {
       const element = document.getElementById(id);
-      element!.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'end' });
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
+      }
     }, offset);
   }
 

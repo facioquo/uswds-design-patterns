@@ -1,20 +1,20 @@
-import { Component, type OnInit, inject } from '@angular/core';
+import { Component, type OnInit, inject } from "@angular/core";
 
-import { UtilityService } from 'src/app/services/utility.service';
-import { type Card } from 'src/app/components/site-card/card.model';
-import { type Image, IMAGES } from '../image.model';
-import { PatternHeaderComponent } from '../../components/pattern-header/pattern-header.component';
-import { NgOptimizedImage, NgClass } from '@angular/common';
-import { PatternSettingsComponent } from '../../components/pattern-settings/pattern-settings.component';
-import { FormsModule } from '@angular/forms';
-import { PatternFooterComponent } from '../../components/pattern-footer/pattern-footer.component';
+import { UtilityService } from "src/app/services/utility.service";
+import { type Card } from "src/app/components/site-card/card.model";
+import { type Image, IMAGES } from "../image.model";
+import { PatternHeaderComponent } from "../../components/pattern-header/pattern-header.component";
+import { NgOptimizedImage, NgClass } from "@angular/common";
+import { PatternSettingsComponent } from "../../components/pattern-settings/pattern-settings.component";
+import { FormsModule } from "@angular/forms";
+import { PatternFooterComponent } from "../../components/pattern-footer/pattern-footer.component";
 
 export const ID = "card-catalog";
 
 @Component({
     selector: ID,
-    templateUrl: './card-catalog.component.html',
-    styleUrls: ['./card-catalog.component.scss'],
+    templateUrl: "./card-catalog.component.html",
+    styleUrls: ["./card-catalog.component.scss"],
     imports: [PatternHeaderComponent, NgOptimizedImage, PatternSettingsComponent, FormsModule, NgClass, PatternFooterComponent]
 })
 export class CardCatalogComponent implements OnInit {
@@ -116,25 +116,25 @@ export class CardCatalogComponent implements OnInit {
 
   // CATALOG SETTINGS
 
-  changeTotalCards() {
+  changeTotalCards(): void {
     // maintain a rational page size
     this.pageMax = Math.min(180, this.totalCards);
     this.pageSize = Math.min(this.pageSize, this.pageMax);
     this.resetCardCatalog(true);
   }
 
-  changePageSize() {
+  changePageSize(): void {
     this.cards = [];
     this.updatePageCount();
     this.showPage(1, true);
-    this.u.scrollToEnd(`settings`, 0);
+    this.u.scrollToEnd("settings", 0);
   }
 
-  updatePageCount() {
+  updatePageCount(): void {
     this.pages = Math.ceil(this.totalCards / this.pageSize);
   }
 
-  resetCardCatalog(skipScroll = false) {
+  resetCardCatalog(skipScroll = false): void {
     this.cards = [];
     this.updatePageCount();
     this.showPage(1, skipScroll);

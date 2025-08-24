@@ -1,17 +1,17 @@
-import { Component, type OnInit, inject } from '@angular/core';
+import { Component, type OnInit, inject } from "@angular/core";
 
-import { UtilityService } from 'src/app/services/utility.service';
-import { type Card } from 'src/app/components/site-card/card.model';
-import { type Image, IMAGES } from '../image.model';
-import { PatternHeaderComponent } from '../../components/pattern-header/pattern-header.component';
-import { PatternFooterComponent } from '../../components/pattern-footer/pattern-footer.component';
+import { UtilityService } from "src/app/services/utility.service";
+import { type Card } from "src/app/components/site-card/card.model";
+import { type Image, IMAGES } from "../image.model";
+import { PatternHeaderComponent } from "../../components/pattern-header/pattern-header.component";
+import { PatternFooterComponent } from "../../components/pattern-footer/pattern-footer.component";
 
 export const ID = "bubbles";
 
 @Component({
     selector: ID,
-    templateUrl: './bubbles.component.html',
-    styleUrls: ['./bubbles.component.scss'],
+    templateUrl: "./bubbles.component.html",
+    styleUrls: ["./bubbles.component.scss"],
     imports: [PatternHeaderComponent, PatternFooterComponent]
 })
 export class BubblesComponent implements OnInit {

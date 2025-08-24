@@ -20,7 +20,8 @@
   "e2e": "playwright test",
   "e2e:ui": "playwright test --ui",
   "e2e:headed": "playwright test --headed",
-  "e2e:report": "playwright show-report"
+  "e2e:report": "playwright show-report",
+  "verify": "npm run lint && npm run build && npm run test:coverage && npm run e2e"
   },
   "engines": {
     "npm": ">=11.4.0",
