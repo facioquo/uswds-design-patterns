@@ -58,14 +58,12 @@ jobs:
         run: npm run build
 
       - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_KEY }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          directory: dist/app/browser
-          wranglerVersion: "latest"
+          workingDirectory: ./
+          command: pages deploy dist/app/browser --project-name ${{ vars.CLOUDFLARE_PROJECT_NAME }}
 
       - name: Tag and release note
         uses: ncipollo/release-action@v1
