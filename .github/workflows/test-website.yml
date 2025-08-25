@@ -72,6 +72,7 @@ jobs:
           fi
 
       - name: Cache Playwright browsers
+        id: playwright_cache
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
@@ -90,8 +91,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-ngcache-
 
-      - name: Playwright install
-        run: npx playwright install --with-deps
+      - name: Install Playwright system dependencies
+        run: npx playwright install-deps
+
+      - name: Playwright install (browsers on cache miss)
+        if: steps.playwright_cache.outputs.cache-hit != 'true'
+        run: npx playwright install
 
       - name: Run Playwright tests (headless)
         env:
