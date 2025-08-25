@@ -11,9 +11,10 @@
       tabindex="0"
       (click)="u.scrollToStart('info')"
       (keyup.enter)="u.scrollToStart('info')"
+      (keydown.space)="u.scrollToStart('info'); $event.preventDefault()"
     >
       Learn more
-      <svg class="usa-icon" alt="">
+      <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
         <use href="/assets/uswds/img/sprite.svg#arrow_downward"></use>
       </svg>
     </a>
@@ -25,11 +26,9 @@
   @for (card of cards; track card; let i = $index) {
     <div class="bubble">
       <a
-        type="button"
         class="usa-button"
         href="{{ card.link }}"
-        aria-label=""
-        [attr.style]="'background-image: url(' + card.image + ');'"
+        [style.background-image]="'url(' + card.image + ')'"
         target="_blank"
         rel="noopener noreferrer nofollow"
       >

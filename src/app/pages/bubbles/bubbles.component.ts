@@ -25,8 +25,9 @@ export class BubblesComponent implements OnInit {
   ngOnInit(): void {
     // make random cards
     const max = 7;
+    if (this.images.length === 0) return;
     for (let i = 0; i < max; i++) {
-      const rand = this.u.randInt(800);
+      const rand = this.u.randInt(this.images.length);
       const image = this.images[rand];
 
       const card: Card = {

@@ -11,13 +11,15 @@
       tabindex="0"
       (click)="u.scrollToStart('info')"
       (keyup.enter)="u.scrollToStart('info')"
+      (keydown.space)="u.scrollToStart('info'); $event.preventDefault()"
     >
       Learn more
-      <svg class="usa-icon" alt="">
+      <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
         <use href="/assets/uswds/img/sprite.svg#arrow_downward"></use>
       </svg>
-    </a></p
-></app-pattern-header>
+    </a>
+  </p>
+</app-pattern-header>
 
 <!-- HERO OVERLAY DESIGN PATTERN
   - add tablet-lg grid breakpoint

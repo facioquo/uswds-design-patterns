@@ -61,6 +61,7 @@
     "jest": "^30.0.5",
     "jest-environment-jsdom": "^30.0.5",
     "jest-preset-angular": "^15.0.0",
+    "jsdom": "^26.1.0",
     "jsonc-eslint-parser": "^2.4.0",
     "markdownlint": "^0.34.0",
     "markdownlint-cli": "^0.41.0",

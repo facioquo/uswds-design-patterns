@@ -7,6 +7,7 @@ import { NgOptimizedImage } from "@angular/common";
   templateUrl: "./site-card.component.html",
   styleUrls: ["./site-card.component.scss"],
   imports: [NgOptimizedImage],
+  standalone: true,
 })
 export class SiteCardComponent {
   @Input() card!: Card;

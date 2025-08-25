@@ -15,9 +15,9 @@
         <button
           type="button"
           class="usa-accordion__button usa-banner__button"
-          aria-expanded="false"
+          [attr.aria-expanded]="isOpenBanner"
           aria-controls="banner-pane"
-          (click)="isOpenBanner = true"
+          (click)="isOpenBanner = !isOpenBanner"
         >
           <span class="usa-banner__button-text">Here’s how you know</span>
         </button>
@@ -27,6 +27,7 @@
       class="usa-banner__content usa-accordion__content usa-dark-background"
       id="banner-pane"
       [hidden]="!isOpenBanner"
+      [attr.aria-hidden]="!isOpenBanner"
     >
       <div class="grid-row grid-gap-lg">
         <div class="usa-banner__guidance tablet:grid-col-6">
@@ -44,6 +45,7 @@
                 class="usa-link usa-link--alt usa-link--external"
                 href="https://github.com/facioquo/uswds-design-patterns"
                 target="_blank"
+                rel="noopener noreferrer"
                 >This one</a
               >
               was created by FacioQuo, a GitHub open-source organization.

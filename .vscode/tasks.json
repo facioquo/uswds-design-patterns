@@ -4,7 +4,7 @@
   "tasks": [
     {
       // Local dev server (ng serve)
-      "label": "start",
+      "label": "local start",
       "type": "npm",
       "script": "start",
       "isBackground": true,

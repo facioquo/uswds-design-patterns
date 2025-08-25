@@ -1,11 +1,5 @@
 // Global Jest setup for Angular using jest-preset-angular
-// In v15+, setup-jest entry was removed. Use setup-env/zone for Angular testing with Zone.js.
-import "jest-preset-angular/setup-env/zone";
-import { TestBed } from "@angular/core/testing";
-import {
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting,
-} from "@angular/platform-browser-dynamic/testing";
+import { setupZoneTestEnv } from "jest-preset-angular/setup-env/zone";
 
 // JSDOM/polyfills that are often missing in tests
 // window.scrollTo is not implemented in JSDOM
@@ -31,12 +25,10 @@ if (!(global as any).TextDecoder) {
   (global as any).TextDecoder = TextDecoder as unknown as typeof globalThis.TextDecoder;
 }
 
-// Initialize Angular testing environment once for Jest
-try {
-  TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
-} catch {
-  // ignore if already initialized in watch mode
-}
+// Initialize Angular testing environment via preset helper
+setupZoneTestEnv({
+  teardown: { destroyAfterEach: false, rethrowErrors: true },
+});
 
 // matchMedia stub for components using media queries in tests
 if (!("matchMedia" in window)) {

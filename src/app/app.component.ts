@@ -6,6 +6,7 @@ import { SiteBannerComponent } from "./components/site-banner/site-banner.compon
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
+  standalone: true,
   imports: [RouterOutlet, SiteBannerComponent, SiteIdentifierComponent],
 })
 export class AppComponent {
