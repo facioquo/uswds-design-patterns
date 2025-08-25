@@ -49,3 +49,5 @@ By default, e2e tests start a dev server at <http://localhost:4200>. You can als
 Since our design pattern pages are based on default USWDS styles, we use its base stylesheets: `SASS/uswds-styles.scss` is an out of the box USWDS baseline. It's also the primary SASS entry point. `SASS/_site.scss` and the base `.site` family of styles are for our regular dark themed site pages and components.
 
 Individual design patterns have their own stylesheets in their own folder. They build on top of the base USWDS styles.
+
+Last updated: August 24, 2025
