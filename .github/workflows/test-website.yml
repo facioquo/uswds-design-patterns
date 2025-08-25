@@ -20,6 +20,7 @@ jobs:
         with:
           node-version: "22"
           cache: "npm"
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -78,10 +79,23 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-playwright-
 
+      - name: Cache Angular/Vite dev cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .angular/cache
+            node_modules/.vite
+            node_modules/.cache/angular
+          key: ${{ runner.os }}-ngcache-${{ hashFiles('**/package-lock.json', 'angular.json', 'tsconfig.json', 'tsconfig.app.json') }}
+          restore-keys: |
+            ${{ runner.os }}-ngcache-
+
       - name: Playwright install
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests (headless)
+        env:
+          NG_PERSISTENT_BUILD_CACHE: "1"
         run: npm run e2e
 
       - name: Upload Playwright report
