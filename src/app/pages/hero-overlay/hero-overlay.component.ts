@@ -11,7 +11,7 @@ import { PatternFooterComponent } from "../../components/pattern-footer/pattern-
 export const ID = "hero-overlay";
 
 @Component({
-  selector: ID,
+  selector: "app-hero-overlay",
   templateUrl: "./hero-overlay.component.html",
   styleUrls: ["./hero-overlay.component.scss"],
   imports: [PatternHeaderComponent, PatternFooterComponent],

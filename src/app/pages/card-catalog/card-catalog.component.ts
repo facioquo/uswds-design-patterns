@@ -12,7 +12,7 @@ import { PatternFooterComponent } from "../../components/pattern-footer/pattern-
 export const ID = "card-catalog";
 
 @Component({
-  selector: ID,
+  selector: "app-card-catalog",
   templateUrl: "./card-catalog.component.html",
   styleUrls: ["./card-catalog.component.scss"],
   imports: [

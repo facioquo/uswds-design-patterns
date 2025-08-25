@@ -9,7 +9,7 @@ import { PatternFooterComponent } from "../../components/pattern-footer/pattern-
 export const ID = "bubbles";
 
 @Component({
-  selector: ID,
+  selector: "app-bubbles",
   templateUrl: "./bubbles.component.html",
   styleUrls: ["./bubbles.component.scss"],
   imports: [PatternHeaderComponent, PatternFooterComponent],
