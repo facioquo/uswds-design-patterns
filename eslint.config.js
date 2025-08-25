@@ -37,6 +37,16 @@ module.exports = tseslint.config(
     },
     processor: angular.processInlineTemplates,
     rules: {
+      // Naming convention: ignore quoted property keys (e.g., regex-like keys in config files)
+      // Ref: https://typescript-eslint.io/rules/naming-convention/
+      "@typescript-eslint/naming-convention": [
+        "error",
+        {
+          selector: "property",
+          modifiers: ["requiresQuotes"],
+          format: null,
+        },
+      ],
       // TypeScript-focused preferences
       "@typescript-eslint/consistent-type-imports": [
         "error",

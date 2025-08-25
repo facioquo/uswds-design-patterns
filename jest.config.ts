@@ -27,7 +27,6 @@ const config: Config = {
     "^@components/(.*)$": "<rootDir>/src/app/components/$1",
     "^@services$": "<rootDir>/src/app/services/index.ts",
     "^@services/(.*)$": "<rootDir>/src/app/services/$1",
-
     "\\.(css|scss)$": "identity-obj-proxy",
   },
   snapshotSerializers: [
