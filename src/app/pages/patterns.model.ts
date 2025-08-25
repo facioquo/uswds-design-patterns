@@ -1,5 +1,5 @@
-import { type Card } from "src/app/components/site-card/card.model";
-export { Card } from "src/app/components/site-card/card.model";
+import { type Card } from "@components/site-card/card.model";
+export { Card } from "@components/site-card/card.model";
 
 // DESIGN PATTERNS META DATA
 export const PATTERNS: Card[] = [

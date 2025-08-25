@@ -1,16 +1,17 @@
 import { Component, type OnInit, type OnDestroy, inject } from "@angular/core";
 
-import { UtilityService } from "src/app/services/utility.service";
+import { UtilityService } from "@services/utility.service";
 import { type Card } from "../patterns.model";
 
 import modal from "@uswds/uswds/js/usa-modal";
 const modalApi = modal;
-import { PatternHeaderComponent } from "../../components/pattern-header/pattern-header.component";
-import { PatternFooterComponent } from "../../components/pattern-footer/pattern-footer.component";
+import { PatternHeaderComponent } from "@components/pattern-header/pattern-header.component";
+import { PatternFooterComponent } from "@components/pattern-footer/pattern-footer.component";
 
 export const ID = "hero-overlay";
 
 @Component({
+  standalone: true,
   selector: "app-hero-overlay",
   templateUrl: "./hero-overlay.component.html",
   styleUrls: ["./hero-overlay.component.scss"],

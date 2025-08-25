@@ -1,7 +1,7 @@
 import { TestBed, fakeAsync } from "@angular/core/testing";
 import { provideRouter } from "@angular/router";
 import { CardCatalogComponent } from "./card-catalog.component";
-import { UtilityService } from "src/app/services/utility.service";
+import { UtilityService } from "@services/utility.service";
 
 describe("CardCatalogComponent", () => {
   let u: UtilityService;

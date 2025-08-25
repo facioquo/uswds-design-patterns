@@ -1,7 +1,7 @@
 import { TestBed } from "@angular/core/testing";
 import { StickyMenuComponent } from "./sticky-menu.component";
 import { provideRouter } from "@angular/router";
-import { UtilityService } from "src/app/services/utility.service";
+import { UtilityService } from "@services/utility.service";
 
 describe("StickyMenuComponent", () => {
   beforeEach(async () => {

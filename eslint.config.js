@@ -3,8 +3,24 @@ const eslint = require("@eslint/js");
 const tseslint = require("typescript-eslint");
 const angular = require("angular-eslint");
 const eslintConfigPrettier = require("eslint-config-prettier");
+const jsonc = require("eslint-plugin-jsonc");
+const jsoncParser = require("jsonc-eslint-parser");
 
 module.exports = tseslint.config(
+  // Global ignores to keep ESLint focused on source and tests only
+  {
+    ignores: [
+      "node_modules/**",
+      "dist/**",
+      "coverage/**",
+      "playwright-report/**",
+      "test-results/**",
+      "**/*.scss",
+      "sass/**",
+      "src/assets/**",
+      "public/**",
+    ],
+  },
   {
     files: ["**/*.ts"],
     extends: [
@@ -66,7 +82,7 @@ module.exports = tseslint.config(
   },
   // Turn off all ESLint rules that conflict with Prettier formatting
   {
-    files: ["**/*.{ts,js,tsx,jsx,html,scss,md,json,yml,yaml}"],
+    files: ["**/*.{ts,js,html}"],
     extends: [eslintConfigPrettier],
   },
   // Relax selected rules in test specs to reduce friction while keeping production code strict
@@ -77,6 +93,29 @@ module.exports = tseslint.config(
       "@typescript-eslint/no-unsafe-assignment": "off",
       "@typescript-eslint/no-unsafe-member-access": "off",
       "@typescript-eslint/unbound-method": "off",
+    },
+  },
+  // Enforce JSON style in VS Code settings: multiline arrays for readability
+  {
+    files: [".vscode/**/*.json", ".vscode/**/*.jsonc"],
+    languageOptions: {
+      parser: jsoncParser,
+    },
+    plugins: { jsonc },
+    rules: {
+      "jsonc/array-element-newline": ["error", "always"],
+      "jsonc/array-bracket-newline": ["error", "always"],
+    },
+  },
+  // Setup file: allow lightweight mocks and any usage
+  {
+    files: ["setup-jest.ts"],
+    rules: {
+      "@typescript-eslint/no-empty-function": "off",
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "@typescript-eslint/no-unsafe-member-access": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/prefer-nullish-coalescing": "off",
     },
   },
   {

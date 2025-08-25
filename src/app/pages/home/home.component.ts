@@ -1,9 +1,9 @@
 import { Component, inject } from "@angular/core";
 
-import { UtilityService } from "src/app/services/utility.service";
+import { UtilityService } from "@services/utility.service";
 
 import { type Card, PATTERNS } from "../patterns.model";
-import { SiteCardComponent } from "../../components/site-card/site-card.component";
+import { SiteCardComponent } from "@components/site-card/site-card.component";
 
 // Route data sets the page title and description.
 

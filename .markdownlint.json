@@ -22,17 +22,7 @@
     "style": "one"
   },
   "MD033": {
-    "allowed_elements": [
-      "details",
-      "summary",
-      "br",
-      "sub",
-      "sup",
-      "kbd",
-      "abbr",
-      "a",
-      "img"
-    ]
+    "allowed_elements": ["details", "summary", "br", "sub", "sup", "kbd", "abbr", "a", "img"]
   },
   "MD040": true,
   "MD041": {

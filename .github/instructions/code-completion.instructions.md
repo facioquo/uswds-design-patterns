@@ -8,7 +8,7 @@ description: "Repo-specific code completion checklist extensions for uswds-desig
 ## Commands
 
 - Package manager: npm (Node >= 22.17)
-- Install: npm ci (preferred, if package-lock.json exists) otherwise npm install
+- Install: npm install (use npm ci in CI)
 - Lint: npm run lint
 - Lint (fix): npm run lint:fix
 - Build (dev): npm run build
@@ -35,12 +35,9 @@ This is the local "green before done" sequence. It aborts on first failure.
 node -v
 npm -v
 
-# 1) Install dependencies (prefer reproducible CI mode if lockfile exists)
-if [ -f package-lock.json ]; then
-  npm ci
-else
-  npm install
-fi
+# 1) Install dependencies (local)
+npm install
+# For CI, prefer: npm ci
 
 # 2) Lint
 npm run lint

@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Title } from "@angular/platform-browser";
 import { AppTitleStrategy } from "../app-title.strategy";
 
-@Injectable()
+@Injectable({ providedIn: "any" })
 class TestStrategy extends AppTitleStrategy {
   private next = "";
   setNextTitle(t: string): void {

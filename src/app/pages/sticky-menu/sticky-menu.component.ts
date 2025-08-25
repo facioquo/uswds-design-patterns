@@ -1,13 +1,14 @@
 import { Component, inject } from "@angular/core";
 
-import { UtilityService } from "src/app/services/utility.service";
+import { UtilityService } from "@services/utility.service";
 import { type Card } from "../patterns.model";
-import { PatternHeaderComponent } from "../../components/pattern-header/pattern-header.component";
-import { PatternFooterComponent } from "../../components/pattern-footer/pattern-footer.component";
+import { PatternHeaderComponent } from "@components/pattern-header/pattern-header.component";
+import { PatternFooterComponent } from "@components/pattern-footer/pattern-footer.component";
 
 export const ID = "sticky-menu";
 
 @Component({
+  standalone: true,
   selector: "app-sticky-menu",
   templateUrl: "./sticky-menu.component.html",
   styleUrls: ["./sticky-menu.component.scss"],

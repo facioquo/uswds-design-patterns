@@ -7,6 +7,7 @@ const config: Config = {
   setupFilesAfterEnv: ["<rootDir>/setup-jest.ts"],
   testMatch: ["**/__tests__/**/*.spec.ts", "**/?(*.)+(spec).ts"],
   testPathIgnorePatterns: ["<rootDir>/e2e/"],
+
   transform: {
     "^.+\\.(ts|mjs|html)$": [
       "jest-preset-angular",
@@ -19,8 +20,14 @@ const config: Config = {
   moduleFileExtensions: ["ts", "html", "js", "json"],
   // Transform ESM from specific libs often shipped untranspiled
   transformIgnorePatterns: ["node_modules/(?!(?:@angular|rxjs|lit|@lit)/)"],
+
   moduleNameMapper: {
     "^src/(.*)$": "<rootDir>/src/$1",
+    "^@components$": "<rootDir>/src/app/components/index.ts",
+    "^@components/(.*)$": "<rootDir>/src/app/components/$1",
+    "^@services$": "<rootDir>/src/app/services/index.ts",
+    "^@services/(.*)$": "<rootDir>/src/app/services/$1",
+
     "\\.(css|scss)$": "identity-obj-proxy",
   },
   snapshotSerializers: [

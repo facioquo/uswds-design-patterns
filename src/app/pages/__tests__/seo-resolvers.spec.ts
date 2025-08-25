@@ -2,10 +2,10 @@ import { TestBed } from "@angular/core/testing";
 import { Meta } from "@angular/platform-browser";
 import { provideRouter, Router, TitleStrategy } from "@angular/router";
 import { Component } from "@angular/core";
-import { AppTitleStrategy } from "../../services/app-title.strategy";
+import { AppTitleStrategy } from "@services/app-title.strategy";
 
 @Component({ selector: "app-t", template: "", standalone: true })
-class T {}
+class TestHostComponent {}
 
 describe("SEO via TitleStrategy + route data", () => {
   it("resolve titles and meta and apply to Meta service", async () => {
@@ -18,7 +18,7 @@ describe("SEO via TitleStrategy + route data", () => {
             path: "",
             title: "Home",
             data: { meta: { description: "design pattern idea book" } },
-            component: T,
+            component: TestHostComponent,
           },
           {
             path: "bubbles",
@@ -29,7 +29,7 @@ describe("SEO via TitleStrategy + route data", () => {
                 image: "/assets/thumbnails/bubbles.png?v=YYYY.MM.DD",
               },
             },
-            component: T,
+            component: TestHostComponent,
           },
         ]),
       ],
