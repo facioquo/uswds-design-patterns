@@ -6,12 +6,10 @@
 
 /* PROCESS LIST STICKY NAV DESIGN PATTERN */
 .sticky-menu-section {
-
   @include u-padding-top(3);
 
   /* SIDE NAVIGATION PANE */
   nav {
-
     /* use value of 2 or 3 instead of "auto"
       if you want longer menu items to wrap */
     @include grid-col("auto");
@@ -35,11 +33,9 @@
     }
 
     .usa-sidenav {
-
       counter-reset: usa-numbered-list;
 
       .usa-sidenav__item {
-
         border-top: none;
         line-height: line-height("sans", 2);
 
@@ -88,19 +84,14 @@
         content: "?";
       }
     }
-
   }
-
 
   /* PROCESS LIST PANE */
   .process-list-pane {
-
     @include grid-col("fill");
 
     .usa-process-list {
-
       .usa-process-list__item {
-
         max-width: unset;
         border-left-color: color("primary-light");
 
@@ -111,7 +102,6 @@
 
         ul,
         ol {
-
           @include u-margin-top(0.5);
 
           li {

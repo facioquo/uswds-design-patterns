@@ -5,19 +5,26 @@
     </div>
     <div class="usa-card__media">
       <div class="usa-card__img">
-
         <!-- design pattern thumbnails -->
         @if (!card.imageType) {
-        <img class="easeload" onload="this.style.opacity=1" ngSrc="{{ card.image }}" width="605" height="454" priority="{{(i<6)?true:false}}" alt="" />
+          <img
+            class="easeload"
+            onload="this.style.opacity=1"
+            ngSrc="{{ card.image }}"
+            width="605"
+            height="454"
+            priority="{{ i < 6 ? true : false }}"
+            alt=""
+          />
         }
 
         <!-- if icon is used instead (and for suggestion card) -->
-        @if (card.imageType === 'usa-icon') {
-        <div class="icon-container">
-          <svg class="usa-icon" alt="">
-            <use [attr.href]="'/assets/uswds/img/sprite.svg#'+card.image"></use>
-          </svg>
-        </div>
+        @if (card.imageType === "usa-icon") {
+          <div class="icon-container">
+            <svg class="usa-icon" alt="">
+              <use [attr.href]="'/assets/uswds/img/sprite.svg#' + card.image"></use>
+            </svg>
+          </div>
         }
       </div>
     </div>

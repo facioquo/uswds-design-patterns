@@ -1,0 +1,13 @@
+dist/
+coverage/
+playwright-report/
+test-results/
+*.log
+*.lock
+node_modules/
+**/*.md
+**/*.markdown
+
+# Keep VS Code workspace JSON/JSONC readable (multiline arrays)
+.vscode/*.json
+.vscode/*.jsonc

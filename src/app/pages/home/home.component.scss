@@ -6,50 +6,48 @@
 @forward "usa-button-group";
 
 .home-section {
-
   @include site-dark;
   @include u-padding-top(4);
   @include u-padding-bottom(0);
 
   /* SITE TITLE */
   h1 {
-
     @include u-margin-top(2);
-    @include u-font-size('sans', 18);
+    @include u-font-size("sans", 18);
     line-height: 0.9em;
 
     @include at-media-max("mobile-lg") {
-      @include u-font-size('sans', 16);
-      line-height: line-height('sans', 1);
+      @include u-font-size("sans", 16);
+      line-height: line-height("sans", 1);
     }
 
     @include at-media-max("mobile") {
-      @include u-font-size('sans', 15);
+      @include u-font-size("sans", 15);
     }
 
     .supertitle {
-      @include u-font-size('sans', 14);
+      @include u-font-size("sans", 14);
       color: inherit;
 
       @include at-media-max("mobile-lg") {
-        @include u-font-size('sans', 11);
+        @include u-font-size("sans", 11);
       }
 
       @include at-media-max("mobile") {
-        @include u-font-size('sans', 10);
+        @include u-font-size("sans", 10);
       }
     }
 
     .subtitle {
-      @include u-font-size('sans', 10);
+      @include u-font-size("sans", 10);
       color: color("base-light");
 
       @include at-media-max("mobile-lg") {
-        @include u-font-size('sans', 6);
+        @include u-font-size("sans", 6);
       }
 
       @include at-media-max("mobile") {
-        @include u-font-size('sans', 5);
+        @include u-font-size("sans", 5);
       }
     }
 
@@ -57,7 +55,7 @@
     .subtitle {
       display: block;
       font-weight: 400;
-      line-height: line-height('sans', 1);
+      line-height: line-height("sans", 1);
     }
   }
 }

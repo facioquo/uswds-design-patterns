@@ -13,7 +13,6 @@ section {
 }
 
 .content-container {
-
   @include site-dark();
 
   & {
@@ -35,7 +34,6 @@ section {
 }
 
 .return-to-top {
-
   button {
     box-shadow: none;
     text-decoration: underline;

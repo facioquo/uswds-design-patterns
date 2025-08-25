@@ -3,13 +3,12 @@
 /* SITE MIXINS */
 
 @mixin site {
-
   h1 {
-    @include u-font-size('sans', 14);
+    @include u-font-size("sans", 14);
     line-height: line-height("sans", 1);
 
     @include at-media-max("mobile-lg") {
-      @include u-font-size('sans', 13);
+      @include u-font-size("sans", 13);
     }
   }
 
@@ -50,11 +49,11 @@
   }
 
   .usa-prose {
-    @include u-font-size('sans', 7);
+    @include u-font-size("sans", 7);
     line-height: line-height("sans", 4);
 
     @include at-media-max("mobile-lg") {
-      @include u-font-size('sans', 6);
+      @include u-font-size("sans", 6);
       line-height: line-height("sans", 3);
     }
   }
@@ -67,7 +66,6 @@
 }
 
 @mixin site-dark {
-
   @include site;
   @include u-bg("base-darkest");
 
@@ -97,7 +95,6 @@
   .usa-link,
   .usa-link--alt,
   .usa-link--external {
-
     color: inherit !important;
     text-decoration: underline;
     cursor: pointer;

@@ -3,40 +3,29 @@
   "version": "2.0.0",
   "tasks": [
     {
+      // Local dev server (ng serve)
+      "label": "local start",
       "type": "npm",
       "script": "start",
       "isBackground": true,
-      "problemMatcher": {
-        "owner": "typescript",
-        "pattern": "$tsc",
-        "background": {
-          "activeOnStart": true,
-          "beginsPattern": {
-            "regexp": "(.*?)"
-          },
-          "endsPattern": {
-            "regexp": "bundle generation complete"
+      "problemMatcher": [
+        {
+          // Parse TS diagnostics that Angular CLI prints
+          "owner": "typescript",
+          "pattern": "$tsc",
+          "background": {
+            "activeOnStart": true,
+            // Start tracking immediately
+            "beginsPattern": {
+              "regexp": ".+"
+            },
+            // Angular dev server (Vite) prints the Local URL when ready
+            "endsPattern": {
+              "regexp": "Local: http://localhost:[0-9]+/?"
+            }
           }
         }
-      }
-    },
-    {
-      "type": "npm",
-      "script": "test",
-      "isBackground": true,
-      "problemMatcher": {
-        "owner": "typescript",
-        "pattern": "$tsc",
-        "background": {
-          "activeOnStart": true,
-          "beginsPattern": {
-            "regexp": "(.*?)"
-          },
-          "endsPattern": {
-            "regexp": "bundle generation complete"
-          }
-        }
-      }
+      ]
     }
   ]
 }

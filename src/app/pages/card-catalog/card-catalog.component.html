@@ -1,15 +1,28 @@
 <!-- pattern introduction section -->
 <app-pattern-header [patternName]="pattern.title" class="site">
   <p class="usa-prose">
-    A card catalog using the U.S. Web Design System <strong>Card</strong> component with “show more” card loading.
-
-    Learn more about
-    <a class="usa-link pointer" role="button" (click)="u.scrollToStart('info');">this design pattern</a> or
-    <a class="usa-link pointer" role="button" (click)="u.scrollToEnd('settings');">change settings</a>
+    A card catalog using the U.S. Web Design System <strong>Card</strong> component with “show more”
+    card loading. Learn more about
+    <a
+      class="usa-link pointer"
+      role="button"
+      tabindex="0"
+      (click)="u.scrollToStart('info')"
+      (keyup.enter)="u.scrollToStart('info')"
+      >this design pattern</a
+    >
+    or
+    <a
+      class="usa-link pointer"
+      role="button"
+      tabindex="0"
+      (click)="u.scrollToEnd('settings')"
+      (keyup.enter)="u.scrollToEnd('settings')"
+      >change settings</a
+    >
     at the bottom of the page.
   </p>
 </app-pattern-header>
-
 
 <!-- CATALOG DESIGN PATTERN
   - add tablet-lg grid breakpoint
@@ -19,183 +32,295 @@
 -->
 <section class="usa-section catalog-section">
   <div class="grid-container">
-
     <ul class="usa-card-group">
       @for (card of cards; track card; let i = $index) {
-      <li class="usa-card tablet:grid-col-6 tablet-lg:grid-col-4">
-        <a class="usa-card__container" id="{{ card.id }}" href="{{ card.link }}" type="button" target="_blank"
-          rel="noreferrer">
-          <div class="usa-card__header">
-            <h2 class="usa-card__heading">{{ card.title }}</h2>
-          </div>
-          <div class="usa-card__media">
-            <div class="usa-card__img">
-              <img class="easeload" onload="this.style.opacity=1" ngSrc="{{ card.image }}" width="600" height="315"
-                priority="{{(i<6)?true:false}}" alt="a random image" />
+        <li class="usa-card tablet:grid-col-6 tablet-lg:grid-col-4">
+          <a
+            class="usa-card__container"
+            id="{{ card.id }}"
+            href="{{ card.link }}"
+            type="button"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div class="usa-card__header">
+              <h2 class="usa-card__heading">{{ card.title }}</h2>
             </div>
-          </div>
-          <div class="usa-card__body">
-            <p innerHtml="{{ card.description }}"></p>
-          </div>
-        </a>
-      </li>
+            <div class="usa-card__media">
+              <div class="usa-card__img">
+                <img
+                  class="easeload"
+                  onload="this.style.opacity=1"
+                  ngSrc="{{ card.image }}"
+                  width="600"
+                  height="315"
+                  priority="{{ i < 6 ? true : false }}"
+                  alt="a random image"
+                />
+              </div>
+            </div>
+            <div class="usa-card__body">
+              <p innerHtml="{{ card.description }}"></p>
+            </div>
+          </a>
+        </li>
       }
     </ul>
   </div>
 
   <!-- "See more" pagination in standard button group -->
   @if (!classic) {
-  <div class="grid-container">
-    <p class="text-center">Showing {{ cards.length }} of {{ totalCards }} cards</p>
-    @if (cards.length < totalCards) {
-    <ul class="usa-button-group">
-      <li class="usa-button-group__item">
-        <button class="usa-button" (click)="showPage(page+1)">
-          Show {{ pageSize }} more
-        </button>
-      </li>
-      <li class="usa-button-group__item">
-        <button class="usa-button usa-button--outline" (click)="showAll()">
-          Show all
-        </button>
-      </li>
-    </ul>
-    }
-  </div>
+    <div class="grid-container">
+      <p class="text-center">Showing {{ cards.length }} of {{ totalCards }} cards</p>
+      @if (cards.length < totalCards) {
+        <ul class="usa-button-group">
+          <li class="usa-button-group__item">
+            <button class="usa-button" (click)="showPage(page + 1)">
+              Show {{ pageSize }} more
+            </button>
+          </li>
+          <li class="usa-button-group__item">
+            <button class="usa-button usa-button--outline" (click)="showAll()">Show all</button>
+          </li>
+        </ul>
+      }
+    </div>
   }
 
   <!-- "Classic" pagination numbered index -->
   <!-- https://designsystem.digital.gov/components/pagination/ -->
   @if (classic) {
-  <div class="grid-container">
+    <div class="grid-container">
+      <p class="text-center">Showing {{ cardStart }}-{{ cardEnd }} of {{ totalCards }} cards</p>
 
-    <p class="text-center">Showing {{cardStart}}-{{cardEnd}} of {{totalCards}} cards</p>
-
-    <nav aria-label="Pagination" class="usa-pagination">
-      <ul class="usa-pagination__list">
-        @if (pages>3 && page>1) {
-        <li class="usa-pagination__item usa-pagination__arrow">
-          <a role="button" class="usa-pagination__link usa-pagination__previous-page" aria-label="Previous page"
-            (click)="showPage(page-1)">
-            <svg class="usa-icon" aria-hidden="true" role="img">
-              <use href="/assets/uswds/img/sprite.svg#navigate_before"></use>
-            </svg>
-            <span class="usa-pagination__link-text">Previous</span>
-          </a>
-        </li>
-        }
-        @if (pages>3 && page>=3) {
-        <li class="usa-pagination__item usa-pagination__page-no">
-          <a role="button" class="usa-pagination__button" aria-label="First page, page 1" (click)="showPage(1)">1</a>
-        </li>
-        <li class="usa-pagination__item usa-pagination__overflow" aria-label="ellipsis indicating non-visible pages">
-          <span>…</span>
-        </li>
-        }
-        @if (page>1) {
-        <li class="usa-pagination__item usa-pagination__page-no">
-          <a role="button" class="usa-pagination__button" attr.aria-label="Page {{page-1}}"
-            (click)="showPage(page-1)">{{page-1}}</a>
-        </li>
-        }
-        <li class="usa-pagination__item usa-pagination__page-no">
-          <a role="button" class="usa-pagination__button usa-current" attr.aria-label="Page {{page}}"
-            aria-current="page" (click)="u.scrollToStart('top')">{{page}}</a>
-        </li>
-        @if (page+1<=pages) {
-        <li class="usa-pagination__item usa-pagination__page-no">
-        <a role="button" class="usa-pagination__button" attr.aria-label="Page {{page+1}}"
-          (click)="showPage(page+1)">{{page+1}}</a>
-        </li>
-        }
-        @if (pages>3 && page<=pages-2) {
-        <li class="usa-pagination__item usa-pagination__overflow" aria-label="ellipsis indicating non-visible pages">
-        <span>…</span>
-        </li>
-        <li class="usa-pagination__item usa-pagination__page-no">
-          <a role="button" class="usa-pagination__button" attr.aria-label="Last page, page {{pages}}"
-            (click)="showPage(pages)">{{pages}}</a>
-        </li>
-        }
-        @if (pages>3 && page!=pages) {
-        <li class="usa-pagination__item usa-pagination__arrow">
-          <a role="button" class="usa-pagination__link usa-pagination__next-page" aria-label="Next page"
-            (click)="showPage(page+1)">
-            <span class="usa-pagination__link-text">Next </span>
-            <svg class="usa-icon" aria-hidden="true" role="img">
-              <use href="/assets/uswds/img/sprite.svg#navigate_next"></use>
-            </svg>
-          </a>
-        </li>
-        }
-      </ul>
-    </nav>
-  </div>
+      <nav aria-label="Pagination" class="usa-pagination">
+        <ul class="usa-pagination__list">
+          @if (pages > 3 && page > 1) {
+            <li class="usa-pagination__item usa-pagination__arrow">
+              <a
+                role="button"
+                class="usa-pagination__link usa-pagination__previous-page"
+                aria-label="Previous page"
+                tabindex="0"
+                (click)="showPage(page - 1)"
+                (keyup.enter)="showPage(page - 1)"
+              >
+                <svg class="usa-icon" aria-hidden="true" role="img">
+                  <use href="/assets/uswds/img/sprite.svg#navigate_before"></use>
+                </svg>
+                <span class="usa-pagination__link-text">Previous</span>
+              </a>
+            </li>
+          }
+          @if (pages > 3 && page >= 3) {
+            <li class="usa-pagination__item usa-pagination__page-no">
+              <a
+                role="button"
+                class="usa-pagination__button"
+                aria-label="First page, page 1"
+                tabindex="0"
+                (click)="showPage(1)"
+                (keyup.enter)="showPage(1)"
+                >1</a
+              >
+            </li>
+            <li
+              class="usa-pagination__item usa-pagination__overflow"
+              aria-label="ellipsis indicating non-visible pages"
+            >
+              <span>…</span>
+            </li>
+          }
+          @if (page > 1) {
+            <li class="usa-pagination__item usa-pagination__page-no">
+              <a
+                role="button"
+                class="usa-pagination__button"
+                attr.aria-label="Page {{ page - 1 }}"
+                tabindex="0"
+                (click)="showPage(page - 1)"
+                (keyup.enter)="showPage(page - 1)"
+                >{{ page - 1 }}</a
+              >
+            </li>
+          }
+          <li class="usa-pagination__item usa-pagination__page-no">
+            <a
+              role="button"
+              class="usa-pagination__button usa-current"
+              attr.aria-label="Page {{ page }}"
+              aria-current="page"
+              tabindex="0"
+              (click)="u.scrollToStart('top')"
+              (keyup.enter)="u.scrollToStart('top')"
+              >{{ page }}</a
+            >
+          </li>
+          @if (page + 1 <= pages) {
+            <li class="usa-pagination__item usa-pagination__page-no">
+              <a
+                role="button"
+                class="usa-pagination__button"
+                attr.aria-label="Page {{ page + 1 }}"
+                tabindex="0"
+                (click)="showPage(page + 1)"
+                (keyup.enter)="showPage(page + 1)"
+                >{{ page + 1 }}</a
+              >
+            </li>
+          }
+          @if (pages > 3 && page <= pages - 2) {
+            <li
+              class="usa-pagination__item usa-pagination__overflow"
+              aria-label="ellipsis indicating non-visible pages"
+            >
+              <span>…</span>
+            </li>
+            <li class="usa-pagination__item usa-pagination__page-no">
+              <a
+                role="button"
+                class="usa-pagination__button"
+                attr.aria-label="Last page, page {{ pages }}"
+                tabindex="0"
+                (click)="showPage(pages)"
+                (keyup.enter)="showPage(pages)"
+                >{{ pages }}</a
+              >
+            </li>
+          }
+          @if (pages > 3 && page !== pages) {
+            <li class="usa-pagination__item usa-pagination__arrow">
+              <a
+                role="button"
+                class="usa-pagination__link usa-pagination__next-page"
+                aria-label="Next page"
+                tabindex="0"
+                (click)="showPage(page + 1)"
+                (keyup.enter)="showPage(page + 1)"
+              >
+                <span class="usa-pagination__link-text">Next </span>
+                <svg class="usa-icon" aria-hidden="true" role="img">
+                  <use href="/assets/uswds/img/sprite.svg#navigate_next"></use>
+                </svg>
+              </a>
+            </li>
+          }
+        </ul>
+      </nav>
+    </div>
   }
-
 </section>
-
 
 <!-- SETTINGS | for this design pattern -->
 <app-pattern-settings id="settings" class="form-controls">
-
   <form class="usa-form">
-
     <!-- total cards -->
-    <label class="usa-label" for="slider-total-cards">Total cards ({{totalCards}})</label>
-    <input id="slider-total-cards" name="total-cards" class="usa-range" type="range" min="6" max="{{maxCards}}" step="6"
-      [(ngModel)]="totalCards" aria-valuemin="6" attr.aria-valuemax="{{maxCards}}" attr.aria-valuenow="{{totalCards}}"
-      role="slider" (change)="changeTotalCards()" />
+    <label class="usa-label" for="slider-total-cards">Total cards ({{ totalCards }})</label>
+    <input
+      id="slider-total-cards"
+      name="total-cards"
+      class="usa-range"
+      type="range"
+      min="6"
+      max="{{ maxCards }}"
+      step="6"
+      [(ngModel)]="totalCards"
+      aria-valuemin="6"
+      attr.aria-valuemax="{{ maxCards }}"
+      attr.aria-valuenow="{{ totalCards }}"
+      role="slider"
+      (change)="changeTotalCards()"
+    />
 
     <!-- cards per pages -->
-    <label class="usa-label" for="slider-page-cards">Cards per page ({{pageSize}})</label>
-    <input id="slider-page-cards" name="page-cards" class="usa-range" type="range" min="6" max="{{pageMax}}" step="6"
-      [(ngModel)]="pageSize" aria-valuemin="6" attr.aria-valuemax="{{pageMax}}" attr.aria-valuenow="{{pageSize}}"
-      role="slider" (change)="changePageSize()" />
+    <label class="usa-label" for="slider-page-cards">Cards per page ({{ pageSize }})</label>
+    <input
+      id="slider-page-cards"
+      name="page-cards"
+      class="usa-range"
+      type="range"
+      min="6"
+      max="{{ pageMax }}"
+      step="6"
+      [(ngModel)]="pageSize"
+      aria-valuemin="6"
+      attr.aria-valuemax="{{ pageMax }}"
+      attr.aria-valuenow="{{ pageSize }}"
+      role="slider"
+      (change)="changePageSize()"
+    />
 
     <!-- enable auto-scroll -->
     <div class="usa-checkbox">
-      <input class="usa-checkbox__input" id="enable-autoscroll" type="checkbox" name="auto-scroll"
-        [checked]="autoScroll" (change)="autoScroll = !autoScroll" />
+      <input
+        class="usa-checkbox__input"
+        id="enable-autoscroll"
+        type="checkbox"
+        name="auto-scroll"
+        [checked]="autoScroll"
+        (change)="autoScroll = !autoScroll"
+      />
       <label class="usa-checkbox__label" for="enable-autoscroll">Auto-scroll when paging</label>
     </div>
 
     <!-- style -->
-    <label class="usa-label">Style</label>
+    <label class="usa-label" for="style-select">Style</label>
     <ul class="usa-button-group usa-button-group--segmented">
       <li class="usa-button-group__item">
-        <button type="button" [ngClass]="!classic ? 'usa-button' : 'usa-button usa-button--outline'"
-          (click)="classic=false;">Show&nbsp;more</button>
+        <button
+          type="button"
+          [ngClass]="!classic ? 'usa-button' : 'usa-button usa-button--outline'"
+          (click)="classic = false"
+        >
+          Show&nbsp;more
+        </button>
       </li>
       <li class="usa-button-group__item">
-        <button type="button" [ngClass]="classic ? 'usa-button' : 'usa-button usa-button--outline'"
-          (click)="classic=true;">Classic</button>
+        <button
+          type="button"
+          [ngClass]="classic ? 'usa-button' : 'usa-button usa-button--outline'"
+          (click)="classic = true"
+        >
+          Classic
+        </button>
       </li>
     </ul>
   </form>
-
 </app-pattern-settings>
 
 <!-- INFO SECTION | About this design pattern -->
 <app-pattern-footer [githubFolder]="'card-catalog'" class="site-dark" id="info">
-
   <h3>Cards</h3>
 
   <p class="usa-prose usa-dark-background">
-    Use this card design pattern when you want consistent <a class="usa-link usa-link--alt usa-link--external"
-      href="https://designsystem.digital.gov/components/card/" target="_blank"
-      rel="noopener noreferrer nofollow">Card</a> size proportions and
-    alignment of its elements when sizes for images, card titles, and descriptions vary.
-    Here's what we changed:
+    Use this card design pattern when you want consistent
+    <a
+      class="usa-link usa-link--alt usa-link--external"
+      href="https://designsystem.digital.gov/components/card/"
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      >Card</a
+    >
+    size proportions and alignment of its elements when sizes for images, card titles, and
+    descriptions vary. Here's what we changed:
   </p>
 
   <ul class="usa-list">
-    <li>Card image box uses a <a class="usa-link usa-link--external"
-        href="https://web.dev/patterns/layout/aspect-ratio-image-card/" target="_blank"
-        rel="noopener noreferrer nofollow">fixed aspect ratio</a> to ensure a
-      consistent size.</li>
-    <li>Card title and summary sections are fixed to 2 and 3 lines to ensure a consistent size. We limited the max
-      allowable raw text, so overflow is rare. Ellipses ... indicate overflows.</li>
+    <li>
+      Card image box uses a
+      <a
+        class="usa-link usa-link--external"
+        href="https://web.dev/patterns/layout/aspect-ratio-image-card/"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        >fixed aspect ratio</a
+      >
+      to ensure a consistent size.
+    </li>
+    <li>
+      Card title and summary sections are fixed to 2 and 3 lines to ensure a consistent size. We
+      limited the max allowable raw text, so overflow is rare. Ellipses ... indicate overflows.
+    </li>
     <li>Full card is clickable to maximize the click/touch target (we also removed the button).</li>
     <li>A hover shadow effect provides a haptic response to emphasize clickability.</li>
     <li>Images ease in on load to reduce the visual "pop" that occurs on late arrival.</li>
@@ -206,24 +331,34 @@
 
   <p class="usa-prose">
     Use this pagination design pattern when you want to see more content without the large page
-    shift that you'd get from classic numbered <a class="usa-link usa-link--alt usa-link--external"
-      href="https://designsystem.digital.gov/components/pagination/" target="_blank"
-      rel="noopener noreferrer nofollow">Pagination</a>. Here's what we changed:
+    shift that you'd get from classic numbered
+    <a
+      class="usa-link usa-link--alt usa-link--external"
+      href="https://designsystem.digital.gov/components/pagination/"
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      >Pagination</a
+    >. Here's what we changed:
   </p>
 
   <ul class="usa-list">
-    <li><strong>See more</strong> and <strong>Show all</strong> pagination adds next page(s) cards
-      to the collection.</li>
+    <li>
+      <strong>See more</strong> and <strong>Show all</strong> pagination adds next page(s) cards to
+      the collection.
+    </li>
     <li>Optionally, auto-scroll to reposition page to new cards.</li>
   </ul>
 
   <h4>Use caution with large catalogs</h4>
 
   <ul class="usa-list">
-    <li><strong>Show all</strong> should not be used with large catalogs that impact page performance.</li>
-    <li>If you decide to use with a large catalog, offload initial cards that exceed a max limit with each
-      subsequent <strong>Show more</strong>. A <strong>See previous</strong> button can be used at the top
-      of your catalog to similarly restore.</li>
+    <li>
+      <strong>Show all</strong> should not be used with large catalogs that impact page performance.
+    </li>
+    <li>
+      If you decide to use with a large catalog, offload initial cards that exceed a max limit with
+      each subsequent <strong>Show more</strong>. A <strong>See previous</strong> button can be used
+      at the top of your catalog to similarly restore.
+    </li>
   </ul>
-
 </app-pattern-footer>

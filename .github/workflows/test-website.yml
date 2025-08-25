@@ -1,0 +1,112 @@
+name: Test website
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build (development)
+        run: npm run build
+
+      - name: Run unit tests with coverage
+        run: npm run test:coverage
+
+      - name: Upload coverage to Codacy
+        env:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        if: ${{ env.CODACY_PROJECT_TOKEN != '' }}
+        continue-on-error: true
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ env.CODACY_PROJECT_TOKEN }}
+          coverage-reports: coverage/lcov.info
+
+      - name: Upload coverage artifact
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage
+
+      - name: Generate summary
+        if: always()
+        continue-on-error: true
+        run: |
+          echo "# Test Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f coverage/coverage-summary.json ]; then
+            LINES=$(node -e "console.log(require('./coverage/coverage-summary.json').total.lines.pct)")
+            FUNCS=$(node -e "console.log(require('./coverage/coverage-summary.json').total.functions.pct)")
+            BRANCHES=$(node -e "console.log(require('./coverage/coverage-summary.json').total.branches.pct)")
+            STMTS=$(node -e "console.log(require('./coverage/coverage-summary.json').total.statements.pct)")
+            echo "- Lines: ${LINES}%" >> $GITHUB_STEP_SUMMARY
+            echo "- Functions: ${FUNCS}%" >> $GITHUB_STEP_SUMMARY
+            echo "- Branches: ${BRANCHES}%" >> $GITHUB_STEP_SUMMARY
+            echo "- Statements: ${STMTS}%" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "Coverage summary not found." >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Cache Playwright browsers
+        id: playwright_cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
+      - name: Cache Angular/Vite dev cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .angular/cache
+            node_modules/.vite
+            node_modules/.cache/angular
+          key: ${{ runner.os }}-ngcache-${{ hashFiles('**/package-lock.json', 'angular.json', 'tsconfig.json', 'tsconfig.app.json') }}
+          restore-keys: |
+            ${{ runner.os }}-ngcache-
+
+      - name: Install Playwright system dependencies
+        run: npx playwright install-deps
+
+      - name: Playwright install (browsers on cache miss)
+        if: steps.playwright_cache.outputs.cache-hit != 'true'
+        run: npx playwright install
+
+      - name: Run Playwright tests (headless)
+        env:
+          NG_PERSISTENT_BUILD_CACHE: "1"
+        run: npm run e2e
+
+      - name: Upload Playwright report
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report

@@ -1,34 +1,32 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, type OnInit, type OnDestroy, inject } from "@angular/core";
 
-import { UtilityService } from 'src/app/services/utility.service';
-import { Card } from '../patterns.model';
+import { UtilityService } from "@services/utility.service";
+import { type Card } from "../patterns.model";
 
-//@ts-ignore
 import modal from "@uswds/uswds/js/usa-modal";
+const modalApi = modal;
+import { PatternHeaderComponent } from "@components/pattern-header/pattern-header.component";
+import { PatternFooterComponent } from "@components/pattern-footer/pattern-footer.component";
 
 export const ID = "hero-overlay";
 
 @Component({
-    selector: ID,
-    templateUrl: './hero-overlay.component.html',
-    styleUrls: ['./hero-overlay.component.scss'],
-    standalone: false
+  standalone: true,
+  selector: "app-hero-overlay",
+  templateUrl: "./hero-overlay.component.html",
+  styleUrls: ["./hero-overlay.component.scss"],
+  imports: [PatternHeaderComponent, PatternFooterComponent],
 })
 export class HeroOverlayComponent implements OnInit, OnDestroy {
+  readonly u = inject(UtilityService);
 
   public pattern: Card = this.u.getPatternCard(ID);
 
-  constructor(
-    public readonly u: UtilityService
-  ) {
-    this.u.pushMetaTagsForPattern(ID);
+  ngOnInit(): void {
+    modalApi.on("call-to-action-modal");
   }
 
-  ngOnInit() {
-    modal.on("call-to-action-modal");
-  }
-
-  ngOnDestroy() {
-    modal.off();
+  ngOnDestroy(): void {
+    modalApi.off();
   }
 }

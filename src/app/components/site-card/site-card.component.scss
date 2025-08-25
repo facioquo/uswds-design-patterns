@@ -3,7 +3,6 @@
 @forward "usa-icon";
 
 .usa-card__container {
-
   text-decoration: none;
   background-color: color("base-darkest");
 
@@ -13,7 +12,6 @@
 
   /* hover effect */
   &:hover {
-
     border-color: color("base-lighter");
 
     .usa-card__header {
@@ -21,9 +19,9 @@
     }
 
     box-shadow:
-      0px 10px 10px -3px color("base-darker", 0.20),
-      0px 16px 20px  1px color("base-darker", 0.14),
-      0px  6px 28px  2px color("base-darker", 0.12);
+      0px 10px 10px -3px color("base-darker", 0.2),
+      0px 16px 20px 1px color("base-darker", 0.14),
+      0px 6px 28px 2px color("base-darker", 0.12);
 
     .usa-card__img {
       .icon-container {
@@ -37,13 +35,12 @@
 
   /* click effect */
   &:active {
-
     background-color: color("base-darker");
 
     box-shadow:
-      0px 15px 15px -3px color("base-darker", 0.20),
-      0px 24px 30px  1px color("base-darker", 0.14),
-      0px  9px 40px  2px color("base-darker", 0.12);
+      0px 15px 15px -3px color("base-darker", 0.2),
+      0px 24px 30px 1px color("base-darker", 0.14),
+      0px 9px 40px 2px color("base-darker", 0.12);
 
     .usa-card__img {
       .icon-container {
@@ -56,13 +53,11 @@
 
   /* maintain image box size proportion */
   .usa-card__img {
-
     aspect-ratio: 4/3;
     background-color: unset;
 
     /* special case for SVG icons */
     .icon-container {
-
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -80,7 +75,6 @@
 
   /* when above tablet size, truncate text */
   @include at-media("tablet") {
-
     .usa-card__heading {
       display: -webkit-box;
       -webkit-line-clamp: 1;

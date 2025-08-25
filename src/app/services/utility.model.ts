@@ -1952,4 +1952,3 @@ export const WORD_LIST: string[] = [
   "zoo",
   "zulu",
 ];
-

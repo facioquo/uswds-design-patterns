@@ -1,51 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, inject } from "@angular/core";
 
-import {
-  UtilityService,
-  SITE_DESCRIPTION,
-  SITE_TITLE
-} from 'src/app/services/utility.service';
+import { UtilityService } from "@services/utility.service";
 
-import { Card, PATTERNS } from '../patterns.model';
+import { type Card, PATTERNS } from "../patterns.model";
+import { SiteCardComponent } from "@components/site-card/site-card.component";
+
+// Route data sets the page title and description.
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss'],
-    standalone: false
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"],
+  imports: [SiteCardComponent],
 })
 export class HomeComponent {
-
-  constructor(
-    public readonly u: UtilityService
-  ) {
-    this.u.pushMetaTags([
-      {
-        property: 'og:title',
-        content: SITE_TITLE
-      },
-      {
-        name: 'description',
-        content: SITE_DESCRIPTION
-      },
-      {
-        property: 'og:description',
-        content: SITE_DESCRIPTION
-      },
-    ]);
-  }
+  readonly u = inject(UtilityService);
 
   // landing page card data
   public cards: Card[] = PATTERNS;
 
   // ghost card for suggestions
   public suggestionCard: Card = {
-    "id": "ghost-card",
-    "title": "» make a suggestion",
-    "description": "What are we missing?  Send us new design pattern ideas.",
-    "link": "https://github.com/facioquo/uswds-design-patterns/issues/new?labels=enhancement&template=feature_request.md",
-    "image": "add",
-    "imageType": "usa-icon"
-  }
+    id: "ghost-card",
+    title: "» make a suggestion",
+    description: "What are we missing?  Send us new design pattern ideas.",
+    link: "https://github.com/facioquo/uswds-design-patterns/issues/new?labels=enhancement&template=feature_request.md",
+    image: "add",
+    imageType: "usa-icon",
+  };
 }
-

@@ -1,31 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, type OnInit, inject } from "@angular/core";
 
-import { UtilityService } from 'src/app/services/utility.service';
-import { Card } from 'src/app/components/site-card/card.model';
-import { Image, IMAGES } from '../image.model';
+import { UtilityService } from "@services/utility.service";
+import { type Card } from "@components/site-card/card.model";
+import { type Image, IMAGES } from "../image.model";
+import { PatternHeaderComponent } from "@components/pattern-header/pattern-header.component";
+import { NgOptimizedImage, NgClass } from "@angular/common";
+import { PatternSettingsComponent } from "@components/pattern-settings/pattern-settings.component";
+import { FormsModule } from "@angular/forms";
+import { PatternFooterComponent } from "@components/pattern-footer/pattern-footer.component";
 
 export const ID = "card-catalog";
 
 @Component({
-    selector: ID,
-    templateUrl: './card-catalog.component.html',
-    styleUrls: ['./card-catalog.component.scss'],
-    standalone: false
+  standalone: true,
+  selector: "app-card-catalog",
+  templateUrl: "./card-catalog.component.html",
+  styleUrls: ["./card-catalog.component.scss"],
+  imports: [
+    PatternHeaderComponent,
+    NgOptimizedImage,
+    PatternSettingsComponent,
+    FormsModule,
+    NgClass,
+    PatternFooterComponent,
+  ],
 })
 export class CardCatalogComponent implements OnInit {
+  readonly u = inject(UtilityService);
 
   images: Image[] = IMAGES;
   autoScroll = false;
   classic = false;
 
   public pattern: Card = this.u.getPatternCard(ID);
-
-  constructor(
-    public readonly u: UtilityService
-  ) {
-    this.u.pushMetaTagsForPattern(ID);
-  }
-
   public page = 0;
   public pages = 0;
   public pageSize = 24;
@@ -38,13 +45,11 @@ export class CardCatalogComponent implements OnInit {
   public cardEnd = this.cardStart + this.pageSize;
 
   ngOnInit(): void {
-
     // load initial page
     this.resetCardCatalog();
   }
 
-  showPage(page: number, skipScroll: boolean = false): void {
-
+  showPage(page: number, skipScroll = false): void {
     // increment page
     this.page = page;
     let scrollId = "";
@@ -63,7 +68,6 @@ export class CardCatalogComponent implements OnInit {
 
     // add new cards
     for (let i = idxStart; i < idxEnd; i++) {
-
       const image = this.images[i];
 
       // define new card
@@ -72,7 +76,7 @@ export class CardCatalogComponent implements OnInit {
         title: this.u.randomWords(15, 65),
         description: `<small>Photo by ${image.author}.</small><br />${this.u.randomWords(25, 90)}.`,
         link: image.url,
-        image: `/assets/stock/${image.id}-600x315.webp`
+        image: `/assets/stock/${image.id}-600x315.webp`,
       };
 
       // set scroll target to first new card
@@ -85,17 +89,18 @@ export class CardCatalogComponent implements OnInit {
       if (i < this.totalCards) {
         this.cards.push(card);
         this.cardEnd++;
+      } else {
+        return;
       }
-      else return;
     }
 
     // scroll when appropriate
-    if (this.autoScroll && !skipScroll)
+    if (this.autoScroll && !skipScroll) {
       this.u.scrollToStart(scrollId, 500);
+    }
   }
 
   showAll(): void {
-
     const nextCard = this.images[this.page * this.pageSize + 1];
 
     // add remaining cards
@@ -104,32 +109,32 @@ export class CardCatalogComponent implements OnInit {
     }
 
     // scroll to first new card
-    if (this.autoScroll)
+    if (this.autoScroll) {
       this.u.scrollToStart(`card-${nextCard.id}`, 500);
+    }
   }
-
 
   // CATALOG SETTINGS
 
-  changeTotalCards() {
+  changeTotalCards(): void {
     // maintain a rational page size
     this.pageMax = Math.min(180, this.totalCards);
     this.pageSize = Math.min(this.pageSize, this.pageMax);
     this.resetCardCatalog(true);
   }
 
-  changePageSize() {
+  changePageSize(): void {
     this.cards = [];
     this.updatePageCount();
     this.showPage(1, true);
-    this.u.scrollToEnd(`settings`, 0);
+    this.u.scrollToEnd("settings", 0);
   }
 
-  updatePageCount() {
+  updatePageCount(): void {
     this.pages = Math.ceil(this.totalCards / this.pageSize);
   }
 
-  resetCardCatalog(skipScroll = false) {
+  resetCardCatalog(skipScroll = false): void {
     this.cards = [];
     this.updatePageCount();
     this.showPage(1, skipScroll);

@@ -1,76 +1,101 @@
 <!doctype html>
 <html lang="en-US">
+  <head>
+    <title>Idea book: design patterns for U.S. Web Design System sites</title>
+    <base href="/" />
 
-<head>
-  <title>Idea book: design patterns for U.S. Web Design System sites</title>
-  <base href="/">
+    <!-- site info -->
+    <meta name="author" content="FacioQuo" />
+    <meta
+      name="image"
+      content="https://uswds.facioquo.com/assets/images/social-card.png?v=YYYY.MM.DD"
+    />
+    <meta
+      name="description"
+      content="A design pattern idea book for designers and developers using the U.S. Web Design System."
+    />
 
-  <!-- site info -->
-  <meta name="author" content="FacioQuo">
-  <meta name="image" content="https://uswds.facioquo.com/assets/images/social-card.png?v=YYYY.MM.DD">
-  <meta name="description"
-    content="A design pattern idea book for designers and developers using the U.S. Web Design System.">
+    <!-- system info -->
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="translucent" />
+    <meta name="msapplication-TileColor" content="#1b1b1b" />
+    <meta name="theme-color" content="#1b1b1b" />
 
-  <!-- system info -->
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="translucent">
-  <meta name="msapplication-TileColor" content="#1b1b1b">
-  <meta name="theme-color" content="#1b1b1b">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      property="og:title"
+      content="Idea book: design patterns for U.S. Web Design System sites"
+    />
+    <meta
+      property="og:site_name"
+      content="Idea book: design patterns for U.S. Web Design System sites"
+    />
+    <meta
+      property="og:image"
+      content="https://uswds.facioquo.com/assets/images/social-card.png?v=YYYY.MM.DD"
+    />
+    <meta
+      property="og:description"
+      content="A design pattern idea book for designers and developers using the U.S. Web Design System."
+    />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="Idea book: design patterns for U.S. Web Design System sites" />
-  <meta property="og:site_name" content="Idea book: design patterns for U.S. Web Design System sites">
-  <meta property="og:image" content="https://uswds.facioquo.com/assets/images/social-card.png?v=YYYY.MM.DD">
-  <meta property="og:description"
-    content="A design pattern idea book for designers and developers using the U.S. Web Design System." />
+    <!-- icons -->
+    <link rel="manifest" href="assets/manifest.json?v=YYYY.MM.DD" />
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico?v=YYYY.MM.DD" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/icons/favicon-32x32.png?v=YYYY.MM.DD"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/icons/apple-touch-icon.png?v=YYYY.MM.DD"
+    />
+    <link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg?v=YYYY.MM.DD" color="#1b1b1b" />
 
-  <!-- icons -->
-  <link rel="manifest" href="assets/manifest.json?v=YYYY.MM.DD">
-  <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico?v=YYYY.MM.DD">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png?v=YYYY.MM.DD">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png?v=YYYY.MM.DD">
-  <link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg?v=YYYY.MM.DD" color="#1b1b1b">
-
-  <!--structured data-->
-  <script async type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Website",
-      "name": "Idea book for U.S. Web Design System sites",
-      "url": "https://uswds.facioquo.com/",
-      "description": "A design pattern idea book for designers and developers using the U.S. Web Design System (USWDS), built by community enthusiasts.",
-      "author": {
-        "@type": "Organization",
-        "name": "FacioQuo",
-        "url": "https://facioquo.com/",
-        "logo": "https://facioquo.com/assets/logo.svg"
+    <!--structured data-->
+    <script async type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Website",
+        "name": "Idea book for U.S. Web Design System sites",
+        "url": "https://uswds.facioquo.com/",
+        "description": "A design pattern idea book for designers and developers using the U.S. Web Design System (USWDS), built by community enthusiasts.",
+        "author": {
+          "@type": "Organization",
+          "name": "FacioQuo",
+          "url": "https://facioquo.com/",
+          "logo": "https://facioquo.com/assets/logo.svg"
+        }
       }
-    }
-  </script>
+    </script>
 
-  <!-- Google Analytics -->
-  <script defer src="https://www.googletagmanager.com/gtag/js?id=__GaTag__"></script>
-  <script defer>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', '__GaTag__', {
-      cookie_flags: 'SameSite=Lax; Secure'
-    });
-  </script>
+    <!-- Google Analytics -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=__GaTag__"></script>
+    <script defer>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "__GaTag__", {
+        cookie_flags: "SameSite=Lax; Secure",
+      });
+    </script>
 
-  <!-- injected items -->
-</head>
+    <!-- injected items -->
+  </head>
 
-<body>
-  <app-root></app-root>
-  <noscript>Please enable JavaScript to continue using this application.</noscript>
-</body>
-
+  <body>
+    <app-root></app-root>
+    <noscript>Please enable JavaScript to continue using this application.</noscript>
+  </body>
 </html>

@@ -22,15 +22,16 @@
             },
             "outputHashing": "all",
             "index": "src/index.html",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/assets",
-              "src/robots.txt",
-              "src/sitemap.xml",
+              {
+                "glob": "**/*",
+                "input": "src/public",
+                "output": "/"
+              },
               {
                 "glob": "**/*",
                 "input": "./node_modules/@uswds/uswds/dist/img/",
@@ -48,14 +49,9 @@
               }
             ],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "./node_modules/@uswds/uswds/packages",
-                "."
-              ]
+              "includePaths": ["./node_modules/@uswds/uswds/packages", "."]
             },
-            "styles": [
-              "./sass/uswds-styles.scss"
-            ],
+            "styles": ["./sass/uswds-styles.scss"],
             "scripts": [
               {
                 "input": "./node_modules/@uswds/uswds/dist/js/uswds.min.js",
@@ -63,9 +59,7 @@
                 "bundleName": "uswds"
               }
             ],
-            "allowedCommonJsDependencies": [
-              "@uswds/uswds/js/usa-modal"
-            ],
+            "allowedCommonJsDependencies": ["@uswds/uswds/js/usa-modal"],
             "sourceMap": {
               "scripts": true,
               "styles": true,
@@ -103,12 +97,19 @@
           "options": {
             "buildTarget": "app:build"
           }
+        },
+        "lint": {
+          "builder": "angular-eslint:lint",
+          "options": {
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": ["angular-eslint"]
   },
   "schematics": {
     "@schematics/angular:component": {

@@ -1,37 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, type OnInit, inject } from "@angular/core";
 
-import { UtilityService } from 'src/app/services/utility.service';
-import { Card } from 'src/app/components/site-card/card.model';
-import { Image, IMAGES } from '../image.model';
+import { UtilityService } from "@services/utility.service";
+import { type Card } from "@components/site-card/card.model";
+import { type Image, IMAGES } from "../image.model";
+import { PatternHeaderComponent } from "@components/pattern-header/pattern-header.component";
+import { PatternFooterComponent } from "@components/pattern-footer/pattern-footer.component";
 
 export const ID = "bubbles";
 
 @Component({
-    selector: ID,
-    templateUrl: './bubbles.component.html',
-    styleUrls: ['./bubbles.component.scss'],
-    standalone: false
+  standalone: true,
+  selector: "app-bubbles",
+  templateUrl: "./bubbles.component.html",
+  styleUrls: ["./bubbles.component.scss"],
+  imports: [PatternHeaderComponent, PatternFooterComponent],
 })
 export class BubblesComponent implements OnInit {
+  readonly u = inject(UtilityService);
 
   public pattern: Card = this.u.getPatternCard(ID);
-
-  constructor(
-    public readonly u: UtilityService
-  ) {
-    this.u.pushMetaTagsForPattern(ID);
-  }
-
   public cards: Card[] = [];
   private images: Image[] = IMAGES;
 
   ngOnInit(): void {
-
     // make random cards
-    let max = 7;
+    const max = 7;
+    if (this.images.length === 0) return;
     for (let i = 0; i < max; i++) {
-
-      const rand = this.u.randInt(800);
+      const rand = this.u.randInt(this.images.length);
       const image = this.images[rand];
 
       const card: Card = {
@@ -39,7 +35,7 @@ export class BubblesComponent implements OnInit {
         title: this.u.randomWords(20, 35),
         description: "",
         link: image.url,
-        image: `/assets/stock/${image.id}-600x315.webp`
+        image: `/assets/stock/${image.id}-600x315.webp`,
       };
       this.cards.push(card);
     }
