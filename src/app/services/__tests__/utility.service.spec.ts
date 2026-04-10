@@ -23,7 +23,7 @@ describe("UtilityService", () => {
     document.body.appendChild(el);
     // ensure scrollIntoView exists for spying with proper typing
     el.scrollIntoView = () => undefined;
-    const spy = jest.spyOn(el, "scrollIntoView");
+    const spy = vi.spyOn(el, "scrollIntoView");
 
     util.scrollToStart("target", 100);
     tick(100);

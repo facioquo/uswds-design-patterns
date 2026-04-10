@@ -13,8 +13,8 @@ describe("BubblesComponent", () => {
         link: "",
         image: ""
       }),
-      randInt: jest.fn().mockReturnValue(0),
-      randomWords: jest.fn().mockReturnValue("Mock title")
+      randInt: vi.fn().mockReturnValue(0),
+      randomWords: vi.fn().mockReturnValue("Mock title")
     } as unknown as UtilityService;
 
     await TestBed.configureTestingModule({

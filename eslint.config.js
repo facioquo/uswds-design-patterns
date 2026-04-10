@@ -31,7 +31,7 @@ module.exports = tseslint.config(
     ],
     languageOptions: {
       parserOptions: {
-        projectService: true,
+        project: ["./tsconfig.json", "./tsconfig.spec.json"],
         tsconfigRootDir: __dirname
       }
     },
@@ -114,12 +114,12 @@ module.exports = tseslint.config(
     plugins: { jsonc },
     rules: {
       "jsonc/array-element-newline": ["error", "always"],
-      "jsonc/array-bracket-newline": ["error", "always"]
+      "jsonc/array-bracket-newline": ["error", { multiline: true, minItems: 1 }]
     }
   },
   // Setup file: allow lightweight mocks and any usage
   {
-    files: ["setup-jest.ts"],
+    files: ["setup-vitest.ts"],
     rules: {
       "@typescript-eslint/no-empty-function": "off",
       "@typescript-eslint/no-unsafe-assignment": "off",

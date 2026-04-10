@@ -20,7 +20,7 @@ describe("AppTitleStrategy", () => {
       providers: [Title, { provide: AppTitleStrategy, useClass: TestStrategy }]
     });
     const title = TestBed.inject(Title);
-    const setSpy = jest.spyOn(title, "setTitle");
+    const setSpy = vi.spyOn(title, "setTitle");
     const strategy = TestBed.inject(AppTitleStrategy) as TestStrategy;
     strategy.setNextTitle("Hello World");
 

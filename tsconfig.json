@@ -2,8 +2,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "ignoreDeprecations": "6.0",
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "resolveJsonModule": true,
     "esModuleInterop": true,
@@ -22,10 +20,10 @@
     "module": "ES2022",
     "useDefineForClassFields": false,
     "paths": {
-      "@components": ["src/app/components/index.ts"],
-      "@components/*": ["src/app/components/*"],
-      "@services": ["src/app/services/index.ts"],
-      "@services/*": ["src/app/services/*"]
+      "@components": ["./src/app/components/index.ts"],
+      "@components/*": ["./src/app/components/*"],
+      "@services": ["./src/app/services/index.ts"],
+      "@services/*": ["./src/app/services/*"]
     }
   },
   "angularCompilerOptions": {
@@ -33,5 +31,6 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "exclude": ["src/**/*.spec.ts", "setup-vitest.ts", "vitest.config.ts"]
 }

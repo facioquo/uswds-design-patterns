@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 import { WORD_LIST } from "./utility.model";
-import { type Card, PATTERNS } from "src/app/pages/patterns.model";
+import { type Card, PATTERNS } from "../pages/patterns.model";
 
 @Injectable({
   providedIn: "root"

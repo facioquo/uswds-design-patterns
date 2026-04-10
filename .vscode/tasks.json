@@ -9,8 +9,7 @@
     "panel": "dedicated",
     "showReuseMessage": false
   },
-  "problemMatcher": [
-  ],
+  "problemMatcher": [],
   "options": {
     "cwd": "${workspaceFolder}"
   },
@@ -61,7 +60,7 @@
     // ===================================
     {
       "label": "Test",
-      "detail": "Run jest test suite",
+      "detail": "Run vitest test suite",
       "type": "npm",
       "script": "test",
       "group": {

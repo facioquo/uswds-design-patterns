@@ -23,9 +23,9 @@ npm start
 
 ## Testing
 
-This project uses Jest for unit/component tests and Playwright for end-to-end tests.
+This project uses Vitest for unit/component tests and Playwright for end-to-end tests.
 
-Unit tests (Jest):
+Unit tests (Vitest):
 
 ```bash
 npm test          # run once
