@@ -30,6 +30,18 @@
       "script": "clean"
     },
     {
+      "label": "Check: Angular packages",
+      "detail": "Check for dependency updates using Angular CLI for the client website.",
+      "type": "shell",
+      "command": "ng update"
+    },
+    {
+      "label": "Update: Angular packages",
+      "detail": "Update dependencies using Angular CLI for the client website.",
+      "type": "shell",
+      "command": "ng update @angular/cli @angular/core @angular/material angular-eslint --allow-dirty"
+    },
+    {
       "label": "Check: Node packages",
       "detail": "Check for dependency updates in root and all workspace packages",
       "type": "shell",
@@ -39,7 +51,9 @@
       "label": "Update: Node packages",
       "detail": "Update dependencies in root and all workspace packages to latest versions",
       "type": "shell",
-      "command": "npx npm-check-updates --deep --peer --upgrade && pnpm install"
+      "command": "npx npm-check-updates --deep --peer --upgrade && npm install",
+      "dependsOn": "Update: Angular packages",
+      "dependsOrder": "sequence"
     },
     // ===================================
     // Lint and format
