@@ -1,7 +1,0 @@
-node_modules
-dist
-out
-coverage
-.angular
-.build
-.tmp
