@@ -7,7 +7,7 @@ describe("HomeComponent", () => {
   it("creates component", () => {
     TestBed.configureTestingModule({
       imports: [HomeComponent],
-      providers: [provideRouter([]), { provide: UtilityService, useValue: {} }],
+      providers: [provideRouter([]), { provide: UtilityService, useValue: {} }]
     });
     const fixture = TestBed.createComponent(HomeComponent);
     expect(fixture.componentInstance).toBeTruthy();

@@ -1,4 +1,4 @@
-import { Component, type OnInit, inject } from "@angular/core";
+import { Component, type OnInit, ChangeDetectionStrategy, inject } from "@angular/core";
 
 import { UtilityService } from "@services/utility.service";
 import { type Card } from "@components/site-card/card.model";
@@ -9,11 +9,11 @@ import { PatternFooterComponent } from "@components/pattern-footer/pattern-foote
 export const ID = "bubbles";
 
 @Component({
-  standalone: true,
   selector: "app-bubbles",
   templateUrl: "./bubbles.component.html",
   styleUrls: ["./bubbles.component.scss"],
   imports: [PatternHeaderComponent, PatternFooterComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BubblesComponent implements OnInit {
   readonly u = inject(UtilityService);
@@ -35,7 +35,7 @@ export class BubblesComponent implements OnInit {
         title: this.u.randomWords(20, 35),
         description: "",
         link: image.url,
-        image: `/assets/stock/${image.id}-600x315.webp`,
+        image: `/assets/stock/${image.id}-600x315.webp`
       };
       this.cards.push(card);
     }

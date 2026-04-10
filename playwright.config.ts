@@ -13,13 +13,13 @@ export default defineConfig({
     baseURL: process.env["PLAYWRIGHT_BASE_URL"] ?? "http://localhost:4200",
     trace: "on-first-retry",
     video: process.env["CI"] ? "retain-on-failure" : "on",
-    screenshot: "only-on-failure",
+    screenshot: "only-on-failure"
   },
 
   projects: [
     { name: "chromium", use: { ...devices["Desktop Chrome"] } },
     { name: "firefox", use: { ...devices["Desktop Firefox"] } },
-    { name: "webkit", use: { ...devices["Desktop Safari"] } },
+    { name: "webkit", use: { ...devices["Desktop Safari"] } }
   ],
 
   webServer: [
@@ -27,7 +27,7 @@ export default defineConfig({
       command: "npm run start:test",
       url: "http://localhost:4200",
       reuseExistingServer: !process.env["CI"],
-      timeout: 120_000,
-    },
-  ],
+      timeout: 120_000
+    }
+  ]
 });

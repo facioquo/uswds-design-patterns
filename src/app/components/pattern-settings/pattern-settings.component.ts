@@ -4,7 +4,6 @@ import { Component, ChangeDetectionStrategy } from "@angular/core";
   selector: "app-pattern-settings",
   templateUrl: "./pattern-settings.component.html",
   styleUrls: ["./pattern-settings.component.scss"],
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PatternSettingsComponent {}

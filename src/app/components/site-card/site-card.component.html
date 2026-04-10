@@ -1,35 +1,35 @@
-<div class="usa-card" id="{{ card.id }}">
-  <a class="usa-card__container" type="button" href="{{ card.link }}">
+<div class="usa-card" id="{{ card().id }}">
+  <a class="usa-card__container" type="button" href="{{ card().link }}">
     <div class="usa-card__header">
-      <h2 class="usa-card__heading">{{ card.title }}</h2>
+      <h2 class="usa-card__heading">{{ card().title }}</h2>
     </div>
     <div class="usa-card__media">
       <div class="usa-card__img">
         <!-- design pattern thumbnails -->
-        @if (!card.imageType) {
+        @if (!card().imageType) {
           <img
             class="easeload"
             onload="this.style.opacity=1"
-            ngSrc="{{ card.image }}"
+            ngSrc="{{ card().image }}"
             width="605"
             height="454"
-            priority="{{ i < 6 ? true : false }}"
+            priority="{{ i() < 6 ? true : false }}"
             alt=""
           />
         }
 
         <!-- if icon is used instead (and for suggestion card) -->
-        @if (card.imageType === "usa-icon") {
+        @if (card().imageType === "usa-icon") {
           <div class="icon-container">
             <svg class="usa-icon" alt="">
-              <use [attr.href]="'/assets/uswds/img/sprite.svg#' + card.image"></use>
+              <use [attr.href]="'/assets/uswds/img/sprite.svg#' + card().image"></use>
             </svg>
           </div>
         }
       </div>
     </div>
     <div class="usa-card__body">
-      <p innerHtml="{{ card.description }}"></p>
+      <p innerHtml="{{ card().description }}"></p>
     </div>
   </a>
 </div>

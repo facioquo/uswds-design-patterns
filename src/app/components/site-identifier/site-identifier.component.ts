@@ -7,7 +7,6 @@ import { NgOptimizedImage } from "@angular/common";
   templateUrl: "./site-identifier.component.html",
   styleUrls: ["./site-identifier.component.scss"],
   imports: [RouterLink, NgOptimizedImage],
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SiteIdentifierComponent {}

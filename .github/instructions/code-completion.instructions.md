@@ -7,7 +7,7 @@ description: "Repo-specific code completion checklist extensions for uswds-desig
 
 ## Commands
 
-- Package manager: npm (Node >= 22.17)
+- Package manager: npm (Node >= 24)
 - Install: npm install (use npm ci in CI)
 - Lint: npm run lint
 - Lint (fix): npm run lint:fix
@@ -22,7 +22,7 @@ description: "Repo-specific code completion checklist extensions for uswds-desig
 ## Policies
 
 - Zero-warning policy: lint must pass without errors; warnings allowed but should be addressed before merge.
-- Coverage thresholds (from jest.config.ts): branches 60%, functions 70%, lines 85%, statements 85%
+- Coverage thresholds (from vitest.config.ts): branches 60%, functions 70%, lines 85%, statements 85%
 - PR titles: Conventional but not enforced; prefer feat:, fix:, chore:, docs:, test:, refactor:
 - Required CI checks: build, lint, unit tests, and e2e must pass locally before PR.
 
@@ -55,5 +55,5 @@ npm run e2e
 ## Documentation updates
 
 - Update README.md if commands, minimum Node version, or scripts change.
-- Cross-reference: package.json scripts, angular.json configurations, jest.config.ts, playwright.config.ts.
+- Cross-reference: package.json scripts, angular.json configurations, vitest.config.ts, playwright.config.ts.
 - Exclusions: none.

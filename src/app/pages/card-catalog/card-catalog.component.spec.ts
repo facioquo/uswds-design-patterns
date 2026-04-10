@@ -13,17 +13,17 @@ describe("CardCatalogComponent", () => {
         title: "Card catalog",
         description: "",
         link: "",
-        image: "",
+        image: ""
       }),
-      randomWords: jest.fn().mockReturnValue("Title"),
-      randInt: jest.fn().mockReturnValue(0),
-      scrollToStart: jest.fn(),
-      scrollToEnd: jest.fn(),
+      randomWords: vi.fn().mockReturnValue("Title"),
+      randInt: vi.fn().mockReturnValue(0),
+      scrollToStart: vi.fn(),
+      scrollToEnd: vi.fn()
     } as unknown as UtilityService;
 
     await TestBed.configureTestingModule({
       imports: [CardCatalogComponent],
-      providers: [provideRouter([]), { provide: UtilityService, useValue: u }],
+      providers: [provideRouter([]), { provide: UtilityService, useValue: u }]
     }).compileComponents();
   });
 

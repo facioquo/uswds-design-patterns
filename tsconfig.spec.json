@@ -2,10 +2,11 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
-    "types": ["jest", "node"],
+    "types": ["vitest/globals", "node"],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },
-  "files": ["setup-jest.ts"],
-  "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
+  "files": ["setup-vitest.ts", "vitest.config.ts"],
+  "include": ["src/**/*.spec.ts", "src/**/*.d.ts"],
+  "exclude": ["node_modules"]
 }

@@ -9,13 +9,13 @@
           >
         </li>
         <li class="usa-breadcrumb__list-item">
-          <span>{{ patternName }}</span>
+          <span>{{ patternName() }}</span>
         </li>
       </ol>
     </nav>
 
     <!-- pattern intro -->
-    <h1>{{ patternName }}</h1>
+    <h1>{{ patternName() }}</h1>
     <ng-content></ng-content>
   </div>
 </section>

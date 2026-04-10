@@ -1,4 +1,4 @@
-import { Component, inject, type OnDestroy } from "@angular/core";
+import { Component, ChangeDetectionStrategy, inject, type OnDestroy } from "@angular/core";
 import { Meta } from "@angular/platform-browser";
 import { RouterLink } from "@angular/router";
 
@@ -7,7 +7,7 @@ import { RouterLink } from "@angular/router";
   templateUrl: "./404.component.html",
   styleUrls: ["./404.component.scss"],
   imports: [RouterLink],
-  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PageNotFoundComponent implements OnDestroy {
   private readonly meta = inject(Meta);

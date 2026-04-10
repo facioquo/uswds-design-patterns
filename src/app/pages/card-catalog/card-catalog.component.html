@@ -269,7 +269,8 @@
       <li class="usa-button-group__item">
         <button
           type="button"
-          [ngClass]="!classic ? 'usa-button' : 'usa-button usa-button--outline'"
+          class="usa-button"
+          [class.usa-button--outline]="classic"
           (click)="classic = false"
         >
           Show&nbsp;more
@@ -278,7 +279,8 @@
       <li class="usa-button-group__item">
         <button
           type="button"
-          [ngClass]="classic ? 'usa-button' : 'usa-button usa-button--outline'"
+          class="usa-button"
+          [class.usa-button--outline]="!classic"
           (click)="classic = true"
         >
           Classic

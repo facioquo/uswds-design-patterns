@@ -1,10 +1,164 @@
 {
-  // For more information, visit: https://go.microsoft.com/fwlink/?LinkId=733558
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format.
+  // Schema: https://code.visualstudio.com/docs/reference/tasks-appendix
+  "$schema": "vscode://schemas/tasks",
   "version": "2.0.0",
+  "presentation": {
+    "clear": true,
+    "panel": "dedicated",
+    "showReuseMessage": false
+  },
+  "problemMatcher": [],
+  "options": {
+    "cwd": "${workspaceFolder}"
+  },
   "tasks": [
+    // ===================================
+    // Install and update dependencies
+    // ===================================
     {
-      // Local dev server (ng serve)
-      "label": "local start",
+      "label": "Install: Node packages",
+      "detail": "Install npm workspace dependencies (npm packages)",
+      "type": "shell",
+      "command": "npm install"
+    },
+    {
+      "label": "Clean: Node packages",
+      "detail": "Delete node_modules and lock files",
+      "type": "npm",
+      "script": "clean"
+    },
+    {
+      "label": "Check: Angular packages",
+      "detail": "Check for dependency updates using Angular CLI for the client website.",
+      "type": "shell",
+      "command": "npx ng update"
+    },
+    {
+      "label": "Update: Angular packages",
+      "detail": "Update dependencies using Angular CLI for the client website.",
+      "type": "shell",
+      "command": "npx ng update @angular/cli @angular/core angular-eslint --allow-dirty"
+    },
+    {
+      "label": "Check: Node packages",
+      "detail": "Check for dependency updates in root and all workspace packages",
+      "type": "shell",
+      "command": "npx npm-check-updates --deep --peer"
+    },
+    {
+      "label": "Update: Node packages",
+      "detail": "Update dependencies in root and all workspace packages to latest versions",
+      "type": "shell",
+      "command": "npx npm-check-updates --deep --peer --upgrade && npm install",
+      "dependsOn": "Update: Angular packages",
+      "dependsOrder": "sequence"
+    },
+    // ===================================
+    // Lint and format
+    // ===================================
+    {
+      "label": "Test",
+      "detail": "Run vitest test suite",
+      "type": "npm",
+      "script": "test",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Lint: All (verify)",
+      "detail": "Run all linters, checks, and tests across the workspace (prettier + markdown + TypeScript + typecheck + tests)",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "dependsOn": [
+        "Lint: Markdown (verify)",
+        "Lint: Prettier (verify)",
+        "Lint: TypeScript (verify)",
+        "Lint: Typecheck (verify)",
+        "Test"
+      ],
+      "dependsOrder": "parallel",
+      "problemMatcher": [
+        "$markdownlint",
+        "$eslint-stylish",
+        "$tsc"
+      ]
+    },
+    {
+      "label": "Lint: All (fix)",
+      "detail": "Run all linters with auto-fix across the workspace (prettier + markdown + TypeScript)",
+      "dependsOn": [
+        "Install: Node packages",
+        "Lint: Prettier (fix)",
+        "Lint: Markdown (fix)",
+        "Lint: TypeScript (fix)"
+      ],
+      "dependsOrder": "sequence",
+      "problemMatcher": [
+        "$markdownlint",
+        "$eslint-stylish",
+        "$tsc"
+      ]
+    },
+    {
+      "label": "Lint: Markdown (verify)",
+      "detail": "Verify formatting for all markdown files",
+      "type": "shell",
+      "command": "npx markdownlint-cli2",
+      "problemMatcher": "$markdownlint"
+    },
+    {
+      "label": "Lint: Markdown (fix)",
+      "detail": "Auto-fix formatting for all markdown files",
+      "type": "shell",
+      "command": "npx markdownlint-cli2 --fix",
+      "problemMatcher": "$markdownlint"
+    },
+    {
+      "label": "Lint: Prettier (verify)",
+      "detail": "Run Prettier check across the workspace",
+      "type": "npm",
+      "script": "lint:prettier"
+    },
+    {
+      "label": "Lint: Prettier (fix)",
+      "detail": "Run Prettier write across the workspace",
+      "type": "npm",
+      "script": "lint:prettier:fix",
+      "dependsOn": "Install: Node packages",
+      "dependsOrder": "sequence"
+    },
+    {
+      "label": "Lint: TypeScript (verify)",
+      "detail": "Run ESLint on TypeScript files",
+      "type": "npm",
+      "script": "lint:ts",
+      "problemMatcher": "$eslint-stylish"
+    },
+    {
+      "label": "Lint: TypeScript (fix)",
+      "detail": "Auto-fix ESLint issues in TypeScript files",
+      "type": "npm",
+      "script": "lint:ts:fix",
+      "problemMatcher": "$eslint-stylish"
+    },
+    {
+      "label": "Lint: Typecheck (verify)",
+      "detail": "Run TypeScript type checking without emitting files",
+      "type": "npm",
+      "script": "typecheck",
+      "problemMatcher": "$tsc"
+    },
+    // ===================================
+    // Serve application
+    // ===================================
+    {
+      "label": "Run: Website dev server",
       "type": "npm",
       "script": "start",
       "isBackground": true,
