@@ -7,7 +7,7 @@ import { SiteBannerComponent } from "./components/site-banner/site-banner.compon
   selector: "app-root",
   templateUrl: "./app.component.html",
   standalone: true,
-  imports: [RouterOutlet, SiteBannerComponent, SiteIdentifierComponent],
+  imports: [RouterOutlet, SiteBannerComponent, SiteIdentifierComponent]
 })
 export class AppComponent {
   // TitleStrategy handles SEO meta; no extra init required here.

@@ -18,7 +18,7 @@ describe("SEO via TitleStrategy + route data", () => {
             path: "",
             title: "Home",
             data: { meta: { description: "design pattern idea book" } },
-            component: TestHostComponent,
+            component: TestHostComponent
           },
           {
             path: "bubbles",
@@ -26,13 +26,13 @@ describe("SEO via TitleStrategy + route data", () => {
             data: {
               meta: {
                 description: "floating collection of bubble",
-                image: "/assets/thumbnails/bubbles.png?v=YYYY.MM.DD",
-              },
+                image: "/assets/thumbnails/bubbles.png?v=YYYY.MM.DD"
+              }
             },
-            component: TestHostComponent,
-          },
-        ]),
-      ],
+            component: TestHostComponent
+          }
+        ])
+      ]
     }).compileComponents();
 
     const meta = TestBed.inject(Meta);

@@ -15,7 +15,7 @@ export const ID = "hero-overlay";
   selector: "app-hero-overlay",
   templateUrl: "./hero-overlay.component.html",
   styleUrls: ["./hero-overlay.component.scss"],
-  imports: [PatternHeaderComponent, PatternFooterComponent],
+  imports: [PatternHeaderComponent, PatternFooterComponent]
 })
 export class HeroOverlayComponent implements OnInit, OnDestroy {
   readonly u = inject(UtilityService);

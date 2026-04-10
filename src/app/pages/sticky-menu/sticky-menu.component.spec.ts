@@ -11,13 +11,13 @@ describe("StickyMenuComponent", () => {
         title: "Sticky process menu",
         description: "",
         link: "",
-        image: "",
-      }),
+        image: ""
+      })
     } as unknown as UtilityService;
 
     await TestBed.configureTestingModule({
       imports: [StickyMenuComponent],
-      providers: [provideRouter([]), { provide: UtilityService, useValue: u }],
+      providers: [provideRouter([]), { provide: UtilityService, useValue: u }]
     }).compileComponents();
   });
 

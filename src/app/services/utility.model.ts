@@ -1950,5 +1950,5 @@ export const WORD_LIST: string[] = [
   "zebra",
   "zipper",
   "zoo",
-  "zulu",
+  "zulu"
 ];

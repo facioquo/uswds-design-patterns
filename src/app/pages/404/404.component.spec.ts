@@ -7,7 +7,7 @@ describe("PageNotFoundComponent", () => {
   it("sets robots noindex on construct", () => {
     TestBed.configureTestingModule({
       imports: [PageNotFoundComponent],
-      providers: [provideRouter([]), Meta],
+      providers: [provideRouter([]), Meta]
     });
     TestBed.createComponent(PageNotFoundComponent);
     const meta = TestBed.inject(Meta);

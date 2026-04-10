@@ -4,7 +4,7 @@ import { WORD_LIST } from "./utility.model";
 import { type Card, PATTERNS } from "src/app/pages/patterns.model";
 
 @Injectable({
-  providedIn: "root",
+  providedIn: "root"
 })
 export class UtilityService {
   // DESIGN PATTERN CARD LOOKUP

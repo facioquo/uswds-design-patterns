@@ -11,13 +11,13 @@ describe("HeroOverlayComponent", () => {
         title: "Hero callout overlay",
         description: "",
         link: "",
-        image: "",
-      }),
+        image: ""
+      })
     } as unknown as UtilityService;
 
     await TestBed.configureTestingModule({
       imports: [HeroOverlayComponent],
-      providers: [provideRouter([]), { provide: UtilityService, useValue: u }],
+      providers: [provideRouter([]), { provide: UtilityService, useValue: u }]
     }).compileComponents();
   });
 

@@ -12,7 +12,7 @@ export const ID = "sticky-menu";
   selector: "app-sticky-menu",
   templateUrl: "./sticky-menu.component.html",
   styleUrls: ["./sticky-menu.component.scss"],
-  imports: [PatternHeaderComponent, PatternFooterComponent],
+  imports: [PatternHeaderComponent, PatternFooterComponent]
 })
 export class StickyMenuComponent {
   readonly u = inject(UtilityService);

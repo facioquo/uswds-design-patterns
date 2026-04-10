@@ -22,8 +22,8 @@ export const ID = "card-catalog";
     PatternSettingsComponent,
     FormsModule,
     NgClass,
-    PatternFooterComponent,
-  ],
+    PatternFooterComponent
+  ]
 })
 export class CardCatalogComponent implements OnInit {
   readonly u = inject(UtilityService);
@@ -76,7 +76,7 @@ export class CardCatalogComponent implements OnInit {
         title: this.u.randomWords(15, 65),
         description: `<small>Photo by ${image.author}.</small><br />${this.u.randomWords(25, 90)}.`,
         link: image.url,
-        image: `/assets/stock/${image.id}-600x315.webp`,
+        image: `/assets/stock/${image.id}-600x315.webp`
       };
 
       // set scroll target to first new card

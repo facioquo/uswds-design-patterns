@@ -7,7 +7,7 @@ import { RouterLink } from "@angular/router";
   selector: "app-pattern-footer",
   templateUrl: "./pattern-footer.component.html",
   styleUrls: ["./pattern-footer.component.scss"],
-  imports: [RouterLink],
+  imports: [RouterLink]
 })
 export class PatternFooterComponent {
   readonly u = inject(UtilityService);

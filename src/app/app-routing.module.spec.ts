@@ -21,23 +21,23 @@ describe("Routing titles", () => {
             path: "",
             title: SITE_TITLE,
             data: { meta: { description: "Home" } },
-            loadComponent: () => import("./pages/home/home.component").then((m) => m.HomeComponent),
+            loadComponent: () => import("./pages/home/home.component").then((m) => m.HomeComponent)
           },
           {
             path: "bubbles",
             title: "Floating bubbles",
             data: { meta: { description: "Bubbles" } },
             loadComponent: () =>
-              import("./pages/bubbles/bubbles.component").then((m) => m.BubblesComponent),
+              import("./pages/bubbles/bubbles.component").then((m) => m.BubblesComponent)
           },
           {
             path: "**",
             title: "Page not found",
             loadComponent: () =>
-              import("./pages/404/404.component").then((m) => m.PageNotFoundComponent),
-          },
-        ]),
-      ],
+              import("./pages/404/404.component").then((m) => m.PageNotFoundComponent)
+          }
+        ])
+      ]
     });
     title = TestBed.inject(Title);
     harness = await RouterTestingHarness.create();

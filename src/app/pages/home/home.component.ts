@@ -11,7 +11,7 @@ import { SiteCardComponent } from "@components/site-card/site-card.component";
   selector: "app-home",
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"],
-  imports: [SiteCardComponent],
+  imports: [SiteCardComponent]
 })
 export class HomeComponent {
   readonly u = inject(UtilityService);
@@ -26,6 +26,6 @@ export class HomeComponent {
     description: "What are we missing?  Send us new design pattern ideas.",
     link: "https://github.com/facioquo/uswds-design-patterns/issues/new?labels=enhancement&template=feature_request.md",
     image: "add",
-    imageType: "usa-icon",
+    imageType: "usa-icon"
   };
 }

@@ -9,7 +9,8 @@
     "panel": "dedicated",
     "showReuseMessage": false
   },
-  "problemMatcher": [],
+  "problemMatcher": [
+],
   "options": {
     "cwd": "${workspaceFolder}"
   },
@@ -83,7 +84,11 @@
         "Test"
       ],
       "dependsOrder": "parallel",
-      "problemMatcher": ["$markdownlint", "$eslint-stylish", "$tsc"]
+      "problemMatcher": [
+"$markdownlint",
+"$eslint-stylish",
+"$tsc"
+]
     },
     {
       "label": "Lint: All (fix)",
@@ -95,7 +100,11 @@
         "Lint: TypeScript (fix)"
       ],
       "dependsOrder": "sequence",
-      "problemMatcher": ["$markdownlint", "$eslint-stylish", "$tsc"]
+      "problemMatcher": [
+"$markdownlint",
+"$eslint-stylish",
+"$tsc"
+]
     },
     {
       "label": "Lint: Markdown (verify)",

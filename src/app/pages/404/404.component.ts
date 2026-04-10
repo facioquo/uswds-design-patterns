@@ -7,7 +7,7 @@ import { RouterLink } from "@angular/router";
   templateUrl: "./404.component.html",
   styleUrls: ["./404.component.scss"],
   imports: [RouterLink],
-  standalone: true,
+  standalone: true
 })
 export class PageNotFoundComponent implements OnDestroy {
   private readonly meta = inject(Meta);

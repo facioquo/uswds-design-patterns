@@ -13,9 +13,9 @@ const config: Config = {
       "jest-preset-angular",
       {
         tsconfig: "<rootDir>/tsconfig.spec.json",
-        stringifyContentPathRegex: "\\.(html|svg)$",
-      },
-    ],
+        stringifyContentPathRegex: "\\.(html|svg)$"
+      }
+    ]
   },
   moduleFileExtensions: ["ts", "html", "js", "json"],
   // Transform ESM from specific libs often shipped untranspiled
@@ -27,18 +27,18 @@ const config: Config = {
     "^@components/(.*)$": "<rootDir>/src/app/components/$1",
     "^@services$": "<rootDir>/src/app/services/index.ts",
     "^@services/(.*)$": "<rootDir>/src/app/services/$1",
-    "\\.(css|scss)$": "identity-obj-proxy",
+    "\\.(css|scss)$": "identity-obj-proxy"
   },
   snapshotSerializers: [
     "jest-preset-angular/build/serializers/no-ng-attributes",
     "jest-preset-angular/build/serializers/ng-snapshot",
-    "jest-preset-angular/build/serializers/html-comment",
+    "jest-preset-angular/build/serializers/html-comment"
   ],
   collectCoverageFrom: [
     "src/app/**/*.ts",
     "!src/main.ts",
     "!src/**/*.module.ts",
-    "!src/**/*.routing.ts",
+    "!src/**/*.routing.ts"
   ],
   coverageDirectory: "<rootDir>/coverage",
   coverageReporters: ["json-summary", "text", "lcov", "json"],
@@ -47,9 +47,9 @@ const config: Config = {
       branches: 60,
       functions: 70,
       lines: 85,
-      statements: 85,
-    },
-  },
+      statements: 85
+    }
+  }
 };
 
 export default config;

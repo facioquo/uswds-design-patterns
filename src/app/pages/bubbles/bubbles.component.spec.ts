@@ -11,15 +11,15 @@ describe("BubblesComponent", () => {
         title: "Floating bubbles",
         description: "",
         link: "",
-        image: "",
+        image: ""
       }),
       randInt: jest.fn().mockReturnValue(0),
-      randomWords: jest.fn().mockReturnValue("Mock title"),
+      randomWords: jest.fn().mockReturnValue("Mock title")
     } as unknown as UtilityService;
 
     await TestBed.configureTestingModule({
       imports: [BubblesComponent],
-      providers: [provideRouter([]), { provide: UtilityService, useValue: u }],
+      providers: [provideRouter([]), { provide: UtilityService, useValue: u }]
     }).compileComponents();
   });
 

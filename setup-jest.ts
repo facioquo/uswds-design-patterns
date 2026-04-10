@@ -5,7 +5,7 @@ import { setupZoneTestEnv } from "jest-preset-angular/setup-env/zone";
 // window.scrollTo is not implemented in JSDOM
 Object.defineProperty(window, "scrollTo", {
   value: () => void 0,
-  writable: true,
+  writable: true
 });
 
 // ResizeObserver is used by some components/libraries; provide a lightweight stub
@@ -27,7 +27,7 @@ if (!(global as any).TextDecoder) {
 
 // Initialize Angular testing environment via preset helper
 setupZoneTestEnv({
-  teardown: { destroyAfterEach: false, rethrowErrors: true },
+  teardown: { destroyAfterEach: false, rethrowErrors: true }
 });
 
 // matchMedia stub for components using media queries in tests
@@ -42,7 +42,7 @@ if (!("matchMedia" in window)) {
       removeListener: () => {}, // deprecated
       addEventListener: () => {},
       removeEventListener: () => {},
-      dispatchEvent: () => false,
-    }),
+      dispatchEvent: () => false
+    })
   });
 }
