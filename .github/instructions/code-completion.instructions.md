@@ -7,7 +7,7 @@ description: "Repo-specific code completion checklist extensions for uswds-desig
 
 ## Commands
 
-- Package manager: npm (Node >= 22.17)
+- Package manager: npm (Node >= 24)
 - Install: npm install (use npm ci in CI)
 - Lint: npm run lint
 - Lint (fix): npm run lint:fix

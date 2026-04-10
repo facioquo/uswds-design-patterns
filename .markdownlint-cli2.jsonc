@@ -2,7 +2,6 @@
   "globs": ["**/*.md"],
   "gitignore": true,
   "ignores": [
-    "node_modules/**",
     "**/node_modules/**",
     "dist/**",
     "out/**",

@@ -1,3 +1,4 @@
+import { provideZoneChangeDetection } from "@angular/core";
 import { bootstrapApplication } from "@angular/platform-browser";
 import { Meta, Title, provideClientHydration } from "@angular/platform-browser";
 import {
@@ -15,6 +16,7 @@ import { SITE_TITLE } from "./app/services/site.constants";
 
 bootstrapApplication(AppComponent, {
   providers: [
+    provideZoneChangeDetection(),
     Meta,
     Title,
     UtilityService,

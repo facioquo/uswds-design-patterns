@@ -10,7 +10,7 @@
     "showReuseMessage": false
   },
   "problemMatcher": [
-],
+  ],
   "options": {
     "cwd": "${workspaceFolder}"
   },
@@ -34,13 +34,13 @@
       "label": "Check: Angular packages",
       "detail": "Check for dependency updates using Angular CLI for the client website.",
       "type": "shell",
-      "command": "ng update"
+      "command": "npx ng update"
     },
     {
       "label": "Update: Angular packages",
       "detail": "Update dependencies using Angular CLI for the client website.",
       "type": "shell",
-      "command": "ng update @angular/cli @angular/core @angular/material angular-eslint --allow-dirty"
+      "command": "npx ng update @angular/cli @angular/core angular-eslint --allow-dirty"
     },
     {
       "label": "Check: Node packages",
@@ -61,7 +61,7 @@
     // ===================================
     {
       "label": "Test",
-      "detail": "Run vitest test suite",
+      "detail": "Run jest test suite",
       "type": "npm",
       "script": "test",
       "group": {
@@ -71,7 +71,7 @@
     },
     {
       "label": "Lint: All (verify)",
-      "detail": "Run all linters, checks, and tests across the workspace (prettier + markdown + TypeScript + typecheck + ai + tests)",
+      "detail": "Run all linters, checks, and tests across the workspace (prettier + markdown + TypeScript + typecheck + tests)",
       "group": {
         "kind": "build",
         "isDefault": true
@@ -85,10 +85,10 @@
       ],
       "dependsOrder": "parallel",
       "problemMatcher": [
-"$markdownlint",
-"$eslint-stylish",
-"$tsc"
-]
+        "$markdownlint",
+        "$eslint-stylish",
+        "$tsc"
+      ]
     },
     {
       "label": "Lint: All (fix)",
@@ -101,10 +101,10 @@
       ],
       "dependsOrder": "sequence",
       "problemMatcher": [
-"$markdownlint",
-"$eslint-stylish",
-"$tsc"
-]
+        "$markdownlint",
+        "$eslint-stylish",
+        "$tsc"
+      ]
     },
     {
       "label": "Lint: Markdown (verify)",
