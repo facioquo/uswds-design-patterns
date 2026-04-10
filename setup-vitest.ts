@@ -38,5 +38,5 @@ if (!("matchMedia" in window)) {
 
 // Initialize Angular testing environment
 getTestBed().initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting(), {
-  teardown: { destroyAfterEach: false, rethrowErrors: true }
+  teardown: { destroyAfterEach: true, rethrowErrors: true }
 });
