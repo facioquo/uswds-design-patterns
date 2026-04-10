@@ -13,11 +13,18 @@ Object.defineProperty(window, "scrollTo", {
 
 // ResizeObserver stub for components/libraries that use it
 class ResizeObserver {
-  observe() {}
-  unobserve() {}
-  disconnect() {}
+  observe(): void {
+    return;
+  }
+  unobserve(): void {
+    return;
+  }
+  disconnect(): void {
+    return;
+  }
 }
-(global as any).ResizeObserver = (global as any).ResizeObserver || ResizeObserver;
+const g = globalThis as Record<string, unknown>;
+g["ResizeObserver"] ??= ResizeObserver;
 
 // matchMedia stub for components using media queries in tests
 if (!("matchMedia" in window)) {
@@ -27,10 +34,18 @@ if (!("matchMedia" in window)) {
       matches: false,
       media: query,
       onchange: null,
-      addListener: () => {},
-      removeListener: () => {},
-      addEventListener: () => {},
-      removeEventListener: () => {},
+      addListener: (): void => {
+        return;
+      },
+      removeListener: (): void => {
+        return;
+      },
+      addEventListener: (): void => {
+        return;
+      },
+      removeEventListener: (): void => {
+        return;
+      },
       dispatchEvent: () => false
     })
   });

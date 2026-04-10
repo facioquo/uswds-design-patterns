@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, ChangeDetectionStrategy, input } from "@angular/core";
 import { type Card } from "./card.model";
 import { NgOptimizedImage } from "@angular/common";
 
@@ -7,9 +7,9 @@ import { NgOptimizedImage } from "@angular/common";
   templateUrl: "./site-card.component.html",
   styleUrls: ["./site-card.component.scss"],
   imports: [NgOptimizedImage],
-  standalone: true
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SiteCardComponent {
-  @Input() card!: Card;
-  @Input() i!: number;
+  card = input.required<Card>();
+  i = input.required<number>();
 }

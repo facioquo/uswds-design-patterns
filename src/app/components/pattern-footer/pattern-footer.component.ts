@@ -1,16 +1,16 @@
-import { Component, Input, inject } from "@angular/core";
+import { Component, ChangeDetectionStrategy, input, inject } from "@angular/core";
 import { UtilityService } from "@services/utility.service";
 import { RouterLink } from "@angular/router";
 
 @Component({
-  standalone: true,
   selector: "app-pattern-footer",
   templateUrl: "./pattern-footer.component.html",
   styleUrls: ["./pattern-footer.component.scss"],
-  imports: [RouterLink]
+  imports: [RouterLink],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PatternFooterComponent {
   readonly u = inject(UtilityService);
 
-  @Input() githubFolder = "";
+  githubFolder = input("");
 }

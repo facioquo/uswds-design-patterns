@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { Component, ChangeDetectionStrategy, inject } from "@angular/core";
 
 import { UtilityService } from "@services/utility.service";
 
@@ -11,7 +11,8 @@ import { SiteCardComponent } from "@components/site-card/site-card.component";
   selector: "app-home",
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"],
-  imports: [SiteCardComponent]
+  imports: [SiteCardComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {
   readonly u = inject(UtilityService);

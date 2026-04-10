@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { Component, ChangeDetectionStrategy, inject } from "@angular/core";
 
 import { UtilityService } from "@services/utility.service";
 import { type Card } from "../patterns.model";
@@ -8,11 +8,11 @@ import { PatternFooterComponent } from "@components/pattern-footer/pattern-foote
 export const ID = "sticky-menu";
 
 @Component({
-  standalone: true,
   selector: "app-sticky-menu",
   templateUrl: "./sticky-menu.component.html",
   styleUrls: ["./sticky-menu.component.scss"],
-  imports: [PatternHeaderComponent, PatternFooterComponent]
+  imports: [PatternHeaderComponent, PatternFooterComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StickyMenuComponent {
   readonly u = inject(UtilityService);

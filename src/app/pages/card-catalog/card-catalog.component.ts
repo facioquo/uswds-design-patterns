@@ -1,10 +1,10 @@
-import { Component, type OnInit, inject } from "@angular/core";
+import { Component, type OnInit, ChangeDetectionStrategy, inject } from "@angular/core";
 
 import { UtilityService } from "@services/utility.service";
 import { type Card } from "@components/site-card/card.model";
 import { type Image, IMAGES } from "../image.model";
 import { PatternHeaderComponent } from "@components/pattern-header/pattern-header.component";
-import { NgOptimizedImage, NgClass } from "@angular/common";
+import { NgOptimizedImage } from "@angular/common";
 import { PatternSettingsComponent } from "@components/pattern-settings/pattern-settings.component";
 import { FormsModule } from "@angular/forms";
 import { PatternFooterComponent } from "@components/pattern-footer/pattern-footer.component";
@@ -12,7 +12,6 @@ import { PatternFooterComponent } from "@components/pattern-footer/pattern-foote
 export const ID = "card-catalog";
 
 @Component({
-  standalone: true,
   selector: "app-card-catalog",
   templateUrl: "./card-catalog.component.html",
   styleUrls: ["./card-catalog.component.scss"],
@@ -21,9 +20,9 @@ export const ID = "card-catalog";
     NgOptimizedImage,
     PatternSettingsComponent,
     FormsModule,
-    NgClass,
     PatternFooterComponent
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardCatalogComponent implements OnInit {
   readonly u = inject(UtilityService);
