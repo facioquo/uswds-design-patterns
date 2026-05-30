@@ -1,4 +1,4 @@
-name: Test website
+name: CI
 
 on:
   push:
@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  lint-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
