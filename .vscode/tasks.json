@@ -39,7 +39,9 @@
       "label": "Update: Angular packages",
       "detail": "Update dependencies using Angular CLI for the client website.",
       "type": "shell",
-      "command": "npx ng update @angular/cli @angular/core angular-eslint --allow-dirty"
+      "command": "npx ng update @angular/cli @angular/core angular-eslint --allow-dirty",
+      "dependsOn": "Install: Node packages",
+      "dependsOrder": "sequence"
     },
     {
       "label": "Check: Node packages",
