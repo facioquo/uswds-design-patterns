@@ -59,9 +59,9 @@ jobs:
         run: npm run build
 
       - name: Publish to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_KEY }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: ./
           command: pages deploy dist/app/browser --project-name ${{ vars.CLOUDFLARE_PROJECT_NAME }}
