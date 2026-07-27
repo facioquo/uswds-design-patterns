@@ -16,7 +16,8 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: website
+      name: ${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }}
+      url: ${{ steps.deploy.outputs.pages-deployment-alias-url }}
 
     steps:
       - name: Checkout source
@@ -59,6 +60,7 @@ jobs:
         run: npm run build
 
       - name: Publish to Cloudflare Pages
+        id: deploy
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
