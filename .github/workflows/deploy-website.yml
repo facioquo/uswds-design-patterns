@@ -64,7 +64,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: ./
-          command: pages deploy dist/app/browser --project-name ${{ vars.CLOUDFLARE_PROJECT_NAME }}
+          command: pages deploy dist/app/browser --project-name uswds-design-patterns
 
       - name: Tag and release note
         uses: ncipollo/release-action@v1
