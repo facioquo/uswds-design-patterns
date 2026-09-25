@@ -106,6 +106,12 @@ module.exports = tseslint.config(
       "@typescript-eslint/unbound-method": "off"
     }
   },
+  {
+    files: ["src/**/*.d.ts"],
+    linterOptions: {
+      reportUnusedDisableDirectives: false
+    }
+  },
   // Enforce JSON style in VS Code settings: multiline arrays for readability
   {
     files: [".vscode/**/*.json", ".vscode/**/*.jsonc"],
