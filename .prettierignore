@@ -4,6 +4,7 @@ playwright-report/
 test-results/
 *.log
 *.lock
+pnpm-lock.yaml
 node_modules/
 **/*.md
 **/*.markdown
