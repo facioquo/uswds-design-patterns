@@ -6,6 +6,7 @@ test-results/
 *.lock
 pnpm-lock.yaml
 node_modules/
+.playwright/
 **/*.md
 **/*.markdown
 

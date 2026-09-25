@@ -11,6 +11,7 @@ module.exports = tseslint.config(
   {
     ignores: [
       "node_modules/**",
+      ".playwright/**",
       "dist/**",
       "coverage/**",
       "playwright-report/**",
