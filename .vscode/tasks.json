@@ -13,9 +13,9 @@
   "tasks": [
     {
       "label": "Install: Dependencies",
-      "detail": "Install workspace dependencies from the pnpm lockfile.",
+      "detail": "Install workspace dependencies.",
       "type": "shell",
-      "command": "pnpm install --frozen-lockfile"
+      "command": "pnpm install"
     },
     {
       "label": "Install: Playwright browsers",
