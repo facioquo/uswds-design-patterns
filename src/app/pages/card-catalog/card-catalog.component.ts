@@ -14,7 +14,7 @@ export const ID = "card-catalog";
 @Component({
   selector: "app-card-catalog",
   templateUrl: "./card-catalog.component.html",
-  styleUrls: ["./card-catalog.component.scss"],
+  styleUrl: "./card-catalog.component.scss",
   imports: [
     PatternHeaderComponent,
     NgOptimizedImage,

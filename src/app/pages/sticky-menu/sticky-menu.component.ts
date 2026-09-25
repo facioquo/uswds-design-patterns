@@ -10,7 +10,7 @@ export const ID = "sticky-menu";
 @Component({
   selector: "app-sticky-menu",
   templateUrl: "./sticky-menu.component.html",
-  styleUrls: ["./sticky-menu.component.scss"],
+  styleUrl: "./sticky-menu.component.scss",
   imports: [PatternHeaderComponent, PatternFooterComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

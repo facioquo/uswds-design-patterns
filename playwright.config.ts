@@ -24,7 +24,7 @@ export default defineConfig({
 
   webServer: [
     {
-      command: "npm run start:test",
+      command: "pnpm run start:test",
       url: "http://localhost:4200",
       reuseExistingServer: !process.env["CI"],
       timeout: 120_000

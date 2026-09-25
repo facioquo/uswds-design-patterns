@@ -1,6 +1,5 @@
 import { provideZoneChangeDetection } from "@angular/core";
-import { bootstrapApplication } from "@angular/platform-browser";
-import { Meta, Title, provideClientHydration } from "@angular/platform-browser";
+import { bootstrapApplication, Meta, Title } from "@angular/platform-browser";
 import {
   provideRouter,
   PreloadAllModules,
@@ -21,7 +20,6 @@ bootstrapApplication(AppComponent, {
     Title,
     UtilityService,
     { provide: TitleStrategy, useClass: AppTitleStrategy },
-    provideClientHydration(),
     provideRouter(
       [
         {

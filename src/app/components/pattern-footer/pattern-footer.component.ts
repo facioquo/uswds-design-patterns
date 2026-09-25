@@ -5,7 +5,7 @@ import { RouterLink } from "@angular/router";
 @Component({
   selector: "app-pattern-footer",
   templateUrl: "./pattern-footer.component.html",
-  styleUrls: ["./pattern-footer.component.scss"],
+  styleUrl: "./pattern-footer.component.scss",
   imports: [RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

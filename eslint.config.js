@@ -31,7 +31,7 @@ module.exports = tseslint.config(
     ],
     languageOptions: {
       parserOptions: {
-        project: ["./tsconfig.json", "./tsconfig.spec.json"],
+        project: ["./tsconfig.json", "./tsconfig.spec.json", "./tsconfig.e2e.json"],
         tsconfigRootDir: __dirname
       }
     },
@@ -53,6 +53,7 @@ module.exports = tseslint.config(
         { prefer: "type-imports", fixStyle: "inline-type-imports", disallowTypeAnnotations: false }
       ],
       "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+      "@typescript-eslint/dot-notation": ["error", { allowIndexSignaturePropertyAccess: true }],
       "@typescript-eslint/no-unused-vars": [
         "warn",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_", caughtErrorsIgnorePattern: "^_" }

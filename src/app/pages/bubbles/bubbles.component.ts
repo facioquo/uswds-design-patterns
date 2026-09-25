@@ -11,7 +11,7 @@ export const ID = "bubbles";
 @Component({
   selector: "app-bubbles",
   templateUrl: "./bubbles.component.html",
-  styleUrls: ["./bubbles.component.scss"],
+  styleUrl: "./bubbles.component.scss",
   imports: [PatternHeaderComponent, PatternFooterComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

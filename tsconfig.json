@@ -18,11 +18,10 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "useDefineForClassFields": false,
     "paths": {
-      "@components": ["./src/app/components/index.ts"],
       "@components/*": ["./src/app/components/*"],
-      "@services": ["./src/app/services/index.ts"],
       "@services/*": ["./src/app/services/*"]
     }
   },
@@ -32,5 +31,5 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "exclude": ["src/**/*.spec.ts", "setup-vitest.ts", "vitest.config.ts"]
+  "exclude": ["src/**/*.spec.ts", "setup-vitest.ts", "e2e/**/*.ts", "playwright.config.ts"]
 }

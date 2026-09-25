@@ -1,18 +1,11 @@
-import "@analogjs/vitest-angular/setup-zone";
-import { getTestBed } from "@angular/core/testing";
-import {
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting
-} from "@angular/platform-browser-dynamic/testing";
-
-// window.scrollTo is not implemented in JSDOM
+// JSDOM does not implement scrolling.
 Object.defineProperty(window, "scrollTo", {
   value: () => void 0,
   writable: true
 });
 
-// ResizeObserver stub for components/libraries that use it
-class ResizeObserver {
+// Provide browser APIs used by responsive components.
+class ResizeObserverStub {
   observe(): void {
     return;
   }
@@ -24,9 +17,8 @@ class ResizeObserver {
   }
 }
 const g = globalThis as Record<string, unknown>;
-g["ResizeObserver"] ??= ResizeObserver;
+g["ResizeObserver"] ??= ResizeObserverStub;
 
-// matchMedia stub for components using media queries in tests
 if (!("matchMedia" in window)) {
   Object.defineProperty(window, "matchMedia", {
     writable: true,
@@ -50,8 +42,3 @@ if (!("matchMedia" in window)) {
     })
   });
 }
-
-// Initialize Angular testing environment
-getTestBed().initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting(), {
-  teardown: { destroyAfterEach: true, rethrowErrors: true }
-});

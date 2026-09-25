@@ -41,24 +41,12 @@
                 "glob": "**/*",
                 "input": "./node_modules/@uswds/uswds/dist/fonts/",
                 "output": "/assets/uswds/fonts/"
-              },
-              {
-                "glob": "**/*",
-                "input": "./node_modules/@uswds/uswds/dist/js/",
-                "output": "/assets/uswds/js/"
               }
             ],
             "stylePreprocessorOptions": {
               "includePaths": ["./node_modules/@uswds/uswds/packages", "."]
             },
             "styles": ["./sass/uswds-styles.scss"],
-            "scripts": [
-              {
-                "input": "./node_modules/@uswds/uswds/dist/js/uswds.min.js",
-                "inject": true,
-                "bundleName": "uswds"
-              }
-            ],
             "allowedCommonJsDependencies": ["@uswds/uswds/js/usa-modal"],
             "sourceMap": {
               "scripts": true,
@@ -102,6 +90,21 @@
           "builder": "angular-eslint:lint",
           "options": {
             "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+          }
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "setupFiles": ["setup-vitest.ts"],
+            "coverageInclude": ["src/app/**/*.ts"],
+            "coverageExclude": ["src/main.ts", "src/**/*.module.ts", "src/**/*.routing.ts"],
+            "coverageReporters": ["json-summary", "text", "lcov", "json"],
+            "coverageThresholds": {
+              "branches": 60,
+              "functions": 70,
+              "lines": 85,
+              "statements": 85
+            }
           }
         }
       }
