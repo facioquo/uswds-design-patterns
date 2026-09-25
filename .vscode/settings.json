@@ -2,8 +2,7 @@
   "search.exclude": {
     "**/.angular": true,
     "**/dist": true,
-    "**/node_modules": true,
-    "**/package-lock.json": true
+    "**/node_modules": true
   },
   "[markdown]": {
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",

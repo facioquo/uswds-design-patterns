@@ -29,12 +29,22 @@ export class HeroOverlayComponent implements OnInit, OnDestroy {
 
   public pattern: Card = this.u.getPatternCard(ID);
 
+  #modal: HTMLElement | null = null;
+
   ngOnInit(): void {
+    this.#modal = this.#element.nativeElement.querySelector(".usa-modal");
     modal.on(this.#element.nativeElement);
   }
 
   ngOnDestroy(): void {
-    // USWDS moves initialized modals to document.body, outside this component.
-    modal.off();
+    if (!this.#modal) return;
+
+    // Close an open modal first so USWDS restores the page's body state and aria-hidden.
+    if (this.#modal.closest(".usa-modal-wrapper.is-visible")) {
+      this.#modal.querySelector<HTMLElement>("[data-close-modal]")?.click();
+    }
+
+    // USWDS moves initialized modals to document.body, so tear down by the modal element itself.
+    modal.off(this.#modal);
   }
 }

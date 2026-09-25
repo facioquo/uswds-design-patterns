@@ -31,4 +31,26 @@ test.describe("Navigation", () => {
     await page.goto("/hero-overlay");
     await expect(page.locator(".usa-modal-wrapper")).toHaveCount(1);
   });
+
+  test("USWDS modal tears down when leaving the route while open", async ({ page }) => {
+    await page.goto("/hero-overlay");
+
+    for (let cycle = 0; cycle < 3; cycle++) {
+      await expect(page.locator(".usa-modal-wrapper")).toHaveCount(1);
+      await page.locator("[data-open-modal]").click();
+      await expect(page.getByRole("heading", { name: "Do you agree?" })).toBeVisible();
+
+      // The open modal hides the page from the accessibility tree, so click the router link directly.
+      await page.locator("a", { hasText: "More patterns" }).evaluate((link: HTMLElement) => {
+        link.click();
+      });
+      await expect(page).toHaveURL(/\/#design-patterns$/);
+      await expect(page.locator(".usa-modal-wrapper")).toHaveCount(0);
+      await expect(page.locator("#call-to-action-modal")).toHaveCount(0);
+      await expect(page.locator("body")).not.toHaveClass(/usa-js-modal--active/);
+
+      await page.goBack();
+      await expect(page).toHaveURL(/\/hero-overlay$/);
+    }
+  });
 });
