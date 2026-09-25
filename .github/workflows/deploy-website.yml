@@ -21,18 +21,17 @@ jobs:
 
     steps:
       - name: Checkout source
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Setup pnpm and Node.js
+        uses: pnpm/setup@v3
         with:
-          node-version: "24"
-          cache: "npm"
-          cache-dependency-path: package-lock.json
+          cache: true
+          runtime: node@24
 
       - name: Define tag
         id: tag
-        run: echo "version=$(date +'%Y.%m.%d')-${{ github.run_number }}" >> $GITHUB_OUTPUT
+        run: echo "version=$(date +'%Y.%m.%d')-${{ github.run_number }}" >> "$GITHUB_OUTPUT"
 
       - name: Replace cache markers
         uses: jacobtomlinson/gha-find-replace@v3
@@ -48,16 +47,13 @@ jobs:
           (Get-Content index.html).Replace("__GaTag__", "G-D7NC4KR9YR") | Set-Content index.html
           Write-Host "... Done!"
 
-      - name: Install packages
-        run: npm install
-
       - name: Build site (production)
         if: github.ref == 'refs/heads/main'
-        run: npm run build.prod
+        run: pnpm run build.prod
 
       - name: Build site (preview)
         if: github.ref != 'refs/heads/main'
-        run: npm run build
+        run: pnpm run build
 
       - name: Publish to Cloudflare Pages
         id: deploy

@@ -1,7 +1,7 @@
 import { TestBed } from "@angular/core/testing";
 import { provideRouter } from "@angular/router";
 import { HomeComponent } from "./home.component";
-import { UtilityService } from "src/app/services/utility.service";
+import { UtilityService } from "@services/utility.service";
 
 describe("HomeComponent", () => {
   it("creates component", () => {

@@ -5,7 +5,7 @@ import { NgOptimizedImage } from "@angular/common";
 @Component({
   selector: "app-site-identifier",
   templateUrl: "./site-identifier.component.html",
-  styleUrls: ["./site-identifier.component.scss"],
+  styleUrl: "./site-identifier.component.scss",
   imports: [RouterLink, NgOptimizedImage],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

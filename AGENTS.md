@@ -1,6 +1,6 @@
 # uswds-design-patterns
 
-Design pattern idea book for U.S. Web Design System (USWDS) sites — an Angular website showcasing reusable USWDS component patterns with isolated HTML, SASS, and TypeScript examples.
+Design pattern idea book for U.S. Web Design System (USWDS) sites — an Angular website showcasing reusable USWDS component patterns with isolated HTML, Sass, and TypeScript examples.
 
 ## Pull request conventions
 

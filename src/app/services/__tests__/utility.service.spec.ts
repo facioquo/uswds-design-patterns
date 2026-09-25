@@ -1,4 +1,4 @@
-import { TestBed, fakeAsync, tick } from "@angular/core/testing";
+import { TestBed } from "@angular/core/testing";
 import { UtilityService } from "../utility.service";
 
 describe("UtilityService", () => {
@@ -11,22 +11,21 @@ describe("UtilityService", () => {
     util = TestBed.inject(UtilityService);
   });
 
-  // ...
+  afterEach(() => {
+    vi.useRealTimers();
+    document.body.replaceChildren();
+  });
 
-  // title composition now handled by AppTitleStrategy
-
-  // patternTitle removed; titles are handled by router TitleStrategy
-
-  it("scrollToStart scrolls after timeout", fakeAsync(() => {
+  it("scrollToStart scrolls after timeout", () => {
+    vi.useFakeTimers();
     const el: HTMLElement = document.createElement("div");
     el.id = "target";
     document.body.appendChild(el);
-    // ensure scrollIntoView exists for spying with proper typing
     el.scrollIntoView = () => undefined;
     const spy = vi.spyOn(el, "scrollIntoView");
 
     util.scrollToStart("target", 100);
-    tick(100);
+    vi.advanceTimersByTime(100);
     expect(spy).toHaveBeenCalledWith({ behavior: "smooth", block: "start", inline: "start" });
-  }));
+  });
 });

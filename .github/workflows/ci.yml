@@ -13,33 +13,49 @@ permissions:
   contents: read
 
 jobs:
-  lint-and-test:
+  gate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
-      - name: Setup Node
-        uses: actions/setup-node@v6
+      - name: Setup pnpm and Node.js
+        uses: pnpm/setup@v3
         with:
-          node-version: "24"
-          cache: "npm"
-          cache-dependency-path: package-lock.json
+          cache: true
+          runtime: node@24
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Cache Playwright browsers
+        id: playwright_cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
 
-      - name: Lint code
-        run: npm run lint
+      - name: Cache Angular and Vite
+        uses: actions/cache@v6
+        with:
+          path: |
+            .angular/cache
+            node_modules/.vite
+            node_modules/.cache/angular
+          key: ${{ runner.os }}-ngcache-${{ hashFiles('**/pnpm-lock.yaml', 'angular.json', 'tsconfig.json', 'tsconfig.app.json') }}
+          restore-keys: |
+            ${{ runner.os }}-ngcache-
 
-      - name: Lint markdown
-        run: npm run lint:md
+      - name: Install Playwright system dependencies
+        run: pnpm exec playwright install-deps
 
-      - name: Build (development)
-        run: npm run build
+      - name: Install Playwright browsers
+        if: steps.playwright_cache.outputs.cache-hit != 'true'
+        run: pnpm exec playwright install
 
-      - name: Run unit tests with coverage
-        run: npm run test:coverage
+      - name: Run completion gate
+        env:
+          NG_PERSISTENT_BUILD_CACHE: "1"
+        run: pnpm run gate
 
       - name: Upload coverage to Codacy
         env:
@@ -63,52 +79,22 @@ jobs:
         if: always()
         continue-on-error: true
         run: |
-          echo "# Test Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          if [ -f coverage/coverage-summary.json ]; then
-            LINES=$(node -e "console.log(require('./coverage/coverage-summary.json').total.lines.pct)")
-            FUNCS=$(node -e "console.log(require('./coverage/coverage-summary.json').total.functions.pct)")
-            BRANCHES=$(node -e "console.log(require('./coverage/coverage-summary.json').total.branches.pct)")
-            STMTS=$(node -e "console.log(require('./coverage/coverage-summary.json').total.statements.pct)")
-            echo "- Lines: ${LINES}%" >> $GITHUB_STEP_SUMMARY
-            echo "- Functions: ${FUNCS}%" >> $GITHUB_STEP_SUMMARY
-            echo "- Branches: ${BRANCHES}%" >> $GITHUB_STEP_SUMMARY
-            echo "- Statements: ${STMTS}%" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "Coverage summary not found." >> $GITHUB_STEP_SUMMARY
-          fi
-
-      - name: Cache Playwright browsers
-        id: playwright_cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-playwright-
-
-      - name: Cache Angular/Vite dev cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            .angular/cache
-            node_modules/.vite
-            node_modules/.cache/angular
-          key: ${{ runner.os }}-ngcache-${{ hashFiles('**/package-lock.json', 'angular.json', 'tsconfig.json', 'tsconfig.app.json') }}
-          restore-keys: |
-            ${{ runner.os }}-ngcache-
-
-      - name: Install Playwright system dependencies
-        run: npx playwright install-deps
-
-      - name: Playwright install (browsers on cache miss)
-        if: steps.playwright_cache.outputs.cache-hit != 'true'
-        run: npx playwright install
-
-      - name: Run Playwright tests (headless)
-        env:
-          NG_PERSISTENT_BUILD_CACHE: "1"
-        run: npm run e2e
+          {
+            echo "# Test Summary"
+            echo ""
+            if [ -f coverage/coverage-summary.json ]; then
+              lines=$(node -e "console.log(require('./coverage/coverage-summary.json').total.lines.pct)")
+              functions=$(node -e "console.log(require('./coverage/coverage-summary.json').total.functions.pct)")
+              branches=$(node -e "console.log(require('./coverage/coverage-summary.json').total.branches.pct)")
+              statements=$(node -e "console.log(require('./coverage/coverage-summary.json').total.statements.pct)")
+              echo "- Lines: ${lines}%"
+              echo "- Functions: ${functions}%"
+              echo "- Branches: ${branches}%"
+              echo "- Statements: ${statements}%"
+            else
+              echo "Coverage summary not found."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload Playwright report
         if: always()

@@ -1,4 +1,4 @@
-import { TestBed, fakeAsync } from "@angular/core/testing";
+import { TestBed } from "@angular/core/testing";
 import { provideRouter } from "@angular/router";
 import { CardCatalogComponent } from "./card-catalog.component";
 import { UtilityService } from "@services/utility.service";
@@ -35,12 +35,12 @@ describe("CardCatalogComponent", () => {
     expect(cmp.cards.length).toBe(cmp.pageSize);
   });
 
-  it("updates page size and scrolls to end on change", fakeAsync(() => {
+  it("updates page size and scrolls to end on change", () => {
     const fixture = TestBed.createComponent(CardCatalogComponent);
     fixture.detectChanges();
     const cmp = fixture.componentInstance;
     cmp.pageSize = 12;
     cmp.changePageSize();
     expect(u.scrollToEnd).toHaveBeenCalledWith("settings", 0);
-  }));
+  });
 });

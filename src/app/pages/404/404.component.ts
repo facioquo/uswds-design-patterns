@@ -5,7 +5,7 @@ import { RouterLink } from "@angular/router";
 @Component({
   selector: "app-404",
   templateUrl: "./404.component.html",
-  styleUrls: ["./404.component.scss"],
+  styleUrl: "./404.component.scss",
   imports: [RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

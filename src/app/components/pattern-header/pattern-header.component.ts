@@ -5,7 +5,7 @@ import { RouterLink } from "@angular/router";
 @Component({
   selector: "app-pattern-header",
   templateUrl: "./pattern-header.component.html",
-  styleUrls: ["./pattern-header.component.scss"],
+  styleUrl: "./pattern-header.component.scss",
   imports: [RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

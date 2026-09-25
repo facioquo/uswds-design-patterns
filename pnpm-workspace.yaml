@@ -1,0 +1,12 @@
+packages:
+  - "."
+
+minimumReleaseAge: 1440
+minimumReleaseAgeStrict: true
+pmOnFail: ignore
+
+allowBuilds:
+  "@parcel/watcher": true
+  esbuild: true
+  lmdb: true
+  msgpackr-extract: true

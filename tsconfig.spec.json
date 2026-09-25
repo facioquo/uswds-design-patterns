@@ -2,11 +2,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
-    "types": ["vitest/globals", "node"],
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "types": ["vitest/globals"]
   },
-  "files": ["setup-vitest.ts", "vitest.config.ts"],
+  "files": ["setup-vitest.ts"],
   "include": ["src/**/*.spec.ts", "src/**/*.d.ts"],
   "exclude": ["node_modules"]
 }

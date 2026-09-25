@@ -7,7 +7,7 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env["CI"],
   retries: process.env["CI"] ? 2 : 0,
-  workers: process.env["CI"] ? 2 : undefined,
+  workers: process.env["CI"] ? 1 : undefined,
   reporter: [["list"], ["html", { open: "never" }]],
   use: {
     baseURL: process.env["PLAYWRIGHT_BASE_URL"] ?? "http://localhost:4200",
@@ -24,9 +24,10 @@ export default defineConfig({
 
   webServer: [
     {
-      command: "npm run start:test",
+      command: "pnpm run start:test",
       url: "http://localhost:4200",
       reuseExistingServer: !process.env["CI"],
+      gracefulShutdown: { signal: "SIGTERM", timeout: 500 },
       timeout: 120_000
     }
   ]
