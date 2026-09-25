@@ -41,7 +41,7 @@ export class HeroOverlayComponent implements OnInit, OnDestroy {
 
     // Close an open modal first so USWDS restores the page's body state and aria-hidden.
     if (this.#modal.closest(".usa-modal-wrapper.is-visible")) {
-      this.#modal.querySelector<HTMLElement>("[data-close-modal]")?.click();
+      this.#modal.querySelector<HTMLElement>(".usa-modal__close")?.click();
     }
 
     // USWDS moves initialized modals to document.body, so tear down by the modal element itself.

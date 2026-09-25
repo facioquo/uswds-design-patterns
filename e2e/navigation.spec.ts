@@ -40,13 +40,14 @@ test.describe("Navigation", () => {
       await page.locator("[data-open-modal]").click();
       await expect(page.getByRole("heading", { name: "Do you agree?" })).toBeVisible();
 
-      // The open modal hides the page from the accessibility tree, so click the router link directly.
+      // The modal overlay covers the page, so dispatch the router link click directly
+      // to leave the route while the modal is still open.
       await page.locator("a", { hasText: "More patterns" }).evaluate((link: HTMLElement) => {
         link.click();
       });
       await expect(page).toHaveURL(/\/#design-patterns$/);
       await expect(page.locator(".usa-modal-wrapper")).toHaveCount(0);
-      await expect(page.locator("#call-to-action-modal")).toHaveCount(0);
+      await expect(page.locator("[data-modal-hidden]")).toHaveCount(0);
       await expect(page.locator("body")).not.toHaveClass(/usa-js-modal--active/);
 
       await page.goBack();
