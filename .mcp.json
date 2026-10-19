@@ -1,5 +1,5 @@
 {
-  "servers": {
+  "mcpServers": {
     "angular-cli": {
       "type": "stdio",
       "command": "npx",
